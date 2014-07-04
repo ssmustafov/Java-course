@@ -71,10 +71,12 @@ public final class QuickSort {
 		}
 
 		// Call the sort recursively for the other elements
-		if (low < j)
+		if (low < j) {
 			quicksort(array, low, j);
-		if (i < high)
+		}
+		if (i < high) {
 			quicksort(array, i, high);
+		}
 	}
 
 	/**
