@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Class for testing the CommonDivisor class.
+ * Class for testing the {@link com.sirma.itt.javacourse.intro.CommonDivisor} class.
  * 
  * @author smustafov
  */

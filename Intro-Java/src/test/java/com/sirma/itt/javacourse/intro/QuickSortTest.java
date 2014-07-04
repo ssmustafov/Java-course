@@ -7,7 +7,7 @@ import java.util.Random;
 import org.junit.Test;
 
 /**
- * Class for testing QuickSort class.
+ * Class for testing {@link com.sirma.itt.javacourse.intro.QuickSort} class.
  * 
  * @author smustafov
  */

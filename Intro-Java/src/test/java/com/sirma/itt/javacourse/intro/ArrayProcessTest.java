@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Class for testing ArrayProcess class.
+ * Class for testing {@link com.sirma.itt.javacourse.intro.ArrayProcess} class.
  * 
  * @author smustafov
  */
