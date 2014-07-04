@@ -7,6 +7,8 @@ import java.util.Random;
 import org.junit.Test;
 
 /**
+ * Class for testing QuickSort class.
+ * 
  * @author smustafov
  */
 public class QuickSortTest {
