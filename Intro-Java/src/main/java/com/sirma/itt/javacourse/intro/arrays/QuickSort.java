@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.intro;
+package com.sirma.itt.javacourse.intro.arrays;
 
 /**
  * Class for sorting arrays by Quicksort method.

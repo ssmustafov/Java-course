@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.intro;
+package com.sirma.itt.javacourse.intro.arrays;
 
 import static org.junit.Assert.fail;
 
@@ -6,8 +6,10 @@ import java.util.Random;
 
 import org.junit.Test;
 
+import com.sirma.itt.javacourse.intro.arrays.QuickSort;
+
 /**
- * Class for testing {@link com.sirma.itt.javacourse.intro.QuickSort} class.
+ * Class for testing {@link com.sirma.itt.javacourse.intro.arrays.QuickSort} class.
  * 
  * @author smustafov
  */
@@ -30,7 +32,7 @@ public class QuickSortTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])}.
 	 */
 	@Test
 	public void testSimpleSort() {
@@ -43,7 +45,7 @@ public class QuickSortTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])}.
 	 */
 	@Test
 	public void testEmptyArray() {
@@ -55,7 +57,7 @@ public class QuickSortTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])}.
 	 */
 	@Test
 	public void testTwoElementsSort() {
@@ -68,7 +70,7 @@ public class QuickSortTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])}.
 	 */
 	@Test
 	public void testNegativeElementsSort() {
@@ -81,7 +83,7 @@ public class QuickSortTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])}.
 	 */
 	@Test
 	public void testOnlyNegativeElementsSort() {
@@ -94,7 +96,7 @@ public class QuickSortTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])}.
 	 */
 	@Test
 	public void testRepeatableElementsSort() {
@@ -107,7 +109,7 @@ public class QuickSortTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])}.
 	 */
 	@Test(timeout = 2500)
 	public void testBigRandomArraySort() {

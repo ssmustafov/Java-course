@@ -1,11 +1,13 @@
-package com.sirma.itt.javacourse.intro;
+package com.sirma.itt.javacourse.intro.numbers;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.sirma.itt.javacourse.intro.numbers.CommonDivisor;
+
 /**
- * Class for testing the {@link com.sirma.itt.javacourse.intro.CommonDivisor} class.
+ * Class for testing the {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor} class.
  * 
  * @author smustafov
  */
@@ -13,7 +15,7 @@ public class CommonDivisorTest {
 
 	/**
 	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findGreatestCommonDivisor(long, long)}.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findGreatestCommonDivisor(long, long)}.
 	 */
 	@Test
 	public void testGreatestCommonDivisorNormalNumbers() {
@@ -25,7 +27,7 @@ public class CommonDivisorTest {
 
 	/**
 	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findGreatestCommonDivisor(long, long)}.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findGreatestCommonDivisor(long, long)}.
 	 */
 	@Test
 	public void testGreatestCommonDivisorNegativeNumbers() {
@@ -37,7 +39,7 @@ public class CommonDivisorTest {
 
 	/**
 	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findGreatestCommonDivisor(long, long)}.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findGreatestCommonDivisor(long, long)}.
 	 */
 	@Test
 	public void testGreatestCommonDivisorLargeNumbers() {
@@ -49,7 +51,7 @@ public class CommonDivisorTest {
 
 	/**
 	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findLeastCommonMultiple(long, long)}.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findLeastCommonMultiple(long, long)}.
 	 */
 	@Test
 	public void testLeastCommonMultipleNormalNumbers() {
@@ -61,7 +63,7 @@ public class CommonDivisorTest {
 
 	/**
 	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findLeastCommonMultiple(long, long)}.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findLeastCommonMultiple(long, long)}.
 	 */
 	@Test
 	public void testLeastCommonMultipleNegativeNumbers() {
@@ -73,7 +75,7 @@ public class CommonDivisorTest {
 
 	/**
 	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findLeastCommonMultiple(long, long)}.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findLeastCommonMultiple(long, long)}.
 	 */
 	@Test
 	public void testLeastCommonMultipleLargeNumbers() {

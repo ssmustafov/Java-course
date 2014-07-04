@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.intro;
+package com.sirma.itt.javacourse.intro.numbers;
 
 /**
  * Class with methods for finding the greatest common divisor and the least common multiple of two
