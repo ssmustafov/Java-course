@@ -88,8 +88,7 @@ public class QuickSortTest {
 		}
 	}
 
-	@Test
-	// (timeout = 2500)
+	@Test(timeout = 2500)
 	public void testBigRandomArraySort() {
 		Random generator = new Random();
 		int[] array = new int[10_000_000];
