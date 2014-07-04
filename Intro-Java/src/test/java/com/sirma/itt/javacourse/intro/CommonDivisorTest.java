@@ -11,6 +11,10 @@ import org.junit.Test;
  */
 public class CommonDivisorTest {
 
+	/**
+	 * Test method for
+	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findGreatestCommonDivisor(long, long)}.
+	 */
 	@Test
 	public void testGreatestCommonDivisorNormalNumbers() {
 		long actual = CommonDivisor.findGreatestCommonDivisor(18, 84);
@@ -19,6 +23,10 @@ public class CommonDivisorTest {
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Test method for
+	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findGreatestCommonDivisor(long, long)}.
+	 */
 	@Test
 	public void testGreatestCommonDivisorNegativeNumbers() {
 		long actual = CommonDivisor.findGreatestCommonDivisor(-6, -12);
@@ -27,6 +35,10 @@ public class CommonDivisorTest {
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Test method for
+	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findGreatestCommonDivisor(long, long)}.
+	 */
 	@Test
 	public void testGreatestCommonDivisorLargeNumbers() {
 		long actual = CommonDivisor.findGreatestCommonDivisor(654565646, 642323131);
@@ -35,6 +47,10 @@ public class CommonDivisorTest {
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Test method for
+	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findLeastCommonMultiple(long, long)}.
+	 */
 	@Test
 	public void testLeastCommonMultipleNormalNumbers() {
 		long actual = CommonDivisor.findLeastCommonMultiple(234, 164);
@@ -43,6 +59,10 @@ public class CommonDivisorTest {
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Test method for
+	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findLeastCommonMultiple(long, long)}.
+	 */
 	@Test
 	public void testLeastCommonMultipleNegativeNumbers() {
 		long actual = CommonDivisor.findLeastCommonMultiple(-15, -9);
@@ -51,6 +71,10 @@ public class CommonDivisorTest {
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Test method for
+	 * {@link com.sirma.itt.javacourse.intro.CommonDivisor#findLeastCommonMultiple(long, long)}.
+	 */
 	@Test
 	public void testLeastCommonMultipleLargeNumbers() {
 		long actual = CommonDivisor.findLeastCommonMultiple(654565646, 642323131);

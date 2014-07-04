@@ -29,6 +29,9 @@ public class QuickSortTest {
 		return true;
 	}
 
+	/**
+	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 */
 	@Test
 	public void testSimpleSort() {
 		int[] array = { 5, 99, 4, 6, 0, 1 };
@@ -39,6 +42,9 @@ public class QuickSortTest {
 		}
 	}
 
+	/**
+	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 */
 	@Test
 	public void testEmptyArray() {
 		int[] array = {};
@@ -48,6 +54,9 @@ public class QuickSortTest {
 		}
 	}
 
+	/**
+	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 */
 	@Test
 	public void testTwoElementsSort() {
 		int[] array = { 11, 4 };
@@ -58,6 +67,9 @@ public class QuickSortTest {
 		}
 	}
 
+	/**
+	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 */
 	@Test
 	public void testNegativeElementsSort() {
 		int[] array = { 4, 5, -99, 1, 5, 0, -6, 11, -4, 22 };
@@ -68,6 +80,9 @@ public class QuickSortTest {
 		}
 	}
 
+	/**
+	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 */
 	@Test
 	public void testOnlyNegativeElementsSort() {
 		int[] array = { -4, -5, -99, -1, -5, 0, -6, -11, -4 };
@@ -78,6 +93,9 @@ public class QuickSortTest {
 		}
 	}
 
+	/**
+	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 */
 	@Test
 	public void testRepeatableElementsSort() {
 		int[] array = { 5, 5, 6, 6, 4, 4, 5, 0, 0, 5, 4, 4, -1, 6, 6, 5, 5 };
@@ -88,6 +106,9 @@ public class QuickSortTest {
 		}
 	}
 
+	/**
+	 * Test method for {@link com.sirma.itt.javacourse.intro.QuickSort#sort(int[])}.
+	 */
 	@Test(timeout = 2500)
 	public void testBigRandomArraySort() {
 		Random generator = new Random();
