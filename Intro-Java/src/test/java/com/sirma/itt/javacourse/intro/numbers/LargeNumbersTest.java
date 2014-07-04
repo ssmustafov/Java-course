@@ -7,6 +7,8 @@ import java.math.BigInteger;
 import org.junit.Test;
 
 /**
+ * Class for testing {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers} class.
+ * 
  * @author smustafov
  */
 public class LargeNumbersTest {
