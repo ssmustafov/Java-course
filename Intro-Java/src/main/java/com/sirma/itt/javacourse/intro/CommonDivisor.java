@@ -16,13 +16,13 @@ public final class CommonDivisor {
 	}
 
 	/**
-	 * Method for finding the Greatest common divider of two numbers.
+	 * Method for finding the Greatest common divisor of two numbers.
 	 * 
 	 * @param number1
 	 *            the first number
 	 * @param number2
 	 *            the second number
-	 * @return the Greatest common divider of two numbers
+	 * @return the Greatest common divisor of two numbers
 	 */
 	public static long findGreatestCommonDivisor(long number1, long number2) {
 		if (number2 == 0) {

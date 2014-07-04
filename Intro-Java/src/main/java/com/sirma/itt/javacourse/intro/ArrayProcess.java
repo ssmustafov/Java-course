@@ -23,7 +23,7 @@ public final class ArrayProcess {
 	 */
 	public static int getMinElement(int[] array) {
 		int minElement = array[0];
-		for (int index = 0; index < array.length; index++) {
+		for (int index = 1; index < array.length; index++) {
 			if (array[index] < minElement) {
 				minElement = array[index];
 			}
