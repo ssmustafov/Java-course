@@ -15,7 +15,8 @@ public final class ReverseArray {
 	}
 
 	/**
-	 * Method for reversing the elements in array of integers.
+	 * Method for reversing the elements in array of integers. It swaps the first element with the
+	 * last element, the second element with the one before the last element and etc.
 	 * 
 	 * @param arr
 	 *            the array to be reversed
