@@ -2,8 +2,6 @@ package com.sirma.itt.javacourse.intro.arrays;
 
 import static org.junit.Assert.fail;
 
-import java.util.Random;
-
 import org.junit.Test;
 
 /**
@@ -111,10 +109,9 @@ public class QuickSortTest {
 	 */
 	@Test(timeout = 2500)
 	public void testBigRandomArraySort() {
-		Random generator = new Random();
 		int[] array = new int[10_000_000];
 		for (int i = 0; i < array.length; i++) {
-			array[i] = generator.nextInt();
+			array[i] = (int) Math.random();
 		}
 		QuickSort.sort(array);
 
