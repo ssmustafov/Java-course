@@ -6,8 +6,6 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import com.sirma.itt.javacourse.intro.arrays.QuickSort;
-
 /**
  * Class for testing {@link com.sirma.itt.javacourse.intro.arrays.QuickSort} class.
  * 

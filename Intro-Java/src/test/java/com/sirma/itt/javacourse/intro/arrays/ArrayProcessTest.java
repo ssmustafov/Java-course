@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.sirma.itt.javacourse.intro.arrays.ArrayProcess;
-
 /**
  * Class for testing {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess} class.
  * 
@@ -14,7 +12,8 @@ import com.sirma.itt.javacourse.intro.arrays.ArrayProcess;
 public class ArrayProcessTest {
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
+	 * Test method for
+	 * {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
 	 */
 	@Test
 	public void testGetMinElementWithNormalNumbers() {
@@ -26,7 +25,8 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
+	 * Test method for
+	 * {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
 	 */
 	@Test
 	public void testGetMinElementWithNegativeNumbers() {
@@ -38,7 +38,8 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
+	 * Test method for
+	 * {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
 	 */
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void testGetMinElementWithEmptyArray() {
@@ -47,7 +48,8 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
+	 * Test method for
+	 * {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
 	 */
 	@Test
 	public void testGetMinElementWithOneElementInArray() {

@@ -4,8 +4,6 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.sirma.itt.javacourse.intro.arrays.ReverseArray;
-
 /**
  * Class for testing {@link com.sirma.itt.javacourse.intro.arrays.ReverseArray} class.
  * 
