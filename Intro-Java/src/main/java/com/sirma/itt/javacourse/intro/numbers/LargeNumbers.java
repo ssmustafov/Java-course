@@ -48,6 +48,10 @@ public final class LargeNumbers {
 				charFromNumber2 = '0';
 			}
 
+			if (charFromNumber2 == '-' || charFromNumber1 == '-') {
+				break;
+			}
+
 			digitFromNumber1 = Character.getNumericValue(charFromNumber1);
 			digitFromNumber2 = Character.getNumericValue(charFromNumber2);
 			sum = digitFromNumber1 + digitFromNumber2 + addition;
@@ -64,6 +68,7 @@ public final class LargeNumbers {
 		}
 
 		StringBuilder finalResult = new StringBuilder();
+
 		for (int i = result.length() - 1; i >= 0; i--) {
 			finalResult.append(result.charAt(i));
 		}
