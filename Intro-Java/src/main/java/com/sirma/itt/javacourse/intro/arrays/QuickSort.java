@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.intro.arrays;
 
 /**
- * Class for sorting arrays by Quicksort method.
+ * Class for sorting array by Quicksort method.
  * 
  * @author smustafov
  */
