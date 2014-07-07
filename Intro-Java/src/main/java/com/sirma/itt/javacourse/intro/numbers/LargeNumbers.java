@@ -1,7 +1,5 @@
 package com.sirma.itt.javacourse.intro.numbers;
 
-import java.math.BigInteger;
-
 /**
  * Class for work with large numbers.
  * 
@@ -25,41 +23,51 @@ public final class LargeNumbers {
 	 *            the second number to sum
 	 * @return number1AsString + number2AsString
 	 */
-	public static BigInteger sumTwoNumbers(String number1AsString, String number2AsString) {
+	public static String sumTwoNumbers(String number1AsString, String number2AsString) {
+		char charFromNumber1;
+		char charFromNumber2;
+		int digitFromNumber1;
+		int digitFromNumber2;
+		int addition = 0;
+		int sum;
 		StringBuilder result = new StringBuilder();
-		int numberWithMaxLen = Math.max(number1AsString.length(), number2AsString.length());
-		int digit1;
-		int digit2;
-		int sum = 0;
-		int carry = 0;
-		for (int i = 0; i < numberWithMaxLen; i++) {
-			if (i < number1AsString.length()) {
-				digit1 = Character.getNumericValue(number1AsString.charAt(i));
+
+		// TODO assignment to parameters must be avoided
+		while (number1AsString.length() > 0 || number2AsString.length() > 0) {
+			if (number1AsString.length() > 0) {
+				charFromNumber1 = number1AsString.charAt(number1AsString.length() - 1);
+				number1AsString = number1AsString.substring(0, number1AsString.length() - 1);
 			} else {
-				digit1 = 0;
+				charFromNumber1 = '0';
 			}
 
-			if (i < number2AsString.length()) {
-				digit2 = Character.getNumericValue(number2AsString.charAt(i));
+			if (number2AsString.length() > 0) {
+				charFromNumber2 = number2AsString.charAt(number2AsString.length() - 1);
+				number2AsString = number2AsString.substring(0, number2AsString.length() - 1);
 			} else {
-				digit2 = 0;
+				charFromNumber2 = '0';
 			}
 
-			sum = digit1 + digit2 + carry;
-			if (sum >= 10) {
-				carry = sum;
+			digitFromNumber1 = Character.getNumericValue(charFromNumber1);
+			digitFromNumber2 = Character.getNumericValue(charFromNumber2);
+			sum = digitFromNumber1 + digitFromNumber2 + addition;
+			if (sum > 9) {
+				addition = sum;
 				sum -= 10;
 			}
-
-			carry /= 10;
+			addition /= 10;
 			result.append(sum);
 		}
 
-		if (carry > 0) {
-			result.append(carry + sum);
+		if (addition > 0) {
+			result.append(addition);
 		}
 
-		BigInteger finalNumber = new BigInteger(result.toString());
-		return finalNumber;
+		StringBuilder finalResult = new StringBuilder();
+		for (int i = result.length() - 1; i >= 0; i--) {
+			finalResult.append(result.charAt(i));
+		}
+
+		return finalResult.toString();
 	}
 }
