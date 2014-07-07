@@ -50,7 +50,6 @@ public final class LargeNumbers {
 
 			if (charFromNumber2 == '-' || charFromNumber1 == '-') {
 				break;
-				//
 			}
 
 			digitFromNumber1 = Character.getNumericValue(charFromNumber1);
