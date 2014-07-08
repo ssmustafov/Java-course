@@ -34,8 +34,6 @@ public class Hangman {
 	 */
 	private int attempts = 5;
 
-	// private int score;
-
 	/**
 	 * This constructor initializes the game. It loads words from text file and chooses random word
 	 * to guess.
@@ -48,7 +46,6 @@ public class Hangman {
 	 */
 	public Hangman(String textFile) throws IOException {
 		words = readWordsFromFile(textFile);
-		// score = 0;
 		wordToBeGuessed = getWord();
 		isGuessedLetter = new Boolean[wordToBeGuessed.length()];
 		setVisibleLetters();
