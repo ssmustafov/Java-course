@@ -87,8 +87,6 @@ public class Hangman {
 					words.add(line);
 				}
 			}
-		} catch (IOException ex) {
-			ex.printStackTrace();
 		} finally {
 			if (reader != null) {
 				reader.close();
@@ -105,7 +103,7 @@ public class Hangman {
 	/**
 	 * Gets random word from the words.
 	 * 
-	 * @return a word
+	 * @return a random word
 	 */
 	private String getWord() {
 		int index = getRandomNumber(words.length);

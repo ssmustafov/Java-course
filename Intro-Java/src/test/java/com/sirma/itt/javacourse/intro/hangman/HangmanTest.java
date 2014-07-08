@@ -1,7 +1,5 @@
 package com.sirma.itt.javacourse.intro.hangman;
 
-import static org.junit.Assert.fail;
-
 import java.io.IOException;
 
 import org.junit.Test;
@@ -22,33 +20,33 @@ public class HangmanTest {
 	 */
 	@Test(expected = IOException.class)
 	public void testHangmanWithNotExistingFile() throws IOException {
-		Hangman game = new Hangman("asdf.txt");
+		new Hangman("asdf.txt");
 	}
 
 	/**
 	 * Test method for
 	 * {@link com.sirma.itt.javacourse.intro.hangman.Hangman#Hangman(java.lang.String)}.
+	 * 
+	 * @throws IOException
+	 *             throws exception if it cannot load the given file or the encode of the file is
+	 *             not UTF-8
 	 */
 	@Test
 	public void testHangmanWithExistingFile() throws IOException {
-		Hangman game = new Hangman("words.txt");
+		new Hangman("words.txt");
 	}
 
 	/**
 	 * Test method for
 	 * {@link com.sirma.itt.javacourse.intro.hangman.Hangman#Hangman(java.lang.String)}.
+	 * 
+	 * @throws IOException
+	 *             throws exception if it cannot load the given file or the encode of the file is
+	 *             not UTF-8
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testHangmanWithEmptyFile() throws IOException {
-		Hangman game = new Hangman("empty.txt");
-	}
-
-	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.hangman.Hangman#playGame()}.
-	 */
-	@Test
-	public void testPlayGame() {
-		fail("Not yet implemented");
+		new Hangman("empty.txt");
 	}
 
 }
