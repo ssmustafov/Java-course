@@ -61,6 +61,10 @@ public class Hangman {
 		}
 		int randomIndex = getRandomNumber(wordToBeGuessed.length());
 		char letter = wordToBeGuessed.charAt(randomIndex);
+		if (letter == ' ') {
+			randomIndex = getRandomNumber(wordToBeGuessed.length());
+			letter = wordToBeGuessed.charAt(randomIndex);
+		}
 		checkLetter(letter);
 	}
 
@@ -84,7 +88,7 @@ public class Hangman {
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				if (line.length() >= 3) {
-					words.add(line);
+					words.add(line.toLowerCase());
 				}
 			}
 		} finally {
@@ -221,7 +225,7 @@ public class Hangman {
 				if (isGuessedLetter[i]) {
 					System.out.printf("%s ", wordToBeGuessed.charAt(i));
 				} else if (wordToBeGuessed.charAt(i) == ' ') {
-					System.out.printf(" ");
+					System.out.printf(" | ");
 				} else {
 					System.out.printf("_ ");
 				}

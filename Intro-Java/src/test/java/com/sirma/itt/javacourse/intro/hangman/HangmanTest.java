@@ -20,7 +20,7 @@ public class HangmanTest {
 	 */
 	@Test(expected = IOException.class)
 	public void testHangmanWithNotExistingFile() throws IOException {
-		new Hangman("asdf.txt");
+		new Hangman("askihsdfuiudf.txt");
 	}
 
 	/**
