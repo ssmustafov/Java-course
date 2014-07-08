@@ -14,21 +14,50 @@ import java.util.Scanner;
  */
 public class Hangman {
 
+	/**
+	 * All available words.
+	 */
 	private String[] words;
+
+	/**
+	 * Boolean array for checking which letters are guessed.
+	 */
 	private Boolean[] isGuessedLetter;
+
+	/**
+	 * The word which to be guessed.
+	 */
 	private String wordToBeGuessed;
+
+	/**
+	 * Possible attempts for guessing the word.
+	 */
 	private int attempts = 5;
 
 	// private int score;
 
-	public Hangman() throws IOException {
-		words = readWordsFromFile("words.txt");
+	/**
+	 * This constructor initializes the game. It loads words from text file and chooses random word
+	 * to guess.
+	 * 
+	 * @param textFile
+	 *            the text file containing words to be loaded
+	 * @throws IOException
+	 *             throws exception if it cannot load the given file or the encode of the file is
+	 *             not UTF-8
+	 */
+	public Hangman(String textFile) throws IOException {
+		words = readWordsFromFile(textFile);
 		// score = 0;
 		wordToBeGuessed = getWord();
 		isGuessedLetter = new Boolean[wordToBeGuessed.length()];
 		setVisibleLetters();
 	}
 
+	/**
+	 * Called from the constructor when an object is instantiated to visualize one letter from the
+	 * word.
+	 */
 	private void setVisibleLetters() {
 		for (int i = 0; i < isGuessedLetter.length; i++) {
 			isGuessedLetter[i] = false;
@@ -38,6 +67,16 @@ public class Hangman {
 		checkLetter(letter);
 	}
 
+	/**
+	 * Reads words with length at least 3 from text file.
+	 * 
+	 * @param fileName
+	 *            the text file from which words to be read
+	 * @return array of strings with words read from the file
+	 * @throws IOException
+	 *             throws exception if it cannot load the given file or the encode of the file is
+	 *             not UTF-8
+	 */
 	private String[] readWordsFromFile(String fileName) throws IOException {
 		ArrayList<String> words = new ArrayList<>();
 
@@ -46,7 +85,9 @@ public class Hangman {
 		try {
 			String line = null;
 			while ((line = reader.readLine()) != null) {
-				words.add(line);
+				if (line.length() >= 3) {
+					words.add(line);
+				}
 			}
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -57,11 +98,21 @@ public class Hangman {
 		return (String[]) words.toArray(new String[words.size()]);
 	}
 
+	/**
+	 * Gets random word from the words.
+	 * 
+	 * @return a word
+	 */
 	private String getWord() {
 		int index = getRandomNumber(words.length);
 		return words[index];
 	}
 
+	/**
+	 * Reads line from the standart input.
+	 * 
+	 * @return read line as string
+	 */
 	private String readLine() {
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
@@ -69,6 +120,13 @@ public class Hangman {
 		return line;
 	}
 
+	/**
+	 * Checks if the given parameter is the word to be guessed. If its not decreases the attempts of
+	 * possible guesses.
+	 * 
+	 * @param line
+	 *            the word to check
+	 */
 	private void checkWord(String line) {
 		if (line.toLowerCase().equals(wordToBeGuessed.toLowerCase())) {
 			for (int i = 0; i < isGuessedLetter.length; i++) {
@@ -79,6 +137,12 @@ public class Hangman {
 		}
 	}
 
+	/**
+	 * Checks how many times the given letter contains in the word which is trying to guess.
+	 * 
+	 * @param letter
+	 *            the letter to check
+	 */
 	private void checkLetter(char letter) {
 		int index = wordToBeGuessed.toLowerCase().indexOf(letter);
 		if (index == -1) {
@@ -95,6 +159,11 @@ public class Hangman {
 		}
 	}
 
+	/**
+	 * Checks if there are no more attempts left.
+	 * 
+	 * @return true if no more attempts left, false if there are still attempts available
+	 */
 	private Boolean isAttemptsOver() {
 		if (this.attempts == 0) {
 			return true;
@@ -102,6 +171,11 @@ public class Hangman {
 		return false;
 	}
 
+	/**
+	 * Checks if all letters in the word is guessed.
+	 * 
+	 * @return true if all letters in the word is guessed, false if not all letters are guessed
+	 */
 	private Boolean isWordGuessed() {
 		for (int i = 0; i < isGuessedLetter.length; i++) {
 			if (!isGuessedLetter[i]) {
@@ -111,10 +185,21 @@ public class Hangman {
 		return true;
 	}
 
+	/**
+	 * Gets random number from zero to given length.
+	 * 
+	 * @param length
+	 *            the end range of the random number
+	 * @return random number
+	 */
 	private int getRandomNumber(int length) {
 		return (int) Math.floor(Math.random() * length);
 	}
 
+	/**
+	 * This method invokes all the logic for the game. It prints on the standart output and reads
+	 * from the standart input.
+	 */
 	public void playGame() {
 		while (true) {
 			if (isAttemptsOver()) {

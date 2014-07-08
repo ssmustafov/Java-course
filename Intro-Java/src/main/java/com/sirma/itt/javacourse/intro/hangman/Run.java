@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Run {
 
 	public static void main(String[] args) throws IOException {
-		Hangman game = new Hangman();
+		Hangman game = new Hangman("words.txt");
 		game.playGame();
 	}
 
