@@ -5,14 +5,27 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Class for testing the {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor} class.
+ * Tests {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor} class.
  * 
  * @author smustafov
  */
 public class CommonDivisorTest {
 
 	/**
-	 * Test method for
+	 * Tests GCD with zero and ordinary number.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findGreatestCommonDivisor(long, long)}
+	 * .
+	 */
+	@Test
+	public void testGreatestCommonDivisorWithZero() {
+		long actual = CommonDivisor.findGreatestCommonDivisor(0, 84);
+		long expected = 84;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests GCD with two ordinary numbers.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findGreatestCommonDivisor(long, long)}
 	 * .
 	 */
@@ -25,7 +38,7 @@ public class CommonDivisorTest {
 	}
 
 	/**
-	 * Test method for
+	 * Tests GCD with two negative numbers.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findGreatestCommonDivisor(long, long)}
 	 * .
 	 */
@@ -38,7 +51,7 @@ public class CommonDivisorTest {
 	}
 
 	/**
-	 * Test method for
+	 * Tests GCD with two large numbers.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findGreatestCommonDivisor(long, long)}
 	 * .
 	 */
@@ -51,7 +64,33 @@ public class CommonDivisorTest {
 	}
 
 	/**
-	 * Test method for
+	 * Tests GCD with two zeros.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findGreatestCommonDivisor(long, long)}
+	 * .
+	 */
+	@Test
+	public void testGreatestCommonDivisorTwoZeros() {
+		long actual = CommonDivisor.findGreatestCommonDivisor(0, 0);
+		long expected = 1;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests LCM with zero and ordinary number.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findLeastCommonMultiple(long, long)}
+	 * .
+	 */
+	@Test
+	public void testLeastCommonMultipleWithZero() {
+		long actual = CommonDivisor.findLeastCommonMultiple(65, 0);
+		long expected = 65;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests LCM with two ordinary numbers.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findLeastCommonMultiple(long, long)}
 	 * .
 	 */
@@ -64,7 +103,7 @@ public class CommonDivisorTest {
 	}
 
 	/**
-	 * Test method for
+	 * Tests LCM with two negative numbers.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findLeastCommonMultiple(long, long)}
 	 * .
 	 */
@@ -77,7 +116,7 @@ public class CommonDivisorTest {
 	}
 
 	/**
-	 * Test method for
+	 * Tests LCM with two large numbers.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findLeastCommonMultiple(long, long)}
 	 * .
 	 */
@@ -85,6 +124,19 @@ public class CommonDivisorTest {
 	public void testLeastCommonMultipleLargeNumbers() {
 		long actual = CommonDivisor.findLeastCommonMultiple(654565646, 642323131);
 		long expected = 420442655183757626L;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests LCM with two zeros.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.CommonDivisor#findLeastCommonMultiple(long, long)}
+	 * .
+	 */
+	@Test
+	public void testLeastCommonMultipleTwoZeros() {
+		long actual = CommonDivisor.findLeastCommonMultiple(0, 0);
+		long expected = 0;
 
 		assertEquals(expected, actual);
 	}

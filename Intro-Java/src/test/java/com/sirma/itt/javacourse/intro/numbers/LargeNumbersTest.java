@@ -5,14 +5,14 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Class for testing {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers} class.
+ * Tests {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers} class.
  * 
  * @author smustafov
  */
 public class LargeNumbersTest {
 
 	/**
-	 * Test method for
+	 * Tests the sum of two large positive numbers.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
 	 * .
 	 */
@@ -25,7 +25,7 @@ public class LargeNumbersTest {
 	}
 
 	/**
-	 * Test method for
+	 * Tests the sum of two large negative numbers.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
 	 * .
 	 */
@@ -39,7 +39,7 @@ public class LargeNumbersTest {
 	}
 
 	/**
-	 * Test method for
+	 * Tests the sum of two zeros.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
 	 * .
 	 */
@@ -52,7 +52,7 @@ public class LargeNumbersTest {
 	}
 
 	/**
-	 * Test method for
+	 * Tests the sum of zero with a large number.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
 	 * .
 	 */

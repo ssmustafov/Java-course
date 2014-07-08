@@ -1,13 +1,14 @@
 package com.sirma.itt.javacourse.intro.numbers;
 
 /**
- * Class for work with large numbers.
+ * Works with large numbers.
  * 
  * @author smustafov
  */
 public final class LargeNumbers {
 
 	private static final char ZeroChar = '0';
+	private static final char MinusChar = '-';
 
 	/**
 	 * Protection from instantiation.
@@ -17,7 +18,7 @@ public final class LargeNumbers {
 	}
 
 	/**
-	 * Sum two large numbers.
+	 * Sums two large numbers.
 	 * 
 	 * @param number1AsString
 	 *            the first number to sum
@@ -51,7 +52,7 @@ public final class LargeNumbers {
 				charFromNumber2 = ZeroChar;
 			}
 
-			if (charFromNumber2 == '-' || charFromNumber1 == '-') {
+			if (charFromNumber2 == MinusChar || charFromNumber1 == MinusChar) {
 				break;
 			}
 
