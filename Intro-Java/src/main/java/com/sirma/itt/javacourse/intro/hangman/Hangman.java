@@ -77,8 +77,9 @@ public class Hangman {
 	private String[] readWordsFromFile(String fileName) throws IOException {
 		ArrayList<String> words = new ArrayList<>();
 
-		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(
-				fileName), "UTF-8"));
+		FileInputStream fileInputStream = new FileInputStream(fileName);
+		InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+		BufferedReader reader = new BufferedReader(inputStreamReader);
 		try {
 			String line = null;
 			while ((line = reader.readLine()) != null) {
@@ -89,7 +90,13 @@ public class Hangman {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
-			reader.close();
+			if (reader != null) {
+				reader.close();
+			}
+		}
+
+		if (words.isEmpty()) {
+			throw new IllegalArgumentException("The file " + fileName + " is empty");
 		}
 
 		return (String[]) words.toArray(new String[words.size()]);
