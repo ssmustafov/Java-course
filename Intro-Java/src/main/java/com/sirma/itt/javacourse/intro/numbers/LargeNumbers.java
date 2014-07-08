@@ -7,6 +7,8 @@ package com.sirma.itt.javacourse.intro.numbers;
  */
 public final class LargeNumbers {
 
+	private static final char ZeroChar = '0';
+
 	/**
 	 * Protection from instantiation.
 	 */
@@ -23,7 +25,9 @@ public final class LargeNumbers {
 	 *            the second number to sum
 	 * @return number1AsString + number2AsString
 	 */
-	public static String sumTwoNumbers(String number1AsString, String number2AsString) {
+	public static String sumTwoNumbers(final String number1AsString, final String number2AsString) {
+		String workingNumber1 = number1AsString;
+		String workingNumber2 = number2AsString;
 		char charFromNumber1;
 		char charFromNumber2;
 		int digitFromNumber1;
@@ -32,20 +36,19 @@ public final class LargeNumbers {
 		int sum;
 		StringBuilder result = new StringBuilder();
 
-		// TODO assignment to parameters must be avoided
-		while (number1AsString.length() > 0 || number2AsString.length() > 0) {
-			if (number1AsString.length() > 0) {
-				charFromNumber1 = number1AsString.charAt(number1AsString.length() - 1);
-				number1AsString = number1AsString.substring(0, number1AsString.length() - 1);
+		while (workingNumber1.length() > 0 || workingNumber2.length() > 0) {
+			if (workingNumber1.length() > 0) {
+				charFromNumber1 = workingNumber1.charAt(workingNumber1.length() - 1);
+				workingNumber1 = workingNumber1.substring(0, workingNumber1.length() - 1);
 			} else {
-				charFromNumber1 = '0';
+				charFromNumber1 = ZeroChar;
 			}
 
-			if (number2AsString.length() > 0) {
-				charFromNumber2 = number2AsString.charAt(number2AsString.length() - 1);
-				number2AsString = number2AsString.substring(0, number2AsString.length() - 1);
+			if (workingNumber2.length() > 0) {
+				charFromNumber2 = workingNumber2.charAt(workingNumber2.length() - 1);
+				workingNumber2 = workingNumber2.substring(0, workingNumber2.length() - 1);
 			} else {
-				charFromNumber2 = '0';
+				charFromNumber2 = ZeroChar;
 			}
 
 			if (charFromNumber2 == '-' || charFromNumber1 == '-') {
@@ -55,7 +58,7 @@ public final class LargeNumbers {
 			digitFromNumber1 = Character.getNumericValue(charFromNumber1);
 			digitFromNumber2 = Character.getNumericValue(charFromNumber2);
 			sum = digitFromNumber1 + digitFromNumber2 + addition;
-			if (sum > 9) {
+			if (sum >= 10) {
 				addition = sum;
 				sum -= 10;
 			}
