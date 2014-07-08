@@ -1,7 +1,8 @@
 package com.sirma.itt.javacourse.intro.arrays;
 
 /**
- * Class for finding the array's median.
+ * Finds the array's median - the sum of the elements before the median, which is element in the
+ * array, and after it as close as possible.
  * 
  * @author smustafov
  */
@@ -15,8 +16,7 @@ public final class Median {
 	}
 
 	/**
-	 * Finds array's median - the sum of the elements before the median, which is element in the
-	 * array, and after it as close as possible.
+	 * Finds array's median.
 	 * 
 	 * @param array
 	 *            the array's median to be found

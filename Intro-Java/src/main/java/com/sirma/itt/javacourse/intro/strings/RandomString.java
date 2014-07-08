@@ -1,14 +1,16 @@
 package com.sirma.itt.javacourse.intro.strings;
 
 /**
- * Class for generating strings.
+ * Generates random strings.
  * 
  * @author smustafov
  */
 public class RandomString {
 
+	// TODO: add method for generating string with ascii
+
 	/**
-	 * Method for generating random string.
+	 * Generates random string.
 	 * 
 	 * @param length
 	 *            the length of the string to be generated
@@ -19,7 +21,7 @@ public class RandomString {
 			throw new IllegalArgumentException("The string's size cannot be under zero : " + length);
 		}
 
-		String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		final String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 		StringBuilder generatedString = new StringBuilder(length);
 
 		for (int i = 0; i < length; i++) {

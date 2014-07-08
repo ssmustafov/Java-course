@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.intro.arrays;
 
 /**
- * Class for processing arrays.
+ * Processes arrays.
  * 
  * @author smustafov
  */
@@ -15,7 +15,7 @@ public final class ArrayProcess {
 	}
 
 	/**
-	 * Method for finding the minimal element in array of integers.
+	 * Finds the minimal element in array of integers.
 	 * 
 	 * @param array
 	 *            the array for finding the minimal element
@@ -32,7 +32,7 @@ public final class ArrayProcess {
 	}
 
 	/**
-	 * Method for finding the sum of elements in array of integers.
+	 * Finds the sum of the elements in array of integers.
 	 * 
 	 * @param array
 	 *            the array for finding the sum
@@ -47,7 +47,7 @@ public final class ArrayProcess {
 	}
 
 	/**
-	 * Method for printing the elements in array.
+	 * Prints the elements in given array.
 	 * 
 	 * @param array
 	 *            the array to print

@@ -5,15 +5,15 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Class for testing {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess} class.
+ * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess} class.
  * 
  * @author smustafov
  */
 public class ArrayProcessTest {
 
 	/**
-	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])} with
+	 * normal numbers.
 	 */
 	@Test
 	public void testGetMinElementWithNormalNumbers() {
@@ -25,8 +25,8 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])} with
+	 * negative numbers.
 	 */
 	@Test
 	public void testGetMinElementWithNegativeNumbers() {
@@ -38,8 +38,8 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])} with
+	 * empty array.
 	 */
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void testGetMinElementWithEmptyArray() {
@@ -48,8 +48,8 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])} with
+	 * one element.
 	 */
 	@Test
 	public void testGetMinElementWithOneElementInArray() {
@@ -61,7 +61,8 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#sum(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#sum(int[])} with normal
+	 * numbers.
 	 */
 	@Test
 	public void testBasicSum() {
@@ -73,7 +74,7 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#sum(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#sum(int[])} with one number.
 	 */
 	@Test
 	public void testSumWithOneElement() {
@@ -85,7 +86,7 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#sum(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#sum(int[])} with zeros.
 	 */
 	@Test
 	public void testSumWithZeros() {
@@ -97,7 +98,8 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#sum(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#sum(int[])} with negative
+	 * numbers.
 	 */
 	@Test
 	public void testSumWithNegativeNumbers() {
@@ -109,7 +111,7 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#print(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#print(int[])} in most cases.
 	 */
 	@Test
 	public void testPrintNormalCase() {
@@ -121,7 +123,8 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#print(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#print(int[])} with empty
+	 * array.
 	 */
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void testPrintWithEmptyArray() {
@@ -130,7 +133,8 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#print(int[])}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#print(int[])} with one
+	 * element.
 	 */
 	@Test
 	public void testPrintWithOneElement() {

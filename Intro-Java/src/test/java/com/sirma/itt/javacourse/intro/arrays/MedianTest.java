@@ -5,15 +5,15 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Class for testing {@link com.sirma.itt.javacourse.intro.arrays.Median} class.
+ * Tests {@link com.sirma.itt.javacourse.intro.arrays.Median} class.
  * 
  * @author smustafov
  */
 public class MedianTest {
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])}
-	 * .
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])}
+	 * elementary median.
 	 */
 	@Test
 	public void testSimpleFindMedianIndex() {
@@ -25,8 +25,8 @@ public class MedianTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])}
-	 * .
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])} with one
+	 * element.
 	 */
 	@Test
 	public void testFindMedianIndexWithOneElement() {
@@ -38,8 +38,8 @@ public class MedianTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])}
-	 * .
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])} with two
+	 * elements.
 	 */
 	@Test
 	public void testFindMedianIndexWithTwoElements() {
@@ -51,8 +51,8 @@ public class MedianTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])}
-	 * .
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])} with
+	 * three elements.
 	 */
 	@Test
 	public void testFindMedianIndexWithThreeElements() {
@@ -64,8 +64,8 @@ public class MedianTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])}
-	 * .
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])} with
+	 * negative numbers.
 	 */
 	@Test
 	public void testFindMedianIndexWithNegativeNumbers() {
@@ -77,8 +77,8 @@ public class MedianTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])}
-	 * .
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])} with
+	 * large array.
 	 */
 	@Test
 	public void testFindMedianIndexLargeArray() {

@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.intro.arrays;
 
 /**
- * Class for sorting array by Quicksort method.
+ * Sorts array by Quicksort method.
  * 
  * @author smustafov
  */
@@ -15,7 +15,7 @@ public final class QuickSort {
 	}
 
 	/**
-	 * Placeholder method for invoking the sorting algorithm.
+	 * Invokes the sorting algorithm. The main method for sorting.
 	 * 
 	 * @param array
 	 *            the array to be sorted
@@ -29,7 +29,7 @@ public final class QuickSort {
 	}
 
 	/**
-	 * The actual sorting method.
+	 * Sorts array of integers.
 	 * 
 	 * @param array
 	 *            the array to be sorted
@@ -64,7 +64,7 @@ public final class QuickSort {
 			// values.
 			// As we are done we can increase i and j
 			if (i <= j) {
-				exchange(array, i, j);
+				swapTwoElements(array, i, j);
 				i++;
 				j--;
 			}
@@ -80,7 +80,7 @@ public final class QuickSort {
 	}
 
 	/**
-	 * Method for exchanging two values in given array.
+	 * Exchanges two values in given array.
 	 * 
 	 * @param array
 	 *            the array in which exchanging to be done
@@ -89,7 +89,7 @@ public final class QuickSort {
 	 * @param j
 	 *            the index of the second value to be exchanged
 	 */
-	private static void exchange(int[] array, int i, int j) {
+	private static void swapTwoElements(int[] array, int i, int j) {
 		int temp = array[i];
 		array[i] = array[j];
 		array[j] = temp;
