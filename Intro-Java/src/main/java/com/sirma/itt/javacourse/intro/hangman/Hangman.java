@@ -197,7 +197,7 @@ public class Hangman {
 	}
 
 	/**
-	 * This method invokes all the logic for the game. It prints on the standart output and reads
+	 * This method contains all the logic for the game. It prints on the standart output and reads
 	 * from the standart input.
 	 */
 	public void playGame() {
@@ -218,6 +218,8 @@ public class Hangman {
 			for (int i = 0; i < wordToBeGuessed.length(); i++) {
 				if (isGuessedLetter[i]) {
 					System.out.printf("%s ", wordToBeGuessed.charAt(i));
+				} else if (wordToBeGuessed.charAt(i) == ' ') {
+					System.out.printf(" ");
 				} else {
 					System.out.printf("_ ");
 				}
