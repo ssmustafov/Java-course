@@ -34,6 +34,8 @@ public class Hangman {
 	 */
 	private int attempts = 5;
 
+	private int score;
+
 	/**
 	 * This constructor initializes the game. It loads words from text file and chooses random word
 	 * to guess.
@@ -45,10 +47,11 @@ public class Hangman {
 	 *             not UTF-8
 	 */
 	public Hangman(String textFile) throws IOException {
-		words = readWordsFromFile(textFile);
-		wordToBeGuessed = getWord();
-		isGuessedLetter = new Boolean[wordToBeGuessed.length()];
-		setVisibleLetters();
+		this.words = this.readWordsFromFile(textFile);
+		this.wordToBeGuessed = this.getWord();
+		this.score = 0;
+		this.isGuessedLetter = new Boolean[wordToBeGuessed.length()];
+		this.setVisibleLetters();
 	}
 
 	/**
@@ -56,16 +59,16 @@ public class Hangman {
 	 * word.
 	 */
 	private void setVisibleLetters() {
-		for (int i = 0; i < isGuessedLetter.length; i++) {
-			isGuessedLetter[i] = false;
+		for (int i = 0; i < this.isGuessedLetter.length; i++) {
+			this.isGuessedLetter[i] = false;
 		}
-		int randomIndex = getRandomNumber(wordToBeGuessed.length());
-		char letter = wordToBeGuessed.charAt(randomIndex);
+		int randomIndex = this.getRandomNumber(this.wordToBeGuessed.length());
+		char letter = this.wordToBeGuessed.charAt(randomIndex);
 		if (letter == ' ') {
-			randomIndex = getRandomNumber(wordToBeGuessed.length());
-			letter = wordToBeGuessed.charAt(randomIndex);
+			randomIndex = this.getRandomNumber(this.wordToBeGuessed.length());
+			letter = this.wordToBeGuessed.charAt(randomIndex);
 		}
-		checkLetter(letter);
+		this.checkLetter(letter);
 	}
 
 	/**
@@ -110,7 +113,7 @@ public class Hangman {
 	 * @return a random word
 	 */
 	private String getWord() {
-		int index = getRandomNumber(words.length);
+		int index = this.getRandomNumber(this.words.length);
 		return words[index];
 	}
 
@@ -134,9 +137,9 @@ public class Hangman {
 	 *            the word to check
 	 */
 	private void checkWord(String line) {
-		if (line.toLowerCase().equals(wordToBeGuessed.toLowerCase())) {
-			for (int i = 0; i < isGuessedLetter.length; i++) {
-				isGuessedLetter[i] = true;
+		if (line.toLowerCase().equals(this.wordToBeGuessed.toLowerCase())) {
+			for (int i = 0; i < this.isGuessedLetter.length; i++) {
+				this.isGuessedLetter[i] = true;
 			}
 		} else {
 			this.attempts--;
@@ -150,15 +153,15 @@ public class Hangman {
 	 *            the letter to check
 	 */
 	private void checkLetter(char letter) {
-		int index = wordToBeGuessed.toLowerCase().indexOf(letter);
+		int index = this.wordToBeGuessed.toLowerCase().indexOf(letter);
 		if (index == -1) {
 			this.attempts--;
 		}
 
 		while (index != -1) {
 			if (isGuessedLetter.length > index) {
-				isGuessedLetter[index] = true;
-				index = wordToBeGuessed.toLowerCase().indexOf(letter, index + 1);
+				this.isGuessedLetter[index] = true;
+				index = this.wordToBeGuessed.toLowerCase().indexOf(letter, index + 1);
 			} else {
 				break;
 			}
@@ -183,8 +186,8 @@ public class Hangman {
 	 * @return true if all letters in the word is guessed, false if not all letters are guessed
 	 */
 	private Boolean isWordGuessed() {
-		for (int i = 0; i < isGuessedLetter.length; i++) {
-			if (!isGuessedLetter[i]) {
+		for (int i = 0; i < this.isGuessedLetter.length; i++) {
+			if (!this.isGuessedLetter[i]) {
 				return false;
 			}
 		}
@@ -208,23 +211,23 @@ public class Hangman {
 	 */
 	public void playGame() {
 		while (true) {
-			if (isAttemptsOver()) {
+			if (this.isAttemptsOver()) {
 				System.out.println();
 				System.out.println("YOU HAVE BEEN HANGED!");
 				System.out.printf("The word was: %s\n", this.wordToBeGuessed);
 				break;
 			}
 
-			if (isWordGuessed()) {
+			if (this.isWordGuessed()) {
 				System.out.println();
 				System.out.println("YOU WIN!");
 				break;
 			}
 
-			for (int i = 0; i < wordToBeGuessed.length(); i++) {
-				if (isGuessedLetter[i]) {
-					System.out.printf("%s ", wordToBeGuessed.charAt(i));
-				} else if (wordToBeGuessed.charAt(i) == ' ') {
+			for (int i = 0; i < this.wordToBeGuessed.length(); i++) {
+				if (this.isGuessedLetter[i]) {
+					System.out.printf("%s ", this.wordToBeGuessed.charAt(i));
+				} else if (this.wordToBeGuessed.charAt(i) == ' ') {
 					System.out.printf(" | ");
 				} else {
 					System.out.printf("_ ");
