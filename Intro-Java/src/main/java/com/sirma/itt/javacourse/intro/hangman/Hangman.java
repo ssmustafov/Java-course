@@ -127,6 +127,11 @@ public class Hangman {
 	 *            the word to check if the current word to guess
 	 */
 	public void checkWord(String str) {
+		if (str.isEmpty()) {
+			// throw new IllegalArgumentException("The given string was empty");
+			return;
+		}
+
 		String word = str.toLowerCase();
 		if (this.wordToGuess.equals(word)) {
 			Arrays.fill(this.isLettersGuessed, true);
@@ -142,6 +147,11 @@ public class Hangman {
 	 *            a letter to check if it contains in the current word to guess
 	 */
 	public void checkLetter(String str) {
+		if (str.isEmpty()) {
+			// throw new IllegalArgumentException("The given string was empty");
+			return;
+		}
+
 		String letter = str.toLowerCase();
 		if (this.wordToGuess.contains(letter)) {
 			this.setVisibleLetter(letter);
@@ -157,6 +167,7 @@ public class Hangman {
 	public void run() {
 		while (true) {
 			if (this.isWordGuessed()) {
+				ConsoleRender.printOnConsole("\n" + this.wordToGuess);
 				ConsoleRender.printOnConsole("\nYOU WON!\n");
 				break;
 			}
