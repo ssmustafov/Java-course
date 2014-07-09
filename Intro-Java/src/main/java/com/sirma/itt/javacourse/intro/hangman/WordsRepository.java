@@ -19,6 +19,23 @@ public class WordsRepository {
 	private ArrayList<String> wordsCollection;
 
 	/**
+	 * Reads words from file and saves them.
+	 * 
+	 * @param fileName
+	 *            the text file from which to get words
+	 * @throws IOException
+	 *             throws exception if it cannot load the given file or the encode of the file is
+	 *             not UTF-8
+	 */
+	public WordsRepository(String fileName) throws IOException {
+		if (fileName.isEmpty()) {
+			throw new IllegalArgumentException("The given file name is empty");
+		}
+
+		this.wordsCollection = readWordsFromFile(fileName);
+	}
+
+	/**
 	 * Reads words with length at least 3 from text file.
 	 * 
 	 * @param fileName
@@ -52,23 +69,6 @@ public class WordsRepository {
 		}
 
 		return words;
-	}
-
-	/**
-	 * Reads words from file and saves them.
-	 * 
-	 * @param fileName
-	 *            the text file from which to get words
-	 * @throws IOException
-	 *             throws exception if it cannot load the given file or the encode of the file is
-	 *             not UTF-8
-	 */
-	public WordsRepository(String fileName) throws IOException {
-		if (fileName.isEmpty()) {
-			throw new IllegalArgumentException("The given file name is empty");
-		}
-
-		this.wordsCollection = readWordsFromFile(fileName);
 	}
 
 	/**

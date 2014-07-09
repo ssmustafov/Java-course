@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class Hangman {
 
-	private WordsRepository wordsRepository;
+	private HangmanReader wordsRepository;
 	private String wordToGuess;
 	private Boolean[] isLettersGuessed;
 	private int attemptsToGuess = 5;
@@ -18,14 +18,14 @@ public class Hangman {
 	/**
 	 * Initializes the game.
 	 * 
-	 * @param fileName
-	 *            the text file containing words
+	 * @param wordsRepository
+	 *            the interface containing the words
 	 * @throws IOException
 	 *             throws exception if it cannot load the given file or the encode of the file is
 	 *             not UTF-8
 	 */
-	public Hangman(String fileName) throws IOException {
-		this.wordsRepository = new WordsRepository(fileName);
+	public Hangman(HangmanReader wordsRepository) throws IOException {
+		this.wordsRepository = wordsRepository;
 		this.wordToGuess = this.wordsRepository.getRandomWord();
 		this.isLettersGuessed = new Boolean[this.wordToGuess.length()];
 
@@ -95,25 +95,11 @@ public class Hangman {
 	}
 
 	/**
-	 * Checks if given string is word.
-	 * 
-	 * @param str
-	 *            the string to be checked
-	 * @return true if the parameter is word or false if the parameter is letter
-	 */
-	public Boolean isWord(String str) {
-		if (str.length() >= 2) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
 	 * Checks if any attempts to guess left.
 	 * 
 	 * @return true if attempts left or false if no more attempts
 	 */
-	public Boolean areAttemptsToGuessOver() {
+	private Boolean areAttemptsToGuessOver() {
 		if (this.attemptsToGuess == 0) {
 			return true;
 		}
@@ -126,7 +112,7 @@ public class Hangman {
 	 * @param str
 	 *            the word to check if it is the current word to guess
 	 */
-	public void checkWord(String str) {
+	private void checkWord(String str) {
 		if (str.isEmpty()) {
 			// throw new IllegalArgumentException("The given string was empty");
 			return;
@@ -146,7 +132,7 @@ public class Hangman {
 	 * @param str
 	 *            a letter to check if it contains in the current word to guess
 	 */
-	public void checkLetter(String str) {
+	private void checkLetter(String str) {
 		if (str.isEmpty()) {
 			// throw new IllegalArgumentException("The given string was empty");
 			return;
@@ -158,6 +144,20 @@ public class Hangman {
 		} else {
 			this.attemptsToGuess--;
 		}
+	}
+
+	/**
+	 * Checks if given string is word.
+	 * 
+	 * @param str
+	 *            the string to be checked
+	 * @return true if the parameter is word or false if the parameter is letter
+	 */
+	public Boolean isWord(String str) {
+		if (str.length() >= 2) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
