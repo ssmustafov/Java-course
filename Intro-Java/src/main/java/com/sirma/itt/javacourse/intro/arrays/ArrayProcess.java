@@ -8,7 +8,7 @@ package com.sirma.itt.javacourse.intro.arrays;
 public final class ArrayProcess {
 
 	/**
-	 * Protecting from instantiation.
+	 * Protects from instantiation.
 	 */
 	private ArrayProcess() {
 

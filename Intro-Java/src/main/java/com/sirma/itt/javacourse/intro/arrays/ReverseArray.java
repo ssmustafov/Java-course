@@ -9,7 +9,7 @@ package com.sirma.itt.javacourse.intro.arrays;
 public final class ReverseArray {
 
 	/**
-	 * Protection from instantiation.
+	 * Protects from instantiation.
 	 */
 	private ReverseArray() {
 

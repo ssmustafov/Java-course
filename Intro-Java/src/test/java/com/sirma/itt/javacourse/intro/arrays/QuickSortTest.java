@@ -19,7 +19,7 @@ public class QuickSortTest {
 	 * @param originalArray
 	 *            the not sorted array to be sorted with Arrays.sort()
 	 * @param sortedArray
-	 *            the array to be checked for sorting
+	 *            the array to be checked is correctly sorted
 	 * @return true if the array is sorted or false if it's not sorted
 	 */
 	private static boolean isSorted(int[] originalArray, int[] sortedArray) {
@@ -148,6 +148,7 @@ public class QuickSortTest {
 			originalArray[i] = randomNumber;
 			sortedArray[i] = randomNumber;
 		}
+
 		QuickSort.sort(sortedArray);
 		if (!isSorted(originalArray, sortedArray)) {
 			fail("The array is not sorted");
