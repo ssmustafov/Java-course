@@ -1,164 +1,36 @@
 package com.sirma.itt.javacourse.intro.hangman;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Arrays;
 
 /**
- * This class implements the word guessing game called Hangman.
+ * Implements the word guessing game called Hangman.
  * 
  * @author smustafov
  */
 public class Hangman {
 
-	/**
-	 * All available words.
-	 */
-	private String[] words;
+	private WordsRepository wordsRepository;
+	private String wordToGuess;
+	private Boolean[] isLettersGuessed;
+	private int attemptsToGuess = 5;
 
 	/**
-	 * Boolean array for checking which letters are guessed.
-	 */
-	private Boolean[] isGuessedLetter;
-
-	/**
-	 * The word which to be guessed.
-	 */
-	private String wordToBeGuessed;
-
-	/**
-	 * Possible attempts for guessing the word.
-	 */
-	private int attempts = 5;
-
-	/**
-	 * This constructor initializes the game. It loads words from text file and chooses random word
-	 * to guess.
-	 * 
-	 * @param textFile
-	 *            the text file containing words to be loaded
-	 * @throws IOException
-	 *             throws exception if it cannot load the given file or the encode of the file is
-	 *             not UTF-8
-	 */
-	public Hangman(String textFile) throws IOException {
-		this.words = this.readWordsFromFile(textFile);
-		this.wordToBeGuessed = this.getWord();
-		this.isGuessedLetter = new Boolean[wordToBeGuessed.length()];
-		this.setVisibleLetters();
-	}
-
-	/**
-	 * Called from the constructor when an object is instantiated to visualize one letter from the
-	 * word.
-	 */
-	private void setVisibleLetters() {
-		for (int i = 0; i < this.isGuessedLetter.length; i++) {
-			this.isGuessedLetter[i] = false;
-		}
-		int randomIndex = this.getRandomNumber(this.wordToBeGuessed.length());
-		char letter = this.wordToBeGuessed.charAt(randomIndex);
-		if (letter == ' ') {
-			randomIndex = this.getRandomNumber(this.wordToBeGuessed.length());
-			letter = this.wordToBeGuessed.charAt(randomIndex);
-		}
-		this.checkLetter(letter);
-	}
-
-	/**
-	 * Reads words with length at least 3 from text file.
-	 * 
-	 * @param fileName
-	 *            the text file from which words to be read
-	 * @return array of strings with words read from the file
-	 * @throws IOException
-	 *             throws exception if it cannot load the given file or the encode of the file is
-	 *             not UTF-8
-	 */
-	private String[] readWordsFromFile(String fileName) throws IOException {
-		ArrayList<String> words = new ArrayList<>();
-
-		FileInputStream fileInputStream = new FileInputStream(fileName);
-		InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
-		BufferedReader reader = new BufferedReader(inputStreamReader);
-		try {
-			String line = null;
-			while ((line = reader.readLine()) != null) {
-				if (line.length() >= 3) {
-					words.add(line.toLowerCase());
-				}
-			}
-		} finally {
-			if (reader != null) {
-				reader.close();
-			}
-		}
-
-		if (words.isEmpty()) {
-			throw new IllegalArgumentException("The file " + fileName + " is empty");
-		}
-
-		return (String[]) words.toArray(new String[words.size()]);
-	}
-
-	/**
-	 * Gets random word from the words.
-	 * 
-	 * @return a random word
-	 */
-	private String getWord() {
-		int index = this.getRandomNumber(this.words.length);
-		return words[index];
-	}
-
-	/**
-	 * Reads line from the standart input.
-	 * 
-	 * @return read line as string
-	 */
-	private String readLine() {
-		@SuppressWarnings("resource")
-		Scanner scanner = new Scanner(System.in);
-		String line = scanner.nextLine();
-		return line;
-	}
-
-	/**
-	 * Checks if the given parameter is the word to be guessed. If its not decreases the attempts of
-	 * possible guesses.
-	 * 
-	 * @param line
-	 *            the word to check
-	 */
-	private void checkWord(String line) {
-		if (line.toLowerCase().equals(this.wordToBeGuessed.toLowerCase())) {
-			for (int i = 0; i < this.isGuessedLetter.length; i++) {
-				this.isGuessedLetter[i] = true;
-			}
-		} else {
-			this.attempts--;
-		}
-	}
-
-	/**
-	 * Checks how many times the given letter contains in the word which is trying to guess.
+	 * Visualizes one letter from the word if it exists. Uses string.
 	 * 
 	 * @param letter
-	 *            the letter to check
+	 *            the letter to visualize
 	 */
-	private void checkLetter(char letter) {
-		int index = this.wordToBeGuessed.toLowerCase().indexOf(letter);
+	private void setVisibleLetter(String letter) {
+		int index = this.wordToGuess.indexOf(letter);
 		if (index == -1) {
-			this.attempts--;
+			this.attemptsToGuess--;
 		}
 
 		while (index != -1) {
-			if (isGuessedLetter.length > index) {
-				this.isGuessedLetter[index] = true;
-				index = this.wordToBeGuessed.toLowerCase().indexOf(letter, index + 1);
+			if (this.isLettersGuessed.length > index) {
+				this.isLettersGuessed[index] = true;
+				index = this.wordToGuess.indexOf(letter, index + 1);
 			} else {
 				break;
 			}
@@ -166,25 +38,70 @@ public class Hangman {
 	}
 
 	/**
-	 * Checks if there are no more attempts left.
+	 * Visualizes one letter from the word if it exists. Uses char.
 	 * 
-	 * @return true if no more attempts left, false if there are still attempts available
+	 * @param letter
+	 *            the letter to visualize
 	 */
-	private Boolean isAttemptsOver() {
-		if (this.attempts == 0) {
+	private void setVisibleLetter(char letter) {
+		int index = this.wordToGuess.indexOf(letter);
+		if (index == -1) {
+			this.attemptsToGuess--;
+		}
+
+		while (index != -1) {
+			if (this.isLettersGuessed.length > index) {
+				this.isLettersGuessed[index] = true;
+				index = this.wordToGuess.indexOf(letter, index + 1);
+			} else {
+				break;
+			}
+		}
+	}
+
+	/**
+	 * Initializes the game.
+	 * 
+	 * @param fileName
+	 *            the text file containing words
+	 * @throws IOException
+	 *             throws exception if it cannot load the given file or the encode of the file is
+	 *             not UTF-8
+	 */
+	public Hangman(String fileName) throws IOException {
+		this.wordsRepository = new WordsRepository(fileName);
+		this.wordToGuess = this.wordsRepository.getRandomWord();
+		this.isLettersGuessed = new Boolean[this.wordToGuess.length()];
+
+		for (int i = 0; i < isLettersGuessed.length; i++) {
+			this.isLettersGuessed[i] = false;
+		}
+		int randomIndex = (int) Math.floor(Math.random() * this.wordToGuess.length());
+		this.setVisibleLetter(this.wordToGuess.charAt(randomIndex));
+	}
+
+	/**
+	 * Checks if given string is word.
+	 * 
+	 * @param str
+	 *            the string to be checked
+	 * @return true if the parameter is word or false if the parameter is letter
+	 */
+	public Boolean isWord(String str) {
+		if (str.length() >= 2) {
 			return true;
 		}
 		return false;
 	}
 
 	/**
-	 * Checks if all letters in the word is guessed.
+	 * Checks if the current word is guessed.
 	 * 
-	 * @return true if all letters in the word is guessed, false if not all letters are guessed
+	 * @return true if the word is guessed or false if the word is not guessed
 	 */
-	private Boolean isWordGuessed() {
-		for (int i = 0; i < this.isGuessedLetter.length; i++) {
-			if (!this.isGuessedLetter[i]) {
+	public Boolean isWordGuessed() {
+		for (int i = 0; i < isLettersGuessed.length; i++) {
+			if (!this.isLettersGuessed[i]) {
 				return false;
 			}
 		}
@@ -192,54 +109,82 @@ public class Hangman {
 	}
 
 	/**
-	 * Gets random number from zero to given length.
+	 * Checks if any attempts to guess left.
 	 * 
-	 * @param length
-	 *            the end range of the random number
-	 * @return random number
+	 * @return true if attempts left or false if no more attempts
 	 */
-	private int getRandomNumber(int length) {
-		return (int) Math.floor(Math.random() * length);
+	public Boolean areAttemptsToGuessOver() {
+		if (this.attemptsToGuess == 0) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
-	 * This method contains all the logic for the game. It prints on the standart output and reads
-	 * from the standart input.
+	 * Checks if the given string is the word to guess.
+	 * 
+	 * @param str
+	 *            the word to check if the current word to guess
 	 */
-	public void playGame() {
-		while (true) {
-			if (this.isAttemptsOver()) {
-				System.out.println();
-				System.out.println("YOU HAVE BEEN HANGED!");
-				System.out.printf("The word was: %s\n", this.wordToBeGuessed);
-				break;
-			}
-
-			if (this.isWordGuessed()) {
-				System.out.println();
-				System.out.println("YOU WIN!");
-				break;
-			}
-
-			for (int i = 0; i < this.wordToBeGuessed.length(); i++) {
-				if (this.isGuessedLetter[i]) {
-					System.out.printf("%s ", this.wordToBeGuessed.charAt(i));
-				} else if (this.wordToBeGuessed.charAt(i) == ' ') {
-					System.out.printf(" | ");
-				} else {
-					System.out.printf("_ ");
-				}
-			}
-			System.out.println();
-			System.out.printf("Remaining attempts: %d\n", this.attempts);
-
-			String line = readLine();
-			if (line.length() >= 2) {
-				checkWord(line);
-			} else {
-				checkLetter(line.charAt(0));
-			}
+	public void checkWord(String str) {
+		String word = str.toLowerCase();
+		if (this.wordToGuess.equals(word)) {
+			Arrays.fill(this.isLettersGuessed, true);
+		} else {
+			this.attemptsToGuess--;
 		}
 	}
 
+	/**
+	 * Checks the given string to contains in the word to guess.
+	 * 
+	 * @param str
+	 *            a letter to check if it contains in the current word to guess
+	 */
+	public void checkLetter(String str) {
+		String letter = str.toLowerCase();
+		if (this.wordToGuess.contains(letter)) {
+			this.setVisibleLetter(letter);
+		} else {
+			this.attemptsToGuess--;
+		}
+	}
+
+	/**
+	 * Contains all the logic for the game. It prints on the standart output and reads from the
+	 * standart input.
+	 */
+	public void run() {
+		while (true) {
+			if (this.isWordGuessed()) {
+				ConsoleRender.printOnConsole("\nYOU WON!\n");
+				break;
+			}
+
+			if (this.areAttemptsToGuessOver()) {
+				ConsoleRender.printOnConsole("\nYOU HAVE BEEN HANGED\n");
+				ConsoleRender.printOnConsole("The word was: " + this.wordToGuess);
+				ConsoleRender.printOnConsole("\n");
+				break;
+			}
+
+			for (int i = 0; i < this.wordToGuess.length(); i++) {
+				if (this.isLettersGuessed[i]) {
+					ConsoleRender.printOnConsole(this.wordToGuess.charAt(i));
+				} else {
+					ConsoleRender.printOnConsole("_ ");
+				}
+			}
+			ConsoleRender.printOnConsole("\nRemaining attempts to guess: " + this.attemptsToGuess);
+			ConsoleRender.printOnConsole("\n");
+
+			String line = ConsoleRender.readLineFromConsole();
+			line = line.trim();
+			if (this.isWord(line)) {
+				this.checkWord(line);
+			} else {
+				this.checkLetter(line);
+			}
+		}
+	}
 }

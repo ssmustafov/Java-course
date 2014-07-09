@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.junit.Test;
 
 /**
- * Test class for {@link com.sirma.itt.javacourse.intro.hangman.Hangman}.
+ * Test class for {@link com.sirma.itt.javacourse.intro.hangman.HangmanOld}.
  * 
  * @author smustafov
  */
@@ -13,19 +13,19 @@ public class HangmanTest {
 
 	/**
 	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.hangman.Hangman#Hangman(java.lang.String)}.
+	 * {@link com.sirma.itt.javacourse.intro.hangman.HangmanOld#Hangman(java.lang.String)}.
 	 * 
 	 * @throws IOException
 	 *             expected exception
 	 */
 	@Test(expected = IOException.class)
 	public void testHangmanWithNotExistingFile() throws IOException {
-		new Hangman("askihsdfuiudf.txt");
+		new HangmanOld("askihsdfuiudf.txt");
 	}
 
 	/**
 	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.hangman.Hangman#Hangman(java.lang.String)}.
+	 * {@link com.sirma.itt.javacourse.intro.hangman.HangmanOld#Hangman(java.lang.String)}.
 	 * 
 	 * @throws IOException
 	 *             throws exception if it cannot load the given file or the encode of the file is
@@ -33,12 +33,12 @@ public class HangmanTest {
 	 */
 	@Test
 	public void testHangmanWithExistingFile() throws IOException {
-		new Hangman("words.txt");
+		new HangmanOld("words.txt");
 	}
 
 	/**
 	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.hangman.Hangman#Hangman(java.lang.String)}.
+	 * {@link com.sirma.itt.javacourse.intro.hangman.HangmanOld#Hangman(java.lang.String)}.
 	 * 
 	 * @throws IOException
 	 *             throws exception if it cannot load the given file or the encode of the file is
@@ -46,7 +46,7 @@ public class HangmanTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testHangmanWithEmptyFile() throws IOException {
-		new Hangman("empty.txt");
+		new HangmanOld("empty.txt");
 	}
 
 }
