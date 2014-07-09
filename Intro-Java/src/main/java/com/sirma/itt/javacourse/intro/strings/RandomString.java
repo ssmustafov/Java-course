@@ -19,7 +19,7 @@ public class RandomString {
 	}
 
 	/**
-	 * Generates random string. It consists of a-z, A-Z, 0-9 symbols using ASCII codes.
+	 * Generates random string. It consists of a-z, A-Z, 0-9 symbols and uses ASCII codes.
 	 * 
 	 * @param length
 	 *            the length of the string to be generated
