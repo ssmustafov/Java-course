@@ -16,6 +16,27 @@ public class Hangman {
 	private int attemptsToGuess = 5;
 
 	/**
+	 * Initializes the game.
+	 * 
+	 * @param fileName
+	 *            the text file containing words
+	 * @throws IOException
+	 *             throws exception if it cannot load the given file or the encode of the file is
+	 *             not UTF-8
+	 */
+	public Hangman(String fileName) throws IOException {
+		this.wordsRepository = new WordsRepository(fileName);
+		this.wordToGuess = this.wordsRepository.getRandomWord();
+		this.isLettersGuessed = new Boolean[this.wordToGuess.length()];
+
+		for (int i = 0; i < isLettersGuessed.length; i++) {
+			this.isLettersGuessed[i] = false;
+		}
+		int randomIndex = (int) Math.floor(Math.random() * this.wordToGuess.length());
+		this.setVisibleLetter(this.wordToGuess.charAt(randomIndex));
+	}
+
+	/**
 	 * Visualizes one letter from the word if it exists. Uses string.
 	 * 
 	 * @param letter
@@ -60,24 +81,17 @@ public class Hangman {
 	}
 
 	/**
-	 * Initializes the game.
+	 * Checks if the current word is guessed.
 	 * 
-	 * @param fileName
-	 *            the text file containing words
-	 * @throws IOException
-	 *             throws exception if it cannot load the given file or the encode of the file is
-	 *             not UTF-8
+	 * @return true if the word is guessed or false if the word is not guessed
 	 */
-	public Hangman(String fileName) throws IOException {
-		this.wordsRepository = new WordsRepository(fileName);
-		this.wordToGuess = this.wordsRepository.getRandomWord();
-		this.isLettersGuessed = new Boolean[this.wordToGuess.length()];
-
+	private Boolean isWordGuessed() {
 		for (int i = 0; i < isLettersGuessed.length; i++) {
-			this.isLettersGuessed[i] = false;
+			if (!this.isLettersGuessed[i]) {
+				return false;
+			}
 		}
-		int randomIndex = (int) Math.floor(Math.random() * this.wordToGuess.length());
-		this.setVisibleLetter(this.wordToGuess.charAt(randomIndex));
+		return true;
 	}
 
 	/**
@@ -92,20 +106,6 @@ public class Hangman {
 			return true;
 		}
 		return false;
-	}
-
-	/**
-	 * Checks if the current word is guessed.
-	 * 
-	 * @return true if the word is guessed or false if the word is not guessed
-	 */
-	public Boolean isWordGuessed() {
-		for (int i = 0; i < isLettersGuessed.length; i++) {
-			if (!this.isLettersGuessed[i]) {
-				return false;
-			}
-		}
-		return true;
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class Hangman {
 	 * Checks if the given string is the word to guess.
 	 * 
 	 * @param str
-	 *            the word to check if the current word to guess
+	 *            the word to check if it is the current word to guess
 	 */
 	public void checkWord(String str) {
 		if (str.isEmpty()) {
@@ -141,7 +141,7 @@ public class Hangman {
 	}
 
 	/**
-	 * Checks the given string to contains in the word to guess.
+	 * Checks the given string if it contains in the current word to guess.
 	 * 
 	 * @param str
 	 *            a letter to check if it contains in the current word to guess
@@ -161,8 +161,7 @@ public class Hangman {
 	}
 
 	/**
-	 * Contains all the logic for the game. It prints on the standart output and reads from the
-	 * standart input.
+	 * Contains all the logic for the game. It works with the console.
 	 */
 	public void run() {
 		while (true) {
