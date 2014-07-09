@@ -114,7 +114,6 @@ public class Hangman {
 	 */
 	private void checkWord(String str) {
 		if (str.isEmpty()) {
-			// throw new IllegalArgumentException("The given string was empty");
 			return;
 		}
 
@@ -134,7 +133,6 @@ public class Hangman {
 	 */
 	private void checkLetter(String str) {
 		if (str.isEmpty()) {
-			// throw new IllegalArgumentException("The given string was empty");
 			return;
 		}
 

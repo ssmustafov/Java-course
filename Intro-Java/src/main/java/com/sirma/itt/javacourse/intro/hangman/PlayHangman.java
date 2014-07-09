@@ -9,7 +9,7 @@ public class PlayHangman {
 		HangmanReader arrReader = new ArrayReader(arr);
 
 		HangmanReader fileReader = new FileReader("words.txt");
-		Hangman game = new Hangman(arrReader);
+		Hangman game = new Hangman(fileReader);
 		game.run();
 	}
 }
