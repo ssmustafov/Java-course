@@ -14,8 +14,8 @@ public class RandomStringTest {
 	private RandomString randomString = new RandomString();
 
 	/**
-	 * Test method for
-	 * {@link com.sirma.itt.javacourse.intro.strings.RandomString#generateString(int)}.
+	 * Tests {@link com.sirma.itt.javacourse.intro.strings.RandomString#generateString(int)} with
+	 * given length.
 	 */
 	@Test
 	public void testGenerateStringLength() {
@@ -25,4 +25,15 @@ public class RandomStringTest {
 		}
 	}
 
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.intro.strings.RandomString#generateString(int)} for
+	 * valid symbols.
+	 */
+	@Test
+	public void testGenerateStringSymbols() {
+		String actual = randomString.generateString(100);
+		if (!actual.matches("[a-zA-Z0-9]*")) {
+			fail("The generated string is not valid");
+		}
+	}
 }

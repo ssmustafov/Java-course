@@ -135,10 +135,23 @@ public class QuickSortTest {
 		}
 	}
 
-	/*
-	 * /** Test method for {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])}.
-	 * @Test(timeout = 2500) public void testBigRandomArraySort() { int[] array = new
-	 * int[10_000_000]; for (int i = 0; i < array.length; i++) { array[i] = (int) Math.random(); }
-	 * QuickSort.sort(array); if (!isSorted(array)) { fail("The array is not sorted"); } }
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])} with array of 10
+	 * 000 000 elements.
 	 */
+	@Test(timeout = 2500)
+	public void testBigRandomArraySort() {
+		int[] originalArray = new int[10_000_000];
+		int[] sortedArray = new int[10_000_000];
+		for (int i = 0; i < originalArray.length; i++) {
+			int randomNumber = (int) Math.random();
+			originalArray[i] = randomNumber;
+			sortedArray[i] = randomNumber;
+		}
+		QuickSort.sort(sortedArray);
+		if (!isSorted(originalArray, sortedArray)) {
+			fail("The array is not sorted");
+		}
+	}
+
 }

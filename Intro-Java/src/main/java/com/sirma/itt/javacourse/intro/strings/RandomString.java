@@ -10,7 +10,7 @@ public class RandomString {
 	// TODO: add method for generating string with ascii
 
 	/**
-	 * Generates random string.
+	 * Generates random string. It consists of a-z, A-Z, 0-9 symbols.
 	 * 
 	 * @param length
 	 *            the length of the string to be generated
