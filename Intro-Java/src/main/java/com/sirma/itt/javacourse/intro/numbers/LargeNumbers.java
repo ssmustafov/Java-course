@@ -7,8 +7,8 @@ package com.sirma.itt.javacourse.intro.numbers;
  */
 public final class LargeNumbers {
 
-	private static final char ZeroChar = '0';
-	private static final char MinusChar = '-';
+	private static final char ZERO_CHAR = '0';
+	private static final char MINUS_CHAR = '-';
 
 	/**
 	 * Protection from instantiation.
@@ -42,17 +42,17 @@ public final class LargeNumbers {
 				charFromNumber1 = workingNumber1.charAt(workingNumber1.length() - 1);
 				workingNumber1 = workingNumber1.substring(0, workingNumber1.length() - 1);
 			} else {
-				charFromNumber1 = ZeroChar;
+				charFromNumber1 = ZERO_CHAR;
 			}
 
 			if (workingNumber2.length() > 0) {
 				charFromNumber2 = workingNumber2.charAt(workingNumber2.length() - 1);
 				workingNumber2 = workingNumber2.substring(0, workingNumber2.length() - 1);
 			} else {
-				charFromNumber2 = ZeroChar;
+				charFromNumber2 = ZERO_CHAR;
 			}
 
-			if (charFromNumber2 == MinusChar || charFromNumber1 == MinusChar) {
+			if (charFromNumber2 == MINUS_CHAR || charFromNumber1 == MINUS_CHAR) {
 				break;
 			}
 

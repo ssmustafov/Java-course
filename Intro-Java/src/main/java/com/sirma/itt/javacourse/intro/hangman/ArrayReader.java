@@ -14,7 +14,7 @@ public class ArrayReader implements HangmanReader {
 	 *            the words to be loaded
 	 */
 	public ArrayReader(String[] words) {
-		if (words.length < 0) {
+		if (words.length <= 0) {
 			throw new IllegalArgumentException("The array's size is under zero");
 		}
 
