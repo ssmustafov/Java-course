@@ -12,7 +12,7 @@ public class SumatorTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		
 	}
 
 }
