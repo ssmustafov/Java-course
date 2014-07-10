@@ -8,6 +8,7 @@ package com.sirma.itt.javacourse.intro.numbers;
 public final class LargeNumbers {
 
 	private static final char ZERO_CHAR = '0';
+	private static final char MINUS_CHAR = '-';
 
 	/**
 	 * Protection from instantiation.
@@ -26,10 +27,6 @@ public final class LargeNumbers {
 	 * @return number1AsString + number2AsString
 	 */
 	public static String sumTwoNumbers(final String number1AsString, final String number2AsString) {
-		if (!number1AsString.matches("[0-9]*") || !number1AsString.matches("[0-9]*")) {
-			throw new IllegalArgumentException("The number is incorrect: " + number1AsString);
-		}
-
 		String workingNumber1 = number1AsString;
 		String workingNumber2 = number2AsString;
 		char charFromNumber1;
@@ -55,6 +52,10 @@ public final class LargeNumbers {
 				charFromNumber2 = ZERO_CHAR;
 			}
 
+			if (charFromNumber2 == MINUS_CHAR || charFromNumber1 == MINUS_CHAR) {
+				break;
+			}
+
 			digitFromNumber1 = Character.getNumericValue(charFromNumber1);
 			digitFromNumber2 = Character.getNumericValue(charFromNumber2);
 			sum = digitFromNumber1 + digitFromNumber2 + addition;
@@ -70,7 +71,12 @@ public final class LargeNumbers {
 			result.append(addition);
 		}
 
-		result.reverse();
-		return result.toString();
+		StringBuilder finalResult = new StringBuilder();
+
+		for (int i = result.length() - 1; i >= 0; i--) {
+			finalResult.append(result.charAt(i));
+		}
+
+		return finalResult.toString();
 	}
 }

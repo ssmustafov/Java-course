@@ -12,16 +12,6 @@ import org.junit.Test;
 public class LargeNumbersTest {
 
 	/**
-	 * Tests the sum of two large negative numbers.
-	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
-	 * .
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testNegativeTwoNumbersSum() {
-		LargeNumbers.sumTwoNumbers("-458747878438764529624392349", "-94832543248223487234790");
-	}
-
-	/**
 	 * Tests the sum of two large positive numbers.
 	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
 	 * .
@@ -30,6 +20,20 @@ public class LargeNumbersTest {
 	public void testPositiveTwoNumbersSum() {
 		String actual = LargeNumbers.sumTwoNumbers("89237642346719412378", "32425298234278340234");
 		String expected = "121662940580997752612";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests the sum of two large negative numbers.
+	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
+	 * .
+	 */
+	@Test
+	public void testNegativeTwoNumbersSum() {
+		String actual = LargeNumbers.sumTwoNumbers("-458747878438764529624392349",
+				"-94832543248223487234790");
+		String expected = "-458842710982012753111627139";
 
 		assertEquals(expected, actual);
 	}
@@ -58,16 +62,6 @@ public class LargeNumbersTest {
 		String expected = "98347259849859852342342237884";
 
 		assertEquals(expected, actual);
-	}
-
-	/**
-	 * Tests
-	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
-	 * with invalid parameters.
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testInvalidSum() {
-		LargeNumbers.sumTwoNumbers("9875-42342=3525-=24khjnkj84", "10!028905++--3240");
 	}
 
 }
