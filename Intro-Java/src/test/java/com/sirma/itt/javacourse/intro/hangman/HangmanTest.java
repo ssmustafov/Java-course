@@ -5,6 +5,8 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 /**
+ * Tests {@link com.sirma.itt.javacourse.intro.hangman.Hangman}.
+ * 
  * @author smustafov
  */
 public class HangmanTest {
