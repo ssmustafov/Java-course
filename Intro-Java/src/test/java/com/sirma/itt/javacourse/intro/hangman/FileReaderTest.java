@@ -64,4 +64,16 @@ public class FileReaderTest {
 		new FileReader("words.txt");
 	}
 
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.intro.hangman.FileReader#FileReader(String)} with null.
+	 * 
+	 * @throws IOException
+	 *             throws exception if it cannot load the given file or the encode of the file is
+	 *             not UTF-8
+	 */
+	@Test(expected = NullPointerException.class)
+	public void testFileReaderWithNull() throws IOException {
+		new FileReader(null);
+	}
+
 }
