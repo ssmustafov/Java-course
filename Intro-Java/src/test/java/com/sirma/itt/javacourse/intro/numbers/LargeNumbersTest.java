@@ -29,13 +29,9 @@ public class LargeNumbersTest {
 	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
 	 * .
 	 */
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testNegativeTwoNumbersSum() {
-		String actual = LargeNumbers.sumTwoNumbers("-458747878438764529624392349",
-				"-94832543248223487234790");
-		String expected = "-458842710982012753111627139";
-
-		assertEquals(expected, actual);
+		LargeNumbers.sumTwoNumbers("-458747878438764529624392349", "-94832543248223487234790");
 	}
 
 	/**
@@ -62,6 +58,16 @@ public class LargeNumbersTest {
 		String expected = "98347259849859852342342237884";
 
 		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
+	 * with invalid numbers.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testInvalidSum() {
+		LargeNumbers.sumTwoNumbers("29387-da=34249#", "99879!_==---=++43921");
 	}
 
 }
