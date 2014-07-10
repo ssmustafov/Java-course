@@ -1,6 +1,5 @@
 package com.sirma.itt.javacourse.intro.hangman;
 
-import java.io.IOException;
 import java.util.Arrays;
 
 /**
@@ -20,11 +19,8 @@ public class Hangman {
 	 * 
 	 * @param wordsRepository
 	 *            the interface containing the words
-	 * @throws IOException
-	 *             throws exception if it cannot load the given file or the encode of the file is
-	 *             not UTF-8
 	 */
-	public Hangman(HangmanReader wordsRepository) throws IOException {
+	public Hangman(HangmanReader wordsRepository) {
 		this.wordsRepository = wordsRepository;
 		this.wordToGuess = this.wordsRepository.getRandomWord();
 		this.isLettersGuessed = new Boolean[this.wordToGuess.length()];
@@ -107,7 +103,8 @@ public class Hangman {
 	}
 
 	/**
-	 * Checks if the given string is the word to guess.
+	 * Checks if the given string is the word to guess. If the given string is empty it does
+	 * nothing.
 	 * 
 	 * @param str
 	 *            the word to check if it is the current word to guess
@@ -126,7 +123,8 @@ public class Hangman {
 	}
 
 	/**
-	 * Checks the given string if it contains in the current word to guess.
+	 * Checks the given string if it contains in the current word to guess. If the given string is
+	 * empty it does nothing.
 	 * 
 	 * @param str
 	 *            a letter to check if it contains in the current word to guess
