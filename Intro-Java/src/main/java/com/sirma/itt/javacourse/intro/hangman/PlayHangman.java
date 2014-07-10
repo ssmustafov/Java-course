@@ -12,4 +12,5 @@ public class PlayHangman {
 		Hangman game = new Hangman(fileReader);
 		game.run();
 	}
+
 }
