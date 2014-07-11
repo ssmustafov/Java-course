@@ -310,8 +310,8 @@ public class SumatorTest {
 	}
 
 	/**
-	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with empty
-	 * Strings.
+	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with
+	 * numbers.
 	 */
 	@Test
 	public void testSumStringWithNumbers() {
