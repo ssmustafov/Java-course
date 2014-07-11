@@ -60,4 +60,31 @@ public class RandomStringTest {
 			fail("The length of the generated string is not 155");
 		}
 	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.intro.strings.RandomString#generateStringAsciiCode(int)} for
+	 * valid symbols.
+	 */
+	@Test
+	public void testGenerateStringAsciiCodeSymbols() {
+		String actual = randomString.generateStringAsciiCode(155);
+		if (!actual.matches("[a-zA-Z0-9]*")) {
+			fail("The generated string is not valid");
+		}
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.intro.strings.RandomString#generateStringAsciiCode(int)} with
+	 * given length.
+	 */
+	@Test
+	public void testGenerateStringAsciiCodeLength() {
+		String actual = randomString.generateStringAsciiCode(43);
+		if (actual.length() != 43) {
+			fail("The length of the generated string is not 43");
+		}
+	}
+
 }
