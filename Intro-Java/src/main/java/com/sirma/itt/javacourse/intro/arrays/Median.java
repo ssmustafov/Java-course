@@ -16,7 +16,7 @@ public final class Median {
 	}
 
 	/**
-	 * Finds array's median.
+	 * Finds and returns the index of array's median.
 	 * 
 	 * @param array
 	 *            the array's median to be found
@@ -24,6 +24,9 @@ public final class Median {
 	 *         index 1
 	 */
 	public static int findMedianOfArray(int[] array) {
+		if (array.length <= 0) {
+			throw new IllegalArgumentException("The array's size is equal or under zero");
+		}
 		if (array.length == 1) {
 			return 1;
 		}

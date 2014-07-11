@@ -12,6 +12,16 @@ import org.junit.Test;
 public class MedianTest {
 
 	/**
+	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])} with
+	 * empty array.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testFindMedianIndexWithEmptyArray() {
+		int[] array = {};
+		Median.findMedianOfArray(array);
+	}
+
+	/**
 	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.Median#findMedianOfArray(int[])}
 	 * elementary median.
 	 */

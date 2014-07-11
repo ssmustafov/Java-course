@@ -23,10 +23,6 @@ public class QuickSortTest {
 	 * @return true if the array is sorted or false if it's not sorted
 	 */
 	private static boolean isSorted(int[] originalArray, int[] sortedArray) {
-		/*
-		 * for (int i = 0; i < arr.length - 1; i++) { if (arr[i] > arr[i + 1]) { return false; } }
-		 * return true;
-		 */
 		Arrays.sort(originalArray);
 		if (Arrays.equals(originalArray, sortedArray)) {
 			return true;
@@ -36,7 +32,7 @@ public class QuickSortTest {
 
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])} normal size and
-	 * numebrs.
+	 * numbers.
 	 */
 	@Test
 	public void testSimpleSort() {
@@ -52,13 +48,10 @@ public class QuickSortTest {
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])} with empty arrays.
 	 */
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testEmptyArray() {
 		int[] array = {};
 		QuickSort.sort(array);
-		if (array.length > 0) {
-			fail("The array is not empty");
-		}
 	}
 
 	/**
@@ -139,7 +132,7 @@ public class QuickSortTest {
 	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])} with array of 10
 	 * 000 000 elements.
 	 */
-	@Test(timeout = 2500)
+	@Test(timeout = 2000)
 	public void testBigRandomArraySort() {
 		int[] originalArray = new int[10_000_000];
 		int[] sortedArray = new int[10_000_000];

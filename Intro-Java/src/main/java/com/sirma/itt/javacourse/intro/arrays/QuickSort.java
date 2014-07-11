@@ -21,8 +21,8 @@ public final class QuickSort {
 	 *            the array to be sorted
 	 */
 	public static void sort(int[] array) {
-		if (array == null || array.length == 0) {
-			return;
+		if (array.length <= 0) {
+			throw new IllegalArgumentException("The array's size is equal or under zero");
 		}
 
 		quicksort(array, 0, array.length - 1);
