@@ -117,7 +117,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums (concatinates) two strings.
+	 * Sums (concatenates) two strings.
 	 * 
 	 * @param a
 	 *            first string to sum
@@ -126,6 +126,10 @@ public class Sumator {
 	 * @return a + b
 	 */
 	public String sum(String a, String b) {
+		if (a.isEmpty() || b.isEmpty()) {
+			throw new IllegalArgumentException("One of the given strings is empty");
+		}
+
 		StringBuilder sum = new StringBuilder();
 		sum.append(a);
 		sum.append(b);
