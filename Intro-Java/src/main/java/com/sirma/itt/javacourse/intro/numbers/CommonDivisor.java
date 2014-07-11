@@ -9,14 +9,14 @@ package com.sirma.itt.javacourse.intro.numbers;
 public final class CommonDivisor {
 
 	/**
-	 * Constructor for protection from instantiation.
+	 * Protects from instantiation.
 	 */
 	private CommonDivisor() {
 
 	}
 
 	/**
-	 * Finds the Greatest common divisor of two numbers.
+	 * Finds and returns the Greatest common divisor of two numbers.
 	 * 
 	 * @param number1
 	 *            the first number
@@ -34,7 +34,7 @@ public final class CommonDivisor {
 	}
 
 	/**
-	 * Finds the Least common multiple of two numbers.
+	 * Finds and returns the Least common multiple of two numbers.
 	 * 
 	 * @param number1
 	 *            the first number

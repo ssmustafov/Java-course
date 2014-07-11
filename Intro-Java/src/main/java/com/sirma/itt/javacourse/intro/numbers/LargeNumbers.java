@@ -10,7 +10,7 @@ public final class LargeNumbers {
 	private static final char ZERO_CHAR = '0';
 
 	/**
-	 * Protection from instantiation.
+	 * Protects from instantiation.
 	 */
 	private LargeNumbers() {
 
