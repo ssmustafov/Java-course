@@ -310,10 +310,22 @@ public class SumatorTest {
 	}
 
 	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with empty
+	 * Strings.
+	 */
+	@Test
+	public void testSumStringWithNumbers() {
+		String actual = sumator.sum("356", "0024");
+		String expected = "3560024";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
 	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with null.
 	 */
 	@Test(expected = NullPointerException.class)
-	public void testSumString() {
+	public void testSumStringWithNull() {
 		sumator.sum(null, "simple text");
 	}
 
