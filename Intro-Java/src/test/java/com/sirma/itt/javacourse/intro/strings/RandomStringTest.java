@@ -5,7 +5,7 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 /**
- * Class for testing {@link com.sirma.itt.javacourse.intro.strings.RandomString} class.
+ * Tests {@link com.sirma.itt.javacourse.intro.strings.RandomString} class.
  * 
  * @author smustafov
  */
