@@ -14,7 +14,7 @@
   <class id="2" language="java" name="com.sirma.itt.javacourse.intro.hangman.ConsoleHandler" project="Intro-Java" 
     file="/Intro-Java/src/main/java/com/sirma/itt/javacourse/intro/hangman/ConsoleHandler.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="665" y="499"/>    
+    <position height="-1" width="-1" x="665" y="551"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -54,7 +54,7 @@
   <class id="6" language="java" name="com.sirma.itt.javacourse.intro.hangman.Hangman" project="Intro-Java" 
     file="/Intro-Java/src/main/java/com/sirma/itt/javacourse/intro/hangman/Hangman.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="677" y="263"/>    
+    <position height="-1" width="-1" x="677" y="259"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

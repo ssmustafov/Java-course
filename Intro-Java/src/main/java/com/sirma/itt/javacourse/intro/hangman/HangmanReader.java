@@ -19,25 +19,18 @@ public interface HangmanReader {
 	String getRandomWord();
 
 	/**
-	 * Returns the user input as char array.
+	 * Returns the user input.
 	 * 
-	 * @return the user input as char array
+	 * @return the user input
 	 */
-	char[] getUserInput();
+	String getUserInput();
 
 	/**
-	 * Prints string message to user.
+	 * Prints message to user.
 	 * 
 	 * @param message
 	 *            the message to print
 	 */
 	void printMessage(String message);
-
-	/**
-	 * Reads message from user.
-	 * 
-	 * @return the user's message
-	 */
-	String readMessage();
 
 }

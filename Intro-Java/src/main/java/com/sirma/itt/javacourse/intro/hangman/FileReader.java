@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class FileReader implements HangmanReader {
 
 	private ArrayList<String> wordsCollection;
-	private char[] userInput;
 
 	/**
 	 * Initializes file reader.
@@ -69,23 +68,17 @@ public class FileReader implements HangmanReader {
 	@Override
 	public String getRandomWord() {
 		int randomIndex = HangmanReader.RANDOM_GENERATOR.nextInt(this.wordsCollection.size());
-		this.userInput = new char[this.wordsCollection.get(randomIndex).length()];
 		return this.wordsCollection.get(randomIndex);
 	}
 
 	@Override
-	public char[] getUserInput() {
-		return this.userInput;
+	public String getUserInput() {
+		return ConsoleHandler.readLineFromConsole();
 	}
 
 	@Override
 	public void printMessage(String message) {
 		ConsoleHandler.printOnConsole(message);
-	}
-
-	@Override
-	public String readMessage() {
-		return ConsoleHandler.readLineFromConsole();
 	}
 
 }

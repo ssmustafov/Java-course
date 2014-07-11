@@ -9,7 +9,6 @@ package com.sirma.itt.javacourse.intro.hangman;
 public class ArrayReader implements HangmanReader {
 
 	private String[] words;
-	private char[] userInput;
 
 	/**
 	 * Sets words from given array.
@@ -28,13 +27,12 @@ public class ArrayReader implements HangmanReader {
 	@Override
 	public String getRandomWord() {
 		int randomIndex = HangmanReader.RANDOM_GENERATOR.nextInt(this.words.length);
-		this.userInput = new char[this.words[randomIndex].length()];
 		return this.words[randomIndex];
 	}
 
 	@Override
-	public char[] getUserInput() {
-		return this.userInput;
+	public String getUserInput() {
+		return ConsoleHandler.readLineFromConsole();
 	}
 
 	@Override
@@ -42,8 +40,4 @@ public class ArrayReader implements HangmanReader {
 		ConsoleHandler.printOnConsole(message);
 	}
 
-	@Override
-	public String readMessage() {
-		return ConsoleHandler.readLineFromConsole();
-	}
 }

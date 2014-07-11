@@ -34,7 +34,7 @@ public class Hangman {
 		for (int i = 0; i < isLettersGuessed.length; i++) {
 			this.isLettersGuessed[i] = false;
 		}
-		int randomIndex = (int) Math.floor(Math.random() * this.wordToGuess.length());
+		int randomIndex = HangmanReader.RANDOM_GENERATOR.nextInt(wordToGuess.length());
 		this.setVisibleLetter(this.wordToGuess.charAt(randomIndex));
 	}
 
@@ -155,11 +155,29 @@ public class Hangman {
 	 *            the string to be checked
 	 * @return true if the parameter is word or false if the parameter is letter
 	 */
-	public Boolean isWord(String str) {
+	private Boolean isWord(String str) {
 		if (str.length() >= 2) {
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * Checks if the user is wined the game or not.
+	 * 
+	 * @return true if the user is hand or false if its not
+	 */
+	public Boolean isWon() {
+		return isWordGuessed();
+	}
+
+	/**
+	 * Gets the attempts to guess left.
+	 * 
+	 * @return the attempts to guess left
+	 */
+	public int getAttemptsToGuess() {
+		return attemptsToGuess;
 	}
 
 	/**
@@ -169,17 +187,18 @@ public class Hangman {
 		while (true) {
 			if (this.isWordGuessed()) {
 				this.hangmanReader.printMessage(System.lineSeparator() + this.wordToGuess);
-				this.hangmanReader.printMessage(System.lineSeparator() + WON_MESSAGE);
+				this.hangmanReader.printMessage(System.lineSeparator() + WON_MESSAGE
+						+ System.lineSeparator());
+				this.hangmanReader.printMessage(System.lineSeparator());
 				break;
 			}
 
 			if (this.areAttemptsToGuessOver()) {
 				this.hangmanReader.printMessage(System.lineSeparator() + HANGED_MESSAGE);
 				this.hangmanReader.printMessage(System.lineSeparator() + WORD_MESSAGE
-						+ this.wordToGuess);
+						+ this.wordToGuess + System.lineSeparator());
 				break;
 			}
-
 			for (int i = 0; i < this.wordToGuess.length(); i++) {
 				if (this.isLettersGuessed[i]) {
 					String letter = Character.toString(this.wordToGuess.charAt(i));
@@ -192,12 +211,13 @@ public class Hangman {
 					+ this.attemptsToGuess);
 			this.hangmanReader.printMessage(System.lineSeparator());
 
-			String line = this.hangmanReader.readMessage();
+			String line = this.hangmanReader.getUserInput();
 			line = line.trim();
 			if (this.isWord(line)) {
 				this.checkWord(line);
 			} else {
 				this.checkLetter(line);
+
 			}
 		}
 	}
