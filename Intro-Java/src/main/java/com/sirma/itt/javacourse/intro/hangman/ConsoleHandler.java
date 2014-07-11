@@ -7,12 +7,12 @@ import java.util.Scanner;
  * 
  * @author smustafov
  */
-public final class ConsoleRender {
+public final class ConsoleHandler {
 
 	/**
 	 * Protects from instantiation.
 	 */
-	private ConsoleRender() {
+	private ConsoleHandler() {
 
 	}
 

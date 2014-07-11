@@ -7,11 +7,15 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
+ * Reads words for from text file for the game. Implements HangmanReader interface. It works with
+ * the console.
+ * 
  * @author smustafov
  */
 public class FileReader implements HangmanReader {
 
 	private ArrayList<String> wordsCollection;
+	private char[] userInput;
 
 	/**
 	 * Initializes file reader.
@@ -65,7 +69,23 @@ public class FileReader implements HangmanReader {
 	@Override
 	public String getRandomWord() {
 		int randomIndex = HangmanReader.RANDOM_GENERATOR.nextInt(this.wordsCollection.size());
+		this.userInput = new char[this.wordsCollection.get(randomIndex).length()];
 		return this.wordsCollection.get(randomIndex);
+	}
+
+	@Override
+	public char[] getUserInput() {
+		return this.userInput;
+	}
+
+	@Override
+	public void printMessage(String message) {
+		ConsoleHandler.printOnConsole(message);
+	}
+
+	@Override
+	public String readMessage() {
+		return ConsoleHandler.readLineFromConsole();
 	}
 
 }

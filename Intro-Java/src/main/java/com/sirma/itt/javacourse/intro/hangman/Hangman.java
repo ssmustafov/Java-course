@@ -9,7 +9,13 @@ import java.util.Arrays;
  */
 public class Hangman {
 
-	private HangmanReader wordsRepository;
+	private static final String HANGED_MESSAGE = "YOU HAVE BEEN HANGED!!!";
+	private static final String WON_MESSAGE = "YOU WON!!!";
+	private static final String REMAINING_ATTEMPTS_MESSAGE = "Remaining attempts: ";
+	private static final String WORD_MESSAGE = "The word was: ";
+	private static final String HIDDEN_LETTER_SYMBOL = "_ ";
+
+	private HangmanReader hangmanReader;
 	private String wordToGuess;
 	private Boolean[] isLettersGuessed;
 	private int attemptsToGuess = 5;
@@ -17,12 +23,12 @@ public class Hangman {
 	/**
 	 * Initializes the game.
 	 * 
-	 * @param wordsRepository
+	 * @param reader
 	 *            the interface containing the words
 	 */
-	public Hangman(HangmanReader wordsRepository) {
-		this.wordsRepository = wordsRepository;
-		this.wordToGuess = this.wordsRepository.getRandomWord();
+	public Hangman(HangmanReader reader) {
+		this.hangmanReader = reader;
+		this.wordToGuess = this.hangmanReader.getRandomWord();
 		this.isLettersGuessed = new Boolean[this.wordToGuess.length()];
 
 		for (int i = 0; i < isLettersGuessed.length; i++) {
@@ -157,34 +163,36 @@ public class Hangman {
 	}
 
 	/**
-	 * Contains all the logic for the game. It works with the console.
+	 * Contains all the logic for the game.
 	 */
 	public void run() {
 		while (true) {
 			if (this.isWordGuessed()) {
-				ConsoleRender.printOnConsole("\n" + this.wordToGuess);
-				ConsoleRender.printOnConsole("\nYOU WON!\n");
+				this.hangmanReader.printMessage(System.lineSeparator() + this.wordToGuess);
+				this.hangmanReader.printMessage(System.lineSeparator() + WON_MESSAGE);
 				break;
 			}
 
 			if (this.areAttemptsToGuessOver()) {
-				ConsoleRender.printOnConsole("\nYOU HAVE BEEN HANGED\n");
-				ConsoleRender.printOnConsole("The word was: " + this.wordToGuess);
-				ConsoleRender.printOnConsole("\n");
+				this.hangmanReader.printMessage(System.lineSeparator() + HANGED_MESSAGE);
+				this.hangmanReader.printMessage(System.lineSeparator() + WORD_MESSAGE
+						+ this.wordToGuess);
 				break;
 			}
 
 			for (int i = 0; i < this.wordToGuess.length(); i++) {
 				if (this.isLettersGuessed[i]) {
-					ConsoleRender.printOnConsole(this.wordToGuess.charAt(i));
+					String letter = Character.toString(this.wordToGuess.charAt(i));
+					this.hangmanReader.printMessage(letter);
 				} else {
-					ConsoleRender.printOnConsole("_ ");
+					this.hangmanReader.printMessage(HIDDEN_LETTER_SYMBOL);
 				}
 			}
-			ConsoleRender.printOnConsole("\nRemaining attempts to guess: " + this.attemptsToGuess);
-			ConsoleRender.printOnConsole("\n");
+			this.hangmanReader.printMessage(System.lineSeparator() + REMAINING_ATTEMPTS_MESSAGE
+					+ this.attemptsToGuess);
+			this.hangmanReader.printMessage(System.lineSeparator());
 
-			String line = ConsoleRender.readLineFromConsole();
+			String line = this.hangmanReader.readMessage();
 			line = line.trim();
 			if (this.isWord(line)) {
 				this.checkWord(line);

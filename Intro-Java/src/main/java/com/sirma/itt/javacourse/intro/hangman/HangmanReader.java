@@ -12,10 +12,32 @@ public interface HangmanReader {
 	Random RANDOM_GENERATOR = new Random();
 
 	/**
-	 * Gets random word.
+	 * Returns a random word.
 	 * 
 	 * @return random word
 	 */
 	String getRandomWord();
+
+	/**
+	 * Returns the user input as char array.
+	 * 
+	 * @return the user input as char array
+	 */
+	char[] getUserInput();
+
+	/**
+	 * Prints string message to user.
+	 * 
+	 * @param message
+	 *            the message to print
+	 */
+	void printMessage(String message);
+
+	/**
+	 * Reads message from user.
+	 * 
+	 * @return the user's message
+	 */
+	String readMessage();
 
 }
