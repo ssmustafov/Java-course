@@ -106,4 +106,19 @@ public class BinaryTreeTest {
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.trees.BinaryTree#insert(int)}. Tries to add
+	 * existing element.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testInsertExistingElement() {
+		BinaryTree tree = new BinaryTree();
+		tree.insert(40);
+		tree.insert(78);
+		tree.insert(25);
+		tree.insert(78);
+		tree.insert(10);
+		tree.insert(32);
+	}
+
 }

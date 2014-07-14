@@ -42,6 +42,17 @@ public class BinaryTreeNodeTest {
 
 	/**
 	 * Tests
+	 * {@link com.sirma.itt.javacourse.objects.trees.BinaryTreeNode#setLeftChild(com.sirma.itt.javacourse.objects.trees.BinaryTreeNode)}
+	 * with null.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetLeftChildWithNull() {
+		BinaryTreeNode<Integer> node = new BinaryTreeNode<Integer>(100);
+		node.setLeftChild(null);
+	}
+
+	/**
+	 * Tests
 	 * {@link com.sirma.itt.javacourse.objects.trees.BinaryTreeNode#setRightChild(com.sirma.itt.javacourse.objects.trees.BinaryTreeNode)}
 	 * .
 	 */
@@ -53,6 +64,17 @@ public class BinaryTreeNodeTest {
 		int expected = 120;
 
 		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.objects.trees.BinaryTreeNode#setRightChild(com.sirma.itt.javacourse.objects.trees.BinaryTreeNode)}
+	 * with null.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testSetRightChildWithNull() {
+		BinaryTreeNode<Integer> node = new BinaryTreeNode<Integer>(44);
+		node.setRightChild(null);
 	}
 
 }
