@@ -8,7 +8,7 @@ package com.sirma.itt.javacourse.objects.trees;
 public class BinaryTree {
 
 	private BinaryTreeNode<Integer> root;
-	private StringBuilder elements = new StringBuilder();
+	private StringBuilder elementsAsString = new StringBuilder();
 
 	/**
 	 * Checks if the binary tree contains given element.
@@ -83,7 +83,7 @@ public class BinaryTree {
 		}
 
 		inOrderSort(root.getLeftChild());
-		this.elements.append(root.getValue() + " ");
+		this.elementsAsString.append(root.getValue() + " ");
 		inOrderSort(root.getRightChild());
 	}
 
@@ -93,9 +93,9 @@ public class BinaryTree {
 	 * @return - the elements in the binary tree
 	 */
 	public String getInOrderSort() {
-		this.elements.setLength(0);
+		this.elementsAsString.setLength(0);
 		inOrderSort(root);
-		return elements.toString();
+		return elementsAsString.toString();
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class BinaryTree {
 			return;
 		}
 
-		this.elements.append(root.getValue() + " ");
+		this.elementsAsString.append(root.getValue() + " ");
 		preOrderSort(root.getLeftChild());
 		preOrderSort(root.getRightChild());
 	}
@@ -120,9 +120,9 @@ public class BinaryTree {
 	 * @return - the elements in the binary tree
 	 */
 	public String getPreOrderSort() {
-		this.elements.setLength(0);
+		this.elementsAsString.setLength(0);
 		preOrderSort(root);
-		return elements.toString();
+		return elementsAsString.toString();
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class BinaryTree {
 
 		postOrderSort(root.getLeftChild());
 		postOrderSort(root.getRightChild());
-		this.elements.append(root.getValue() + " ");
+		this.elementsAsString.append(root.getValue() + " ");
 	}
 
 	/**
@@ -147,9 +147,9 @@ public class BinaryTree {
 	 * @return - the elements in the binary tree
 	 */
 	public String getPostOrderSort() {
-		this.elements.setLength(0);
+		this.elementsAsString.setLength(0);
 		postOrderSort(root);
-		return elements.toString();
+		return elementsAsString.toString();
 	}
 
 }
