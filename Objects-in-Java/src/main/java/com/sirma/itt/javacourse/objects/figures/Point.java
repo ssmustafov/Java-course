@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.objects.figures;
 
 /**
+ * Represents a point with coordinates X and Y in 2D space.
+ * 
  * @author smustafov
  */
 public class Point {
@@ -12,9 +14,9 @@ public class Point {
 	 * Creates new point with given coordinates X and Y.
 	 * 
 	 * @param x
-	 *            the x coordinate
+	 *            the X coordinate
 	 * @param y
-	 *            the y coordinate
+	 *            the Y coordinate
 	 */
 	public Point(int x, int y) {
 		this.setX(x);
@@ -22,38 +24,38 @@ public class Point {
 	}
 
 	/**
-	 * Getter method for x.
+	 * Gets X coordinate.
 	 *
-	 * @return the x
+	 * @return the X coordinate
 	 */
 	public int getX() {
 		return x;
 	}
 
 	/**
-	 * Setter method for x.
+	 * Sets X coordinate.
 	 *
 	 * @param x
-	 *            the x to set
+	 *            the X coordinate to set
 	 */
 	public void setX(int x) {
 		this.x = x;
 	}
 
 	/**
-	 * Getter method for y.
+	 * Gets Y coordinate.
 	 *
-	 * @return the y
+	 * @return the Y coordinate
 	 */
 	public int getY() {
 		return y;
 	}
 
 	/**
-	 * Setter method for y.
+	 * Sets Y coordinate.
 	 *
 	 * @param y
-	 *            the y to set
+	 *            the Y coordinate to set
 	 */
 	public void setY(int y) {
 		this.y = y;
