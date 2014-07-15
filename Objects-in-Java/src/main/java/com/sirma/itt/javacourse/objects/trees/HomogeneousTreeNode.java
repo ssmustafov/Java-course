@@ -13,7 +13,6 @@ public class HomogeneousTreeNode<T> {
 
 	private T value;
 	private ArrayList<HomogeneousTreeNode<T>> children;
-	private boolean hasParent;
 
 	/**
 	 * Creates a homogeneous tree node.
@@ -47,11 +46,7 @@ public class HomogeneousTreeNode<T> {
 		if (child == null) {
 			throw new IllegalArgumentException("The given value is null");
 		}
-		if (child.hasParent) {
-			throw new IllegalArgumentException("The node already has a parent");
-		}
 
-		child.hasParent = true;
 		this.children.add(child);
 	}
 

@@ -13,7 +13,7 @@ public class HomogeneousTree<T> {
 	private StringBuilder elementsAsString = new StringBuilder();
 
 	/**
-	 * Creates tree.
+	 * Creates homogeneous tree.
 	 * 
 	 * @param value
 	 *            - the value of the node
@@ -39,6 +39,20 @@ public class HomogeneousTree<T> {
 		} else {
 			this.root.addChild(node);
 		}
+	}
+
+	/**
+	 * Adds new element in the homogeneous tree.
+	 * 
+	 * @param node
+	 *            - the node to be added
+	 * @param value
+	 *            - the value to be added to the tree
+	 */
+	public void insert(HomogeneousTreeNode<T> node, T value) {
+		HomogeneousTreeNode<T> child = new HomogeneousTreeNode<T>(value);
+		this.root.addChild(node);
+		node.addChild(child);
 	}
 
 	/**
@@ -70,4 +84,5 @@ public class HomogeneousTree<T> {
 		this.getDFS(this.root, new String());
 		return this.elementsAsString.toString();
 	}
+
 }

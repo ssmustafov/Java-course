@@ -33,6 +33,8 @@ public class Run {
 		homoTree.insert(4);
 		homoTree.insert(-234);
 		homoTree.insert(54);
+		homoTree.insert(new HomogeneousTreeNode<Integer>(12), 1);
+		homoTree.insert(new HomogeneousTreeNode<Integer>(42), 14);
 
 		System.out.println(homoTree.getDFS());
 
