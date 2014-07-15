@@ -11,7 +11,6 @@ public class Quadrangle extends Figure {
 
 	public Quadrangle(int x, int y) {
 		super(x, y);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
