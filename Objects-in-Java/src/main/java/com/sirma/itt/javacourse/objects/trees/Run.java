@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.objects.trees;
 
 /**
- * Shows how the BinaryTree class can be used.
+ * Shows how the tree classes can be used.
  * 
  * @author smustafov
  */

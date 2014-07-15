@@ -23,7 +23,7 @@ public class HeterogeneousTree<T> {
 			throw new IllegalArgumentException("The given value is null");
 		}
 
-		this.root = new HeterogeneousTreeNode<T>(value);
+		root = new HeterogeneousTreeNode<T>(value);
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class HeterogeneousTree<T> {
 		if (root == null) {
 			root = node;
 		} else {
-			this.root.addChild(node);
+			root.addChild(node);
 		}
 	}
 
@@ -51,7 +51,7 @@ public class HeterogeneousTree<T> {
 	 */
 	public void insert(HeterogeneousTreeNode<T> node, T value) {
 		HeterogeneousTreeNode<T> child = new HeterogeneousTreeNode<T>(value);
-		this.root.addChild(node);
+		root.addChild(node);
 		node.addChild(child);
 	}
 
@@ -68,7 +68,7 @@ public class HeterogeneousTree<T> {
 			return;
 		}
 
-		this.elementsAsString.append(spaces + root.getValue() + System.lineSeparator());
+		elementsAsString.append(spaces + root.getValue() + System.lineSeparator());
 		HeterogeneousTreeNode<T> child = null;
 		for (int i = 0; i < root.getChildren().size(); i++) {
 			child = root.getChild(i);
@@ -80,9 +80,9 @@ public class HeterogeneousTree<T> {
 	 * @return - the tree as string in Depth First Search (DFS) manner
 	 */
 	public String getDFS() {
-		this.elementsAsString.setLength(0);
-		this.getDFS(this.root, new String());
-		return this.elementsAsString.toString();
+		elementsAsString.setLength(0);
+		getDFS(root, new String());
+		return elementsAsString.toString();
 	}
 
 }
