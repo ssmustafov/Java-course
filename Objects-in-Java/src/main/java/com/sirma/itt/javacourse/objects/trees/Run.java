@@ -38,5 +38,14 @@ public class Run {
 
 		System.out.println(homoTree.getDFS());
 
+		System.out.println();
+		System.out.println("Hetero tree:");
+		HeterogeneousTree<Object> heteroTree = new HeterogeneousTree<Object>(40);
+		heteroTree.insert("Text");
+		heteroTree.insert(12.53214);
+		heteroTree.insert(984938448903L);
+
+		System.out.println(heteroTree.getDFS());
+
 	}
 }
