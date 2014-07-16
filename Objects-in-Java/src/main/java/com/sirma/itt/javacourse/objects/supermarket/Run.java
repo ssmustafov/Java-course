@@ -2,8 +2,26 @@ package com.sirma.itt.javacourse.objects.supermarket;
 
 import java.math.BigDecimal;
 
-public class Run {
+/**
+ * Shows how the supermarket can be used.
+ * 
+ * @author smustafov
+ */
+public final class Run {
 
+	/**
+	 * Protects from instantiation.
+	 */
+	private Run() {
+
+	}
+
+	/**
+	 * Main method.
+	 * 
+	 * @param args
+	 *            - args
+	 */
 	public static void main(String[] args) {
 		Supermarket market = new Supermarket("My market");
 

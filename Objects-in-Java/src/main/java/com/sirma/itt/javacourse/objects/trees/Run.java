@@ -5,8 +5,21 @@ package com.sirma.itt.javacourse.objects.trees;
  * 
  * @author smustafov
  */
-public class Run {
+public final class Run {
 
+	/**
+	 * Protects from instantiation.
+	 */
+	private Run() {
+
+	}
+
+	/**
+	 * Main method.
+	 * 
+	 * @param args
+	 *            - args
+	 */
 	public static void main(String[] args) {
 		BinaryTree binaryTree = new BinaryTree();
 		System.out.println("Binary tree:");
