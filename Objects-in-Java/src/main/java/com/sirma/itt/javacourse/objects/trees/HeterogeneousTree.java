@@ -34,11 +34,23 @@ public class HeterogeneousTree<T> {
 	 */
 	public void insert(T value) {
 		HeterogeneousTreeNode<T> node = new HeterogeneousTreeNode<T>(value);
-		if (root == null) {
-			root = node;
-		} else {
-			root.addChild(node);
-		}
+		root.addChild(node);
+
+	}
+
+	/**
+	 * Adds new element in the homogeneous tree.
+	 * 
+	 * @param index
+	 *            - the index
+	 * @param value
+	 *            - the value to be added to the tree
+	 */
+	public void insert(T value, int index) {
+		HeterogeneousTreeNode<T> child = new HeterogeneousTreeNode<T>(value);
+		// root.addChild(node);
+		// node.addChild(child);
+		root.getChild(index).addChild(child);
 	}
 
 	/**

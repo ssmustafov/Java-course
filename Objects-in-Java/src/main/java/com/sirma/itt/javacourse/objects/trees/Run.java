@@ -36,7 +36,8 @@ public final class Run {
 		System.out.println("Post-order sort: " + binaryTree.getPostOrderSort());
 
 		// search for element in the tree
-		System.out.println("Does 25 exists in the tree: " + binaryTree.doesElementExists(25));
+		System.out
+				.println("Does 25 exists in the binary tree: " + binaryTree.doesElementExists(25));
 
 		System.out.println();
 		System.out.println("Homo tree:");
@@ -59,6 +60,8 @@ public final class Run {
 		heteroTree.insert(324.9385f);
 		heteroTree.insert("Break");
 		heteroTree.insert(45);
+		heteroTree.insert(55, 2);
+		heteroTree.insert(78, 4);
 		System.out.println(heteroTree.getDFS());
 
 	}
