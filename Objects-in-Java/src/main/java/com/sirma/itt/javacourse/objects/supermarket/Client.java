@@ -1,21 +1,32 @@
 package com.sirma.itt.javacourse.objects.supermarket;
 
 /**
+ * Represents client.
+ * 
  * @author smustafov
  */
-public class Client extends Supermarket {
+public class Client extends Person {
 
-	@SuppressWarnings("unused")
-	private Person client;
+	private static int clientID = 0;
 
 	/**
 	 * Creates a new client.
 	 * 
-	 * @param client
-	 *            - the client to be created
+	 * @param name
+	 *            - the client's name to be set
+	 * @param age
+	 *            - the client's age to be set
 	 */
-	public Client(Person client) {
-		this.client = client;
+	public Client(String name, int age) {
+		super(name, age);
+		Client.clientID++;
+	}
+
+	/**
+	 * @return - the client's ID
+	 */
+	public int getClientID() {
+		return clientID;
 	}
 
 }

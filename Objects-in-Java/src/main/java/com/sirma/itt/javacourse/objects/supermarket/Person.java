@@ -19,13 +19,6 @@ public class Person {
 	 *            - the person's age to be set
 	 */
 	public Person(String name, int age) {
-		if (age < 0) {
-			throw new IllegalArgumentException("Cannot give negative age to person");
-		}
-		if (name.isEmpty()) {
-			throw new IllegalArgumentException("The name cannot be empty");
-		}
-
 		this.setName(name);
 		this.setAge(age);
 	}
@@ -46,6 +39,10 @@ public class Person {
 	 *            the name to set
 	 */
 	public void setName(String name) {
+		if (name.isEmpty()) {
+			throw new IllegalArgumentException("The person's name cannot be empty");
+		}
+
 		this.name = name;
 	}
 
@@ -65,6 +62,10 @@ public class Person {
 	 *            the age to set
 	 */
 	public void setAge(int age) {
+		if (age < 0) {
+			throw new IllegalArgumentException("The person's age cannot be under zero");
+		}
+
 		this.age = age;
 	}
 
