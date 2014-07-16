@@ -53,11 +53,11 @@ public final class Run {
 
 		System.out.println();
 		System.out.println("Hetero tree:");
-		HeterogeneousTree<Object> heteroTree = new HeterogeneousTree<Object>(40);
+		HeterogeneousTree<Object> heteroTree = new HeterogeneousTree<Object>(50);
 		heteroTree.insert("Text");
-		heteroTree.insert(12.53214);
-		heteroTree.insert(984938448903L);
-
+		heteroTree.insert(9834753495455L);
+		heteroTree.insert(324.9385f);
+		heteroTree.insert("Break");
 		System.out.println(heteroTree.getDFS());
 
 	}
