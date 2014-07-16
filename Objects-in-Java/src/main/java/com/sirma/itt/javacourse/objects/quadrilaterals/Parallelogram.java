@@ -30,6 +30,20 @@ public class Parallelogram extends Figure {
 		this.height = height;
 	}
 
+	/**
+	 * @return - the width of the parallelogram
+	 */
+	public int getWidth() {
+		return width;
+	}
+
+	/**
+	 * @return - the height of the parallelogram
+	 */
+	public int getHeight() {
+		return height;
+	}
+
 	@Override
 	public void draw() {
 		System.out.println();
