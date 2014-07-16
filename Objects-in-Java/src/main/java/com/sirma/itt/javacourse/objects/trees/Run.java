@@ -58,6 +58,7 @@ public final class Run {
 		heteroTree.insert(9834753495455L);
 		heteroTree.insert(324.9385f);
 		heteroTree.insert("Break");
+		heteroTree.insert(45);
 		System.out.println(heteroTree.getDFS());
 
 	}

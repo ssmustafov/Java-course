@@ -42,20 +42,6 @@ public class HeterogeneousTree<T> {
 	}
 
 	/**
-	 * Adds new element in the homogeneous tree.
-	 * 
-	 * @param node
-	 *            - the node to be added
-	 * @param value
-	 *            - the value to be added to the tree
-	 */
-	public void insert(HeterogeneousTreeNode<T> node, T value) {
-		HeterogeneousTreeNode<T> child = new HeterogeneousTreeNode<T>(value);
-		root.addChild(node);
-		node.addChild(child);
-	}
-
-	/**
 	 * Traverses tree in Depth First Search (DFS) manner.
 	 * 
 	 * @param root
