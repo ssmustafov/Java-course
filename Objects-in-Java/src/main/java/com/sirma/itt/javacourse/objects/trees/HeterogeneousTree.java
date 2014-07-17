@@ -48,10 +48,25 @@ public class HeterogeneousTree<T> {
 	 * 
 	 * @param value
 	 *            - the value to be added to the tree
+	 * @param node
+	 *            - the node
 	 */
-	public void insert(T value) {
-		HeterogeneousTreeNode<T> node = new HeterogeneousTreeNode<T>(value);
-		root.addChild(node);
+	private void insert(T value, HeterogeneousTreeNode<T> node) {
+		HeterogeneousTreeNode<T> currentNode = node;
+
+		if (currentNode.getValue().hashCode() < value.hashCode()) {
+			if (currentNode.getRightChild() == null) {
+				currentNode.setRightChild(new HeterogeneousTreeNode<T>(value));
+			} else {
+				insert(value, currentNode.getRightChild());
+			}
+		} else {
+			if (currentNode.getLeftChild() == null) {
+				currentNode.setLeftChild(new HeterogeneousTreeNode<T>(value));
+			} else {
+				insert(value, currentNode.getLeftChild());
+			}
+		}
 	}
 
 	/**
@@ -59,12 +74,13 @@ public class HeterogeneousTree<T> {
 	 * 
 	 * @param value
 	 *            - the value to be added to the tree
-	 * @param index
-	 *            - the index of parent
 	 */
-	public void insert(T value, int index) {
-		HeterogeneousTreeNode<T> child = new HeterogeneousTreeNode<T>(value);
-		root.getChild(index).addChild(child);
+	public void insert(T value) {
+		if (root == null) {
+			setRoot(new HeterogeneousTreeNode<T>(value));
+			return;
+		}
+		insert(value, root);
 	}
 
 	/**
@@ -77,32 +93,83 @@ public class HeterogeneousTree<T> {
 	}
 
 	/**
-	 * Traverses tree in Depth First Search (DFS) manner.
+	 * Sorts the elements in the binary tree by in-order manner.
 	 * 
 	 * @param root
-	 *            - the root of the tree to be traversed.
-	 * @param spaces
-	 *            - the spaces used for representation of the parent-child relation.
+	 *            - the root of the binary tree
 	 */
-	private void getDFS(HeterogeneousTreeNode<T> root, String spaces) {
+	private void inOrderSort(HeterogeneousTreeNode<T> root) {
 		if (root == null) {
 			return;
 		}
 
-		elementsAsString.append(spaces + root.getValue() + System.lineSeparator());
-		HeterogeneousTreeNode<T> child = null;
-		for (int i = 0; i < root.getChildren().size(); i++) {
-			child = root.getChild(i);
-			getDFS(child, spaces + "  ");
-		}
+		inOrderSort(root.getLeftChild());
+		this.elementsAsString.append(root.getValue() + " ");
+		inOrderSort(root.getRightChild());
 	}
 
 	/**
-	 * @return - the tree as string in Depth First Search (DFS) manner
+	 * Returns the elements of the binary tree sorted by in-order manner.
+	 * 
+	 * @return - the elements in the binary tree
 	 */
-	public String getDFS() {
-		elementsAsString.setLength(0);
-		getDFS(root, new String());
+	public String getInOrderSort() {
+		this.elementsAsString.setLength(0);
+		inOrderSort(root);
+		return elementsAsString.toString();
+	}
+
+	/**
+	 * Sorts the elements in the binary tree by pre-order manner.
+	 * 
+	 * @param root
+	 *            - the root of the binary tree
+	 */
+	private void preOrderSort(HeterogeneousTreeNode<T> root) {
+		if (root == null) {
+			return;
+		}
+
+		this.elementsAsString.append(root.getValue() + " ");
+		preOrderSort(root.getLeftChild());
+		preOrderSort(root.getRightChild());
+	}
+
+	/**
+	 * Returns the elements of the binary tree sorted by pre-order manner.
+	 * 
+	 * @return - the elements in the binary tree
+	 */
+	public String getPreOrderSort() {
+		this.elementsAsString.setLength(0);
+		preOrderSort(root);
+		return elementsAsString.toString();
+	}
+
+	/**
+	 * Sorts the elements in the binary tree by post-order manner.
+	 * 
+	 * @param root
+	 *            - the root of the binary tree
+	 */
+	private void postOrderSort(HeterogeneousTreeNode<T> root) {
+		if (root == null) {
+			return;
+		}
+
+		postOrderSort(root.getLeftChild());
+		postOrderSort(root.getRightChild());
+		this.elementsAsString.append(root.getValue() + " ");
+	}
+
+	/**
+	 * Returns the elements of the binary tree sorted by post-order manner.
+	 * 
+	 * @return - the elements in the binary tree
+	 */
+	public String getPostOrderSort() {
+		this.elementsAsString.setLength(0);
+		postOrderSort(root);
 		return elementsAsString.toString();
 	}
 

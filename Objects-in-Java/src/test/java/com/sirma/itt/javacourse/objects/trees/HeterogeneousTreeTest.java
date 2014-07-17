@@ -36,50 +36,123 @@ public class HeterogeneousTreeTest {
 	/**
 	 * Tests
 	 * {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTree#setRoot(HeterogeneousTreeNode)}
-	 * .
+	 * by setting the root without constructor.
 	 */
 	@Test
 	public void testHeterogeneousTreeSetRoot() {
-		HeterogeneousTree<Integer> tree = new HeterogeneousTree<Integer>();
-		HeterogeneousTreeNode<Integer> node = new HeterogeneousTreeNode<Integer>(123);
+		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>();
+		HeterogeneousTreeNode<Object> node = new HeterogeneousTreeNode<Object>(123);
 		tree.setRoot(node);
-		int actual = tree.getRoot().getValue();
-		int expected = 123;
+		Object actual = tree.getRoot().getValue();
+		Object expected = 123;
 
 		assertEquals(expected, actual);
 	}
 
 	/**
-	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTree#insert(Object)} with
-	 * different types.
+	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTree#insert(Object)}.
 	 */
 	@Test
 	public void testHeterogeneousTreeInsert() {
-		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>(50);
-		tree.insert("Text");
-		tree.insert(12.345f);
-		tree.insert('Q');
-		tree.insert(100);
-		Object actual = tree.getRoot().getChild(2).getValue();
-		Object expected = 'Q';
+		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>("root");
+		tree.insert(2);
+		tree.insert("text");
+		tree.insert(12.987);
+		tree.insert(4127909247827L);
+		Object actual = tree.getRoot().getValue();
+		Object expected = "root";
 
 		assertEquals(expected, actual);
 	}
 
 	/**
-	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTree#insert(Object)} with
-	 * different types at given index.
+	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTree#getInOrderSort()}.
 	 */
 	@Test
-	public void testHeterogeneousTreeInsertAt() {
-		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>(50);
-		tree.insert("Text");
-		tree.insert(12.345f);
+	public void testGetInOrderSort() {
+		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>("root");
+		tree.insert(23);
 		tree.insert('Q');
+		tree.insert("rightchild");
 		tree.insert(100);
-		tree.insert(22, 1);
-		Object actual = tree.getRoot().getChild(1).getChild(0).getValue();
-		Object expected = 22;
+		tree.insert(1.999f);
+		String actual = tree.getInOrderSort();
+		String expected = "rightchild 23 Q 100 root 1.999 ";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTree#getInOrderSort()} with
+	 * one element in the tree.
+	 */
+	@Test
+	public void testGetInOrderSortWithOneElement() {
+		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>();
+		tree.insert(23);
+		String actual = tree.getInOrderSort();
+		String expected = "23 ";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTree#getPreOrderSort()}.
+	 */
+	@Test
+	public void testGetPreOrderSort() {
+		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>("root");
+		tree.insert(23);
+		tree.insert('Q');
+		tree.insert("rightchild");
+		tree.insert(100);
+		tree.insert(1.999f);
+		String actual = tree.getPreOrderSort();
+		String expected = "root 23 rightchild Q 100 1.999 ";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTree#getPreOrderSort()} wit
+	 * one element in the tree.
+	 */
+	@Test
+	public void testGetPreOrderSortWithOneElement() {
+		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>();
+		tree.insert('Q');
+		String actual = tree.getPreOrderSort();
+		String expected = "Q ";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTree#getPostOrderSort()}.
+	 */
+	@Test
+	public void testGetPostOrderSort() {
+		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>("root");
+		tree.insert(23);
+		tree.insert('Q');
+		tree.insert("rightchild");
+		tree.insert(100);
+		tree.insert(1.999f);
+		String actual = tree.getPostOrderSort();
+		String expected = "rightchild 100 Q 23 1.999 root ";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTree#getPostOrderSort()}
+	 * with one element in the tree.
+	 */
+	@Test
+	public void testGetPostOrderSortWithOneElement() {
+		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>("root");
+		String actual = tree.getPostOrderSort();
+		String expected = "root ";
 
 		assertEquals(expected, actual);
 	}

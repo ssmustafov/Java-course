@@ -1,7 +1,5 @@
 package com.sirma.itt.javacourse.objects.trees;
 
-import java.util.ArrayList;
-
 /**
  * Represents a node for heterogeneous tree.
  * 
@@ -12,7 +10,8 @@ import java.util.ArrayList;
 public class HeterogeneousTreeNode<T> {
 
 	private T value;
-	private ArrayList<HeterogeneousTreeNode<T>> children;
+	private HeterogeneousTreeNode<T> leftChild;
+	private HeterogeneousTreeNode<T> rightChild;
 
 	/**
 	 * Creates a homogeneous tree node.
@@ -26,7 +25,6 @@ public class HeterogeneousTreeNode<T> {
 		}
 
 		this.value = value;
-		this.children = new ArrayList<>();
 	}
 
 	/**
@@ -37,73 +35,37 @@ public class HeterogeneousTreeNode<T> {
 	}
 
 	/**
-	 * Adds new child to the node.
+	 * @return - the left child of the node
+	 */
+	public HeterogeneousTreeNode<T> getLeftChild() {
+		return leftChild;
+	}
+
+	/**
+	 * Sets the left child of the node.
 	 * 
 	 * @param child
-	 *            - the child to be added
+	 *            - the child to be set
 	 */
-	public void addChild(HeterogeneousTreeNode<T> child) {
-		if (child == null) {
-			throw new IllegalArgumentException("The given value is null");
-		}
-
-		if (children == null) {
-			children = new ArrayList<HeterogeneousTreeNode<T>>();
-		}
-		this.children.add(child);
+	public void setLeftChild(HeterogeneousTreeNode<T> child) {
+		leftChild = child;
 	}
 
 	/**
-	 * @return - the children of the node.
+	 * @return - the right child of the node
 	 */
-	public ArrayList<HeterogeneousTreeNode<T>> getChildren() {
-		if (children == null) {
-			return new ArrayList<HeterogeneousTreeNode<T>>();
-		}
-		return children;
+	public HeterogeneousTreeNode<T> getRightChild() {
+		return rightChild;
 	}
 
 	/**
-	 * Inserts a node at specified position in the child list.
+	 * Sets the right child of the node.
 	 * 
-	 * @param index
-	 *            - the position to insert at
 	 * @param child
-	 *            - the node to insert
+	 *            - the child to be set
 	 */
-	public void insertChildAt(int index, HeterogeneousTreeNode<T> child) {
-		children.add(index, child);
-	}
-
-	/**
-	 * Removes a child from the node at given index.
-	 * 
-	 * @param index
-	 *            - the position of the child to be removed
-	 */
-	public void removeChildAt(int index) {
-		children.remove(index);
-	}
-
-	/**
-	 * @return - number of children in the node
-	 */
-	public int getChildrenCount() {
-		if (children == null) {
-			return 0;
-		}
-		return children.size();
-	}
-
-	/**
-	 * Gets the child of the node at given index.
-	 * 
-	 * @param index
-	 *            - the index of the desired child.
-	 * @return the child on the given position.
-	 */
-	public HeterogeneousTreeNode<T> getChild(int index) {
-		return this.children.get(index);
+	public void setRightChild(HeterogeneousTreeNode<T> child) {
+		rightChild = child;
 	}
 
 }

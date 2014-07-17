@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.objects.trees;
 
+import java.math.BigDecimal;
+
 /**
  * Shows how the tree classes can be used.
  * 
@@ -54,32 +56,18 @@ public final class Run {
 
 		System.out.println();
 		System.out.println("Hetero tree:");
-		HeterogeneousTreeNode<Object> childA = new HeterogeneousTreeNode<Object>(22);
-		HeterogeneousTreeNode<Object> childB = new HeterogeneousTreeNode<Object>("Text");
-		HeterogeneousTreeNode<Object> childC = new HeterogeneousTreeNode<Object>(5.43f);
-		HeterogeneousTreeNode<Object> childD = new HeterogeneousTreeNode<Object>('D');
-		HeterogeneousTreeNode<Object> childE = new HeterogeneousTreeNode<Object>(8489573523L);
-		HeterogeneousTreeNode<Object> childF = new HeterogeneousTreeNode<Object>(77);
-		HeterogeneousTreeNode<Object> root = new HeterogeneousTreeNode<Object>("The root");
-		childA.addChild(childE);
-		childB.addChild(childC);
-		childB.addChild(childD);
-		root.addChild(childA);
-		root.addChild(childB);
-		root.addChild(childF);
-		HeterogeneousTree<Object> heteroTree = new HeterogeneousTree<Object>();
-		heteroTree.setRoot(root);
-		// heteroTree.insert(229457843975L);
-		// heteroTree.insert(23.123f);
-		// heteroTree.insert(80);
-		// heteroTree.insert(4, 0);
-		// heteroTree.insert(9, 0);
-		// heteroTree.insert('C', 2);
-		// heteroTree.insert(23, 2);
-		// heteroTree.insert(3, 0);
-		// heteroTree.insert("Text", 1);
+		HeterogeneousTree<Object> heteroTree = new HeterogeneousTree<Object>(20);
+		heteroTree.insert(229457843975L);
+		heteroTree.insert(23.123f);
+		heteroTree.insert("Text");
+		heteroTree.insert("Sample");
+		heteroTree.insert(new BigDecimal("98432.4233453543543463"));
+		heteroTree.insert(55);
+		heteroTree.insert(-100);
 
-		System.out.println(heteroTree.getDFS());
+		System.out.println(heteroTree.getInOrderSort());
+		System.out.println(heteroTree.getPreOrderSort());
+		System.out.println(heteroTree.getPostOrderSort());
 
 	}
 }
