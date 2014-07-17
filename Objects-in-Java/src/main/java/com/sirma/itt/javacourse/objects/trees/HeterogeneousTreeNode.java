@@ -47,6 +47,9 @@ public class HeterogeneousTreeNode<T> {
 			throw new IllegalArgumentException("The given value is null");
 		}
 
+		if (children == null) {
+			children = new ArrayList<HeterogeneousTreeNode<T>>();
+		}
 		this.children.add(child);
 	}
 
@@ -54,7 +57,42 @@ public class HeterogeneousTreeNode<T> {
 	 * @return - the children of the node.
 	 */
 	public ArrayList<HeterogeneousTreeNode<T>> getChildren() {
-		return this.children;
+		if (children == null) {
+			return new ArrayList<HeterogeneousTreeNode<T>>();
+		}
+		return children;
+	}
+
+	/**
+	 * Inserts a node at specified position in the child list.
+	 * 
+	 * @param index
+	 *            - the position to insert at
+	 * @param child
+	 *            - the node to insert
+	 */
+	public void insertChildAt(int index, HeterogeneousTreeNode<T> child) {
+		children.add(index, child);
+	}
+
+	/**
+	 * Removes a child from the node at given index.
+	 * 
+	 * @param index
+	 *            - the position of the child to be removed
+	 */
+	public void removeChildAt(int index) {
+		children.remove(index);
+	}
+
+	/**
+	 * @return - number of children in the node
+	 */
+	public int getChildrenCount() {
+		if (children == null) {
+			return 0;
+		}
+		return children.size();
 	}
 
 	/**

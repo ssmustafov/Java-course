@@ -54,14 +54,31 @@ public final class Run {
 
 		System.out.println();
 		System.out.println("Hetero tree:");
-		HeterogeneousTree<Object> heteroTree = new HeterogeneousTree<Object>(50);
-		heteroTree.insert("Text");
-		heteroTree.insert(9834753495455L);
-		heteroTree.insert(324.9385f);
-		heteroTree.insert("Break");
-		heteroTree.insert(45);
-		heteroTree.insert(55, 2);
-		heteroTree.insert(78, 4);
+		HeterogeneousTreeNode<Object> childA = new HeterogeneousTreeNode<Object>(22);
+		HeterogeneousTreeNode<Object> childB = new HeterogeneousTreeNode<Object>("Text");
+		HeterogeneousTreeNode<Object> childC = new HeterogeneousTreeNode<Object>(5.43f);
+		HeterogeneousTreeNode<Object> childD = new HeterogeneousTreeNode<Object>('D');
+		HeterogeneousTreeNode<Object> childE = new HeterogeneousTreeNode<Object>(8489573523L);
+		HeterogeneousTreeNode<Object> childF = new HeterogeneousTreeNode<Object>(77);
+		HeterogeneousTreeNode<Object> root = new HeterogeneousTreeNode<Object>("The root");
+		childA.addChild(childE);
+		childB.addChild(childC);
+		childB.addChild(childD);
+		root.addChild(childA);
+		root.addChild(childB);
+		root.addChild(childF);
+		HeterogeneousTree<Object> heteroTree = new HeterogeneousTree<Object>();
+		heteroTree.setRoot(root);
+		// heteroTree.insert(229457843975L);
+		// heteroTree.insert(23.123f);
+		// heteroTree.insert(80);
+		// heteroTree.insert(4, 0);
+		// heteroTree.insert(9, 0);
+		// heteroTree.insert('C', 2);
+		// heteroTree.insert(23, 2);
+		// heteroTree.insert(3, 0);
+		// heteroTree.insert("Text", 1);
+
 		System.out.println(heteroTree.getDFS());
 
 	}

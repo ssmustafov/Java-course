@@ -56,6 +56,15 @@ public class HomogeneousTree<T> {
 	}
 
 	/**
+	 * Returns the root node of the tree.
+	 * 
+	 * @return - the root of the tree
+	 */
+	public HomogeneousTreeNode<T> getRoot() {
+		return root;
+	}
+
+	/**
 	 * Traverses tree in Depth First Search (DFS) manner.
 	 * 
 	 * @param root

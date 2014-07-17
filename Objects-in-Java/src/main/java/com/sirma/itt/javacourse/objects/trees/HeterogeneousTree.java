@@ -13,6 +13,13 @@ public class HeterogeneousTree<T> {
 	private StringBuilder elementsAsString = new StringBuilder();
 
 	/**
+	 * Default constructor.
+	 */
+	public HeterogeneousTree() {
+
+	}
+
+	/**
 	 * Creates homogeneous tree.
 	 * 
 	 * @param value
@@ -27,6 +34,16 @@ public class HeterogeneousTree<T> {
 	}
 
 	/**
+	 * Sets the root of the tree.
+	 * 
+	 * @param root
+	 *            - the root to be set to the tree
+	 */
+	public void setRoot(HeterogeneousTreeNode<T> root) {
+		this.root = root;
+	}
+
+	/**
 	 * Adds new element in the homogeneous tree.
 	 * 
 	 * @param value
@@ -35,22 +52,28 @@ public class HeterogeneousTree<T> {
 	public void insert(T value) {
 		HeterogeneousTreeNode<T> node = new HeterogeneousTreeNode<T>(value);
 		root.addChild(node);
-
 	}
 
 	/**
 	 * Adds new element in the homogeneous tree.
 	 * 
-	 * @param index
-	 *            - the index
 	 * @param value
 	 *            - the value to be added to the tree
+	 * @param index
+	 *            - the index of parent
 	 */
 	public void insert(T value, int index) {
 		HeterogeneousTreeNode<T> child = new HeterogeneousTreeNode<T>(value);
-		// root.addChild(node);
-		// node.addChild(child);
 		root.getChild(index).addChild(child);
+	}
+
+	/**
+	 * Returns the root node of the tree.
+	 * 
+	 * @return - the root of the tree
+	 */
+	public HeterogeneousTreeNode<T> getRoot() {
+		return root;
 	}
 
 	/**
