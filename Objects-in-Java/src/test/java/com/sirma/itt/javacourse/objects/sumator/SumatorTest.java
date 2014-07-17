@@ -315,8 +315,20 @@ public class SumatorTest {
 	 */
 	@Test
 	public void testSumStringWithNumbers() {
-		String actual = sumator.sum("356", "0024");
-		String expected = "3560024";
+		String actual = sumator.sum("356", "24");
+		String expected = "380";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with
+	 * negative numbers.
+	 */
+	@Test
+	public void testSumStringWithNegativeNumbers() {
+		String actual = sumator.sum("-400", "-600");
+		String expected = "-1000";
 
 		assertEquals(expected, actual);
 	}
@@ -324,7 +336,7 @@ public class SumatorTest {
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with null.
 	 */
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testSumStringWithNull() {
 		sumator.sum(null, "simple text");
 	}

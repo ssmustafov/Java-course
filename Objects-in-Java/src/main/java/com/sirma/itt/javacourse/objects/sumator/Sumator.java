@@ -4,12 +4,14 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
+ * Sums numbers.
+ * 
  * @author smustafov
  */
 public class Sumator {
 
 	/**
-	 * Sums two byte numbers.
+	 * Sums two numbers of type <code>Byte</code>.
 	 * 
 	 * @param a
 	 *            first number to sum
@@ -23,7 +25,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums two short numbers.
+	 * Sums two numbers of type <code>Short</code>.
 	 * 
 	 * @param a
 	 *            first number to sum
@@ -37,7 +39,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums two int numbers.
+	 * Sums two numbers of type <code>Integer</code>.
 	 * 
 	 * @param a
 	 *            first number to sum
@@ -50,7 +52,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums two long numbers.
+	 * Sums two numbers of type <code>Long</code>.
 	 * 
 	 * @param a
 	 *            first number to sum
@@ -63,7 +65,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums two float numbers.
+	 * Sums two numbers of type <code>Float</code>.
 	 * 
 	 * @param a
 	 *            first number to sum
@@ -76,7 +78,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums two double numbers.
+	 * Sums two numbers of type <code>Double</code>.
 	 * 
 	 * @param a
 	 *            first number to sum
@@ -89,7 +91,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums two BigInteger numbers.
+	 * Sums two numbers of type <code>BigInteger</code>.
 	 * 
 	 * @param a
 	 *            first number to sum
@@ -103,7 +105,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums two BigDecimal numbers.
+	 * Sums two numbers of type <code>BigDecimal</code>.
 	 * 
 	 * @param a
 	 *            first number to sum
@@ -117,23 +119,26 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums (concatenates) two strings.
+	 * Sums two numbers given as strings.
 	 * 
 	 * @param a
-	 *            first string to sum
+	 *            first number as string to sum
 	 * @param b
-	 *            second string to sum
+	 *            second numbers as string to sum
 	 * @return a + b
 	 */
 	public String sum(String a, String b) {
+		if (a == null || b == null) {
+			throw new IllegalArgumentException("One of the given strings is null");
+		}
 		if (a.isEmpty() || b.isEmpty()) {
 			throw new IllegalArgumentException("One of the given strings is empty");
 		}
 
-		StringBuilder sum = new StringBuilder();
-		sum.append(a);
-		sum.append(b);
-		return sum.toString();
+		int num1 = Integer.parseInt(a);
+		int num2 = Integer.parseInt(b);
+		int sum = num1 + num2;
+		return Integer.toString(sum);
 	}
 
 }
