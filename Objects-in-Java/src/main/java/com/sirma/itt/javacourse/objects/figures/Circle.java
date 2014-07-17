@@ -22,6 +22,13 @@ public class Circle extends Figure {
 		this.radius = radius;
 	}
 
+	/**
+	 * @return - the radius of the circle
+	 */
+	public int getRadius() {
+		return radius;
+	}
+
 	@Override
 	public void draw() {
 		System.out.println();

@@ -5,10 +5,9 @@ package com.sirma.itt.javacourse.objects.figures;
  * 
  * @author smustafov
  */
-public class Ellipse extends Figure {
+public class Ellipse extends Circle {
 
-	private int radius1;
-	private int radius2;
+	private int secondRadius;
 
 	/**
 	 * Creates new Ellipse.
@@ -17,15 +16,14 @@ public class Ellipse extends Figure {
 	 *            - the center point X coordinate
 	 * @param centerY
 	 *            - the center point Y coordinate
-	 * @param radius1
+	 * @param firstRadius
 	 *            - the first radius
-	 * @param radius2
+	 * @param secondRadius
 	 *            - the second radius
 	 */
-	public Ellipse(int centerX, int centerY, int radius1, int radius2) {
-		super(centerX, centerY);
-		this.radius1 = radius1;
-		this.radius2 = radius2;
+	public Ellipse(int centerX, int centerY, int firstRadius, int secondRadius) {
+		super(centerX, centerY, firstRadius);
+		this.secondRadius = secondRadius;
 	}
 
 	@Override
@@ -34,8 +32,7 @@ public class Ellipse extends Figure {
 		System.out.println("Elipse:");
 		System.out.printf("\tCenter : (%d,%d)" + System.lineSeparator(), getPoint().getX(),
 				getPoint().getY());
-		System.out.printf("\tRadius1 : %d" + System.lineSeparator(), radius1);
-		System.out.printf("\tRadius2 : %d" + System.lineSeparator(), radius2);
+		System.out.printf("\tRadius1 : %d" + System.lineSeparator(), super.getRadius());
+		System.out.printf("\tRadius2 : %d" + System.lineSeparator(), secondRadius);
 	}
-
 }
