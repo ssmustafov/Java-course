@@ -29,7 +29,8 @@ public final class PlayHangman {
 		// String[] arr = { "developer", "java", "javascript" };
 		// HangmanReader arrReader = new ArrayReader(arr);
 
-		HangmanReader fileReader = new FileReader("bin/com/sirma/itt/javacourse/intro/hangman/words.txt");
+		HangmanReader fileReader = new FileReader(
+				"src/main/java/com/sirma/itt/javacourse/intro/hangman/words.txt");
 		Hangman game = new Hangman(fileReader);
 		game.run();
 	}
