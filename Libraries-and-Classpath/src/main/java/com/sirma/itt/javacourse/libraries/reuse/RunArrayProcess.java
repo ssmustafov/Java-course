@@ -7,12 +7,12 @@ import com.sirma.itt.javacourse.intro.arrays.ArrayProcess;
  * 
  * @author smustafov
  */
-public final class Run {
+public final class RunArrayProcess {
 
 	/**
 	 * Default constructor.
 	 */
-	private Run() {
+	private RunArrayProcess() {
 
 	}
 
