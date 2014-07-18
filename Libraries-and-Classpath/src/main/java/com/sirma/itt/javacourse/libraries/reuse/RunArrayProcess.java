@@ -1,6 +1,7 @@
 package com.sirma.itt.javacourse.libraries.reuse;
 
 import com.sirma.itt.javacourse.intro.arrays.ArrayProcess;
+import com.sirma.itt.javacourse.intro.arrays.QuickSort;
 
 /**
  * Uses the code from Intro-Java project as jar libraries.
@@ -49,17 +50,35 @@ public final class RunArrayProcess {
 	}
 
 	/**
+	 * Uses <code>ArrayProcess</code> to find median of array.
+	 * 
+	 * @param array
+	 *            - the array
+	 * @return - the median's index
+	 */
+	public static int findMedian(int[] array) {
+		return ArrayProcess.findMedianOfArray(array);
+	}
+
+	/**
 	 * @param args
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+		int[] arr = { 8, 2, 7, 4, 9, 6, 3, 1, 5, 0 };
 		System.out.println(sum(arr));
 		System.out.println(getMinElement(arr));
+		System.out.println(findMedian(arr));
 		reverse(arr);
 		for (int i : arr) {
 			System.out.print(i + " ");
 		}
 		System.out.println();
+
+		QuickSort.sort(arr);
+		for (int i : arr) {
+			System.out.print(i + " ");
+		}
+
 	}
 }
