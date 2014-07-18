@@ -334,6 +334,15 @@ public class SumatorTest {
 	}
 
 	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with
+	 * invalid numbers.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testSumStringWithInvalidNumbers() {
+		sumator.sum("7e^2d123", "4a00");
+	}
+
+	/**
 	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with null.
 	 */
 	@Test(expected = IllegalArgumentException.class)

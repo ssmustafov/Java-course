@@ -119,7 +119,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums two numbers given as strings.
+	 * Sums two numbers of type <code>String</code>.
 	 * 
 	 * @param a
 	 *            first number as string to sum
@@ -134,11 +134,17 @@ public class Sumator {
 		if (a.isEmpty() || b.isEmpty()) {
 			throw new IllegalArgumentException("One of the given strings is empty");
 		}
+		if (!a.matches("[-0-9]*")) {
+			throw new IllegalArgumentException("Invalid number: " + a);
+		}
+		if (!b.matches("[-0-9]*")) {
+			throw new IllegalArgumentException("Invalid number: " + b);
+		}
 
 		int num1 = Integer.parseInt(a);
 		int num2 = Integer.parseInt(b);
-		int sum = num1 + num2;
-		return Integer.toString(sum);
+		int sumStrings = sum(num1, num2);
+		return Integer.toString(sumStrings);
 	}
 
 }
