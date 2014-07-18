@@ -61,7 +61,7 @@ public class FileReaderTest {
 	 */
 	@Test
 	public void testFileReaderWithExistingFile() throws IOException {
-		new FileReader("words.txt");
+		new FileReader("wordsBG.txt");
 	}
 
 	/**
