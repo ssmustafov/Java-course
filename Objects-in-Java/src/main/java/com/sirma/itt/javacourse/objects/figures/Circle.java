@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.objects.figures;
 
 /**
+ * Represents a circle figure.
+ * 
  * @author smustafov
  */
 public class Circle extends Figure {

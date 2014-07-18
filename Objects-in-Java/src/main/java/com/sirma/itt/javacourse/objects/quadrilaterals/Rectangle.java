@@ -3,7 +3,7 @@ package com.sirma.itt.javacourse.objects.quadrilaterals;
 import com.sirma.itt.javacourse.objects.figures.Figure;
 
 /**
- * Represents rectagle figure.
+ * Represents rectangle figure.
  * 
  * @author smustafov
  */

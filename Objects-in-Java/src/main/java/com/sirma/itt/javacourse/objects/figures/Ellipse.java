@@ -26,6 +26,20 @@ public class Ellipse extends Circle {
 		this.secondRadius = secondRadius;
 	}
 
+	/**
+	 * @return - the first radius of the ellipse
+	 */
+	public int getFirstRadius() {
+		return super.getRadius();
+	}
+
+	/**
+	 * @return - the second radius of the ellipse
+	 */
+	public int getSecondRadius() {
+		return secondRadius;
+	}
+
 	@Override
 	public void draw() {
 		System.out.println();

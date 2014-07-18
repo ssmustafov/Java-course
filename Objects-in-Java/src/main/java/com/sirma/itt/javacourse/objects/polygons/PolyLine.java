@@ -34,11 +34,17 @@ public class PolyLine extends Figure {
 	 *            - the X coordinate
 	 * @param y
 	 *            - the Y coordinate
-	 * @param length
-	 *            - the length of the line
+	 * @param width
+	 *            - the width of the curve
+	 * @param height
+	 *            - the height of the curve
+	 * @param startAngle
+	 *            - the starting angle of the curve
+	 * @param stopAngle
+	 *            - the ending angle of the curve
 	 */
-	public void addSegment(int x, int y, int length) {
-		segments.add(new Curve(x, y, length));
+	public void addSegment(int x, int y, int width, int height, int startAngle, int stopAngle) {
+		segments.add(new Curve(x, y, width, height, startAngle, stopAngle));
 	}
 
 	@Override

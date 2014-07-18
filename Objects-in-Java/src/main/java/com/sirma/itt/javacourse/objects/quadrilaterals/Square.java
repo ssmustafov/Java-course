@@ -3,7 +3,7 @@ package com.sirma.itt.javacourse.objects.quadrilaterals;
 import com.sirma.itt.javacourse.objects.figures.Figure;
 
 /**
- * Represents square figure.
+ * Represents a square figure.
  * 
  * @author smustafov
  */
