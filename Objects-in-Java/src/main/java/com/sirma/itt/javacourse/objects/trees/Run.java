@@ -56,15 +56,12 @@ public final class Run {
 
 		System.out.println();
 		System.out.println("Hetero tree:");
-		HeterogeneousTree<Object> heteroTree = new HeterogeneousTree<Object>(20);
-		heteroTree.insert(229457843975L);
-		heteroTree.insert(23.123f);
-		heteroTree.insert("Text");
-		heteroTree.insert("Sample");
-		heteroTree.insert(new BigDecimal("98432.4233453543543463"));
-		heteroTree.insert(55);
-		heteroTree.insert(-100);
-
+		HeterogeneousTree heteroTree = new HeterogeneousTree("root");
+		heteroTree.insert(4);
+		heteroTree.insert(1.259f);
+		heteroTree.insert(new BigDecimal("9798798797879689"));
+		heteroTree.insert(219832947892499L);
+		heteroTree.insert("child");
 		System.out.println(heteroTree.getInOrderSort());
 		System.out.println(heteroTree.getPreOrderSort());
 		System.out.println(heteroTree.getPostOrderSort());

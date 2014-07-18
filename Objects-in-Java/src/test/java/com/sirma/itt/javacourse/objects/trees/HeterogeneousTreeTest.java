@@ -18,7 +18,7 @@ public class HeterogeneousTreeTest {
 	 */
 	@Test
 	public void testEmptyHeterogeneousTree() {
-		HeterogeneousTree<Integer> tree = new HeterogeneousTree<Integer>();
+		HeterogeneousTree tree = new HeterogeneousTree();
 		if (tree.getRoot() != null) {
 			fail("There are data in the tree but it must not");
 		}
@@ -30,7 +30,7 @@ public class HeterogeneousTreeTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testHeterogeneousTreeWithNull() {
-		new HeterogeneousTree<Integer>(null);
+		new HeterogeneousTree(null);
 	}
 
 	/**
@@ -40,8 +40,8 @@ public class HeterogeneousTreeTest {
 	 */
 	@Test
 	public void testHeterogeneousTreeSetRoot() {
-		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>();
-		HeterogeneousTreeNode<Object> node = new HeterogeneousTreeNode<Object>(123);
+		HeterogeneousTree tree = new HeterogeneousTree();
+		HeterogeneousTreeNode node = new HeterogeneousTreeNode(123);
 		tree.setRoot(node);
 		Object actual = tree.getRoot().getValue();
 		Object expected = 123;
@@ -54,7 +54,7 @@ public class HeterogeneousTreeTest {
 	 */
 	@Test
 	public void testHeterogeneousTreeInsert() {
-		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>("root");
+		HeterogeneousTree tree = new HeterogeneousTree("root");
 		tree.insert(2);
 		tree.insert("text");
 		tree.insert(12.987);
@@ -70,7 +70,7 @@ public class HeterogeneousTreeTest {
 	 */
 	@Test
 	public void testGetInOrderSort() {
-		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>("root");
+		HeterogeneousTree tree = new HeterogeneousTree("root");
 		tree.insert(23);
 		tree.insert('Q');
 		tree.insert("rightchild");
@@ -88,7 +88,7 @@ public class HeterogeneousTreeTest {
 	 */
 	@Test
 	public void testGetInOrderSortWithOneElement() {
-		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>();
+		HeterogeneousTree tree = new HeterogeneousTree();
 		tree.insert(23);
 		String actual = tree.getInOrderSort();
 		String expected = "23 ";
@@ -101,7 +101,7 @@ public class HeterogeneousTreeTest {
 	 */
 	@Test
 	public void testGetPreOrderSort() {
-		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>("root");
+		HeterogeneousTree tree = new HeterogeneousTree("root");
 		tree.insert(23);
 		tree.insert('Q');
 		tree.insert("rightchild");
@@ -119,7 +119,7 @@ public class HeterogeneousTreeTest {
 	 */
 	@Test
 	public void testGetPreOrderSortWithOneElement() {
-		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>();
+		HeterogeneousTree tree = new HeterogeneousTree();
 		tree.insert('Q');
 		String actual = tree.getPreOrderSort();
 		String expected = "Q ";
@@ -132,7 +132,7 @@ public class HeterogeneousTreeTest {
 	 */
 	@Test
 	public void testGetPostOrderSort() {
-		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>("root");
+		HeterogeneousTree tree = new HeterogeneousTree("root");
 		tree.insert(23);
 		tree.insert('Q');
 		tree.insert("rightchild");
@@ -150,7 +150,7 @@ public class HeterogeneousTreeTest {
 	 */
 	@Test
 	public void testGetPostOrderSortWithOneElement() {
-		HeterogeneousTree<Object> tree = new HeterogeneousTree<Object>("root");
+		HeterogeneousTree tree = new HeterogeneousTree("root");
 		String actual = tree.getPostOrderSort();
 		String expected = "root ";
 

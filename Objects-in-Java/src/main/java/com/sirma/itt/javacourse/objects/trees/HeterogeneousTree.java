@@ -1,15 +1,14 @@
 package com.sirma.itt.javacourse.objects.trees;
 
+
 /**
- * Represents heterogeneous tree.
+ * Represents heterogeneous tree which holds objects of type <code>Object</code>.
  * 
- * @param <T>
- *            - the type of the values in the tree
  * @author smustafov
  */
-public class HeterogeneousTree<T> {
+public class HeterogeneousTree {
 
-	private HeterogeneousTreeNode<T> root;
+	private HeterogeneousTreeNode root;
 	private StringBuilder elementsAsString = new StringBuilder();
 
 	/**
@@ -20,17 +19,17 @@ public class HeterogeneousTree<T> {
 	}
 
 	/**
-	 * Creates homogeneous tree.
+	 * Creates heterogeneous tree.
 	 * 
-	 * @param value
-	 *            - the value of the node
+	 * @param root
+	 *            - the root of the heterogeneous tree to be set
 	 */
-	public HeterogeneousTree(T value) {
-		if (value == null) {
-			throw new IllegalArgumentException("The given value is null");
+	public HeterogeneousTree(Object root) {
+		if (root == null) {
+			throw new IllegalArgumentException(HeterogeneousTreeNode.NULL_ERROR_MESSAGE);
 		}
 
-		root = new HeterogeneousTreeNode<T>(value);
+		this.root = new HeterogeneousTreeNode(root);
 	}
 
 	/**
@@ -39,48 +38,8 @@ public class HeterogeneousTree<T> {
 	 * @param root
 	 *            - the root to be set to the tree
 	 */
-	public void setRoot(HeterogeneousTreeNode<T> root) {
+	public void setRoot(HeterogeneousTreeNode root) {
 		this.root = root;
-	}
-
-	/**
-	 * Adds new element in the homogeneous tree.
-	 * 
-	 * @param value
-	 *            - the value to be added to the tree
-	 * @param node
-	 *            - the node
-	 */
-	private void insert(T value, HeterogeneousTreeNode<T> node) {
-		HeterogeneousTreeNode<T> currentNode = node;
-
-		if (currentNode.getValue().hashCode() < value.hashCode()) {
-			if (currentNode.getRightChild() == null) {
-				currentNode.setRightChild(new HeterogeneousTreeNode<T>(value));
-			} else {
-				insert(value, currentNode.getRightChild());
-			}
-		} else {
-			if (currentNode.getLeftChild() == null) {
-				currentNode.setLeftChild(new HeterogeneousTreeNode<T>(value));
-			} else {
-				insert(value, currentNode.getLeftChild());
-			}
-		}
-	}
-
-	/**
-	 * Adds new element in the homogeneous tree.
-	 * 
-	 * @param value
-	 *            - the value to be added to the tree
-	 */
-	public void insert(T value) {
-		if (root == null) {
-			setRoot(new HeterogeneousTreeNode<T>(value));
-			return;
-		}
-		insert(value, root);
 	}
 
 	/**
@@ -88,8 +47,48 @@ public class HeterogeneousTree<T> {
 	 * 
 	 * @return - the root of the tree
 	 */
-	public HeterogeneousTreeNode<T> getRoot() {
+	public HeterogeneousTreeNode getRoot() {
 		return root;
+	}
+
+	/**
+	 * Adds new element in the heterogeneous tree.
+	 * 
+	 * @param value
+	 *            - the value to be added to the tree
+	 * @param node
+	 *            - the recursive node
+	 */
+	private void insert(Object value, HeterogeneousTreeNode node) {
+		HeterogeneousTreeNode currentNode = node;
+
+		if (currentNode.getValue().hashCode() < value.hashCode()) {
+			if (currentNode.getRightChild() == null) {
+				currentNode.setRightChild(new HeterogeneousTreeNode(value));
+			} else {
+				insert(value, currentNode.getRightChild());
+			}
+		} else {
+			if (currentNode.getLeftChild() == null) {
+				currentNode.setLeftChild(new HeterogeneousTreeNode(value));
+			} else {
+				insert(value, currentNode.getLeftChild());
+			}
+		}
+	}
+
+	/**
+	 * Adds new element in the heterogeneous tree.
+	 * 
+	 * @param value
+	 *            - the value to be added to the tree
+	 */
+	public void insert(Object value) {
+		if (root == null) {
+			setRoot(new HeterogeneousTreeNode(value));
+			return;
+		}
+		insert(value, root);
 	}
 
 	/**
@@ -98,7 +97,7 @@ public class HeterogeneousTree<T> {
 	 * @param root
 	 *            - the root of the binary tree
 	 */
-	private void inOrderSort(HeterogeneousTreeNode<T> root) {
+	private void inOrderSort(HeterogeneousTreeNode root) {
 		if (root == null) {
 			return;
 		}
@@ -125,7 +124,7 @@ public class HeterogeneousTree<T> {
 	 * @param root
 	 *            - the root of the binary tree
 	 */
-	private void preOrderSort(HeterogeneousTreeNode<T> root) {
+	private void preOrderSort(HeterogeneousTreeNode root) {
 		if (root == null) {
 			return;
 		}
@@ -152,7 +151,7 @@ public class HeterogeneousTree<T> {
 	 * @param root
 	 *            - the root of the binary tree
 	 */
-	private void postOrderSort(HeterogeneousTreeNode<T> root) {
+	private void postOrderSort(HeterogeneousTreeNode root) {
 		if (root == null) {
 			return;
 		}

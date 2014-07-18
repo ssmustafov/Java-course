@@ -18,7 +18,7 @@ public class HeterogeneousTreeNodeTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testHeterogeneousTreeNodeWithNull() {
-		new HeterogeneousTreeNode<Object>(null);
+		new HeterogeneousTreeNode(null);
 	}
 
 	/**
@@ -27,8 +27,8 @@ public class HeterogeneousTreeNodeTest {
 	 */
 	@Test
 	public void testHeterogeneousTreeNodeGetValue() {
-		HeterogeneousTreeNode<String> node = new HeterogeneousTreeNode<String>("node");
-		String actual = node.getValue();
+		HeterogeneousTreeNode node = new HeterogeneousTreeNode("node");
+		String actual = node.getValue().toString();
 		String expected = "node";
 
 		assertEquals(expected, actual);
@@ -41,8 +41,8 @@ public class HeterogeneousTreeNodeTest {
 	 */
 	@Test
 	public void testHeterogeneousTreeNodeSetLeftChild() {
-		HeterogeneousTreeNode<Object> node = new HeterogeneousTreeNode<Object>(55);
-		HeterogeneousTreeNode<Object> leftChild = new HeterogeneousTreeNode<Object>(49);
+		HeterogeneousTreeNode node = new HeterogeneousTreeNode(55);
+		HeterogeneousTreeNode leftChild = new HeterogeneousTreeNode(49);
 		node.setLeftChild(leftChild);
 		Object actual = node.getLeftChild().getValue();
 		Object expected = 49;
@@ -57,8 +57,8 @@ public class HeterogeneousTreeNodeTest {
 	 */
 	@Test
 	public void testHeterogeneousTreeNodeSetRightChild() {
-		HeterogeneousTreeNode<Object> node = new HeterogeneousTreeNode<Object>("root");
-		HeterogeneousTreeNode<Object> rightChild = new HeterogeneousTreeNode<Object>("rightchild");
+		HeterogeneousTreeNode node = new HeterogeneousTreeNode("root");
+		HeterogeneousTreeNode rightChild = new HeterogeneousTreeNode("rightchild");
 		node.setRightChild(rightChild);
 		Object actual = node.getRightChild().getValue();
 		Object expected = "rightchild";
@@ -71,12 +71,12 @@ public class HeterogeneousTreeNodeTest {
 	 */
 	@Test
 	public void testHeterogeneousTreeNodeSimple() {
-		HeterogeneousTreeNode<Object> node = new HeterogeneousTreeNode<Object>("root");
-		HeterogeneousTreeNode<Object> childA = new HeterogeneousTreeNode<Object>("rightchild");
-		HeterogeneousTreeNode<Object> childB = new HeterogeneousTreeNode<Object>(23);
-		HeterogeneousTreeNode<Object> childC = new HeterogeneousTreeNode<Object>(1.999f);
-		HeterogeneousTreeNode<Object> childD = new HeterogeneousTreeNode<Object>('Q');
-		HeterogeneousTreeNode<Object> childE = new HeterogeneousTreeNode<Object>(100);
+		HeterogeneousTreeNode node = new HeterogeneousTreeNode("root");
+		HeterogeneousTreeNode childA = new HeterogeneousTreeNode("rightchild");
+		HeterogeneousTreeNode childB = new HeterogeneousTreeNode(23);
+		HeterogeneousTreeNode childC = new HeterogeneousTreeNode(1.999f);
+		HeterogeneousTreeNode childD = new HeterogeneousTreeNode('Q');
+		HeterogeneousTreeNode childE = new HeterogeneousTreeNode(100);
 
 		node.setLeftChild(childD);
 		childA.setRightChild(childC);
