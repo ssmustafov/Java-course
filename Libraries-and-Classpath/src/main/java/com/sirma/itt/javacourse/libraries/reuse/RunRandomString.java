@@ -3,7 +3,7 @@ package com.sirma.itt.javacourse.libraries.reuse;
 import com.sirma.itt.javacourse.intro.strings.RandomString;
 
 /**
- * Uses the code from Intro-Java project as jar libraries.
+ * Uses the code from Intro-Java project as jar library.
  * 
  * @author smustafov
  */
