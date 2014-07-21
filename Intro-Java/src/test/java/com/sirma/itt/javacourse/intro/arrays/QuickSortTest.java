@@ -132,7 +132,7 @@ public class QuickSortTest {
 	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.QuickSort#sort(int[])} with array of 10
 	 * 000 000 elements.
 	 */
-	@Test(timeout = 3000)
+	@Test(timeout = 4000)
 	public void testBigRandomArraySort() {
 		int[] originalArray = new int[10_000_000];
 		int[] sortedArray = new int[10_000_000];

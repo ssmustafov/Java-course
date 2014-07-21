@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Employee" project="Objects-in-Java" 
+  <class id="1" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Person" project="Objects-in-Java" 
+    file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/supermarket/Person.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="277" y="558"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Employee" project="Objects-in-Java" 
     file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/supermarket/Employee.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="252" y="575"/>    
+    <position height="-1" width="-1" x="565" y="541"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Client" project="Objects-in-Java" 
+  <class id="3" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Client" project="Objects-in-Java" 
     file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/supermarket/Client.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="849" y="590"/>    
+    <position height="-1" width="-1" x="273" y="323"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Supermarket" 
+  <class id="4" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Supermarket" 
     project="Objects-in-Java" 
     file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/supermarket/Supermarket.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="562" y="346"/>    
+    <position height="-1" width="-1" x="559" y="321"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Product" project="Objects-in-Java" 
+  <class id="5" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Product" project="Objects-in-Java" 
     file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/supermarket/Product.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="896" y="327"/>    
+    <position height="-1" width="-1" x="834" y="342"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="5" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Departments" 
+  <enumeration id="6" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Departments" 
     project="Objects-in-Java" 
     file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/supermarket/Departments.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="199" y="355"/>    
+    <position height="-1" width="-1" x="565" y="725"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="6" language="java" name="com.sirma.itt.javacourse.objects.supermarket.AbstractSupermarket" 
+  <class id="7" language="java" name="com.sirma.itt.javacourse.objects.supermarket.AbstractSupermarket" 
     project="Objects-in-Java" 
     file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/supermarket/AbstractSupermarket.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="564" y="111"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="com.sirma.itt.javacourse.objects.supermarket.Person" project="Objects-in-Java" 
-    file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/supermarket/Person.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="565" y="665"/>    
+    <position height="-1" width="-1" x="559" y="92"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -76,43 +76,43 @@
   </class>  
   <generalization id="8">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="6"/>  
+    <end type="TARGET" refId="1"/>  
   </generalization>  
-  <association id="9">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="10" name="products"/>      
-      <multiplicity id="11" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="12">    
-    <end type="SOURCE" refId="2"/>    
+  <generalization id="9">    
+    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="7"/>  
   </generalization>  
-  <association id="13">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="14" name="department"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
+  <generalization id="10">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="11">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="12" name="clients"/>      
+      <multiplicity id="13" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="14">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="15" name="department"/>      
+      <multiplicity id="16" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="17">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="18" name="products"/>      
+      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="16">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <association id="17">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="18" name="employees"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="20">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="21" name="clients"/>      
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="21" name="employees"/>      
       <multiplicity id="22" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
