@@ -24,9 +24,9 @@ public class BinaryTreeTest {
 		tree.insert(200);
 		tree.insert(78);
 		tree.insert(40);
-		tree.insert(39);
-		tree.insert(5);
 		tree.insert(6);
+		tree.insert(5);
+		tree.insert(39);
 		if (!tree.doesElementExists(39)) {
 			fail("The element '39' must exists");
 		}

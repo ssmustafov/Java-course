@@ -18,12 +18,17 @@ public class BinaryTree {
 	 * @return - true if the value exists in the tree or false if it does not exists in the tree
 	 */
 	public boolean doesElementExists(int value) {
-		String[] elementsAsString = getInOrderSort().split(" ");
-		for (int i = 0; i < elementsAsString.length; i++) {
-			if (elementsAsString[i].equals(Integer.toString(value))) {
+		BinaryTreeNode<Integer> node = root;
+		while (node != null) {
+			if (value == node.getValue()) {
 				return true;
+			} else if (value < node.getValue()) {
+				node = node.getLeftChild();
+			} else if (value > node.getValue()) {
+				node = node.getRightChild();
 			}
 		}
+
 		return false;
 	}
 
