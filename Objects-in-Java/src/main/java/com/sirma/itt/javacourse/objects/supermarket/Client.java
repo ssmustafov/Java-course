@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.objects.supermarket;
 
 /**
- * Represents client.
+ * Represents a client.
  * 
  * @author smustafov
  */

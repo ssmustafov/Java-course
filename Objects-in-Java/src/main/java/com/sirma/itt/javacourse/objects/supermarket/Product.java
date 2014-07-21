@@ -3,16 +3,16 @@ package com.sirma.itt.javacourse.objects.supermarket;
 import java.math.BigDecimal;
 
 /**
- * Represents product.
+ * Represents a product.
  * 
  * @author smustafov
  */
 public class Product {
 
 	private int productID = 0;
-	private String name;
-	private String decsription;
-	private BigDecimal price;
+	private final String name;
+	private final String decsription;
+	private final BigDecimal price;
 	private int amount;
 
 	/**

@@ -4,17 +4,17 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 
 /**
- * Represents supermarket.
+ * Represents a supermarket.
  * 
  * @author smustafov
  */
 public class Supermarket extends AbstractSupermarket {
 
-	private HashMap<Integer, Employee> employees;
-	private HashMap<Integer, Product> products;
-	private HashMap<Integer, Client> clients;
-	private String name;
-	private BigDecimal profit;
+	private final HashMap<Integer, Employee> employees;
+	private final HashMap<Integer, Product> products;
+	private final HashMap<Integer, Client> clients;
+	private final String name;
+	private final BigDecimal profit;
 
 	/**
 	 * Creates a new supermarket.
@@ -48,21 +48,33 @@ public class Supermarket extends AbstractSupermarket {
 		return profit;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void addEmployee(Employee employee) {
 		employees.put(employee.getEmployeeID(), employee);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void addProduct(Product product) {
 		products.put(product.getProductID(), product);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void addClient(Client client) {
 		clients.put(client.getClientID(), client);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void buy(int clientID, int productID) {
 		if (!products.containsKey(productID)) {
@@ -77,6 +89,6 @@ public class Supermarket extends AbstractSupermarket {
 
 		BigDecimal price = product.getPrice();
 		profit.add(price);
-
 	}
+
 }

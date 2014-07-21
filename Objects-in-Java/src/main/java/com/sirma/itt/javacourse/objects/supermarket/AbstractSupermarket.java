@@ -1,6 +1,9 @@
 package com.sirma.itt.javacourse.objects.supermarket;
 
 /**
+ * Represents an abstraction for Supermarket. It contains methods for adding employee, product,
+ * client and buying a product.
+ * 
  * @author smustafov
  */
 public abstract class AbstractSupermarket {

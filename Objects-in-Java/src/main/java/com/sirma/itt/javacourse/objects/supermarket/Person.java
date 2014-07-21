@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.objects.supermarket;
 
 /**
- * Represents person.
+ * Represents a person.
  * 
  * @author smustafov
  */
@@ -25,7 +25,7 @@ public class Person {
 
 	/**
 	 * Gets person name.
-	 *
+	 * 
 	 * @return - the person's name
 	 */
 	public String getName() {
@@ -34,7 +34,7 @@ public class Person {
 
 	/**
 	 * Sets person name.
-	 *
+	 * 
 	 * @param name
 	 *            the name to set
 	 */
@@ -48,7 +48,7 @@ public class Person {
 
 	/**
 	 * Gets person age.
-	 *
+	 * 
 	 * @return - the person's age
 	 */
 	public int getAge() {
@@ -56,8 +56,8 @@ public class Person {
 	}
 
 	/**
-	 * Sets person age.
-	 *
+	 * Sets person's age.
+	 * 
 	 * @param age
 	 *            the age to set
 	 */
