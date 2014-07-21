@@ -24,7 +24,7 @@ public class BinaryTree {
 				return true;
 			} else if (value < node.getValue()) {
 				node = node.getLeftChild();
-			} else if (value > node.getValue()) {
+			} else {
 				node = node.getRightChild();
 			}
 		}
