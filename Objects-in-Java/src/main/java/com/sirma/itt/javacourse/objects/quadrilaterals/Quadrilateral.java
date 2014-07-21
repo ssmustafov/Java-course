@@ -1,13 +1,12 @@
 package com.sirma.itt.javacourse.objects.quadrilaterals;
 
 /**
- * Represents quadrilateral figure.
+ * Represents a quadrilateral figure.
  * 
  * @author smustafov
  */
 public class Quadrilateral extends Parallelogram {
 
-	private int angleA;
 	private int angleB;
 	private int angleC;
 	private int angleD;
@@ -15,7 +14,7 @@ public class Quadrilateral extends Parallelogram {
 	private int sideD;
 
 	/**
-	 * Creates a new Quadrilateral.
+	 * Creates a new quadrilateral.
 	 * 
 	 * @param x
 	 *            - the starting point X coordinate
@@ -40,8 +39,7 @@ public class Quadrilateral extends Parallelogram {
 	 */
 	public Quadrilateral(int x, int y, int sideA, int sideB, int sideC, int sideD, int angleA,
 			int angleB, int angleC, int angleD) {
-		super(x, y, sideA, sideB);
-		this.angleA = angleA;
+		super(x, y, sideA, sideB, angleA);
 		this.angleB = angleB;
 		this.angleC = angleC;
 		this.angleD = angleD;
@@ -58,7 +56,7 @@ public class Quadrilateral extends Parallelogram {
 		System.out.println("Quadrilateral:");
 		System.out.printf("\tStarting point : (%d,%d)" + System.lineSeparator(), getPoint().getX(),
 				getPoint().getY());
-		System.out.printf("\tAngle of A : %d" + System.lineSeparator(), angleA);
+		System.out.printf("\tAngle of A : %d" + System.lineSeparator(), super.getAngle());
 		System.out.printf("\tAngle of B : %d" + System.lineSeparator(), angleB);
 		System.out.printf("\tAngle of C : %d" + System.lineSeparator(), angleC);
 		System.out.printf("\tAngle of D : %d" + System.lineSeparator(), angleD);

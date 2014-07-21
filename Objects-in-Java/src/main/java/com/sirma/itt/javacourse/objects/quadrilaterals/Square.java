@@ -19,7 +19,7 @@ public class Square extends Figure {
 	 * @param y
 	 *            - the top left start Y coordinate
 	 * @param size
-	 *            - the size of the square
+	 *            - the length of the all four sides
 	 */
 	public Square(int x, int y, int size) {
 		super(x, y);
