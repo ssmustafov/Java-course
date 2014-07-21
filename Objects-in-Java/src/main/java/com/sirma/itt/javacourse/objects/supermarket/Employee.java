@@ -8,7 +8,7 @@ package com.sirma.itt.javacourse.objects.supermarket;
 public class Employee extends Person {
 
 	private static int employeeID = 0;
-	private final Departments department;
+	private Departments department;
 
 	/**
 	 * Creates a new employee.

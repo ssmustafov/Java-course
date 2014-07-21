@@ -10,9 +10,9 @@ import java.math.BigDecimal;
 public class Product {
 
 	private int productID = 0;
-	private final String name;
-	private final String decsription;
-	private final BigDecimal price;
+	private String name;
+	private String decsription;
+	private BigDecimal price;
 	private int amount;
 
 	/**

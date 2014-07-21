@@ -10,11 +10,11 @@ import java.util.HashMap;
  */
 public class Supermarket extends AbstractSupermarket {
 
-	private final HashMap<Integer, Employee> employees;
-	private final HashMap<Integer, Product> products;
-	private final HashMap<Integer, Client> clients;
-	private final String name;
-	private final BigDecimal profit;
+	private HashMap<Integer, Employee> employees;
+	private HashMap<Integer, Product> products;
+	private HashMap<Integer, Client> clients;
+	private String name;
+	private BigDecimal profit;
 
 	/**
 	 * Creates a new supermarket.
