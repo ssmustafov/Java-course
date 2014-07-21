@@ -1,14 +1,14 @@
 package com.sirma.itt.javacourse.objects.trees;
 
 /**
- * Represents binary tree.
+ * Represents a binary tree.
  * 
  * @author smustafov
  */
 public class BinaryTree {
 
 	private BinaryTreeNode<Integer> root;
-	private StringBuilder elementsAsString = new StringBuilder();
+	private final StringBuilder elementsAsString = new StringBuilder();
 
 	/**
 	 * Checks if the binary tree contains given element.

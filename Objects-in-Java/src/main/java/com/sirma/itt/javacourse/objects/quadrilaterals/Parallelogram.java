@@ -13,7 +13,7 @@ public class Parallelogram extends Figure {
 	private int height;
 
 	/**
-	 * Creates new parallelogram.
+	 * Creates a new parallelogram.
 	 * 
 	 * @param x
 	 *            - the top left start X coordinate

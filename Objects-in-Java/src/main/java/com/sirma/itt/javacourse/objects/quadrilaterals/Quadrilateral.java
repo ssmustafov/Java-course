@@ -1,18 +1,21 @@
 package com.sirma.itt.javacourse.objects.quadrilaterals;
 
 /**
- * Represents quadrangle figure.
+ * Represents quadrilateral figure.
  * 
  * @author smustafov
  */
-public class Quadrangle extends Parallelogram {
+public class Quadrilateral extends Parallelogram {
 
-	private int angle;
+	private int angleA;
+	private int angleB;
+	private int angleC;
+	private int angleD;
 	private int sideC;
 	private int sideD;
 
 	/**
-	 * Creates a new Quadrangle.
+	 * Creates a new Quadrilateral.
 	 * 
 	 * @param x
 	 *            - the starting point X coordinate
@@ -26,12 +29,22 @@ public class Quadrangle extends Parallelogram {
 	 *            - the length of side C
 	 * @param sideD
 	 *            - the length of side D
-	 * @param angle
-	 *            - the angle of the quadrangle
+	 * @param angleA
+	 *            - the angle of A side
+	 * @param angleB
+	 *            - the angle of B side
+	 * @param angleC
+	 *            - the angle of C side
+	 * @param angleD
+	 *            - the angle of D side
 	 */
-	public Quadrangle(int x, int y, int sideA, int sideB, int sideC, int sideD, int angle) {
+	public Quadrilateral(int x, int y, int sideA, int sideB, int sideC, int sideD, int angleA,
+			int angleB, int angleC, int angleD) {
 		super(x, y, sideA, sideB);
-		this.angle = angle;
+		this.angleA = angleA;
+		this.angleB = angleB;
+		this.angleC = angleC;
+		this.angleD = angleD;
 		this.sideC = sideC;
 		this.sideD = sideD;
 	}
@@ -42,10 +55,13 @@ public class Quadrangle extends Parallelogram {
 	@Override
 	public void draw() {
 		System.out.println();
-		System.out.println("Quadrangle:");
+		System.out.println("Quadrilateral:");
 		System.out.printf("\tStarting point : (%d,%d)" + System.lineSeparator(), getPoint().getX(),
 				getPoint().getY());
-		System.out.printf("\tAngle : %d" + System.lineSeparator(), angle);
+		System.out.printf("\tAngle of A : %d" + System.lineSeparator(), angleA);
+		System.out.printf("\tAngle of B : %d" + System.lineSeparator(), angleB);
+		System.out.printf("\tAngle of C : %d" + System.lineSeparator(), angleC);
+		System.out.printf("\tAngle of D : %d" + System.lineSeparator(), angleD);
 		System.out.printf("\tLength of side A : %d" + System.lineSeparator(), super.getWidth());
 		System.out.printf("\tLength of side B : %d" + System.lineSeparator(), super.getHeight());
 		System.out.printf("\tLength of side C : %d" + System.lineSeparator(), sideC);
