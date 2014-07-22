@@ -334,12 +334,36 @@ public class SumatorTest {
 	}
 
 	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with real
+	 * numbers.
+	 */
+	@Test
+	public void testSumStringWithRealNumbers() {
+		String actual = sumator.sum("52.47", "23.99");
+		String expected = "76.46";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with big
+	 * numbers.
+	 */
+	@Test
+	public void testSumStringWithBigNumbers() {
+		String actual = sumator.sum("963875973959735395", "23947898752859843598");
+		String expected = "24911774726819578993";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
 	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with
 	 * invalid numbers.
 	 */
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = NumberFormatException.class)
 	public void testSumStringWithInvalidNumbers() {
-		sumator.sum("7e^2d123", "4a00");
+		sumator.sum("7e^2d123", "4a.00");
 	}
 
 	/**
