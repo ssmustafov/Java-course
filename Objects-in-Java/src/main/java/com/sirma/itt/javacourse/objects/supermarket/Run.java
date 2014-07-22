@@ -37,7 +37,7 @@ public final class Run {
 
 		System.out.println(george.getEmployeeID());
 
-		Employee joro = new Employee("Joro", 30, Departments.Chashier);
+		Employee joro = new Employee("Joro", 30, Departments.Cashier);
 		market.addEmployee(joro);
 		System.out.println(joro.getEmployeeID());
 	}

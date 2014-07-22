@@ -40,4 +40,11 @@ public class Employee extends Person {
 		return department;
 	}
 
+	/**
+	 * Starts employee's work.
+	 */
+	public void work() {
+
+	}
+
 }

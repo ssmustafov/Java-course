@@ -6,5 +6,5 @@ package com.sirma.itt.javacourse.objects.supermarket;
  * @author smustafov
  */
 public enum Departments {
-	Chashier, Security, Accounting, Laborer
+	Cashier, Security, Accounting, Laborer
 }
