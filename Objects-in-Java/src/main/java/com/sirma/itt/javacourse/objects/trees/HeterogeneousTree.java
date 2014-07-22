@@ -1,6 +1,5 @@
 package com.sirma.itt.javacourse.objects.trees;
 
-
 /**
  * Represents heterogeneous tree which holds objects of type <code>Object</code>.
  * 
@@ -12,14 +11,14 @@ public class HeterogeneousTree {
 	private StringBuilder elementsAsString = new StringBuilder();
 
 	/**
-	 * Default constructor.
+	 * Creates a new empty heterogeneous tree.
 	 */
 	public HeterogeneousTree() {
 
 	}
 
 	/**
-	 * Creates heterogeneous tree.
+	 * Creates a heterogeneous tree.
 	 * 
 	 * @param root
 	 *            - the root of the heterogeneous tree to be set

@@ -9,6 +9,7 @@ package com.sirma.itt.javacourse.objects.trees;
  */
 public class BinaryTreeNode<T> {
 
+	private static final String NULL_VALUE_ERROR_MESSAGE = "The given value is null";
 	private T value;
 	private BinaryTreeNode<T> leftChild;
 	private BinaryTreeNode<T> rightChild;
@@ -25,7 +26,7 @@ public class BinaryTreeNode<T> {
 	 */
 	public BinaryTreeNode(T value, BinaryTreeNode<T> leftChild, BinaryTreeNode<T> rightChild) {
 		if (value == null) {
-			throw new IllegalArgumentException("The given value is null");
+			throw new IllegalArgumentException(NULL_VALUE_ERROR_MESSAGE);
 		}
 
 		this.value = value;
@@ -65,7 +66,7 @@ public class BinaryTreeNode<T> {
 	 */
 	public void setLeftChild(BinaryTreeNode<T> value) {
 		if (value == null) {
-			throw new IllegalArgumentException("The given value is null");
+			throw new IllegalArgumentException(NULL_VALUE_ERROR_MESSAGE);
 		}
 
 		this.leftChild = value;
@@ -86,7 +87,7 @@ public class BinaryTreeNode<T> {
 	 */
 	public void setRightChild(BinaryTreeNode<T> value) {
 		if (value == null) {
-			throw new IllegalArgumentException("The given value is null");
+			throw new IllegalArgumentException(NULL_VALUE_ERROR_MESSAGE);
 		}
 
 		this.rightChild = value;

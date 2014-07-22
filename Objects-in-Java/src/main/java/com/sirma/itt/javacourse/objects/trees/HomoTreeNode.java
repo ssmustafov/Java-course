@@ -9,6 +9,7 @@ package com.sirma.itt.javacourse.objects.trees;
  */
 public class HomoTreeNode<T> {
 
+	private static final String NULL_VALUE_ERROR_MESSAGE = "The given value is null";
 	private T value;
 	private HomoTreeNode<T> leftChild;
 	private HomoTreeNode<T> rightChild;
@@ -23,10 +24,9 @@ public class HomoTreeNode<T> {
 	 * @param rightChild
 	 *            - the right child of the node
 	 */
-	public HomoTreeNode(T value, HomoTreeNode<T> leftChild,
-			HomoTreeNode<T> rightChild) {
+	public HomoTreeNode(T value, HomoTreeNode<T> leftChild, HomoTreeNode<T> rightChild) {
 		if (value == null) {
-			throw new IllegalArgumentException("The given value is null");
+			throw new IllegalArgumentException(NULL_VALUE_ERROR_MESSAGE);
 		}
 
 		this.value = value;
@@ -66,7 +66,7 @@ public class HomoTreeNode<T> {
 	 */
 	public void setLeftChild(HomoTreeNode<T> value) {
 		if (value == null) {
-			throw new IllegalArgumentException("The given value is null");
+			throw new IllegalArgumentException(NULL_VALUE_ERROR_MESSAGE);
 		}
 
 		this.leftChild = value;
@@ -87,7 +87,7 @@ public class HomoTreeNode<T> {
 	 */
 	public void setRightChild(HomoTreeNode<T> value) {
 		if (value == null) {
-			throw new IllegalArgumentException("The given value is null");
+			throw new IllegalArgumentException(NULL_VALUE_ERROR_MESSAGE);
 		}
 
 		this.rightChild = value;

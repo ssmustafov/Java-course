@@ -43,7 +43,7 @@ public class HomoTree<T> {
 	}
 
 	/**
-	 * Finds the right place in the binary tree to add a new node.
+	 * Finds the right place to add a new node in the binary tree.
 	 * 
 	 * @param latestRoot
 	 *            - the latest root in the binary tree
@@ -51,7 +51,9 @@ public class HomoTree<T> {
 	 *            - the new node to be added to the binary tree
 	 */
 	private void insert(HomoTreeNode<T> latestRoot, HomoTreeNode<T> node) {
-		if (latestRoot.getValue().toString().compareTo(node.getValue().toString()) > 0) {
+		String latestRootAsString = latestRoot.getValue().toString();
+		String nodeAsString = node.getValue().toString();
+		if (latestRootAsString.compareTo(nodeAsString) > 0) {
 			if (latestRoot.getLeftChild() == null) {
 				latestRoot.setLeftChild(node);
 			} else {
