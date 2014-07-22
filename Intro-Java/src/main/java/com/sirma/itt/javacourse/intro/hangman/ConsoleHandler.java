@@ -3,7 +3,7 @@ package com.sirma.itt.javacourse.intro.hangman;
 import java.util.Scanner;
 
 /**
- * Works with console.
+ * Works with the console.
  * 
  * @author smustafov
  */

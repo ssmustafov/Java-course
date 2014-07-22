@@ -15,7 +15,7 @@ public final class QuickSort {
 	}
 
 	/**
-	 * Invokes the sorting algorithm. The main method for sorting.
+	 * Sorts array of integers. Invokes the sorting algorithm. The main method for sorting.
 	 * 
 	 * @param array
 	 *            the array to be sorted

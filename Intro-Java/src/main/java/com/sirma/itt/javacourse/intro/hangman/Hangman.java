@@ -15,9 +15,9 @@ public class Hangman {
 	private static final String WORD_MESSAGE = "The word was: ";
 	private static final String HIDDEN_LETTER_SYMBOL = "_ ";
 
-	private HangmanReader hangmanReader;
-	private String wordToGuess;
-	private Boolean[] isLettersGuessed;
+	private final HangmanReader hangmanReader;
+	private final String wordToGuess;
+	private final Boolean[] isLettersGuessed;
 	private int attemptsToGuess = 5;
 
 	/**
@@ -172,9 +172,9 @@ public class Hangman {
 	}
 
 	/**
-	 * Gets the attempts to guess left.
+	 * Gets the attempts left to guess.
 	 * 
-	 * @return the attempts to guess left
+	 * @return the attempts left to guess
 	 */
 	public int getAttemptsToGuess() {
 		return attemptsToGuess;
@@ -199,6 +199,7 @@ public class Hangman {
 						+ this.wordToGuess + System.lineSeparator());
 				break;
 			}
+
 			for (int i = 0; i < this.wordToGuess.length(); i++) {
 				if (this.isLettersGuessed[i]) {
 					String letter = Character.toString(this.wordToGuess.charAt(i));
@@ -217,7 +218,6 @@ public class Hangman {
 				this.checkWord(line);
 			} else {
 				this.checkLetter(line);
-
 			}
 		}
 	}

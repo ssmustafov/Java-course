@@ -7,6 +7,8 @@ package com.sirma.itt.javacourse.intro.arrays;
  */
 public final class ArrayProcess {
 
+	private static final String ARRAY_SIZE_UNDER_ZERO_ERROR_MESSAGE = "The array's size is equal or under zero";
+
 	/**
 	 * Protects from instantiation.
 	 */
@@ -23,7 +25,7 @@ public final class ArrayProcess {
 	 */
 	public static int getMinElement(int[] array) {
 		if (array.length <= 0) {
-			throw new IllegalArgumentException("The array's size is equal or under zero");
+			throw new IllegalArgumentException(ARRAY_SIZE_UNDER_ZERO_ERROR_MESSAGE);
 		}
 
 		int minElement = array[0];
@@ -44,7 +46,7 @@ public final class ArrayProcess {
 	 */
 	public static int sum(int[] array) {
 		if (array.length <= 0) {
-			throw new IllegalArgumentException("The array's size is equal or under zero");
+			throw new IllegalArgumentException(ARRAY_SIZE_UNDER_ZERO_ERROR_MESSAGE);
 		}
 
 		int sum = 0;
@@ -63,7 +65,7 @@ public final class ArrayProcess {
 	 */
 	public static String print(int[] array) {
 		if (array.length <= 0) {
-			throw new IllegalArgumentException("The array's size is equal or under zero");
+			throw new IllegalArgumentException(ARRAY_SIZE_UNDER_ZERO_ERROR_MESSAGE);
 		}
 
 		StringBuilder result = new StringBuilder();
@@ -87,7 +89,7 @@ public final class ArrayProcess {
 	 */
 	public static void reverse(int[] arr) {
 		if (arr.length <= 0) {
-			throw new IllegalArgumentException("The array's size is equal or under zero");
+			throw new IllegalArgumentException(ARRAY_SIZE_UNDER_ZERO_ERROR_MESSAGE);
 		}
 
 		final int length = arr.length;
@@ -109,7 +111,7 @@ public final class ArrayProcess {
 	 */
 	public static int findMedianOfArray(int[] array) {
 		if (array.length <= 0) {
-			throw new IllegalArgumentException("The array's size is equal or under zero");
+			throw new IllegalArgumentException(ARRAY_SIZE_UNDER_ZERO_ERROR_MESSAGE);
 		}
 		if (array.length == 1) {
 			return 1;
