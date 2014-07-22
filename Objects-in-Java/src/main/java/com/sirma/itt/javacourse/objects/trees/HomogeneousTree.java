@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.objects.trees;
 
 /**
- * Represents homogeneous tree.
+ * Represents a homogeneous tree.
  * 
  * @param <T>
  *            - the type of the values in the tree
@@ -13,85 +13,106 @@ public class HomogeneousTree<T> {
 	private StringBuilder elementsAsString = new StringBuilder();
 
 	/**
-	 * Creates homogeneous tree.
-	 * 
-	 * @param value
-	 *            - the value of the node
-	 */
-	public HomogeneousTree(T value) {
-		if (value == null) {
-			throw new IllegalArgumentException("The given value is null");
-		}
-
-		this.root = new HomogeneousTreeNode<T>(value);
-	}
-
-	/**
-	 * Adds new element in the homogeneous tree.
-	 * 
-	 * @param value
-	 *            - the value to be added to the tree
-	 */
-	public void insert(T value) {
-		HomogeneousTreeNode<T> node = new HomogeneousTreeNode<T>(value);
-		if (root == null) {
-			root = node;
-		} else {
-			this.root.addChild(node);
-		}
-	}
-
-	/**
-	 * Adds new element in the homogeneous tree.
-	 * 
-	 * @param node
-	 *            - the node to be added
-	 * @param value
-	 *            - the value to be added to the tree
-	 */
-	public void insert(HomogeneousTreeNode<T> node, T value) {
-		HomogeneousTreeNode<T> child = new HomogeneousTreeNode<T>(value);
-		this.root.addChild(node);
-		node.addChild(child);
-	}
-
-	/**
-	 * Returns the root node of the tree.
-	 * 
-	 * @return - the root of the tree
+	 * @return - the root
 	 */
 	public HomogeneousTreeNode<T> getRoot() {
 		return root;
 	}
 
 	/**
-	 * Traverses tree in Depth First Search (DFS) manner.
+	 * Checks if the homogeneous tree contains given element.
 	 * 
-	 * @param root
-	 *            - the root of the tree to be traversed.
-	 * @param spaces
-	 *            - the spaces used for representation of the parent-child relation.
+	 * @param value
+	 *            - the value to be check if it exists in the homogeneous tree
+	 * @return - true if the value exists in the tree or false if it does not exists in the tree
 	 */
-	private void getDFS(HomogeneousTreeNode<T> root, String spaces) {
-		if (root == null) {
-			return;
+	public boolean doesElementExists(T value) {
+		HomogeneousTreeNode<T> node = root;
+		while (node != null) {
+			String valueAsString = value.toString();
+			String nodeAsString = node.getValue().toString();
+			if (valueAsString.compareTo(nodeAsString) == 0) {
+				return true;
+			} else if (valueAsString.compareTo(nodeAsString) < 0) {
+				node = node.getLeftChild();
+			} else {
+				node = node.getRightChild();
+			}
 		}
 
-		this.elementsAsString.append(spaces + root.getValue() + System.lineSeparator());
-		HomogeneousTreeNode<T> child = null;
-		for (int i = 0; i < root.getChildren().size(); i++) {
-			child = root.getChild(i);
-			getDFS(child, spaces + "  ");
+		return false;
+	}
+
+	/**
+	 * Finds the right place to add a new node in the binary tree.
+	 * 
+	 * @param latestRoot
+	 *            - the latest root in the binary tree
+	 * @param node
+	 *            - the new node to be added to the binary tree
+	 */
+	private void insert(HomogeneousTreeNode<T> latestRoot, HomogeneousTreeNode<T> node) {
+		String latestRootAsString = latestRoot.getValue().toString();
+		String nodeAsString = node.getValue().toString();
+		if (latestRootAsString.compareTo(nodeAsString) > 0) {
+			if (latestRoot.getLeftChild() == null) {
+				latestRoot.setLeftChild(node);
+			} else {
+				insert(latestRoot.getLeftChild(), node);
+			}
+		} else {
+			if (latestRoot.getRightChild() == null) {
+				latestRoot.setRightChild(node);
+			} else {
+				insert(latestRoot.getRightChild(), node);
+			}
 		}
 	}
 
 	/**
-	 * @return - the tree as string in Depth First Search (DFS) manner
+	 * Adds new element in the binary tree.
+	 * 
+	 * @param value
+	 *            - the value of the node to be added to the tree
 	 */
-	public String getDFS() {
-		this.elementsAsString.setLength(0);
-		this.getDFS(this.root, new String());
-		return this.elementsAsString.toString();
+	public void insert(T value) {
+		if (doesElementExists(value)) {
+			throw new IllegalArgumentException("The value '" + value
+					+ "' exists in the binary tree");
+		}
+
+		HomogeneousTreeNode<T> node = new HomogeneousTreeNode<T>(value);
+		if (root == null) {
+			root = node;
+		} else {
+			insert(root, node);
+		}
+	}
+
+	/**
+	 * Traverses the tree.
+	 * 
+	 * @param node
+	 *            - the node
+	 */
+	private void traverse(HomogeneousTreeNode<T> node) {
+		if (node == null) {
+			return;
+		}
+
+		traverse(node.getLeftChild());
+		elementsAsString.append(node.getValue() + " ");
+		traverse(node.getRightChild());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		elementsAsString.setLength(0);
+		traverse(root);
+		return elementsAsString.toString();
 	}
 
 }

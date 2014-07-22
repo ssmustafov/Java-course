@@ -1,7 +1,5 @@
 package com.sirma.itt.javacourse.objects.trees;
 
-import java.util.ArrayList;
-
 /**
  * Represents a homogeneous tree node.
  * 
@@ -11,22 +9,39 @@ import java.util.ArrayList;
  */
 public class HomogeneousTreeNode<T> {
 
+	private static final String NULL_VALUE_ERROR_MESSAGE = "The given value is null";
 	private T value;
-	private ArrayList<HomogeneousTreeNode<T>> children;
+	private HomogeneousTreeNode<T> leftChild;
+	private HomogeneousTreeNode<T> rightChild;
 
 	/**
 	 * Creates a homogeneous tree node.
 	 * 
 	 * @param value
 	 *            - the value of the node
+	 * @param leftChild
+	 *            - the left child of the node
+	 * @param rightChild
+	 *            - the right child of the node
 	 */
-	public HomogeneousTreeNode(T value) {
+	public HomogeneousTreeNode(T value, HomogeneousTreeNode<T> leftChild, HomogeneousTreeNode<T> rightChild) {
 		if (value == null) {
-			throw new IllegalArgumentException("The given value is null");
+			throw new IllegalArgumentException(NULL_VALUE_ERROR_MESSAGE);
 		}
 
 		this.value = value;
-		this.children = new ArrayList<>();
+		this.leftChild = leftChild;
+		this.rightChild = rightChild;
+	}
+
+	/**
+	 * Creates a homogeneous tree node without any children.
+	 * 
+	 * @param value
+	 *            - the value of the node
+	 */
+	public HomogeneousTreeNode(T value) {
+		this(value, null, null);
 	}
 
 	/**
@@ -37,35 +52,45 @@ public class HomogeneousTreeNode<T> {
 	}
 
 	/**
-	 * Adds new child to the node.
-	 * 
-	 * @param child
-	 *            - the child to be added
+	 * @return - the left child of the node
 	 */
-	public void addChild(HomogeneousTreeNode<T> child) {
-		if (child == null) {
-			throw new IllegalArgumentException("The given value is null");
+	public HomogeneousTreeNode<T> getLeftChild() {
+		return this.leftChild;
+	}
+
+	/**
+	 * Sets the left child of the node.
+	 * 
+	 * @param value
+	 *            - the value of the left child to be set
+	 */
+	public void setLeftChild(HomogeneousTreeNode<T> value) {
+		if (value == null) {
+			throw new IllegalArgumentException(NULL_VALUE_ERROR_MESSAGE);
 		}
 
-		this.children.add(child);
+		this.leftChild = value;
 	}
 
 	/**
-	 * @return - the children of the node.
+	 * @return - the right child of the node
 	 */
-	public ArrayList<HomogeneousTreeNode<T>> getChildren() {
-		return this.children;
+	public HomogeneousTreeNode<T> getRightChild() {
+		return this.rightChild;
 	}
 
 	/**
-	 * Gets the child of the node at given index.
+	 * Sets the right child of the node.
 	 * 
-	 * @param index
-	 *            - the index of the desired child.
-	 * @return the child on the given position.
+	 * @param value
+	 *            - the value of the right child to be set
 	 */
-	public HomogeneousTreeNode<T> getChild(int index) {
-		return this.children.get(index);
+	public void setRightChild(HomogeneousTreeNode<T> value) {
+		if (value == null) {
+			throw new IllegalArgumentException(NULL_VALUE_ERROR_MESSAGE);
+		}
+
+		this.rightChild = value;
 	}
 
 }

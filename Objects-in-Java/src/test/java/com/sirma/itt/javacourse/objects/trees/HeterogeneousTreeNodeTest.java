@@ -22,19 +22,6 @@ public class HeterogeneousTreeNodeTest {
 	}
 
 	/**
-	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTreeNode#getValue()} by
-	 * checking the value of the node.
-	 */
-	@Test
-	public void testHeterogeneousTreeNodeGetValue() {
-		HeterogeneousTreeNode node = new HeterogeneousTreeNode("node");
-		String actual = node.getValue().toString();
-		String expected = "node";
-
-		assertEquals(expected, actual);
-	}
-
-	/**
 	 * Tests
 	 * {@link com.sirma.itt.javacourse.objects.trees.HeterogeneousTreeNode#setLeftChild(HeterogeneousTreeNode)}
 	 * .

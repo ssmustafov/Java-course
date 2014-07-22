@@ -23,74 +23,80 @@ public class HomogeneousTreeNodeTest {
 
 	/**
 	 * Tests
-	 * {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode#addChild(com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode)}
-	 * with adding null child.
+	 * {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode#HomogeneousTreeNode(java.lang.Object)}
+	 * left child does have expected value.
+	 */
+	@Test
+	public void testHomogeneousTreeNodeLeftChild() {
+		HomogeneousTreeNode<Integer> tree = new HomogeneousTreeNode<Integer>(55);
+		HomogeneousTreeNode<Integer> left = new HomogeneousTreeNode<Integer>(23);
+		HomogeneousTreeNode<Integer> right = new HomogeneousTreeNode<Integer>(154);
+		tree.setLeftChild(left);
+		tree.setRightChild(right);
+		int actual = tree.getLeftChild().getValue();
+		int expected = 23;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode#HomogeneousTreeNode(java.lang.Object)}
+	 * right child does have expected value.
+	 */
+	@Test
+	public void testHomogeneousTreeNodeRightChild() {
+		HomogeneousTreeNode<Integer> tree = new HomogeneousTreeNode<Integer>(55);
+		HomogeneousTreeNode<Integer> left = new HomogeneousTreeNode<Integer>(23);
+		HomogeneousTreeNode<Integer> right = new HomogeneousTreeNode<Integer>(154);
+		HomogeneousTreeNode<Integer> rightA = new HomogeneousTreeNode<Integer>(99);
+		HomogeneousTreeNode<Integer> rightB = new HomogeneousTreeNode<Integer>(120);
+		tree.setLeftChild(left);
+		tree.setRightChild(right);
+		tree.getRightChild().setLeftChild(rightA);
+		tree.getRightChild().getLeftChild().setRightChild(rightB);
+		int actual = tree.getRightChild().getLeftChild().getRightChild().getValue();
+		int expected = 120;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode#HomogeneousTreeNode(java.lang.Object)}
+	 * right child with null.
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testAddChildWithNull() {
-		HomogeneousTreeNode<Integer> node = new HomogeneousTreeNode<Integer>(10);
-		node.addChild(null);
+	public void testHomogeneousTreeNodeRightChildNull() {
+		HomogeneousTreeNode<Integer> tree = new HomogeneousTreeNode<Integer>(55);
+		HomogeneousTreeNode<Integer> left = new HomogeneousTreeNode<Integer>(23);
+		HomogeneousTreeNode<Integer> right = new HomogeneousTreeNode<Integer>(154);
+		HomogeneousTreeNode<Integer> rightA = new HomogeneousTreeNode<Integer>(99);
+		HomogeneousTreeNode<Integer> rightB = null;
+		tree.setLeftChild(left);
+		tree.setRightChild(right);
+		tree.getRightChild().setLeftChild(rightA);
+		tree.getRightChild().getLeftChild().setRightChild(rightB);
+		tree.getRightChild().getLeftChild().getRightChild().getValue();
 	}
 
 	/**
 	 * Tests
-	 * {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode#addChild(com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode)}
-	 * the value of one node.
+	 * {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode#HomogeneousTreeNode(java.lang.Object)}
+	 * left child with null.
 	 */
-	@Test
-	public void testOneNode() {
-		HomogeneousTreeNode<String> node = new HomogeneousTreeNode<String>("data");
-		String actual = node.getValue();
-		String expected = "data";
-
-		assertEquals(expected, actual);
-	}
-
-	/**
-	 * Tests
-	 * {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode#addChild(com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode)}
-	 * how many child the node has.
-	 */
-	@Test
-	public void testNumberOfChildren() {
-		HomogeneousTreeNode<String> node = new HomogeneousTreeNode<String>("Node");
-		HomogeneousTreeNode<String> child1 = new HomogeneousTreeNode<String>("Child1");
-		HomogeneousTreeNode<String> child2 = new HomogeneousTreeNode<String>("Child2");
-		node.addChild(child1);
-		node.addChild(child2);
-		int actual = node.getChildren().size();
-		int expected = 2;
-
-		assertEquals(expected, actual);
-	}
-
-	/**
-	 * Tests
-	 * {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode#addChild(com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode)}
-	 * with getting child at given index.
-	 */
-	@Test
-	public void testChildAt() {
-		HomogeneousTreeNode<Integer> node = new HomogeneousTreeNode<Integer>(12);
-		HomogeneousTreeNode<Integer> child1 = new HomogeneousTreeNode<Integer>(9);
-		HomogeneousTreeNode<Integer> child2 = new HomogeneousTreeNode<Integer>(313565);
-		node.addChild(child1);
-		node.addChild(child2);
-		int actual = node.getChild(1).getValue();
-		int expected = 313565;
-
-		assertEquals(expected, actual);
-	}
-
-	/**
-	 * Tests
-	 * {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode#addChild(com.sirma.itt.javacourse.objects.trees.HomogeneousTreeNode)}
-	 * with getting child at out of bound index.
-	 */
-	@Test(expected = IndexOutOfBoundsException.class)
-	public void testChildAtNoExisting() {
-		HomogeneousTreeNode<Integer> node = new HomogeneousTreeNode<Integer>(12);
-		node.getChild(1).getValue();
+	@Test(expected = IllegalArgumentException.class)
+	public void testHomogeneousTreeNodeLeftChildNull() {
+		HomogeneousTreeNode<Integer> tree = new HomogeneousTreeNode<Integer>(55);
+		HomogeneousTreeNode<Integer> left = new HomogeneousTreeNode<Integer>(23);
+		HomogeneousTreeNode<Integer> right = new HomogeneousTreeNode<Integer>(154);
+		HomogeneousTreeNode<Integer> rightA = null;
+		HomogeneousTreeNode<Integer> rightB = new HomogeneousTreeNode<Integer>(99);
+		tree.setLeftChild(left);
+		tree.setRightChild(right);
+		tree.getRightChild().setLeftChild(rightA);
+		tree.getRightChild().getLeftChild().setRightChild(rightB);
+		tree.getRightChild().getLeftChild().getRightChild().getValue();
 	}
 
 }
