@@ -13,6 +13,7 @@ public class RandomString {
 	private static final int SYMBOL_TYPE_DIGITS = 0;
 	private static final int SYMBOL_TYPE_UP_LETTERS = 1;
 	private static final int SYMBOL_TYPE_SMALL_LETTERS = 2;
+	private final Random randomGenerator = new Random();
 
 	/**
 	 * Generates and returns random number.
@@ -22,7 +23,6 @@ public class RandomString {
 	 * @return random number
 	 */
 	private int getRandomNumber(int end) {
-		Random randomGenerator = new Random();
 		return randomGenerator.nextInt(end);
 	}
 
@@ -36,7 +36,6 @@ public class RandomString {
 	 * @return random number
 	 */
 	private int getRandomNumberRange(int min, int max) {
-		Random randomGenerator = new Random();
 		return randomGenerator.nextInt(max - min) + min;
 	}
 
