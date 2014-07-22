@@ -43,7 +43,15 @@ public final class Run {
 
 		System.out.println();
 		System.out.println("Homo tree:");
-		// HomogeneousTree<Integer> homoTree = new HomogeneousTree<>();
+		HomogeneousTree<String> homoTree = new HomogeneousTree<>();
+		homoTree.insert("K");
+		homoTree.insert("A");
+		homoTree.insert("F");
+		homoTree.insert("L");
+		homoTree.insert("O");
+		homoTree.insert("Y");
+		homoTree.insert("D");
+		System.out.println(homoTree.toString());
 
 		System.out.println();
 		System.out.println("Hetero tree:");
