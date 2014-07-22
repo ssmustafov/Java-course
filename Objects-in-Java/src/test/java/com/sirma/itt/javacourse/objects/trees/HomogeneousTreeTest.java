@@ -97,19 +97,18 @@ public class HomogeneousTreeTest {
 	 */
 	@Test
 	public void testHomogeneousTreeToStringSimple() {
-		HomogeneousTree<String> tree = new HomogeneousTree<String>();
-		tree.insert("L");
-		tree.insert("M");
-		tree.insert("A");
-		tree.insert("O");
-		tree.insert("E");
-		tree.insert("W");
-		tree.insert("Q");
-		tree.insert("C");
+		HomogeneousTree<Character> tree = new HomogeneousTree<Character>();
+		tree.insert('L');
+		tree.insert('M');
+		tree.insert('A');
+		tree.insert('O');
+		tree.insert('E');
+		tree.insert('W');
+		tree.insert('Q');
+		tree.insert('C');
 		String actual = tree.toString();
 		String expected = "A C E L M O Q W ";
 
 		assertEquals(expected, actual);
 	}
-
 }
