@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.objects.trees;
 
 /**
- * Represents homogeneous tree.
+ * Represents a homogeneous tree.
  * 
  * @param <T>
  *            - the type of the values in the tree

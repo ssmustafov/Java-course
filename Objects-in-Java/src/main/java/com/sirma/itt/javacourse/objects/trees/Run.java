@@ -65,6 +65,6 @@ public final class Run {
 		System.out.println(heteroTree.getInOrderSort());
 		System.out.println(heteroTree.getPreOrderSort());
 		System.out.println(heteroTree.getPostOrderSort());
-
 	}
+
 }
