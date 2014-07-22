@@ -4,7 +4,7 @@
   <class id="1" language="java" name="com.sirma.itt.javacourse.objects.polygons.PolyLine" project="Objects-in-Java" 
     file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/polygons/PolyLine.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="135" width="198" x="230" y="128"/>    
+    <position height="-1" width="-1" x="402" y="308"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -14,7 +14,7 @@
   <class id="2" language="java" name="com.sirma.itt.javacourse.objects.figures.Curve" project="Objects-in-Java" 
     file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/figures/Curve.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="409" y="413"/>    
+    <position height="-1" width="-1" x="482" y="526"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -24,17 +24,23 @@
   <class id="3" language="java" name="com.sirma.itt.javacourse.objects.figures.Ellipse" project="Objects-in-Java" 
     file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/figures/Ellipse.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="153" width="179" x="488" y="134"/>    
+    <position height="-1" width="-1" x="650" y="323"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="4">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
+  <class id="4" language="java" name="com.sirma.itt.javacourse.objects.figures.Figure" project="Objects-in-Java" 
+    file="/Objects-in-Java/src/main/java/com/sirma/itt/javacourse/objects/figures/Figure.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="522" y="98"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
   <association id="5">    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="6" name="segments"/>      
@@ -43,6 +49,14 @@
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <generalization id="8">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="9">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
