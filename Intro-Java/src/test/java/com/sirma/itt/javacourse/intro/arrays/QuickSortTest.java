@@ -3,6 +3,7 @@ package com.sirma.itt.javacourse.intro.arrays;
 import static org.junit.Assert.fail;
 
 import java.util.Arrays;
+import java.util.Random;
 
 import org.junit.Test;
 
@@ -136,8 +137,9 @@ public class QuickSortTest {
 	public void testBigRandomArraySort() {
 		int[] originalArray = new int[10_000_000];
 		int[] sortedArray = new int[10_000_000];
+		Random randomGenerator = new Random();
 		for (int i = 0; i < originalArray.length; i++) {
-			int randomNumber = (int) Math.random();
+			int randomNumber = randomGenerator.nextInt();
 			originalArray[i] = randomNumber;
 			sortedArray[i] = randomNumber;
 		}
