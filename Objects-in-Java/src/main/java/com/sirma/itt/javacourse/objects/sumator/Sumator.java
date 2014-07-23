@@ -173,7 +173,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums two numbers of type <code>String</code>.
+	 * Sums two numbers given as <code>String</code>.
 	 * 
 	 * @param a
 	 *            first number as string to sum
@@ -201,9 +201,9 @@ public class Sumator {
 			int sumStrings = sum(num1, num2);
 			return Integer.toString(sumStrings);
 		} else if (isBigInteger(a) && isBigInteger(b)) {
-			BigDecimal num1 = new BigDecimal(a);
-			BigDecimal num2 = new BigDecimal(b);
-			BigDecimal sum = num1.add(num2);
+			BigInteger num1 = new BigInteger(a);
+			BigInteger num2 = new BigInteger(b);
+			BigInteger sum = num1.add(num2);
 			return sum.toString();
 		} else if (isDouble(a) && isDouble(b)) {
 			double num1 = Double.parseDouble(a);
