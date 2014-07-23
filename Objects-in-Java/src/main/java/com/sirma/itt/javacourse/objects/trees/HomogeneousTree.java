@@ -7,7 +7,7 @@ package com.sirma.itt.javacourse.objects.trees;
  *            - the type of the values in the tree
  * @author smustafov
  */
-public class HomogeneousTree<T> {
+public class HomogeneousTree<T extends Comparable<T>> {
 
 	private HomogeneousTreeNode<T> root;
 	private StringBuilder elementsAsString = new StringBuilder();
@@ -29,11 +29,9 @@ public class HomogeneousTree<T> {
 	public boolean doesElementExists(T value) {
 		HomogeneousTreeNode<T> node = root;
 		while (node != null) {
-			String valueAsString = value.toString();
-			String nodeAsString = node.getValue().toString();
-			if (valueAsString.compareTo(nodeAsString) == 0) {
+			if (value.compareTo(node.getValue()) == 0) {
 				return true;
-			} else if (valueAsString.compareTo(nodeAsString) < 0) {
+			} else if (value.compareTo(node.getValue()) < 0) {
 				node = node.getLeftChild();
 			} else {
 				node = node.getRightChild();
@@ -52,15 +50,13 @@ public class HomogeneousTree<T> {
 	 *            - the new node to be added to the binary tree
 	 */
 	private void insert(HomogeneousTreeNode<T> latestRoot, HomogeneousTreeNode<T> node) {
-		String latestRootAsString = latestRoot.getValue().toString();
-		String nodeAsString = node.getValue().toString();
-		if (latestRootAsString.compareTo(nodeAsString) > 0) {
+		if (latestRoot.getValue().compareTo(node.getValue()) > 0) {
 			if (latestRoot.getLeftChild() == null) {
 				latestRoot.setLeftChild(node);
 			} else {
 				insert(latestRoot.getLeftChild(), node);
 			}
-		} else {
+		} else if (latestRoot.getValue().compareTo(node.getValue()) < 0) {
 			if (latestRoot.getRightChild() == null) {
 				latestRoot.setRightChild(node);
 			} else {

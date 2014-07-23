@@ -3,6 +3,9 @@ package com.sirma.itt.javacourse.objects.trees;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 import org.junit.Test;
 
 /**
@@ -111,4 +114,45 @@ public class HomogeneousTreeTest {
 
 		assertEquals(expected, actual);
 	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTree#toString()} with
+	 * <code>BigDecimal</code>.
+	 */
+	@Test
+	public void testHomogeneousTreeWithBigDecimal() {
+		HomogeneousTree<BigDecimal> tree = new HomogeneousTree<BigDecimal>();
+		tree.insert(new BigDecimal("66.33"));
+		tree.insert(new BigDecimal("23"));
+		tree.insert(new BigDecimal("117.99"));
+		tree.insert(new BigDecimal("20"));
+		tree.insert(new BigDecimal("9"));
+		tree.insert(new BigDecimal("78.33"));
+		tree.insert(new BigDecimal("65.32389"));
+		tree.insert(new BigDecimal("1.119"));
+		String actual = tree.toString();
+		String expected = "1.119 9 20 23 65.32389 66.33 78.33 117.99 ";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.trees.HomogeneousTree#toString()} with
+	 * <code>BigInteger</code>.
+	 */
+	@Test
+	public void testHomogeneousTreeWithBigInteger() {
+		HomogeneousTree<BigInteger> tree = new HomogeneousTree<BigInteger>();
+		tree.insert(new BigInteger("9879887978978645236"));
+		tree.insert(new BigInteger("4731231254"));
+		tree.insert(new BigInteger("6345681088080804544780"));
+		tree.insert(new BigInteger("47312"));
+		tree.insert(new BigInteger("567322656456"));
+		tree.insert(new BigInteger("138084642186806086834"));
+		String actual = tree.toString();
+		String expected = "47312 4731231254 567322656456 9879887978978645236 138084642186806086834 6345681088080804544780 ";
+
+		assertEquals(expected, actual);
+	}
+
 }
