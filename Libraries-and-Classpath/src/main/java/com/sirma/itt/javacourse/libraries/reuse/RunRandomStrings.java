@@ -7,12 +7,12 @@ import com.sirma.itt.javacourse.intro.strings.RandomString;
  * 
  * @author smustafov
  */
-public final class RunRandomString {
+public final class RunRandomStrings {
 
 	/**
 	 * Default constructor.
 	 */
-	private RunRandomString() {
+	private RunRandomStrings() {
 
 	}
 

@@ -11,14 +11,9 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Documents and Settings/smustafov/git/Java-course/Libraries-and-Classpath/src/main/java/com/sirma/itt/javacourse/libraries/reuse/numbers.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/smustafov/git/Java-course/Libraries-and-Classpath/src/main/java/com/sirma/itt/javacourse/libraries/reuse/strings.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/smustafov/git/Java-course/Libraries-and-Classpath/src/main/java/com/sirma/itt/javacourse/libraries/reuse/arrays.jar"/>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Documents and Settings/smustafov/git/Java-course/Libraries-and-Classpath/src/main/java/com/sirma/itt/javacourse/libraries/hangman/hangman.jar"/>
+	<classpathentry kind="lib" path="src/main/java/com/sirma/itt/javacourse/libraries/reuse/numbers.jar"/>
+	<classpathentry kind="lib" path="src/main/java/com/sirma/itt/javacourse/libraries/reuse/strings.jar"/>
+	<classpathentry kind="lib" path="src/main/java/com/sirma/itt/javacourse/libraries/reuse/arrays.jar"/>
+	<classpathentry kind="lib" path="src/main/java/com/sirma/itt/javacourse/libraries/hangman/hangman.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
