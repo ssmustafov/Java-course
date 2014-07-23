@@ -27,7 +27,7 @@ public final class LargeNumbers {
 	 */
 	public static String sumTwoNumbers(final String number1AsString, final String number2AsString) {
 		if (!number1AsString.matches("[0-9]*") || !number2AsString.matches("[0-9]*")) {
-			throw new IllegalArgumentException("The numbers given are not valid");
+			throw new IllegalArgumentException("The given numbers are not valid");
 		}
 
 		String workingNumber1 = number1AsString;
