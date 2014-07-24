@@ -173,6 +173,24 @@ public class Sumator {
 	}
 
 	/**
+	 * Checks if given string can be parsed to <code>BigDecimal</code>.
+	 * 
+	 * @param str
+	 *            - the number represented as string to be checked
+	 * @return true if the given string can be parsed to <code>BigDecimal</code> or false if it
+	 *         cannot be parsed
+	 */
+	private boolean isBigDecimal(String str) {
+		try {
+			new BigDecimal(str);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
 	 * Sums two numbers given as <code>String</code>.
 	 * 
 	 * @param a
@@ -204,6 +222,11 @@ public class Sumator {
 			BigInteger num1 = new BigInteger(a);
 			BigInteger num2 = new BigInteger(b);
 			BigInteger sum = num1.add(num2);
+			return sum.toString();
+		} else if (isBigDecimal(a) && isBigDecimal(b)) {
+			BigDecimal num1 = new BigDecimal(a);
+			BigDecimal num2 = new BigDecimal(b);
+			BigDecimal sum = num1.add(num2);
 			return sum.toString();
 		} else if (isDouble(a) && isDouble(b)) {
 			double num1 = Double.parseDouble(a);

@@ -358,6 +358,19 @@ public class SumatorTest {
 	}
 
 	/**
+	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with big
+	 * numbers.
+	 */
+	@Test
+	public void testSumStringWithBigRealNumbers() {
+		String actual = sumator.sum("963875973959735395.123645785",
+				"23947898752859843598.93847589375983845");
+		String expected = "24911774726819578994.06212167875983845";
+
+		assertEquals(expected, actual);
+	}
+
+	/**
 	 * Tests {@link com.sirma.itt.javacourse.objects.sumator.Sumator#sum(String, String)} with
 	 * invalid numbers.
 	 */
