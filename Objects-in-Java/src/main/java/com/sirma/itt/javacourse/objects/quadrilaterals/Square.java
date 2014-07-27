@@ -12,6 +12,15 @@ public class Square extends Figure {
 	private int size;
 
 	/**
+	 * Getter method for size.
+	 *
+	 * @return the size
+	 */
+	public int getSize() {
+		return size;
+	}
+
+	/**
 	 * Creates new square figure.
 	 * 
 	 * @param x

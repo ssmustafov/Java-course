@@ -1,15 +1,12 @@
 package com.sirma.itt.javacourse.objects.quadrilaterals;
 
-import com.sirma.itt.javacourse.objects.figures.Figure;
-
 /**
  * Represents a rhombus figure.
  * 
  * @author smustafov
  */
-public class Rhombus extends Figure {
+public class Rhombus extends Square {
 
-	private int size;
 	private int angle;
 
 	/**
@@ -25,8 +22,7 @@ public class Rhombus extends Figure {
 	 *            - the angle of the rhombus
 	 */
 	public Rhombus(int x, int y, int size, int angle) {
-		super(x, y);
-		this.size = size;
+		super(x, y, size);
 		this.angle = angle;
 	}
 
@@ -40,7 +36,7 @@ public class Rhombus extends Figure {
 		System.out.printf("\tTop left starting point : (%d,%d)" + System.lineSeparator(),
 				getPoint().getX(), getPoint().getY());
 		System.out.printf("\tAngle : %d" + System.lineSeparator(), angle);
-		System.out.printf("\tSize : %d" + System.lineSeparator(), size);
+		System.out.printf("\tSize : %d" + System.lineSeparator(), super.getSize());
 	}
 
 }
