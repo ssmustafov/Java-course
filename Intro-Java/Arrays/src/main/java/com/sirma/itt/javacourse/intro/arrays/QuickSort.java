@@ -62,7 +62,7 @@ public final class QuickSort {
 			// the pivot element and if we have found a value in the right list
 			// which is smaller than the pivot element then we exchange the
 			// values.
-			// As we are done we can increase i and j
+			// As we are done we can increase i and decrease j
 			if (i <= j) {
 				swapTwoElements(array, i, j);
 				i++;
