@@ -27,9 +27,12 @@ public final class CommonDivisor {
 	public static long findGreatestCommonDivisor(long number1, long number2) {
 		if (number1 == 0 && number2 == 0) {
 			return 1;
-		} else if (number2 == 0) {
+		} else if (number2 == 0 && number1 != 0) {
 			return number1;
+		} else if (number1 == 0 && number2 != 0) {
+			return number2;
 		}
+
 		return findGreatestCommonDivisor(number2, number1 % number2);
 	}
 
