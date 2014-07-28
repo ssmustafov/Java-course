@@ -7,6 +7,7 @@
   <modules>
   	<module>Sumator</module>
   	<module>ConsoleReader</module>
+  	<module>List</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
