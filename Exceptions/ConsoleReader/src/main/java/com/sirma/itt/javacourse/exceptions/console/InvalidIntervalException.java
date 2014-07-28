@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.exceptions.console;
 
 /**
- * Custom exception.
+ * Custom exception for invalid interval of numbers.
  * 
  * @author smustafov
  */

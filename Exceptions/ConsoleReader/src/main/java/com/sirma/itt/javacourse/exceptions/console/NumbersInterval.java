@@ -1,14 +1,38 @@
 package com.sirma.itt.javacourse.exceptions.console;
 
+import java.util.ArrayList;
+
 /**
+ * Holds a method for reading numbers from the console in given interval.
+ * 
  * @author smustafov
  */
 public class NumbersInterval {
 
-	private int[] input;
+	private static final String INPUT_END_STRING = "end";
+	private ArrayList<Integer> input;
 
 	/**
-	 * Reads numbers from the console in given interval.
+	 * Checks if given string can be parsed to <code>Integer</code>.
+	 * 
+	 * @param str
+	 *            - the string to be checked
+	 * @return true if the given string can be parsed to <code>Integer</code> or false if it cannot
+	 *         be parsed
+	 */
+	private boolean isInt(String str) {
+		try {
+			Integer.parseInt(str);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Reads numbers from the console in given interval. The reading of numbers ends when the string
+	 * "end" is read.
 	 * 
 	 * @param startInterval
 	 *            - the start interval
@@ -22,23 +46,35 @@ public class NumbersInterval {
 		}
 
 		if (input == null) {
-			int arraySize = Math.abs(startInterval - endInterval);
-			input = new int[arraySize];
+			input = new ArrayList<>();
 		}
 
-		for (int i = 0; i < input.length; i++) {
-			String line = ConsoleHandler.readLineFromConsole();
+		String line;
+		do {
+			line = ConsoleHandler.readLineFromConsole();
 			line = line.trim();
-			input[i] = Integer.parseInt(line);
-		}
+
+			if (isInt(line)) {
+				int number = Integer.parseInt(line);
+				if (number >= startInterval && number <= endInterval) {
+					input.add(number);
+				} else {
+					throw new InvalidIntervalException("The number is not in the interval: ("
+							+ startInterval + "," + endInterval + ")");
+				}
+			}
+		} while (!INPUT_END_STRING.equals(line.toLowerCase()));
 	}
 
+	/**
+	 * Returns the last read numbers.
+	 * 
+	 * @return - the last read numbers as string
+	 */
 	public String getLastReadedNumbers() {
-		StringBuilder result = new StringBuilder();
-		for (int i = 0; i < input.length - 1; i++) {
-			result.append(input[i] + ", ");
-		}
+		String result = input.toString();
+		input.clear();
 
-		return result.toString();
+		return result;
 	}
 }
