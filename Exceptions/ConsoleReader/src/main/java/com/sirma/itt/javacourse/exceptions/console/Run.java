@@ -19,7 +19,8 @@ public final class Run {
 	 *            arguments
 	 */
 	public static void main(String[] args) {
-		NumbersInterval interval = new NumbersInterval();
+		ConsoleReader reader = new ConsoleReader();
+		NumbersInterval interval = new NumbersInterval(reader);
 		interval.readNumbersInterval(0, 5);
 		System.out.println(interval.getLastReadedNumbers());
 

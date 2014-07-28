@@ -11,6 +11,17 @@ public class NumbersInterval {
 
 	private static final String INPUT_END_STRING = "end";
 	private ArrayList<Integer> input;
+	private final IntervalReader reader;
+
+	/**
+	 * Creates a new interval reader.
+	 * 
+	 * @param reader
+	 *            - the reader
+	 */
+	public NumbersInterval(IntervalReader reader) {
+		this.reader = reader;
+	}
 
 	/**
 	 * Checks if given string can be parsed to <code>Integer</code>.
@@ -51,7 +62,7 @@ public class NumbersInterval {
 
 		String line;
 		do {
-			line = ConsoleHandler.readLineFromConsole();
+			line = reader.readInput();
 			line = line.trim();
 
 			if (isInt(line)) {
