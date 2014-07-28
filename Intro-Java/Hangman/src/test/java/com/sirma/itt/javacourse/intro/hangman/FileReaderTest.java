@@ -22,7 +22,7 @@ public class FileReaderTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testFileReaderWithEmptyFile() throws IOException {
-		new FileReader("empty.txt");
+		new FileReader("src\\test\\resources\\empty.txt");
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class FileReaderTest {
 	 */
 	@Test
 	public void testFileReaderWithExistingFile() throws IOException {
-		new FileReader("wordsBG.txt");
+		new FileReader("src\\test\\resources\\wordsBG.txt");
 	}
 
 	/**
