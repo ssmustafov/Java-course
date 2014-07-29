@@ -11,7 +11,7 @@ public class NumbersInterval {
 
 	private static final String INPUT_END_STRING = "end";
 	private ArrayList<Integer> input;
-	private final IntervalReader reader;
+	private IntervalReader reader;
 
 	/**
 	 * Creates a new interval reader.
@@ -73,6 +73,8 @@ public class NumbersInterval {
 					throw new InvalidIntervalException("The number is not in the interval: ("
 							+ startInterval + "," + endInterval + ")");
 				}
+			} else {
+				throw new NumberFormatException("The entered input is not a number: " + line);
 			}
 		} while (!INPUT_END_STRING.equals(line.toLowerCase()));
 	}

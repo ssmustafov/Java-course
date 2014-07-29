@@ -10,7 +10,7 @@ public class InvalidIntervalException extends RuntimeException {
 	/**
 	 * Comment for serialVersionUID.
 	 */
-	private static final long serialVersionUID = -1057065591401677811L;
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Creates a new exception.

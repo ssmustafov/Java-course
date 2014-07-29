@@ -19,14 +19,20 @@ public final class Run {
 	 *            arguments
 	 */
 	public static void main(String[] args) {
-		ConsoleReader reader = new ConsoleReader();
-		NumbersInterval interval = new NumbersInterval(reader);
-		interval.readNumbersInterval(0, 5);
-		System.out.println(interval.getLastReadedNumbers());
+		try {
+			ConsoleReader reader = new ConsoleReader();
+			NumbersInterval interval = new NumbersInterval(reader);
+			interval.readNumbersInterval(0, 5);
+			System.out.println(interval.getLastReadedNumbers());
 
-		System.out.println("--------------------------------");
-		interval.readNumbersInterval(4, 8);
-		System.out.println(interval.getLastReadedNumbers());
+			System.out.println("--------------------------------");
+			interval.readNumbersInterval(4, 8);
+			System.out.println(interval.getLastReadedNumbers());
+		} catch (NumberFormatException e) {
+			System.out.println(e.getMessage());
+		} catch (InvalidIntervalException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 }
