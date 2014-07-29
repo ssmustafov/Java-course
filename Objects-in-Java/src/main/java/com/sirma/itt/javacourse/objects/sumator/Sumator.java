@@ -20,8 +20,7 @@ public class Sumator {
 	 * @return a + b
 	 */
 	public byte sum(byte a, byte b) {
-		byte s = (byte) (a + b);
-		return s;
+		return (byte) (a + b);
 	}
 
 	/**
@@ -34,8 +33,7 @@ public class Sumator {
 	 * @return a + b
 	 */
 	public short sum(short a, short b) {
-		short s = (short) (a + b);
-		return s;
+		return (short) (a + b);
 	}
 
 	/**
@@ -137,24 +135,6 @@ public class Sumator {
 	}
 
 	/**
-	 * Checks if given string can be parsed to <code>Double</code>.
-	 * 
-	 * @param str
-	 *            - the string to be checked
-	 * @return true if the given string can be parsed to <code>Double</code> or false if it cannot
-	 *         be parsed
-	 */
-	private boolean isDouble(String str) {
-		try {
-			Double.parseDouble(str);
-		} catch (NumberFormatException e) {
-			return false;
-		}
-
-		return true;
-	}
-
-	/**
 	 * Checks if given string can be parsed to <code>BigInteger</code>.
 	 * 
 	 * @param str
@@ -221,18 +201,13 @@ public class Sumator {
 		} else if (isBigInteger(a) && isBigInteger(b)) {
 			BigInteger num1 = new BigInteger(a);
 			BigInteger num2 = new BigInteger(b);
-			BigInteger sum = num1.add(num2);
+			BigInteger sum = sum(num1, num2);
 			return sum.toString();
 		} else if (isBigDecimal(a) && isBigDecimal(b)) {
 			BigDecimal num1 = new BigDecimal(a);
 			BigDecimal num2 = new BigDecimal(b);
-			BigDecimal sum = num1.add(num2);
+			BigDecimal sum = sum(num1, num2);
 			return sum.toString();
-		} else if (isDouble(a) && isDouble(b)) {
-			double num1 = Double.parseDouble(a);
-			double num2 = Double.parseDouble(b);
-			double sum = num1 + num2;
-			return Double.toString(sum);
 		} else {
 			throw new NumberFormatException("Incorrect number format: a = " + a + " b = " + b);
 		}
