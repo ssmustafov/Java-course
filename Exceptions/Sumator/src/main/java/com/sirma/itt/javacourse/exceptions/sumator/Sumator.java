@@ -94,7 +94,7 @@ public class Sumator {
 	}
 
 	/**
-	 * Sums two numbers given as <code>String</code>.
+	 * Sums two numbers given as <code>String</code>. The two numbers must be of the same type.
 	 * 
 	 * @param a
 	 *            first number as string to sum
