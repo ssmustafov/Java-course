@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.exceptions.console;
 
 /**
- * Shows hot the NumbersInterval class can be used.
+ * Shows how the NumbersInterval class can be used.
  * 
  * @author smustafov
  */

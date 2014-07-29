@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.exceptions.list;
 
 /**
+ * Thrown to indicate that there is no more space to add element in a list.
+ * 
  * @author smustafov
  */
 public class ListFullException extends RuntimeException {

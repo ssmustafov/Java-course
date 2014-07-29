@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.exceptions.list;
 
 /**
+ * Thrown to indicate that a list is empty and there is no elements in it.
+ * 
  * @author smustafov
  */
 public class ListEmptyException extends RuntimeException {
