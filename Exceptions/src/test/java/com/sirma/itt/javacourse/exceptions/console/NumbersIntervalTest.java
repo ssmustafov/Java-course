@@ -1,7 +1,5 @@
 package com.sirma.itt.javacourse.exceptions.console;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 /**
@@ -28,7 +26,7 @@ public class NumbersIntervalTest {
 	 * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#readNumbersInterval(int, int)}
 	 * with valid interval but with number out of the interval.
 	 */
-	@Test(expected = InvalidIntervalException.class)
+	@Test(expected = NotInIntervalException.class)
 	public void testReadNumbersIntervalInvalidNumber() {
 		String[] nums = { "23", "0", "-5", "8", "48", "33", "21" };
 		UnitTestReader reader = new UnitTestReader(nums);
@@ -50,39 +48,39 @@ public class NumbersIntervalTest {
 		interval.readNumbersInterval(0, 100);
 	}
 
-	/**
-	 * Tests
-	 * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#getLastReadedNumbers()}.
-	 */
-	@Test
-	public void testGetLastReadedNumbersNormalCase() {
-		String[] nums = { "12", "50", "0", "48", "8", "end" };
-
-		UnitTestReader reader = new UnitTestReader(nums);
-		NumbersInterval interval = new NumbersInterval(reader);
-		interval.readNumbersInterval(0, 50);
-		String actual = interval.getLastReadedNumbers();
-		String expected = "[12, 50, 0, 48, 8]";
-
-		assertEquals(expected, actual);
-	}
-
-	/**
-	 * Tests
-	 * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#getLastReadedNumbers()}
-	 * with one read number.
-	 */
-	@Test
-	public void testGetLastReadedNumbersOneNumber() {
-		String[] nums = { "200", "end" };
-
-		UnitTestReader reader = new UnitTestReader(nums);
-		NumbersInterval interval = new NumbersInterval(reader);
-		interval.readNumbersInterval(100, 500);
-		String actual = interval.getLastReadedNumbers();
-		String expected = "[200]";
-
-		assertEquals(expected, actual);
-	}
+	// /**
+	// * Tests
+	// * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#getLastReadedNumbers()}.
+	// */
+	// @Test
+	// public void testGetLastReadedNumbersNormalCase() {
+	// String[] nums = { "12", "50", "0", "48", "8", "end" };
+	//
+	// UnitTestReader reader = new UnitTestReader(nums);
+	// NumbersInterval interval = new NumbersInterval(reader);
+	// interval.readNumbersInterval(0, 50);
+	// String actual = interval.getLastReadedNumbers();
+	// String expected = "[12, 50, 0, 48, 8]";
+	//
+	// assertEquals(expected, actual);
+	// }
+	//
+	// /**
+	// * Tests
+	// * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#getLastReadedNumbers()}
+	// * with one read number.
+	// */
+	// @Test
+	// public void testGetLastReadedNumbersOneNumber() {
+	// String[] nums = { "200", "end" };
+	//
+	// UnitTestReader reader = new UnitTestReader(nums);
+	// NumbersInterval interval = new NumbersInterval(reader);
+	// interval.readNumbersInterval(100, 500);
+	// String actual = interval.getLastReadedNumbers();
+	// String expected = "[200]";
+	//
+	// assertEquals(expected, actual);
+	// }
 
 }

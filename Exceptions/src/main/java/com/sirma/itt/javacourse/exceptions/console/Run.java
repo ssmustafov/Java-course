@@ -22,15 +22,17 @@ public final class Run {
 		try {
 			ConsoleReader reader = new ConsoleReader();
 			NumbersInterval interval = new NumbersInterval(reader);
+			System.out.println("Enter number between 0-5:");
 			interval.readNumbersInterval(0, 5);
-			System.out.println(interval.getLastReadedNumbers());
 
 			System.out.println("--------------------------------");
-			interval.readNumbersInterval(4, 8);
-			System.out.println(interval.getLastReadedNumbers());
+			System.out.println("Enter number between 0-100:");
+			interval.readNumbersInterval(0, 100);
 		} catch (NumberFormatException e) {
 			System.out.println(e.getMessage());
 		} catch (InvalidIntervalException e) {
+			System.out.println(e.getMessage());
+		} catch (NotInIntervalException e) {
 			System.out.println(e.getMessage());
 		}
 	}

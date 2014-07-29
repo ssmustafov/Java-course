@@ -1,7 +1,5 @@
 package com.sirma.itt.javacourse.exceptions.console;
 
-import java.util.ArrayList;
-
 /**
  * Holds a method for reading numbers from the console in given interval.
  * 
@@ -10,7 +8,6 @@ import java.util.ArrayList;
 public class NumbersInterval {
 
 	private static final String INPUT_END_STRING = "end";
-	private ArrayList<Integer> input;
 	private final IntervalReader reader;
 
 	/**
@@ -56,38 +53,23 @@ public class NumbersInterval {
 					+ endInterval + ")");
 		}
 
-		if (input == null) {
-			input = new ArrayList<>();
-		}
-
 		String line;
-		do {
+		while (true) {
 			line = reader.readInput();
 			line = line.trim();
 
 			if (isInt(line)) {
 				int number = Integer.parseInt(line);
-				if (number >= startInterval && number <= endInterval) {
-					input.add(number);
-				} else {
-					throw new InvalidIntervalException("The number is not in the interval: ("
+				if (!(number >= startInterval && number <= endInterval)) {
+					throw new NotInIntervalException("The number is not in the interval: ("
 							+ startInterval + "," + endInterval + ")");
 				}
-			} else if (!INPUT_END_STRING.equals(line.toLowerCase())) {
+			} else if (INPUT_END_STRING.equals(line.toLowerCase())) {
+				break;
+			} else {
 				throw new NumberFormatException("The entered input is not a number: " + line);
 			}
-		} while (!INPUT_END_STRING.equals(line.toLowerCase()));
+		}
 	}
 
-	/**
-	 * Returns the last read numbers.
-	 * 
-	 * @return - the last read numbers as string
-	 */
-	public String getLastReadedNumbers() {
-		String result = input.toString();
-		input.clear();
-
-		return result;
-	}
 }
