@@ -71,7 +71,7 @@ public class FileReaderTest {
 	 *             throws exception if it cannot load the given file or the encode of the file is
 	 *             not UTF-8
 	 */
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testFileReaderWithNull() throws IOException {
 		new FileReader(null);
 	}

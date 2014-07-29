@@ -27,6 +27,10 @@ public class Hangman {
 	 *            the interface containing the words
 	 */
 	public Hangman(HangmanReader reader) {
+		if (reader == null) {
+			throw new IllegalArgumentException("The given interface HangmanReader is null");
+		}
+
 		this.hangmanReader = reader;
 		this.wordToGuess = this.hangmanReader.getRandomWord();
 		this.isLettersGuessed = new Boolean[this.wordToGuess.length()];

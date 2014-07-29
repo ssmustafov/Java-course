@@ -36,15 +36,4 @@ public class ArrayReaderTest {
 		}
 	}
 
-	/**
-	 * Tests
-	 * {@link com.sirma.itt.javacourse.intro.hangman.ArrayReader#ArrayReader(java.lang.String[])}
-	 * with null array.
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testArrayReaderWithNull() {
-		String[] arr = null;
-		new ArrayReader(arr);
-	}
-
 }

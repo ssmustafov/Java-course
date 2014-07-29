@@ -72,16 +72,6 @@ public class ArrayProcessTest {
 	}
 
 	/**
-	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ReverseArray#reverse(int[])} with null
-	 * array.
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testReverseWithNullArray() {
-		int[] array = null;
-		ArrayProcess.reverse(array);
-	}
-
-	/**
 	 * Tests {@link com.sirma.itt.javacourse.intro.arrays.ArrayProcess#getMinElement(int[])} with
 	 * normal numbers.
 	 */

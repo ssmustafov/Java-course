@@ -74,7 +74,7 @@ public final class ArrayProcess {
 			result.append(", ");
 		}
 
-		// Don't add space after the last element
+		// Don't add comma after the last element
 		result.append(array[array.length - 1]);
 
 		return result.toString();

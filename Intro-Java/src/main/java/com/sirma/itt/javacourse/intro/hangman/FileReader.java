@@ -26,6 +26,10 @@ public class FileReader implements HangmanReader {
 	 *             not UTF-8
 	 */
 	public FileReader(String fileName) throws IOException {
+		if (fileName == null) {
+			throw new IllegalArgumentException("The file name is null");
+		}
+
 		this.wordsCollection = this.readWordsFromFile(fileName);
 	}
 

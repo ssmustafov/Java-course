@@ -15,7 +15,7 @@ public class HangmanTest {
 	 * Tests {@link com.sirma.itt.javacourse.intro.hangman.Hangman#isWord(java.lang.String)} with
 	 * null.
 	 */
-	@Test(expected = NullPointerException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testHangmanWithNull() {
 		new Hangman(null);
 	}
