@@ -32,6 +32,10 @@ public final class LargeNumbers {
 
 		String workingNumber1 = number1AsString;
 		String workingNumber2 = number2AsString;
+
+		workingNumber1 = workingNumber1.replaceFirst("^0+(?!$)", "");
+		workingNumber2 = workingNumber2.replaceFirst("^0+(?!$)", "");
+
 		char charFromNumber1;
 		char charFromNumber2;
 		int digitFromNumber1;

@@ -70,4 +70,17 @@ public class LargeNumbersTest {
 		LargeNumbers.sumTwoNumbers("29387-da=34249#", "99879!_==---=++43921");
 	}
 
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.intro.numbers.LargeNumbers#sumTwoNumbers(java.lang.String, java.lang.String)}
+	 * with numbers contatining leading zeros.
+	 */
+	@Test
+	public void testSumWitLeadingZeros() {
+		String actual = LargeNumbers.sumTwoNumbers("0000884", "006");
+		String expected = "890";
+
+		assertEquals(expected, actual);
+	}
+
 }
