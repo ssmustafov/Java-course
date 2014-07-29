@@ -16,7 +16,7 @@ public class NotInIntervalException extends RuntimeException {
 	 * Creates a new exception.
 	 */
 	public NotInIntervalException() {
-		super();
+		super("The number is not in the interval");
 	}
 
 	/**
