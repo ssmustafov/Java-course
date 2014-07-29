@@ -3,12 +3,7 @@
   <groupId>com.sirma.itt.javacourse.exceptions</groupId>
   <artifactId>Exceptions</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>Sumator</module>
-  	<module>ConsoleReader</module>
-  	<module>List</module>
-  </modules>
+  <packaging>jar</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 </properties>

@@ -3,7 +3,6 @@
   <groupId>Intro-Java</groupId>
   <artifactId>Intro-Java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
   
   <dependencies>
 		<dependency>
@@ -28,10 +27,4 @@
 	  </plugins>
 	</build>
   
-	<modules>
-		<module>Hangman</module>
-		<module>Strings</module>
-		<module>Numbers</module>
-		<module>Arrays</module>
-	</modules>
 </project>
