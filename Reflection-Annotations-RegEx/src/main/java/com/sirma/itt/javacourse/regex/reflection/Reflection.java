@@ -11,6 +11,62 @@ import java.lang.reflect.Method;
 public class Reflection {
 
 	/**
+	 * Creates an instance of class by given full class name.
+	 * 
+	 * @param className
+	 *            - the class which class name to be created
+	 * @return instance of the class created
+	 */
+	public Object instantiateClassByName(String className) {
+		Object object = null;
+		try {
+			Class<?> c = Class.forName(className);
+			object = c.newInstance();
+		} catch (ClassNotFoundException e) {
+			System.out.println(e.getMessage());
+		} catch (InstantiationException e) {
+			System.out.println(e.getMessage());
+		} catch (IllegalAccessException e) {
+			System.out.println(e.getMessage());
+		}
+		return object;
+	}
+
+	/**
+	 * Prints on the console the parent class of the given class.
+	 * 
+	 * @param obj
+	 *            - the class whom parent class to be printed
+	 */
+	public void printParentClass(Object obj) {
+		Class<?> someClass = obj.getClass();
+		System.out.println("Parent class of '" + someClass.getSimpleName() + "' class");
+		System.out.printf("\t%s", someClass.getSuperclass().getSimpleName());
+		System.out.println();
+	}
+
+	/**
+	 * Prints on the console all interfaces the given class implements.
+	 * 
+	 * @param obj
+	 *            - the class whom interfaces to be printed
+	 */
+	public void printInterfaces(Object obj) {
+		Class<?> someClass = obj.getClass();
+		Class<?>[] interfaces = someClass.getInterfaces();
+
+		System.out.println("Interfaces implemented by '" + someClass.getSimpleName() + "' class");
+		if (interfaces.length != 0) {
+			for (Class<?> class1 : interfaces) {
+				System.out.printf("\t%s", class1.getSimpleName());
+				System.out.println();
+			}
+		} else {
+			System.out.println("\t-- No interfaces --");
+		}
+	}
+
+	/**
 	 * Prints on the console all methods signature in given class.
 	 * 
 	 * @param obj
@@ -19,9 +75,9 @@ public class Reflection {
 	public void printMethods(Object obj) {
 		Class<?> someClass = obj.getClass();
 		Method[] methods = someClass.getMethods();
+
+		System.out.println("Methods in '" + someClass.getSimpleName() + "' class:");
 		if (methods.length != 0) {
-			System.out.println("Methods with their signatures in '" + someClass.getSimpleName()
-					+ "' class:");
 			for (Method method : methods) {
 				System.out.printf("\t%s", method.toGenericString());
 				System.out.println();
@@ -40,8 +96,9 @@ public class Reflection {
 	public void printFields(Object obj) {
 		Class<?> someClass = obj.getClass();
 		Field[] fields = someClass.getDeclaredFields();
+
+		System.out.println("Fields in '" + someClass.getSimpleName() + "' class:");
 		if (fields.length != 0) {
-			System.out.println("Fields in '" + someClass.getSimpleName() + "' class:");
 			for (Field field : fields) {
 				try {
 					field.setAccessible(true);
@@ -58,4 +115,5 @@ public class Reflection {
 			System.out.println("\t-- No fields --");
 		}
 	}
+
 }

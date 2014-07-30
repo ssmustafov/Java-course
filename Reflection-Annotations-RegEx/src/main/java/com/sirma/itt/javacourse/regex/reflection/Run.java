@@ -17,11 +17,20 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		ArrayProcess a = new ArrayProcess();
+		// Task 1
+		RandomString a = new RandomString();
 		Reflection r = new Reflection();
 		r.printFields(a);
 		r.printMethods(a);
 
+		// Task 2
+		StringBuilder stringBuilder = (StringBuilder) r
+				.instantiateClassByName("java.lang.StringBuilder");
+		stringBuilder.append("a");
+		stringBuilder.append("b");
+		stringBuilder.append(" text");
+		r.printInterfaces(stringBuilder);
+		r.printParentClass(stringBuilder);
 	}
 
 }

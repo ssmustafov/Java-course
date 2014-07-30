@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.intro.strings;
+package com.sirma.itt.javacourse.regex.reflection;
 
 import java.util.Random;
 
