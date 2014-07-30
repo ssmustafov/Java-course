@@ -31,6 +31,12 @@ public final class Run {
 		stringBuilder.append(" text");
 		r.printInterfaces(stringBuilder);
 		r.printParentClass(stringBuilder);
+
+		// Task 3
+		RandomStringReflector reflector = new RandomStringReflector();
+		reflector.printAllPrivateFields();
+		reflector.invokeAllPrivateMethods();
+
 	}
 
 }

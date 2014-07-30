@@ -74,11 +74,12 @@ public class Reflection {
 	 */
 	public void printMethods(Object obj) {
 		Class<?> someClass = obj.getClass();
-		Method[] methods = someClass.getMethods();
+		Method[] methods = someClass.getDeclaredMethods();
 
 		System.out.println("Methods in '" + someClass.getSimpleName() + "' class:");
 		if (methods.length != 0) {
 			for (Method method : methods) {
+				method.setAccessible(true);
 				System.out.printf("\t%s", method.toGenericString());
 				System.out.println();
 			}
