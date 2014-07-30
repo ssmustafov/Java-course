@@ -39,6 +39,25 @@ public class NumbersInterval {
 	}
 
 	/**
+	 * Checks if given number is in given range inclusively.
+	 * 
+	 * @param start
+	 *            - the start range
+	 * @param end
+	 *            - end range
+	 * @param number
+	 *            - the number to be checked if its in range
+	 * @return true if the given number is in range or false if its not
+	 */
+	public boolean isNumberInRange(int start, int end, int number) {
+		if (number >= start && number <= end) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
 	 * Reads numbers from the console in given interval. The reading of numbers ends when the string
 	 * "end" is read.
 	 * 
@@ -60,7 +79,7 @@ public class NumbersInterval {
 
 			if (isInt(line)) {
 				int number = Integer.parseInt(line);
-				if (!(number >= startInterval && number <= endInterval)) {
+				if (!isNumberInRange(startInterval, endInterval, number)) {
 					throw new NotInIntervalException("The number is not in the interval: ("
 							+ startInterval + "," + endInterval + ")");
 				}

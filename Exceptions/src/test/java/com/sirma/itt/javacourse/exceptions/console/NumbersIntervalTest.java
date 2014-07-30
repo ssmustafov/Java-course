@@ -24,6 +24,19 @@ public class NumbersIntervalTest {
 	/**
 	 * Tests
 	 * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#readNumbersInterval(int, int)}
+	 * with invalid number format.
+	 */
+	@Test(expected = NumberFormatException.class)
+	public void testReadNumbersWithInvalidNumber() {
+		String[] nums = { "23", "0", "-5", "aaa8ddd", "48", "33", "21" };
+		UnitTestReader reader = new UnitTestReader(nums);
+		NumbersInterval interval = new NumbersInterval(reader);
+		interval.readNumbersInterval(-10, 100);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#readNumbersInterval(int, int)}
 	 * with valid interval but with number out of the interval.
 	 */
 	@Test(expected = NotInIntervalException.class)
@@ -49,20 +62,16 @@ public class NumbersIntervalTest {
 	}
 
 	// /**
-	// * Tests
-	// * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#getLastReadedNumbers()}.
+	// * Tests {@link com.sirma.itt.javacourse.exceptions.console.UnitTestReader}.
 	// */
 	// @Test
-	// public void testGetLastReadedNumbersNormalCase() {
+	// public void testReaderInput() {
 	// String[] nums = { "12", "50", "0", "48", "8", "end" };
-	//
 	// UnitTestReader reader = new UnitTestReader(nums);
-	// NumbersInterval interval = new NumbersInterval(reader);
-	// interval.readNumbersInterval(0, 50);
-	// String actual = interval.getLastReadedNumbers();
-	// String expected = "[12, 50, 0, 48, 8]";
 	//
-	// assertEquals(expected, actual);
+	// if (!Arrays.equals(nums, reader.getUserInput())) {
+	// fail("The given array is not equal to that in the reader");
+	// }
 	// }
 	//
 	// /**
