@@ -45,9 +45,8 @@ public class Reflection {
 			for (Field field : fields) {
 				try {
 					field.setAccessible(true);
-					Object fieldValue = field.get(obj);
 					System.out.printf("\tName: %s  Type: %s  Value: %s", field.getName(),
-							field.getType(), fieldValue);
+							field.getType(), field.get(obj));
 					System.out.println();
 				} catch (IllegalArgumentException e) {
 					System.out.println(e.getMessage());
