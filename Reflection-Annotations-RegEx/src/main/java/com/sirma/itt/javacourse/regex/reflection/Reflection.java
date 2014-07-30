@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.reflection.reflection;
+package com.sirma.itt.javacourse.regex.reflection;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -43,8 +43,8 @@ public class Reflection {
 		if (fields.length != 0) {
 			System.out.println("Fields in '" + someClass.getSimpleName() + "' class:");
 			for (Field field : fields) {
-				field.setAccessible(true);
 				try {
+					field.setAccessible(true);
 					Object fieldValue = field.get(obj);
 					System.out.printf("\tName: %s  Type: %s  Value: %s", field.getName(),
 							field.getType(), fieldValue);

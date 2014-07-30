@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.reflection.reflection;
+package com.sirma.itt.javacourse.regex.reflection;
 
 /**
  * Processes arrays.

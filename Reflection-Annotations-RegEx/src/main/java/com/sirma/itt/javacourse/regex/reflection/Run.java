@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.reflection.reflection;
+package com.sirma.itt.javacourse.regex.reflection;
 
 /**
  * @author smustafov
@@ -23,4 +23,5 @@ public final class Run {
 		r.printMethods(a);
 
 	}
+
 }
