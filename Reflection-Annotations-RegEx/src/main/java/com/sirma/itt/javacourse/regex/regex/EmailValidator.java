@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.regex.regex;
 
+import java.util.regex.Pattern;
+
 /**
  * Holds methods for validating email.
  * 
@@ -23,6 +25,16 @@ public final class EmailValidator {
 	 *         email
 	 */
 	public static boolean isValidEmail(String email) {
+		if (email == null) {
+			throw new IllegalArgumentException("The given string is null");
+		}
+
+		final String regEx = "^[A-za-z][A-Za-z0-9.-]*+@[A-Za-z][A-Za-z0-9.-]*";
+
+		if (Pattern.matches(regEx, email)) {
+			return true;
+		}
+
 		return false;
 	}
 
