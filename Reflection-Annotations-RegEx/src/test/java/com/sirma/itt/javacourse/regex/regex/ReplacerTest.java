@@ -32,7 +32,7 @@ public class ReplacerTest {
 	public void testReplaceWithEmptyTag() {
 		String str = "<x></x>";
 		String actual = Replacer.replace(str);
-		String expected = "<x/>";
+		String expected = "<x></x>";
 
 		assertEquals(expected, actual);
 	}

@@ -24,7 +24,8 @@ public final class Replacer {
 			throw new IllegalArgumentException("The given string is null");
 		}
 
-		final String regEx = "<x>[A-Za-z0-9\\s]*</x>";
+		// <x>[A-Za-z0-9\\s]*</x> lazy
+		final String regEx = "<x>[^<]*[^>]</x>";
 		final String replacement = "<x/>";
 		String replaced = str.replaceAll(regEx, replacement);
 
