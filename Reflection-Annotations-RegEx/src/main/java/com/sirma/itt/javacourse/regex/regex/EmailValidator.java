@@ -31,11 +31,7 @@ public final class EmailValidator {
 
 		final String regEx = "^[A-za-z][A-Za-z0-9.-]*+@[A-Za-z][A-Za-z0-9.-]*";
 
-		if (Pattern.matches(regEx, email)) {
-			return true;
-		}
-
-		return false;
+		return Pattern.matches(regEx, email);
 	}
 
 }
