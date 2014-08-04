@@ -20,12 +20,21 @@ public final class ConsoleReader {
 	}
 
 	/**
-	 * Reads from the console one string.
+	 * Reads a string from the console.
 	 * 
 	 * @return - the read string
 	 */
 	public static String readString() {
 		return SCANNER.next();
+	}
+
+	/**
+	 * Reads from the console one line.
+	 * 
+	 * @return - the read line as string
+	 */
+	public static String readLine() {
+		return SCANNER.nextLine();
 	}
 
 	/**
