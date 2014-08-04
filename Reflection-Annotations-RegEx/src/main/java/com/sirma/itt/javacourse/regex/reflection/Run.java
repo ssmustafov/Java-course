@@ -22,6 +22,7 @@ public final class Run {
 		Reflection r = new Reflection();
 		r.printAllFields(a);
 		r.printMethods(a);
+		System.out.println();
 
 		// Task 2
 		StringBuilder stringBuilder = (StringBuilder) r
@@ -31,12 +32,12 @@ public final class Run {
 		stringBuilder.append(" text");
 		r.printInterfaces(stringBuilder);
 		r.printParentClass(stringBuilder);
+		System.out.println();
 
 		// Task 3
 		RandomStringReflector reflector = new RandomStringReflector();
 		reflector.printAllPrivateFields();
 		reflector.invokeAllPrivateMethods();
-
 	}
 
 }

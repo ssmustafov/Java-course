@@ -15,8 +15,8 @@ public class Reflection {
 	 * Creates an instance of class by given full class name.
 	 * 
 	 * @param className
-	 *            - the class which class name to be created
-	 * @return instance of the class created
+	 *            - the class name of which class to be created
+	 * @return instance of the created class
 	 */
 	public Object instantiateClassByName(String className) {
 		Object object = null;
@@ -148,4 +148,5 @@ public class Reflection {
 			System.out.println("\t-- No private fields --");
 		}
 	}
+
 }
