@@ -27,7 +27,7 @@ public class FileWriter implements WriterReader {
 	 *            - the file name of the file in which will be writing
 	 */
 	public FileWriter(String fileName) {
-		if (!Pattern.matches("^[A-Za-z0-9]*[A-Za-z0-9].txt$", fileName)) {
+		if (!Pattern.matches("^[A-Za-z0-9]*.txt$", fileName)) {
 			throw new IllegalArgumentException("The given string is not a valid text file name");
 		}
 		if (fileName.isEmpty()) {

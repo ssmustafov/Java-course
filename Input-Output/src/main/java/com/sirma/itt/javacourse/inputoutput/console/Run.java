@@ -22,5 +22,6 @@ public final class Run {
 
 		FileWriter w = new FileWriter("text.txt");
 		w.write();
+
 	}
 }
