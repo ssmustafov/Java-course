@@ -38,12 +38,14 @@ public class RandomStringReflector {
 		try {
 			Method method1 = RandomString.class.getDeclaredMethod("getRandomNumber", int.class);
 			method1.setAccessible(true);
-			System.out.println(method1.invoke(randomString, 100));
+			System.out.println("Invoking method 'getRandomNumber' with parameter 100: "
+					+ method1.invoke(randomString, 100));
 
 			Method method2 = RandomString.class.getDeclaredMethod("getRandomNumberRange",
 					int.class, int.class);
 			method2.setAccessible(true);
-			System.out.println(method2.invoke(randomString, 10, 15));
+			System.out.println("Invoking method 'getRandomNumberRange' with parameters 10,15: "
+					+ method2.invoke(randomString, 10, 15));
 		} catch (NoSuchMethodException e) {
 			System.out.println("No such method: " + e.getMessage());
 		} catch (SecurityException e) {
@@ -54,5 +56,4 @@ public class RandomStringReflector {
 			System.out.println(e.getMessage());
 		}
 	}
-
 }
