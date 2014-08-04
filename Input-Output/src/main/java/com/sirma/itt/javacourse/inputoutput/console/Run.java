@@ -20,7 +20,7 @@ public final class Run {
 	 */
 	public static void main(String[] args) {
 
-		FileWriter w = new FileWriter("text.txt");
+		FileWriter w = new FileWriter("2text.txt");
 		w.write();
 
 	}
