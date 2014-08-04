@@ -2,6 +2,7 @@ package com.sirma.itt.javacourse.regex.reflection;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 /**
  * Holds methods for reflection.
@@ -94,7 +95,7 @@ public class Reflection {
 	 * @param obj
 	 *            - the class whom fields to be printed
 	 */
-	public void printFields(Object obj) {
+	public void printAllFields(Object obj) {
 		Class<?> someClass = obj.getClass();
 		Field[] fields = someClass.getDeclaredFields();
 
@@ -117,4 +118,34 @@ public class Reflection {
 		}
 	}
 
+	/**
+	 * Prints on the console all private fields in given class.
+	 * 
+	 * @param obj
+	 *            - the class whom private fields to be printed
+	 */
+	public void printPrivateFields(Object obj) {
+		Class<?> someClass = obj.getClass();
+		Field[] fields = someClass.getDeclaredFields();
+
+		System.out.println("Private fields in '" + someClass.getSimpleName() + "' class:");
+		if (fields.length != 0) {
+			for (Field field : fields) {
+				if (Modifier.isPrivate(field.getModifiers())) {
+					try {
+						field.setAccessible(true);
+						System.out.printf("\tName: %s  Type: %s  Value: %s", field.getName(),
+								field.getType(), field.get(obj));
+					} catch (IllegalArgumentException e) {
+						System.out.println(e.getMessage());
+					} catch (IllegalAccessException e) {
+						System.out.println(e.getMessage());
+					}
+					System.out.println();
+				}
+			}
+		} else {
+			System.out.println("\t-- No private fields --");
+		}
+	}
 }

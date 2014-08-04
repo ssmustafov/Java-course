@@ -27,7 +27,7 @@ public class RandomStringReflector {
 	 * {@link com.sirma.itt.javacourse.regex.reflection.RandomString} class.
 	 */
 	public void printAllPrivateFields() {
-		reflection.printFields(randomString);
+		reflection.printPrivateFields(randomString);
 	}
 
 	/**

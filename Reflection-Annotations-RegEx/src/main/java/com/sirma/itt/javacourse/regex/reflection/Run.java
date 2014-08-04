@@ -20,7 +20,7 @@ public final class Run {
 		// Task 1
 		RandomString a = new RandomString();
 		Reflection r = new Reflection();
-		r.printFields(a);
+		r.printAllFields(a);
 		r.printMethods(a);
 
 		// Task 2
