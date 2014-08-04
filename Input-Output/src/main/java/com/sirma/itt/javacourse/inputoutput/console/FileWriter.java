@@ -36,7 +36,6 @@ public class FileWriter implements WriterReader {
 
 		this.fileName = fileName;
 		input = new StringBuilder();
-
 	}
 
 	/**
@@ -87,4 +86,5 @@ public class FileWriter implements WriterReader {
 			input.append(System.lineSeparator());
 		}
 	}
+
 }
