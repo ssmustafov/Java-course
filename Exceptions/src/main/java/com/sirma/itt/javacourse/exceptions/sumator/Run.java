@@ -22,8 +22,7 @@ public final class Run {
 		try {
 			Sumator sumator = new Sumator();
 			// System.out.println(sumator.sum("", ""));
-			// System.out.println(sumator.sum("321^", "123"));
-			System.out.println(sumator.sum(null, null));
+			System.out.println(sumator.sum("321^", "123"));
 		} catch (NumberFormatException e) {
 			System.out.println(e.getMessage());
 		} catch (NullPointerException e) {
