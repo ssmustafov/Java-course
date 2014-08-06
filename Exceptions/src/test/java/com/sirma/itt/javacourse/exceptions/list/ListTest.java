@@ -201,6 +201,7 @@ public class ListTest {
 		list.remove();
 		list.remove();
 		list.remove();
+		list.remove();
 		list.add(500);
 
 		String actual = list.getAllElements();

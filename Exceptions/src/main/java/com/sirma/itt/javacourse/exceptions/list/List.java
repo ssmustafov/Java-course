@@ -8,7 +8,7 @@ package com.sirma.itt.javacourse.exceptions.list;
 public class List {
 
 	private Object[] array;
-	private int counter;
+	private int index;
 
 	/**
 	 * Creates a new list with given size.
@@ -22,7 +22,7 @@ public class List {
 		}
 
 		array = new Object[size];
-		counter = 0;
+		index = 0;
 	}
 
 	/**
@@ -32,31 +32,24 @@ public class List {
 	 *            - the element to be added
 	 */
 	public void add(Object obj) {
-		if (array.length == counter) {
+		if (array.length == index) {
 			throw new ListFullException();
 		}
 
-		array[counter] = obj;
-		counter++;
+		array[index] = obj;
+		index++;
 	}
 
 	/**
 	 * Removes the last element of the list.
 	 */
 	public void remove() {
-		if (counter == 0) {
+		if (index == 0) {
 			throw new ListEmptyException();
 		}
-		if (counter == array.length) {
-			counter--;
-		}
 
-		if (array[counter] == null) {
-			array[counter - 1] = null;
-		} else {
-			array[counter] = null;
-		}
-		counter--;
+		index--;
+		array[index] = null;
 	}
 
 	/**
@@ -68,13 +61,13 @@ public class List {
 		StringBuilder result = new StringBuilder();
 		result.append("[");
 
-		for (int i = 0; i < counter - 1; i++) {
+		for (int i = 0; i < index - 1; i++) {
 			result.append(array[i]);
 			result.append(", ");
 		}
 
-		if (counter > 0) {
-			result.append(array[counter - 1]);
+		if (index > 0) {
+			result.append(array[index - 1]);
 		}
 
 		result.append("]");
@@ -88,7 +81,7 @@ public class List {
 	 * @return - the size of the list
 	 */
 	public int getListSize() {
-		return counter;
+		return index;
 	}
 
 	/**
@@ -108,7 +101,7 @@ public class List {
 	 * @return the object element at given index
 	 */
 	public Object get(int index) {
-		if (index > array.length) {
+		if (index >= array.length) {
 			throw new ArrayIndexOutOfBoundsException("Index out of the range: " + index);
 		}
 
