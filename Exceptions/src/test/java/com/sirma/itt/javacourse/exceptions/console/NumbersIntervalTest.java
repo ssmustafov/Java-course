@@ -61,18 +61,16 @@ public class NumbersIntervalTest {
 		interval.readNumbersInterval(0, 100);
 	}
 
-	// /**
-	// * Tests {@link com.sirma.itt.javacourse.exceptions.console.UnitTestReader}.
-	// */
-	// @Test
-	// public void testReaderInput() {
-	// String[] nums = { "12", "50", "0", "48", "8", "end" };
-	// UnitTestReader reader = new UnitTestReader(nums);
-	//
-	// if (!Arrays.equals(nums, reader.getUserInput())) {
-	// fail("The given array is not equal to that in the reader");
-	// }
-	// }
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.exceptions.console.UnitTestReader}.
+	 */
+	@Test
+	public void testReaderInput() {
+		String[] nums = { "12", "50", "0", "48", "8", "end" };
+		UnitTestReader reader = new UnitTestReader(nums);
+		NumbersInterval interval = new NumbersInterval(reader);
+		interval.readNumbersInterval(0, 100);
+	}
 	//
 	// /**
 	// * Tests
