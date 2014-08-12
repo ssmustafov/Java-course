@@ -18,7 +18,7 @@ public class NumbersIntervalTest {
 	 */
 	@Test(expected = InvalidIntervalException.class)
 	public void testReadNumbersIntervalInvalidInterval() {
-		ConsoleReader reader = new ConsoleReader();
+		ConsoleIntervalReader reader = new ConsoleIntervalReader();
 		NumbersInterval interval = new NumbersInterval(reader);
 		interval.readNumbersInterval(100, 0);
 	}

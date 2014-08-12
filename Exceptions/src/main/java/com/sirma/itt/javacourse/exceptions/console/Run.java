@@ -20,7 +20,7 @@ public final class Run {
 	 */
 	public static void main(String[] args) {
 		try {
-			ConsoleReader reader = new ConsoleReader();
+			ConsoleIntervalReader reader = new ConsoleIntervalReader();
 			NumbersInterval interval = new NumbersInterval(reader);
 			System.out.println("Enter number between 0-5:");
 			interval.readNumbersInterval(0, 5);

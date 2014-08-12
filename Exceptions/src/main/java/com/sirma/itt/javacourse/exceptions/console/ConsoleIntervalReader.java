@@ -7,7 +7,7 @@ import java.util.Scanner;
  * 
  * @author smustafov
  */
-public class ConsoleReader implements IntervalReader {
+public class ConsoleIntervalReader implements IntervalReader {
 
 	/**
 	 * {@inheritDoc}
