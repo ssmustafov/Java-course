@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.exceptions.console;
 
 /**
- * Custom exception for invalid interval of numbers.
+ * Thrown when given interval is not valid interval.
  * 
  * @author smustafov
  */
@@ -16,7 +16,7 @@ public class InvalidIntervalException extends RuntimeException {
 	 * Creates a new exception.
 	 */
 	public InvalidIntervalException() {
-		super();
+		super("Invalid interval");
 	}
 
 	/**
