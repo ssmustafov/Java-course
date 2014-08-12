@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.exceptions.console;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
@@ -62,32 +64,61 @@ public class NumbersIntervalTest {
 	}
 
 	/**
-	 * Tests {@link com.sirma.itt.javacourse.exceptions.console.UnitTestReader}.
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#readNumbersInterval(int, int)}
+	 * with space.
 	 */
-	@Test
-	public void testReaderInput() {
-		String[] nums = { "12", "50", "0", "48", "8", "end" };
+	@Test(expected = NumberFormatException.class)
+	public void testReadNumbersWithSpace() {
+		String[] nums = { "15", " ", "end" };
 		UnitTestReader reader = new UnitTestReader(nums);
 		NumbersInterval interval = new NumbersInterval(reader);
 		interval.readNumbersInterval(0, 100);
 	}
-	//
-	// /**
-	// * Tests
-	// * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#getLastReadedNumbers()}
-	// * with one read number.
-	// */
-	// @Test
-	// public void testGetLastReadedNumbersOneNumber() {
-	// String[] nums = { "200", "end" };
-	//
-	// UnitTestReader reader = new UnitTestReader(nums);
-	// NumbersInterval interval = new NumbersInterval(reader);
-	// interval.readNumbersInterval(100, 500);
-	// String actual = interval.getLastReadedNumbers();
-	// String expected = "[200]";
-	//
-	// assertEquals(expected, actual);
-	// }
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#readNumbersInterval(int, int)}
+	 * with empty string.
+	 */
+	@Test(expected = NumberFormatException.class)
+	public void testReadNumbersWithEmptyNumber() {
+		String[] nums = { "", "end" };
+		UnitTestReader reader = new UnitTestReader(nums);
+		NumbersInterval interval = new NumbersInterval(reader);
+		interval.readNumbersInterval(0, 100);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#isNumberInRange(int, int, int)}
+	 * with number in the range.
+	 */
+	@Test
+	public void testIsNumberInRangeTrue() {
+		String[] nums = { "", "end" };
+		UnitTestReader reader = new UnitTestReader(nums);
+		NumbersInterval interval = new NumbersInterval(reader);
+		boolean actual = interval.isNumberInRange(-10, 10, 5);
+		boolean expected = true;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.exceptions.console.NumbersInterval#isNumberInRange(int, int, int)}
+	 * with number out of the range.
+	 */
+	@Test
+	public void testIsNumberInRangeFalse() {
+		String[] nums = { "", "end" };
+		UnitTestReader reader = new UnitTestReader(nums);
+		NumbersInterval interval = new NumbersInterval(reader);
+		boolean actual = interval.isNumberInRange(20, 50, 55);
+		boolean expected = false;
+
+		assertEquals(expected, actual);
+	}
 
 }
