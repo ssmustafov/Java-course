@@ -106,4 +106,18 @@ public class EmailValidatorTest {
 		EmailValidator.isValidEmail(email);
 	}
 
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.regex.regex.EmailValidator#isValidEmail(java.lang.String)}
+	 * with double '@'.
+	 */
+	@Test
+	public void testIsValidEmail() {
+		String email = "test619@@mail.com";
+		boolean actual = EmailValidator.isValidEmail(email);
+		boolean expected = false;
+
+		assertEquals(expected, actual);
+	}
+
 }

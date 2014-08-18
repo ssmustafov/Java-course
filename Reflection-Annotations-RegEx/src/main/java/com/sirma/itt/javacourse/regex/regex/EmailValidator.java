@@ -29,7 +29,7 @@ public final class EmailValidator {
 			throw new IllegalArgumentException("The given string is null");
 		}
 
-		final String regEx = "^[A-za-z][A-Za-z0-9.-]*+@[A-Za-z][A-Za-z0-9.-]*";
+		final String regEx = "^[A-Za-z][A-Za-z0-9.-]*+@[A-Za-z][A-Za-z0-9.-]*";
 
 		return Pattern.matches(regEx, email);
 	}
