@@ -12,6 +12,8 @@ import java.io.InputStreamReader;
 import org.junit.Test;
 
 /**
+ * Tests {@link com.sirma.itt.javacourse.inputoutput.files.FileWriter} class.
+ * 
  * @author smustafov
  */
 public class FileWriterTest {
@@ -54,8 +56,7 @@ public class FileWriterTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.inputoutput.files.FileWriter#write()} with
-	 * valid input.
+	 * Tests {@link com.sirma.itt.javacourse.inputoutput.files.FileWriter#write()} with valid input.
 	 */
 	@Test
 	public void testWriteNormalCase() {
@@ -72,8 +73,7 @@ public class FileWriterTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.inputoutput.files.FileWriter#write()} with
-	 * empty input.
+	 * Tests {@link com.sirma.itt.javacourse.inputoutput.files.FileWriter#write()} with empty input.
 	 */
 	@Test
 	public void testWriteEmptyInput() {
