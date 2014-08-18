@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.inputoutput.writeToFile;
+package com.sirma.itt.javacourse.inputoutput.files;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.inputoutput.writeToFile;
+package com.sirma.itt.javacourse.inputoutput.files;
 
 import static org.junit.Assert.assertEquals;
 
@@ -54,8 +54,8 @@ public class FileWriterTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.inputoutput.writeToFile.FileWriter#write()}
-	 * with valid input.
+	 * Test method for {@link com.sirma.itt.javacourse.inputoutput.files.FileWriter#write()} with
+	 * valid input.
 	 */
 	@Test
 	public void testWriteNormalCase() {
@@ -72,8 +72,8 @@ public class FileWriterTest {
 	}
 
 	/**
-	 * Test method for {@link com.sirma.itt.javacourse.inputoutput.writeToFile.FileWriter#write()}
-	 * with empty input.
+	 * Test method for {@link com.sirma.itt.javacourse.inputoutput.files.FileWriter#write()} with
+	 * empty input.
 	 */
 	@Test
 	public void testWriteEmptyInput() {

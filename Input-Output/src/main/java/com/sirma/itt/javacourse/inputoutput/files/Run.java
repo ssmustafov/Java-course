@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.inputoutput.writeToFile;
+package com.sirma.itt.javacourse.inputoutput.files;
 
 /**
  * Shows how the console classes can be used.
