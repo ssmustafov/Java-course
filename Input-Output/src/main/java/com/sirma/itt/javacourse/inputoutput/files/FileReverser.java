@@ -68,7 +68,6 @@ public class FileReverser {
 	 */
 	public void reverseTextFile(String fileName) {
 		BufferedReader reader = null;
-
 		try {
 			FileInputStream fileInputStream = new FileInputStream(fileName);
 			InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, ENCODING);
