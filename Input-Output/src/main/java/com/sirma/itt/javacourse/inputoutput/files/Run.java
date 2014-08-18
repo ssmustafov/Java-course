@@ -19,7 +19,10 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		FileWriter w = new FileWriter("src\\main\\resources\\test.txt");
-		w.write();
+		// FileWriter w = new FileWriter("src\\main\\resources\\test.txt");
+		// w.write();
+
+		FileReverser r = new FileReverser();
+		r.reverseTextFile("src\\main\\resources\\reverse.txt");
 	}
 }
