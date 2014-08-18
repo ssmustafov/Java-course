@@ -69,7 +69,8 @@ public class FileWriterTest {
 		w.write();
 
 		String actual = readContentFromFile(path);
-		assertEquals("this is test", actual);
+		String expected = "this is test";
+		assertEquals(expected, actual);
 	}
 
 	/**
@@ -86,7 +87,29 @@ public class FileWriterTest {
 		w.write();
 
 		String actual = readContentFromFile(path);
-		assertEquals("", actual);
+		String expected = "";
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.inputoutput.files.FileWriter#write()} with two lines.
+	 */
+	@Test
+	public void testWriteTwoLines() {
+		String path = FOLDER + "testWriteTwoLines.txt";
+		FileWriter w = new FileWriter(path);
+		String str = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+				+ System.lineSeparator()
+				+ "Lorem Ipsum has been the industry's standard dummy text "
+				+ System.lineSeparator() + ".";
+		byte[] data = str.getBytes();
+		InputStream input = new ByteArrayInputStream(data);
+		w.setStream(input);
+		w.write();
+
+		String actual = readContentFromFile(path);
+		String expected = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text";
+		assertEquals(expected, actual);
 	}
 
 }
