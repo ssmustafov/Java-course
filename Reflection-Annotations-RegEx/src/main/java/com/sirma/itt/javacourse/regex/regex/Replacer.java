@@ -13,7 +13,7 @@ public final class Replacer {
 	}
 
 	/**
-	 * Replaces all tags &lt;x&gt;...&lt;/x&gt; with &lt;x/&gt;.
+	 * Replaces all tags &lt;x&gt;...&lt;/x&gt; with &lt;x/&gt; in the same tags.
 	 * 
 	 * @param str
 	 *            - the string to be replaced
