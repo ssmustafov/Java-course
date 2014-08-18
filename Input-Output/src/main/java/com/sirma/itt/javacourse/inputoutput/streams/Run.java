@@ -23,17 +23,16 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		String str = "Some string";
+		String str = "SomeSADDDDDDDDDDDDDDDDADdasdadsasddddddddd55555555555555";
 		ByteArrayInputStream input = new ByteArrayInputStream(str.getBytes());
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
 		TransferObject transfer = new TransferObject(input, output);
 
 		try {
-			System.out.println(transfer.transfer(100000, 10));
+			System.out.println(transfer.transfer(str.length(), 0));
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-
 	}
 
 }
