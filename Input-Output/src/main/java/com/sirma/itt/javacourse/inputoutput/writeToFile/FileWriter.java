@@ -25,7 +25,7 @@ public class FileWriter {
 	 * Creates a new file writer with given file name.
 	 * 
 	 * @param fileName
-	 *            - the file name of the file in which will be writing
+	 *            - the full path of the file in which will be writing
 	 */
 	public FileWriter(String fileName) {
 		if (!Pattern.matches("[A-Za-z0-9\\\\/]*.txt$", fileName)) {
