@@ -110,8 +110,8 @@ public class IbanValidatorTest {
 
 		String actual = IbanValidator.replaceIban(iban);
 		String expected = "<bankAccounts><iban>GR1601101050000010547023795</iban>"
-				+ "<iban>GB35MIBG40253432144670</iban>" + "<iban>SA8080000375608010190160</iban>"
-				+ "<iban>CH5108686001256515001</iban>" + "<iban>****7840</iban>"
+				+ "<iban>GB35MIBG40253432144670</iban><iban>SA8080000375608010190160</iban>"
+				+ "<iban>CH5108686001256515001</iban><iban>****7840</iban>"
 				+ "<iban>IL3001BG030000096339234</iban>"
 				+ "<iban>AL47212110090000000235698741</iban>"
 				+ "<iban>AZ21NABZ00000000137010001944</iban>"
