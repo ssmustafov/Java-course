@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.inputoutput.files;
 
 /**
- * Shows how the console classes can be used.
+ * Shows how the file classes can be used.
  * 
  * @author smustafov
  */
