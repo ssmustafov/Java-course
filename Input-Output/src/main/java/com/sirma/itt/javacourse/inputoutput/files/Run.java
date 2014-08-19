@@ -26,6 +26,6 @@ public final class Run {
 		// r.reverseTextFile("src\\main\\resources\\reverse.txt");
 
 		DirectoryBrowser d = new DirectoryBrowser();
-		System.out.println(d.listContent("C:\\"));
+		System.out.println(d.listContent("D:\\"));
 	}
 }

@@ -27,7 +27,9 @@ public class DirectoryBrowser {
 		StringBuilder dirContent = new StringBuilder();
 		File[] children = dir.listFiles();
 		for (File child : children) {
-			dirContent.append(child.getAbsolutePath());
+			String content = child.getAbsolutePath();
+			content = content.substring(3, content.length());
+			dirContent.append(content);
 			dirContent.append(System.lineSeparator());
 		}
 
