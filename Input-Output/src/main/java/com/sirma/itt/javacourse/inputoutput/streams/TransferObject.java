@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
+ * Holds methods for transferring bytes through streams from one to another.
+ * 
  * @author smustafov
  */
 public class TransferObject {
@@ -45,9 +47,23 @@ public class TransferObject {
 			throw new IllegalArgumentException("The offset cannot be under zero");
 		}
 
-		// TODO: implement
+		byte[] bytes = new byte[numberOfBytes];
+		int transferedBytes = 0;
 
-		return 0;
+		try {
+			inputStream.skip(offset);
+			transferedBytes = inputStream.read(bytes, offset, numberOfBytes - offset);
+			outputStream.write(bytes);
+		} finally {
+			if (inputStream != null) {
+				inputStream.close();
+			}
+			if (outputStream != null) {
+				outputStream.close();
+			}
+		}
+
+		return transferedBytes;
 	}
 
 }
