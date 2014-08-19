@@ -22,7 +22,10 @@ public final class Run {
 		// FileWriter w = new FileWriter("src\\main\\resources\\test.txt");
 		// w.write();
 
-		FileReverser r = new FileReverser();
-		r.reverseTextFile("src\\main\\resources\\reverse.txt");
+		// FileReverser r = new FileReverser();
+		// r.reverseTextFile("src\\main\\resources\\reverse.txt");
+
+		DirectoryBrowser d = new DirectoryBrowser();
+		System.out.println(d.listContent("C:\\cygwin"));
 	}
 }

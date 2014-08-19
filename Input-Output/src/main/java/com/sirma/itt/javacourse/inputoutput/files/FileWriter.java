@@ -11,6 +11,8 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
+ * Holds methods for writing to a file from stream resource.
+ * 
  * @author smustafov
  */
 public class FileWriter {
