@@ -73,8 +73,7 @@ public class TransferObjectTest {
 	}
 
 	/**
-	 * Tests {@link com.sirma.itt.javacourse.inputoutput.streams.TransferObject#transfer(int, int)}
-	 * with empty buffer.
+	 * Tests {@link com.sirma.itt.javacourse.inputoutput.streams.TransferObject#transfer(int, int)}.
 	 */
 	@Test
 	public void testTransfer() {
