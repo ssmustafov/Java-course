@@ -45,13 +45,9 @@ public class TransferObject {
 			throw new IllegalArgumentException("The offset cannot be under zero");
 		}
 
-		byte[] buffer = new byte[numberOfBytes];
-		int transferedBytes = 0;
-		transferedBytes = inputStream.read(buffer, offset, numberOfBytes);
-		outputStream.write(buffer);
+		// TODO: implement
 
-		inputStream.skip(offset);
-		return transferedBytes;
+		return 0;
 	}
 
 }
