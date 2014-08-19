@@ -17,6 +17,14 @@ public class Point implements Serializable {
 	private double y;
 
 	/**
+	 * Creates an empty point. Initialize coordinates with zero.
+	 */
+	public Point() {
+		this.x = 0.0;
+		this.y = 0.0;
+	}
+
+	/**
 	 * Creates a new point.
 	 * 
 	 * @param x

@@ -14,21 +14,47 @@ import org.junit.Test;
 public class DataClassTest {
 
 	/**
-	 * Tests serializing and deserializing an object.
+	 * Tests serializing and deserializing an valid object.
 	 */
 	@Test
-	public void testSerializeAndDeserialize() {
+	public void testWithValidObject() {
 		DataClass data = new DataClass();
 		Point point = new Point(10, 121);
 		try {
-			data.saveObject("src\\test\\resources\\testSerializeAndDeserialize.ser", point);
+			data.saveObject("src\\test\\resources\\testWithValidObject.ser", point);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 
 		Point readPoint = null;
 		try {
-			Object obj = data.getObject("src\\test\\resources\\testSerializeAndDeserialize.ser");
+			Object obj = data.getObject("src\\test\\resources\\testWithValidObject.ser");
+			readPoint = (Point) obj;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		String actual = readPoint.toString();
+		String expected = point.toString();
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests serializing and deserializing an empty object.
+	 */
+	@Test
+	public void testWithEmptyObject() {
+		DataClass data = new DataClass();
+		Point point = new Point();
+		try {
+			data.saveObject("src\\test\\resources\\testWithEmptyObject.ser", point);
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+
+		Point readPoint = null;
+		try {
+			Object obj = data.getObject("src\\test\\resources\\testWithEmptyObject.ser");
 			readPoint = (Point) obj;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
