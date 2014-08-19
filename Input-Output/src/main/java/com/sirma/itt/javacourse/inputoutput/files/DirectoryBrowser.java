@@ -28,7 +28,9 @@ public class DirectoryBrowser {
 		File[] children = dir.listFiles();
 		for (File child : children) {
 			String content = child.getAbsolutePath();
-			content = content.substring(3, content.length());
+			int indexOfLastSlash = content.lastIndexOf('\\');
+			content = content.substring(indexOfLastSlash + 1, content.length());
+
 			dirContent.append(content);
 			dirContent.append(System.lineSeparator());
 		}
