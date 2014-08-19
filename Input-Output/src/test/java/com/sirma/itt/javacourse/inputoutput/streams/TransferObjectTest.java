@@ -63,7 +63,7 @@ public class TransferObjectTest {
 		TransferObject transfer = new TransferObject(input, output);
 
 		try {
-			int actual = transfer.transfer(20, 20);
+			int actual = transfer.transfer(20, 10);
 			int expected = -1;
 
 			assertEquals(expected, actual);
