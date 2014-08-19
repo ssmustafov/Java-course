@@ -7,7 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
- * Holds methods for serializing and deserializing objects.
+ * Holds methods for serializing and deserializing objects. The object must implement
+ * <code>Serializable</code> interface.
  * 
  * @author smustafov
  */
@@ -45,7 +46,7 @@ public class DataClass {
 	 * @throws IOException
 	 *             - if the given path doesn't exists throws the exception
 	 * @throws ClassNotFoundException
-	 *             - if it can't read the object throws teh exception
+	 *             - if it can't read the object throws the exception
 	 */
 	public Object getObject(String path) throws IOException, ClassNotFoundException {
 		ObjectInputStream objectInputStream = null;
