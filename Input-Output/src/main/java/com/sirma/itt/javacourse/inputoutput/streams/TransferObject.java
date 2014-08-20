@@ -36,7 +36,7 @@ public class TransferObject {
 	 *            - the offset of bytes from the start in the stream
 	 * @return - number of transfered bytes
 	 * @throws IOException
-	 *             - exception
+	 *             - if it cannot transfer bytes throws this exception
 	 */
 	public int transfer(int numberOfBytes, int offset) throws IOException {
 		if (numberOfBytes <= 0) {
