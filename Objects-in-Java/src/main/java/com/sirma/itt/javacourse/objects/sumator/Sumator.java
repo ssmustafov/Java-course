@@ -124,7 +124,7 @@ public class Sumator {
 	 * @return true if the given string can be parsed to <code>Integer</code> or false if it cannot
 	 *         be parsed
 	 */
-	private boolean isInt(String str) {
+	public boolean isInt(String str) {
 		try {
 			Integer.parseInt(str);
 		} catch (NumberFormatException e) {
@@ -142,7 +142,7 @@ public class Sumator {
 	 * @return true if the given string can be parsed to <code>BigInteger</code> or false if it
 	 *         cannot be parsed
 	 */
-	private boolean isBigInteger(String str) {
+	public boolean isBigInteger(String str) {
 		try {
 			new BigInteger(str);
 		} catch (NumberFormatException e) {
@@ -160,7 +160,7 @@ public class Sumator {
 	 * @return true if the given string can be parsed to <code>BigDecimal</code> or false if it
 	 *         cannot be parsed
 	 */
-	private boolean isBigDecimal(String str) {
+	public boolean isBigDecimal(String str) {
 		try {
 			new BigDecimal(str);
 		} catch (NumberFormatException e) {

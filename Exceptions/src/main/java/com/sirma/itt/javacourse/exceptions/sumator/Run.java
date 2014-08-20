@@ -15,12 +15,14 @@ public final class Run {
 	}
 
 	/**
+	 * Main method.
+	 * 
 	 * @param args
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
 		try {
-			Sumator sumator = new Sumator();
+			SumatorForException sumator = new SumatorForException();
 			// System.out.println(sumator.sum("", ""));
 			System.out.println(sumator.sum("321^", "123"));
 		} catch (NumberFormatException e) {

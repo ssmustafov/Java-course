@@ -14,6 +14,13 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		    <groupId>groupId</groupId>
+		    <artifactId>artifactId</artifactId>
+		    <version>1.0</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}/src/main/resources/Sumator.jar</systemPath>
+		</dependency>
 	</dependencies>
  
 	<build>
