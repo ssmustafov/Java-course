@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * Works with {@link com.sirma.itt.javacourse.regex.reflection.RandomString} class ny using
+ * Works with {@link com.sirma.itt.javacourse.regex.reflection.RandomString} class by using
  * reflection.
  * 
  * @author smustafov
@@ -56,4 +56,5 @@ public class RandomStringReflector {
 			System.out.println(e.getMessage());
 		}
 	}
+
 }
