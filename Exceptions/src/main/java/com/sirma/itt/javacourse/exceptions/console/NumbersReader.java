@@ -5,10 +5,10 @@ package com.sirma.itt.javacourse.exceptions.console;
  * 
  * @author smustafov
  */
-public class NumbersInterval {
+public class NumbersReader {
 
 	private static final String INPUT_END_STRING = "end";
-	private final IntervalReader reader;
+	private IntervalReader reader;
 
 	/**
 	 * Creates a new interval reader.
@@ -16,7 +16,7 @@ public class NumbersInterval {
 	 * @param reader
 	 *            - the reader
 	 */
-	public NumbersInterval(IntervalReader reader) {
+	public NumbersReader(IntervalReader reader) {
 		this.reader = reader;
 	}
 
@@ -50,7 +50,7 @@ public class NumbersInterval {
 	 * @return true if the given number is in range or false if its not
 	 */
 	public boolean isNumberInRange(int start, int end, int number) {
-		if (number >= start && number <= end) {
+		if ((number >= start) && (number <= end)) {
 			return true;
 		}
 
