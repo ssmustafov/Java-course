@@ -24,6 +24,8 @@ public class SumatorForException {
 		try {
 			String s = sumator.sum(a, b);
 			return s;
+		} catch (NumberFormatException e) {
+			throw new NumberFormatException(e.getMessage());
 		} catch (IllegalArgumentException e) {
 			throw new IllegalArgumentException(e.getMessage());
 		}
