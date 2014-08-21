@@ -3,7 +3,8 @@ package com.sirma.itt.javacourse.exceptions.sumator;
 import com.sirma.itt.javacourse.objects.sumator.Sumator;
 
 /**
- * Handles exceptions.
+ * Uses the <code>Sumator</code> class's method for summing two numbers given as string and handles
+ * the thrown exceptions.
  * 
  * @author smustafov
  */
