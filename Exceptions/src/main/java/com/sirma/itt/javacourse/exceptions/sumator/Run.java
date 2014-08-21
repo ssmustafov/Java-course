@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.exceptions.sumator;
 
+import com.sirma.itt.javacourse.objects.sumator.Sumator;
+
 /**
  * Handles exceptions.
  * 
@@ -22,7 +24,7 @@ public final class Run {
 	 */
 	public static void main(String[] args) {
 		try {
-			SumatorForException sumator = new SumatorForException();
+			Sumator sumator = new Sumator();
 			// System.out.println(sumator.sum("", ""));
 			System.out.println(sumator.sum("321^", "123"));
 		} catch (NumberFormatException e) {

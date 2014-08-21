@@ -187,10 +187,10 @@ public class Sumator {
 			throw new IllegalArgumentException("One of the given strings is empty");
 		}
 		if (!a.matches("[-0-9].*")) {
-			throw new IllegalArgumentException("Invalid number: " + a);
+			throw new NumberFormatException("Invalid number: " + a);
 		}
 		if (!b.matches("[-0-9].*")) {
-			throw new IllegalArgumentException("Invalid number: " + b);
+			throw new NumberFormatException("Invalid number: " + b);
 		}
 
 		if (isInt(a) && isInt(b)) {
