@@ -1,6 +1,6 @@
 package com.sirma.itt.javacourse.intro.strings;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -19,10 +19,11 @@ public class RandomStringTest {
 	 */
 	@Test
 	public void testGenerateStringLength() {
-		String actual = randomString.generateString(100);
-		if (actual.length() != 100) {
-			fail("The length of the generated string is not 100");
-		}
+		String generatedString = randomString.generateString(100);
+		int actual = generatedString.length();
+		int expected = 100;
+
+		assertEquals(expected, actual);
 	}
 
 	/**
@@ -31,10 +32,11 @@ public class RandomStringTest {
 	 */
 	@Test
 	public void testGenerateStringSymbols() {
-		String actual = randomString.generateString(100);
-		if (!actual.matches("[a-zA-Z0-9]*")) {
-			fail("The generated string is not valid");
-		}
+		String generatedString = randomString.generateString(100);
+		boolean actual = generatedString.matches("[a-zA-Z0-9]*");
+		boolean expected = true;
+
+		assertEquals(expected, actual);
 	}
 
 	/**
@@ -43,10 +45,11 @@ public class RandomStringTest {
 	 */
 	@Test
 	public void testGenerateStringAsciiSymbols() {
-		String actual = randomString.generateStringAscii(155);
-		if (!actual.matches("[a-zA-Z0-9]*")) {
-			fail("The generated string is not valid");
-		}
+		String generatedString = randomString.generateStringAscii(155);
+		boolean actual = generatedString.matches("[a-zA-Z0-9]*");
+		boolean expected = true;
+
+		assertEquals(expected, actual);
 	}
 
 	/**
@@ -55,10 +58,11 @@ public class RandomStringTest {
 	 */
 	@Test
 	public void testGenerateStringAsciiLength() {
-		String actual = randomString.generateStringAscii(155);
-		if (actual.length() != 155) {
-			fail("The length of the generated string is not 155");
-		}
+		String generatedString = randomString.generateStringAscii(155);
+		int actual = generatedString.length();
+		int expected = 155;
+
+		assertEquals(expected, actual);
 	}
 
 	/**
@@ -68,10 +72,11 @@ public class RandomStringTest {
 	 */
 	@Test
 	public void testGenerateStringAsciiCodeSymbols() {
-		String actual = randomString.generateStringAsciiCode(155);
-		if (!actual.matches("[a-zA-Z0-9]*")) {
-			fail("The generated string is not valid");
-		}
+		String generatedString = randomString.generateStringAsciiCode(155);
+		boolean actual = generatedString.matches("[a-zA-Z0-9]*");
+		boolean expected = true;
+
+		assertEquals(expected, actual);
 	}
 
 	/**
@@ -81,10 +86,11 @@ public class RandomStringTest {
 	 */
 	@Test
 	public void testGenerateStringAsciiCodeLength() {
-		String actual = randomString.generateStringAsciiCode(43);
-		if (actual.length() != 43) {
-			fail("The length of the generated string is not 43");
-		}
+		String generatedString = randomString.generateStringAsciiCode(43);
+		int actual = generatedString.length();
+		int expected = 43;
+
+		assertEquals(expected, actual);
 	}
 
 }
