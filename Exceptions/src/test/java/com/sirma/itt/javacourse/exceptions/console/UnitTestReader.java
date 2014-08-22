@@ -7,7 +7,7 @@ package com.sirma.itt.javacourse.exceptions.console;
  */
 public class UnitTestReader implements IntervalReader {
 
-	private final String[] userInput;
+	private String[] userInput;
 	private int counter;
 
 	/**
