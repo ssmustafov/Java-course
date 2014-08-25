@@ -77,14 +77,14 @@ public class NumbersReader {
 			line = reader.readInput();
 			line = line.trim();
 
-			if (isInt(line)) {
+			if (INPUT_END_STRING.equals(line.toLowerCase())) {
+				break;
+			} else if (isInt(line)) {
 				int number = Integer.parseInt(line);
 				if (!isNumberInRange(startInterval, endInterval, number)) {
 					throw new NotInIntervalException("The number is not in the interval: ("
 							+ startInterval + "," + endInterval + ")");
 				}
-			} else if (INPUT_END_STRING.equals(line.toLowerCase())) {
-				break;
 			} else {
 				throw new NumberFormatException("The entered input is not a number: " + line);
 			}

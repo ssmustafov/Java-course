@@ -16,7 +16,7 @@ public class InvalidIntervalException extends RuntimeException {
 	 * Creates a new exception.
 	 */
 	public InvalidIntervalException() {
-		super("Invalid interval");
+		super();
 	}
 
 	/**
