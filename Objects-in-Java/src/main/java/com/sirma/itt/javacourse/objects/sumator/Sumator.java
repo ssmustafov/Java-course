@@ -180,17 +180,17 @@ public class Sumator {
 	 * @return a + b
 	 */
 	public String sum(String a, String b) {
-		if (a == null || b == null) {
-			throw new IllegalArgumentException("One of the given strings is null");
+		if (a == null) {
+			throw new IllegalArgumentException("The argument 'a' is null");
 		}
-		if (a.isEmpty() || b.isEmpty()) {
-			throw new IllegalArgumentException("One of the given strings is empty");
+		if (b == null) {
+			throw new IllegalArgumentException("The argument 'b' is null");
 		}
-		if (!a.matches("[-0-9].*")) {
-			throw new NumberFormatException("Invalid number: " + a);
+		if (!a.matches("[-0-9].+")) {
+			throw new NumberFormatException("Invalid number in argument 'a': " + a);
 		}
-		if (!b.matches("[-0-9].*")) {
-			throw new NumberFormatException("Invalid number: " + b);
+		if (!b.matches("[-0-9].+")) {
+			throw new NumberFormatException("Invalid number in argument 'b': " + b);
 		}
 
 		if (isInt(a) && isInt(b)) {
@@ -203,15 +203,12 @@ public class Sumator {
 			BigInteger num2 = new BigInteger(b);
 			BigInteger sum = sum(num1, num2);
 			return sum.toString();
-		} else if (isBigDecimal(a) && isBigDecimal(b)) {
+		} else {
 			BigDecimal num1 = new BigDecimal(a);
 			BigDecimal num2 = new BigDecimal(b);
 			BigDecimal sum = sum(num1, num2);
 			return sum.toString();
-		} else {
-			throw new NumberFormatException("Incorrect number format: a = " + a + " b = " + b);
 		}
-
 	}
 
 }
