@@ -16,7 +16,7 @@ public class ListFullException extends RuntimeException {
 	 * Creates a ListFullException.
 	 */
 	public ListFullException() {
-		super("The list is full");
+		super();
 	}
 
 	/**

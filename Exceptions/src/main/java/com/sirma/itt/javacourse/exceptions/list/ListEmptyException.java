@@ -16,7 +16,7 @@ public class ListEmptyException extends RuntimeException {
 	 * Creates a new ListEmptyException.
 	 */
 	public ListEmptyException() {
-		super("The list is empty");
+		super();
 	}
 
 	/**

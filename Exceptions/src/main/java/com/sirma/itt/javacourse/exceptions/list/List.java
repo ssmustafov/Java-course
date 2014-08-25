@@ -102,7 +102,8 @@ public class List {
 	 */
 	public Object get(int index) {
 		if (index >= array.length) {
-			throw new ArrayIndexOutOfBoundsException("Index out of the range: " + index);
+			throw new ArrayIndexOutOfBoundsException("Index out of the range: Index: " + index
+					+ ", Size: " + array.length);
 		}
 
 		return array[index];
