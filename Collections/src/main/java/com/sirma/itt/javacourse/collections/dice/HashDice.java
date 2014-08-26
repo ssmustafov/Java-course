@@ -54,7 +54,7 @@ public class HashDice {
 	}
 
 	/**
-	 * Generates the dice combinations and rounds when they are thrown.
+	 * Generates the dices combinations and rounds when they are thrown.
 	 */
 	public void generateStatistics() {
 		for (int j = 0; j < counter; j++) {

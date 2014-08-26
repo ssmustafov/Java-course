@@ -22,7 +22,7 @@ public final class Run {
 	 */
 	public static void main(String[] args) {
 		RandomDiceReader r = new RandomDiceReader();
-		HashDice h = new HashDice(r, 9);
+		HashDice h = new HashDice(r, 6);
 		h.generateStatistics();
 		System.out.println(h.getStatistics());
 	}
