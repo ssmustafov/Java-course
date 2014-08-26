@@ -186,10 +186,10 @@ public class Sumator {
 		if (b == null) {
 			throw new IllegalArgumentException("The argument 'b' is null");
 		}
-		if (!a.matches("[-0-9].+")) {
+		if (!a.matches("[-0-9.]+")) {
 			throw new NumberFormatException("Invalid number in argument 'a': " + a);
 		}
-		if (!b.matches("[-0-9].+")) {
+		if (!b.matches("[-0-9.]+")) {
 			throw new NumberFormatException("Invalid number in argument 'b': " + b);
 		}
 
