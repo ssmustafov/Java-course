@@ -21,7 +21,8 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		HashDice h = new HashDice(4, 20);
+		RandomDiceReader r = new RandomDiceReader();
+		HashDice h = new HashDice(r, 9);
 		h.generateStatistics();
 		System.out.println(h.getStatistics());
 	}

@@ -1,47 +1,39 @@
 package com.sirma.itt.javacourse.collections.dice;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Random;
+import java.util.Set;
 
 /**
+ * Holds methods for generating dice combinations. It works with two dices.
+ * 
  * @author smustafov
  */
 public class HashDice {
 
-	private static final Random RANDOM_GENERATOR = new Random();
-	private Map<String, List<Integer>> statistics;
-	// private int m;
-	private int n;
+	private Map<String, Set<Integer>> statistics;
+	private int counter;
+	private DiceReader diceReader;
 
 	/**
 	 * Creates a new dice table.
 	 * 
-	 * @param m
-	 *            - the sides of the dice
-	 * @param n
-	 *            - the times dices thrown
+	 * @param counter
+	 *            - the times dices to be thrown
+	 * @param diceReader
+	 *            - the dice reader that implements <code>DiceReader</code>
 	 */
-	public HashDice(int m, int n) {
-		statistics = new HashMap<>();
-		// this.m = m;
-		this.n = n;
-	}
+	public HashDice(DiceReader diceReader, int counter) {
+		if (counter <= 0) {
+			throw new IllegalArgumentException(
+					"The parameter 'counter' cannot be equal or under to zero");
+		}
 
-	/**
-	 * Returns a random number between 1-6 inclusive.
-	 * 
-	 * @return - the random number
-	 */
-	private int getRandomNumber() {
-		final int start = 1;
-		final int end = 6;
-
-		int randomNumber = RANDOM_GENERATOR.nextInt((end - start) + 1) + start;
-		return randomNumber;
+		statistics = new LinkedHashMap<>();
+		this.diceReader = diceReader;
+		this.counter = counter;
 	}
 
 	/**
@@ -50,8 +42,8 @@ public class HashDice {
 	 * @return - the generated random double dice
 	 */
 	private String getRandomDoubleDice() {
-		int randomNumber1 = getRandomNumber();
-		int randomNumber2 = getRandomNumber();
+		String randomNumber1 = diceReader.getDice();
+		String randomNumber2 = diceReader.getDice();
 
 		StringBuilder sb = new StringBuilder();
 		sb.append(randomNumber1);
@@ -65,16 +57,16 @@ public class HashDice {
 	 * Generates the dice combinations and rounds when they are thrown.
 	 */
 	public void generateStatistics() {
-		for (int j = 0; j < n; j++) {
+		for (int j = 0; j < counter; j++) {
 			String dices = getRandomDoubleDice();
 
 			if (statistics.containsKey(dices)) {
-				List<Integer> list = statistics.get(dices);
-				list.add(j + 1);
+				Set<Integer> set = statistics.get(dices);
+				set.add(j);
 			} else {
-				List<Integer> list = new ArrayList<>();
-				list.add(j + 1);
-				statistics.put(dices, list);
+				Set<Integer> set = new HashSet<>();
+				set.add(j);
+				statistics.put(dices, set);
 			}
 		}
 	}
@@ -87,8 +79,8 @@ public class HashDice {
 	public String getStatistics() {
 		StringBuilder result = new StringBuilder();
 
-		for (Entry<String, List<Integer>> entry : statistics.entrySet()) {
-			List<Integer> rounds = entry.getValue();
+		for (Entry<String, Set<Integer>> entry : statistics.entrySet()) {
+			Set<Integer> rounds = entry.getValue();
 
 			result.append("{");
 			result.append(entry.getKey());
