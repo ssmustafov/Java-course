@@ -35,11 +35,17 @@ public final class Run {
 		list.add(33);
 		list.add(47);
 		list.add(-1);
+		list.add(55);
+		list.add(55);
 
-		PageBean p = new PageBean(list, 3);
+		PageBean p = new PageBean(list, 4);
+		System.out.println(p.next());
+		System.out.println(p.hasNext());
+		System.out.println(p.next());
 		System.out.println(p.next());
 		System.out.println(p.next());
 		System.out.println(p.next());
 		System.out.println(p.previous());
+		System.out.println(p.getCurrentPageNumber());
 	}
 }

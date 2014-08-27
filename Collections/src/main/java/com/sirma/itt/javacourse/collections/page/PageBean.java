@@ -15,6 +15,7 @@ public class PageBean {
 	private Map<Integer, List<Object>> pagedList;
 	private int pageSize;
 	private int currentPage;
+	private int totalNumberOfPages;
 
 	/**
 	 * Creates a new PageBean with given list and how many elements to be paged on every page.
@@ -26,27 +27,29 @@ public class PageBean {
 	 */
 	public PageBean(List<Object> list, int pageSize) {
 		if (pageSize <= 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("The given page size cannot be equal or under zero");
 		}
 
 		this.list = list;
 		this.pageSize = pageSize;
 		pagedList = new LinkedHashMap<>();
-		currentPage = 0;
+		currentPage = -1;
 		divideList();
 	}
 
 	/**
-	 * Divides the list.
+	 * Divides the given list into pages in <code>LinkedHashMap</code>. Every key in the map
+	 * responds to a page number and the key's value contains elements with size
+	 * <code>pageSize</code>.
 	 */
 	private void divideList() {
 		float size = list.size();
 		float pages = pageSize;
-		int numberOfPages = (int) (Math.ceil(size / pages));
+		totalNumberOfPages = (int) (Math.ceil(size / pages));
 		int startIndex = 0;
 		int endIndex = pageSize;
 
-		for (int i = 0; i < numberOfPages; i++) {
+		for (int i = 0; i < totalNumberOfPages; i++) {
 			List<Object> subList = list.subList(startIndex, endIndex);
 			pagedList.put(i, subList);
 
@@ -59,25 +62,81 @@ public class PageBean {
 	}
 
 	/**
-	 * Returns the next elements of the list.
+	 * Returns the next elements of the list. If there are no next page it returns empty string.
 	 * 
 	 * @return - the next elements
 	 */
 	public String next() {
-		List<Object> subList = pagedList.get(currentPage);
 		currentPage++;
-		return subList.toString();
+		if (currentPage < totalNumberOfPages) {
+			List<Object> subList = pagedList.get(currentPage);
+			return subList.toString();
+		}
+
+		currentPage = totalNumberOfPages - 1;
+		return "";
 	}
 
 	/**
-	 * Returns the previous elements of the list.
+	 * Returns the previous elements of the list. If there are no previous page it throws
+	 * <code>IllegalArgumentException</code>.
 	 * 
 	 * @return - the previous elements
 	 */
 	public String previous() {
 		currentPage--;
+		if (currentPage == -1) {
+			throw new IllegalArgumentException("There are no more previous pages");
+		}
+
 		List<Object> subList = pagedList.get(currentPage);
 		return subList.toString();
+	}
+
+	/**
+	 * Returns true if there is next page of elements.
+	 * 
+	 * @return - true if there is next page of elements
+	 */
+	public boolean hasNext() {
+		if ((currentPage + 1) < totalNumberOfPages) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Returns true if there is previous page of elements.
+	 * 
+	 * @return - true if there is previous page of elements
+	 */
+	public boolean hasPrevious() {
+		if ((currentPage - 1) <= -1) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Sets the current page to the first page and returns the elements from the first page.
+	 * 
+	 * @return - the elements of the first page
+	 */
+	public String firstPage() {
+		currentPage = -1;
+		return next();
+	}
+
+	/**
+	 * Sets the current page to the last page and returns the elements from the last page.
+	 * 
+	 * @return - the elements of the last page
+	 */
+	public String lastPage() {
+		currentPage = totalNumberOfPages;
+		return previous();
 	}
 
 	/**
