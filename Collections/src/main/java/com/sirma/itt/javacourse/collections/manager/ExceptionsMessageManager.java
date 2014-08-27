@@ -45,7 +45,8 @@ public class ExceptionsMessageManager {
 	}
 
 	/**
-	 * Adds given message to the combination of messages.
+	 * Adds given message to the combination of messages. If there is no such predefined message it
+	 * throws <code>IllegalArgumentException</code>.
 	 * 
 	 * @param message
 	 *            - the message to be added to the combination of messages
@@ -59,7 +60,8 @@ public class ExceptionsMessageManager {
 	}
 
 	/**
-	 * Adds message by given code into the combination of messages.
+	 * Adds message by given code into the combination of messages. If there is no such predefined
+	 * message code it throws <code>IllegalArgumentException</code>.
 	 * 
 	 * @param messageCode
 	 *            - the code of the message
