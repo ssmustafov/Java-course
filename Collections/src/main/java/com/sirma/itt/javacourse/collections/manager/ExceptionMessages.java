@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.collections.manager;
 
 /**
+ * Holds defined enumerations with predefined messages.
+ * 
  * @author smustafov
  */
 public enum ExceptionMessages {
@@ -12,16 +14,16 @@ public enum ExceptionMessages {
 
 	/**
 	 * @param message
-	 *            - message of the enum
+	 *            - message of the enumeration
 	 */
 	ExceptionMessages(String message) {
 		this.message = message;
 	}
 
 	/**
-	 * Returns the message of the enum type.
+	 * Returns the message of the enumeration type.
 	 * 
-	 * @return - message of the enum type
+	 * @return - message of the enumeration type
 	 */
 	public String getMessage() {
 		return message;
