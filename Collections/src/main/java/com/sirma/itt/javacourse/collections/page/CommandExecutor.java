@@ -47,8 +47,11 @@ public class CommandExecutor {
 				break;
 			}
 			if ("next".equals(line) || "next()".equals(line)) {
-				System.out.print(pageBean.next());
-				System.out.println(" - Page #" + pageBean.getCurrentPageNumber());
+				String page = pageBean.next();
+				if (!page.isEmpty()) {
+					System.out.print(page);
+					System.out.println(" - Page #" + pageBean.getCurrentPageNumber());
+				}
 			}
 			if ("previous".equals(line) || "previous()".equals(line)) {
 				System.out.print(pageBean.previous());

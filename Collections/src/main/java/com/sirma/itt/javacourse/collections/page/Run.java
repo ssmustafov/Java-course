@@ -38,10 +38,13 @@ public final class Run {
 		list.add(55);
 		list.add(55);
 
-		PageBean p = new PageBean(list, 3);
+		PageBean p = new PageBean(list, 2);
 
 		CommandExecutor e = new CommandExecutor(p);
-		e.execute();
-
+		try {
+			e.execute();
+		} catch (IllegalArgumentException ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 }
