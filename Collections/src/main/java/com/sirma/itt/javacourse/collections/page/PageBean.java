@@ -85,7 +85,7 @@ public class PageBean {
 	 */
 	public String previous() {
 		currentPage--;
-		if (currentPage == -1) {
+		if (currentPage <= -1) {
 			throw new IllegalArgumentException("There are no more previous pages");
 		}
 
