@@ -30,8 +30,10 @@ public final class Run {
 			manager.addExceptionMessage(ExceptionMessages.PersonalID.getMessage());
 			manager.addExceptionMessageUsingCode(ExceptionMessages.DebitCart.name());
 			System.out.println(manager.getMessage());
-			ExceptionsMessageManager.getMessages(manager.getMessage());
-		} catch (IllegalArgumentException e) {
+			System.out.println(ExceptionsMessageManager.getMessages(manager.getMessage()));
+		} catch (NoSuchMessageException e) {
+			System.err.println(e.getMessage());
+		} catch (NoSuchMessageCodeException e) {
 			System.err.println(e.getMessage());
 		}
 	}

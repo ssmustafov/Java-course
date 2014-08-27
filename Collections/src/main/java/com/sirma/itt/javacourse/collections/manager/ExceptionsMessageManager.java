@@ -45,30 +45,33 @@ public class ExceptionsMessageManager {
 	}
 
 	/**
-	 * Adds given message to the combination of messages. If there is no such predefined message it
-	 * throws <code>IllegalArgumentException</code>.
+	 * Adds given message to the combination of messages.
 	 * 
 	 * @param message
 	 *            - the message to be added to the combination of messages
+	 * @throws NoSuchMessageException
+	 *             - thrown when the parameter <code>message</code> is not predefined message
 	 */
-	public void addExceptionMessage(String message) {
+	public void addExceptionMessage(String message) throws NoSuchMessageException {
 		if (!exceptions.containsValue(message)) {
-			throw new IllegalArgumentException("There is no such message");
+			throw new NoSuchMessageException("There is no such message");
 		}
 
 		addMessage(message);
 	}
 
 	/**
-	 * Adds message by given code into the combination of messages. If there is no such predefined
-	 * message code it throws <code>IllegalArgumentException</code>.
+	 * Adds message by given code into the combination of messages.
 	 * 
 	 * @param messageCode
 	 *            - the code of the message
+	 * @throws NoSuchMessageCodeException
+	 *             - thrown when the parameter <code>messageCode</code> is not predefined message
+	 *             code
 	 */
-	public void addExceptionMessageUsingCode(String messageCode) {
+	public void addExceptionMessageUsingCode(String messageCode) throws NoSuchMessageCodeException {
 		if (!exceptions.containsKey(messageCode)) {
-			throw new IllegalArgumentException("There is no such message code");
+			throw new NoSuchMessageCodeException("There is no such message code");
 		}
 
 		String message = exceptions.get(messageCode);
