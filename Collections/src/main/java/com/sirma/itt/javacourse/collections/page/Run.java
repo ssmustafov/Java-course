@@ -38,14 +38,10 @@ public final class Run {
 		list.add(55);
 		list.add(55);
 
-		PageBean p = new PageBean(list, 4);
-		System.out.println(p.next());
-		System.out.println(p.hasNext());
-		System.out.println(p.next());
-		System.out.println(p.next());
-		System.out.println(p.next());
-		System.out.println(p.next());
-		System.out.println(p.previous());
-		System.out.println(p.getCurrentPageNumber());
+		PageBean p = new PageBean(list, 3);
+
+		CommandExecutor e = new CommandExecutor(p);
+		e.execute();
+
 	}
 }
