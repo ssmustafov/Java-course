@@ -41,11 +41,11 @@ public class EmailValidatorTest {
 	/**
 	 * Tests
 	 * {@link com.sirma.itt.javacourse.regex.regex.EmailValidator#isValidEmail(java.lang.String)}
-	 * with string containing whitespaces.
+	 * with string containing white spaces.
 	 */
 	@Test
 	public void testIsValidEmailWhitespace() {
-		String email = " te  st.t-s@si  r-ma.com ";
+		String email = " te  st.t-s@si 		 r-ma.com ";
 
 		boolean actual = EmailValidator.isValidEmail(email);
 		boolean expected = false;
@@ -114,6 +114,66 @@ public class EmailValidatorTest {
 	@Test
 	public void testIsValidEmail() {
 		String email = "test619@@mail.com";
+		boolean actual = EmailValidator.isValidEmail(email);
+		boolean expected = false;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.regex.regex.EmailValidator#isValidEmail(java.lang.String)}
+	 * with dots before at sybmol.
+	 */
+	@Test
+	public void testIsValidEmailWithAlotOfDots() {
+		String email = "my-..........@mail.com";
+
+		boolean actual = EmailValidator.isValidEmail(email);
+		boolean expected = false;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.regex.regex.EmailValidator#isValidEmail(java.lang.String)}
+	 * with dots at the end.
+	 */
+	@Test
+	public void testIsValidEmailWithDotsAtEnd() {
+		String email = "my-email.619@mail.com....";
+
+		boolean actual = EmailValidator.isValidEmail(email);
+		boolean expected = false;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.regex.regex.EmailValidator#isValidEmail(java.lang.String)}
+	 * with special symbols at the end.
+	 */
+	@Test
+	public void testIsValidEmailWithSpecialSymbols() {
+		String email = "my-email.619@mail.com#!!!!!!!!###&^";
+
+		boolean actual = EmailValidator.isValidEmail(email);
+		boolean expected = false;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.regex.regex.EmailValidator#isValidEmail(java.lang.String)}
+	 * with special symbols and dots at the end.
+	 */
+	@Test
+	public void testIsValidEmailWithSpecialSymbolsAndDots() {
+		String email = "my-email.619@mail.com.........#!!!!!!!!###&^";
+
 		boolean actual = EmailValidator.isValidEmail(email);
 		boolean expected = false;
 
