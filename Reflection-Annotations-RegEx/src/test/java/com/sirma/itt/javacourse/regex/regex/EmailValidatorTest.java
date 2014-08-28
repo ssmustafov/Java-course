@@ -123,7 +123,7 @@ public class EmailValidatorTest {
 	/**
 	 * Tests
 	 * {@link com.sirma.itt.javacourse.regex.regex.EmailValidator#isValidEmail(java.lang.String)}
-	 * with dots before at sybmol.
+	 * with dots before at symbol.
 	 */
 	@Test
 	public void testIsValidEmailWithAlotOfDots() {
