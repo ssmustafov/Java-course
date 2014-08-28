@@ -106,7 +106,7 @@ public class IbanValidatorTest {
 				+ "<iban>IL30 01BG 0300 0009 6339 234</iban>"
 				+ "<iban>AL47 2121 1009 0000 0002 3569 8741</iban>"
 				+ "<iban>AZ21 NABZ 0000 0000 1370 1000 1944</iban>"
-				+ "<iban>BG80 BNBG 9661 1020 3456 7843</iban></bankAccounts>";
+				+ "<iban>BG80BNBG9661102034567843</iban></bankAccounts>";
 
 		String actual = IbanValidator.replaceIban(iban);
 		String expected = "<bankAccounts><iban>GR1601101050000010547023795</iban>"

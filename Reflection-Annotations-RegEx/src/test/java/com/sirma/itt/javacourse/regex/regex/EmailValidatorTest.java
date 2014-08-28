@@ -180,4 +180,19 @@ public class EmailValidatorTest {
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.regex.regex.EmailValidator#isValidEmail(java.lang.String)}
+	 * with int invalid domain.
+	 */
+	@Test
+	public void testIsValidEmailWithInvalidDomain() {
+		String email = "my.email14@mail.a";
+
+		boolean actual = EmailValidator.isValidEmail(email);
+		boolean expected = false;
+
+		assertEquals(expected, actual);
+	}
+
 }
