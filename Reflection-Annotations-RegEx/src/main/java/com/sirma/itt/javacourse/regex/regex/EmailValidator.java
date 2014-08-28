@@ -17,7 +17,10 @@ public final class EmailValidator {
 	}
 
 	/**
-	 * Checks if given string is valid email.
+	 * Checks if given string is valid email. Email starts with letter followed by any of letters,
+	 * digits, dot or dash, after that '@', after that must start with letter, after that any
+	 * letters, digits, dot or dash and at the end must follow a single dot followed by domain with
+	 * at least 2 letters.
 	 * 
 	 * @param email
 	 *            - the email to be checked if its valid
