@@ -5,7 +5,7 @@ package com.sirma.itt.javacourse.regex.annotations;
  * 
  * @author Sinan
  */
-@HumanAnnotation(age = 30)
+@HumanComparator(age = 30)
 public class Human3 extends Human {
 
 }

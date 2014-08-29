@@ -9,7 +9,7 @@ import java.lang.annotation.RetentionPolicy;
  * @author Sinan
  */
 @Retention(RetentionPolicy.RUNTIME)
-public @interface HumanAnnotation {
+public @interface HumanComparator {
 
 	/**
 	 * Unique number for ordering objects.

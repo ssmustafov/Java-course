@@ -1,6 +1,7 @@
 package com.sirma.itt.javacourse.regex.reflection;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
@@ -24,11 +25,11 @@ public class Reflection {
 			Class<?> c = Class.forName(className);
 			object = c.newInstance();
 		} catch (ClassNotFoundException e) {
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		} catch (InstantiationException e) {
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		} catch (IllegalAccessException e) {
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		}
 		return object;
 	}
@@ -108,9 +109,9 @@ public class Reflection {
 							field.getType(), field.get(obj));
 					System.out.println();
 				} catch (IllegalArgumentException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 				} catch (IllegalAccessException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 				}
 			}
 		} else {
@@ -137,9 +138,9 @@ public class Reflection {
 						System.out.printf("\tName: %s  Type: %s  Value: %s", field.getName(),
 								field.getType(), field.get(obj));
 					} catch (IllegalArgumentException e) {
-						System.out.println(e.getMessage());
+						System.err.println(e.getMessage());
 					} catch (IllegalAccessException e) {
-						System.out.println(e.getMessage());
+						System.err.println(e.getMessage());
 					}
 					System.out.println();
 				}
@@ -149,4 +150,37 @@ public class Reflection {
 		}
 	}
 
+	/**
+	 * Invokes all instance private methods of given class. It invokes those private methods which
+	 * parameters are primitive types.
+	 * 
+	 * @param obj
+	 *            - the class whom private methods will be invoked
+	 */
+	public void invokeAllPrivateMethods(Object obj) {
+		Class<?> someClass = obj.getClass();
+
+		Method[] methods = someClass.getDeclaredMethods();
+		if (methods.length != 0) {
+			for (Method method : methods) {
+				if (Modifier.isPrivate(method.getModifiers())) {
+					method.setAccessible(true);
+
+					System.out.printf("Invoking method '" + method.getName() + "':");
+
+					try {
+						System.out.println(method.invoke(obj));
+					} catch (IllegalAccessException e) {
+						System.err.println(e.getMessage());
+					} catch (IllegalArgumentException e) {
+						System.err.println(e.getMessage());
+					} catch (InvocationTargetException e) {
+						System.err.println(e.getMessage());
+					}
+				}
+			}
+		} else {
+			System.out.println("\t-- No private methods --");
+		}
+	}
 }

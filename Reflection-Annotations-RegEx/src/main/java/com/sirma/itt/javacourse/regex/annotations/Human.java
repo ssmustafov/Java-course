@@ -13,8 +13,28 @@ public class Human implements Comparable<Human> {
 	 */
 	@Override
 	public int compareTo(Human otherObject) {
-		return this.getClass().getAnnotation(HumanAnnotation.class).age()
-				- otherObject.getClass().getAnnotation(HumanAnnotation.class).age();
+		int thisHumanAge = this.getClass().getAnnotation(HumanComparator.class).age();
+		int otherHumanAge = otherObject.getClass().getAnnotation(HumanComparator.class).age();
+		return thisHumanAge - otherHumanAge;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		int thisHumanAge = this.getClass().getAnnotation(HumanComparator.class).age();
+		int otherHumanAge = obj.getClass().getAnnotation(HumanComparator.class).age();
+		return thisHumanAge == otherHumanAge;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		int thisHumanAge = this.getClass().getAnnotation(HumanComparator.class).age();
+		return thisHumanAge << 16;
 	}
 
 }
