@@ -32,7 +32,7 @@ public class IbanValidatorTest {
 	 */
 	@Test
 	public void testReplaceWithAlotOfWhiteSpace() {
-		String iban = "BG       80 BN BG 9     661 1020 3456 78    4     3         ";
+		String iban = "BG       80 BN BG 9661 1020 3456 7843";
 		String actual = IbanValidator.replaceIban(iban);
 		String expected = "**** 7843";
 
@@ -48,7 +48,7 @@ public class IbanValidatorTest {
 	public void testReplaceIbanWithValidIbanAndString() {
 		String iban = "<bankAccounts><iban>BG80 BNBG 9661 1020 3456 7840</iban></bankAccounts>";
 		String actual = IbanValidator.replaceIban(iban);
-		String expected = "<bankAccounts><iban>****7840</iban></bankAccounts>";
+		String expected = "<bankAccounts><iban>**** 7840</iban></bankAccounts>";
 
 		assertEquals(expected, actual);
 	}

@@ -26,7 +26,7 @@ public final class IbanValidator {
 			throw new IllegalArgumentException("The given string is null");
 		}
 
-		final String regEx = "(BG[0-9]{2})\\s*(B\\s*N\\s*B\\s*G\\s*)\\s*([0-9\\s*]{4})\\s*([0-9\\s*]{4})\\s*([0-9\\s*]{4})";
+		final String regEx = "(B\\s*G\\s*[0-9]{2})\\s*(B\\s*N\\s*B\\s*G\\s*)\\s*([0-9\\s]{4})\\s*([0-9\\s]{4})\\s*([0-9\\s]{4})";
 		final String replecement = "****";
 		String replacedIban = iban.replaceAll(regEx, replecement);
 
