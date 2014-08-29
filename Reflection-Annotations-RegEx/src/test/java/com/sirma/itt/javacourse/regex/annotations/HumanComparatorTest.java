@@ -31,13 +31,29 @@ public class HumanComparatorTest {
 	}
 
 	/**
-	 * Tests {@link com.sirma.itt.javacourse.regex.annotations.HumanComparator} with one repeated
-	 * class.
+	 * Tests {@link com.sirma.itt.javacourse.regex.annotations.HumanComparator} with one element.
+	 */
+	@Test
+	public void testWithOneElement() {
+		Human[] originalArr = { new Human3() };
+		Human[] arr = { new Human3() };
+		Arrays.sort(arr);
+
+		boolean actual = Arrays.equals(originalArr, arr);
+		boolean expected = true;
+
+		assertEquals(expected, actual);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.regex.annotations.HumanComparator} with same repeated
+	 * element.
 	 */
 	@Test
 	public void testWithSameElement() {
-		Human[] originalArr = { new Human3() };
-		Human[] arr = { new Human3() };
+		Human[] originalArr = { new Human2(), new Human2(), new Human2(), new Human2(),
+				new Human2() };
+		Human[] arr = { new Human2(), new Human2(), new Human2(), new Human2(), new Human2() };
 		Arrays.sort(arr);
 
 		boolean actual = Arrays.equals(originalArr, arr);
