@@ -35,7 +35,8 @@ public class LeastRecentlyUsed<K, V> extends LinkedHashMap<K, V> {
 
 	/**
 	 * Overrides the method in <code>LinkedHashMap</code> for restricting the number of elements
-	 * that the map can contain.
+	 * that the map can contain. When it returns true it means that the least recently used element
+	 * in the cache must be removed to free space, so that new element can be added to the cache.
 	 * 
 	 * @param eldest
 	 *            - the least recently accessed entry (least recently used). This is the entry that
