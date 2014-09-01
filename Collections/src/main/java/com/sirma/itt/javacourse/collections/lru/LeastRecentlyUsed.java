@@ -41,11 +41,11 @@ public class LeastRecentlyUsed<K, V> extends LinkedHashMap<K, V> {
 	 * that the map can contain.
 	 * 
 	 * @param eldest
-	 *            - the least recently accessed entry. This is the entry that will be removed it
-	 *            this method returns true. If the map was empty prior to the put or putAll
-	 *            invocation resulting in this invocation, this will be the entry that was just
-	 *            inserted; in other words, if the map contains a single entry, the eldest entry is
-	 *            also the newest.
+	 *            - the least recently accessed entry (least recently used). This is the entry that
+	 *            will be removed if this method returns true. If the map was empty prior to the put
+	 *            or putAll invocation resulting in this invocation, this will be the entry that was
+	 *            just inserted; in other words, if the map contains a single entry, the eldest
+	 *            entry is also the newest.
 	 * @return - true if the number of elements in the <code>LinkedHashMap</code> is greater than
 	 *         the cache <code>capacity</code>; otherwise returns false
 	 */
