@@ -7,16 +7,13 @@ import java.util.Map;
  * Implementation of the Least Recently Used (LRU) cache algorithm.
  * 
  * @param <K>
- *            - the type of the cache
+ *            - type of the key in the cache
  * @param <V>
- *            - the value of the keys
+ *            - value of the keys
  * @author smustafov
  */
 public class LeastRecentlyUsed<K, V> extends LinkedHashMap<K, V> {
 
-	/**
-	 * Comment for serialVersionUID.
-	 */
 	private static final long serialVersionUID = -9059879807053437600L;
 	private int capacity;
 
