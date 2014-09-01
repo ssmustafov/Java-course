@@ -1,10 +1,8 @@
 package com.sirma.itt.javacourse.regex.reflection;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.ArrayList;
 
 /**
  * Holds methods for reflection.
@@ -152,51 +150,24 @@ public class Reflection {
 	}
 
 	/**
-	 * Invokes all private methods of given class.
+	 * Prints all private methods signature of given class.
 	 * 
 	 * @param obj
-	 *            - the class whom private methods will be invoked
+	 *            - the class whom private methods will be printed
 	 */
-	public void invokeAllPrivateMethods(Object obj) {
-		final String stringParameter = "Test";
-		int intParameter = 10;
-		final long longParameter = 20L;
-		final float floatParameter = 3.14f;
-		final double doubleParameter = 2.71;
-
+	public void printAllPrivateMethodsSignature(Object obj) {
 		Class<?> someClass = obj.getClass();
-
 		Method[] methods = someClass.getDeclaredMethods();
+
 		if (methods.length != 0) {
 			for (Method method : methods) {
 				if (Modifier.isPrivate(method.getModifiers())) {
-
-					System.out.printf("Invoking method '" + method.getName() + "':");
+					System.out.printf("Method '" + method.getName() + "' parameters: ");
 					Class<?>[] paramsTypes = method.getParameterTypes();
-					ArrayList<Object> params = new ArrayList<>();
-
-					if (paramsTypes.length != 0) {
-						for (int i = 0; i < paramsTypes.length; i++) {
-							if ("int".equals(paramsTypes[i].getName())) {
-								params.add(intParameter);
-								intParameter += 20;
-							} else if ("long".equals(paramsTypes[i].getName())) {
-								params.add(longParameter);
-							} else if ("float".equals(paramsTypes[i].getName())) {
-								params.add(floatParameter);
-							} else if ("double".equals(paramsTypes[i].getName())) {
-								params.add(doubleParameter);
-							} else if ("String".equals(paramsTypes[i].getName())) {
-								params.add(stringParameter);
-							}
-						}
+					for (int i = 0; i < paramsTypes.length - 1; i++) {
+						System.out.print(paramsTypes[i].getSimpleName() + ", ");
 					}
-
-					try {
-						invokeMethod(obj, method.getName(), params.toArray(), paramsTypes);
-					} catch (IllegalArgumentException e) {
-						System.err.println(e.getMessage());
-					}
+					System.out.println(paramsTypes[paramsTypes.length - 1]);
 				}
 			}
 		} else {
@@ -204,32 +175,4 @@ public class Reflection {
 		}
 	}
 
-	/**
-	 * Invokes a given method from given class with given parameters.
-	 * 
-	 * @param obj
-	 *            - the class whom method to be invoked
-	 * @param methodName
-	 *            - the method which to be invoked
-	 * @param params
-	 *            - the parameters of the method
-	 */
-	public void invokeMethod(Object obj, String methodName, Object[] params, Class<?>[] paramsType) {
-		Class<?> someClass = obj.getClass();
-		try {
-			Method method = someClass.getDeclaredMethod(methodName, paramsType);
-			method.setAccessible(true);
-			System.out.println(method.invoke(obj, params));
-		} catch (NoSuchMethodException e) {
-			System.err.println(e.getMessage());
-		} catch (SecurityException e) {
-			System.err.println(e.getMessage());
-		} catch (IllegalAccessException e) {
-			System.err.println(e.getMessage());
-		} catch (IllegalArgumentException e) {
-			System.err.println(e.getMessage());
-		} catch (InvocationTargetException e) {
-			System.err.println(e.getMessage());
-		}
-	}
 }
