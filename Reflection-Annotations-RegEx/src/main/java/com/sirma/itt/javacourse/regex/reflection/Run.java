@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.regex.reflection;
 
 /**
+ * Shows how the Reflection class can be used.
+ * 
  * @author smustafov
  */
 public final class Run {
