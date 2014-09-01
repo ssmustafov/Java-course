@@ -21,9 +21,21 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		LeastRecentlyUsed<Integer> lru = new LeastRecentlyUsed<>(3);
-		lru.add(7, 0, 1, 2, 0, 3, 0, 4);
+		LeastRecentlyUsed<String, Integer> lru = new LeastRecentlyUsed<>(4);
+		// 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+
+		lru.put("one", 1);
+		lru.put("two", 2);
+		lru.put("three", 3);
+		lru.put("four", 4);
+		lru.put("one", 1);
+		lru.put("two", 2);
+		lru.put("five", 5);
+		lru.put("one", 1);
+		lru.put("two", 2);
+		lru.put("three", 3);
+		lru.put("four", 4);
+		lru.put("five", 5);
 		System.out.println(lru);
 	}
-
 }

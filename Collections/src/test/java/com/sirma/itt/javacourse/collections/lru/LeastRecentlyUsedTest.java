@@ -2,8 +2,6 @@ package com.sirma.itt.javacourse.collections.lru;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Collection;
-
 import org.junit.Test;
 
 /**
@@ -20,7 +18,7 @@ public class LeastRecentlyUsedTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testLRUWithNegativeSize() {
-		new LeastRecentlyUsed<Integer>(-3);
+		new LeastRecentlyUsed<String, Integer>(-3);
 	}
 
 	/**
@@ -30,7 +28,7 @@ public class LeastRecentlyUsedTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testLRUWithZeroSize() {
-		new LeastRecentlyUsed<Integer>(0);
+		new LeastRecentlyUsed<Integer, String>(0);
 	}
 
 	/**
@@ -39,14 +37,25 @@ public class LeastRecentlyUsedTest {
 	 */
 	@Test
 	public void testNormalCase() {
-		LeastRecentlyUsed<Integer> lru = new LeastRecentlyUsed<>(4);
-		lru.add(1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5);
+		LeastRecentlyUsed<Integer, String> lru = new LeastRecentlyUsed<>(4);
+		// lru.add(1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5);
+		lru.put(1, "one");
+		lru.put(2, "two");
+		lru.put(3, "three");
+		lru.put(4, "four");
+		lru.put(1, "one");
+		lru.put(2, "two");
+		lru.put(5, "five");
+		lru.put(1, "one");
+		lru.put(2, "two");
+		lru.put(3, "three");
+		lru.put(4, "four");
+		lru.put(5, "five");
 
-		Collection<Integer> list = lru.getCache();
-		boolean actual1 = list.contains(5);
-		boolean actual2 = list.contains(2);
-		boolean actual3 = list.contains(4);
-		boolean actual4 = list.contains(3);
+		boolean actual1 = lru.containsKey(5);
+		boolean actual2 = lru.containsKey(2);
+		boolean actual3 = lru.containsKey(4);
+		boolean actual4 = lru.containsKey(3);
 		boolean expected = true;
 
 		assertEquals(expected, actual1);
@@ -61,20 +70,20 @@ public class LeastRecentlyUsedTest {
 	 */
 	@Test
 	public void testAddingSameElement() {
-		LeastRecentlyUsed<Integer> lru = new LeastRecentlyUsed<>(4);
-		lru.add(2, 2, 2, 2);
+		LeastRecentlyUsed<Double, Integer> lru = new LeastRecentlyUsed<>(4);
+		// lru.add(2, 2, 2, 2);
+		lru.put(2.71, 1);
+		lru.put(2.71, 1);
+		lru.put(2.71, 1);
+		lru.put(2.71, 1);
 
-		Collection<Integer> list = lru.getCache();
-		boolean actual1 = list.contains(1);
-		boolean actual2 = list.contains(2);
-		boolean actual3 = list.contains(3);
-		boolean actual4 = list.contains(4);
+		boolean actual = lru.containsKey(2.71);
+		int actualSize = lru.size();
+		int expectedSize = 1;
 		boolean expected = true;
 
-		assertEquals(expected, actual2);
-		assertEquals(false, actual1);
-		assertEquals(false, actual3);
-		assertEquals(false, actual4);
+		assertEquals(expected, actual);
+		assertEquals(expectedSize, actualSize);
 	}
 
 	/**
@@ -83,14 +92,31 @@ public class LeastRecentlyUsedTest {
 	 */
 	@Test
 	public void testAddingTwentyElements() {
-		LeastRecentlyUsed<Character> lru = new LeastRecentlyUsed<>(3);
-		lru.add('B', 'A', 'F', 'E', 'A', 'Q', 'A', 'Z', 'E', 'Q', 'A', 'Q', 'E', 'F', 'E', 'A',
-				'F', 'B', 'A', 'F');
+		LeastRecentlyUsed<Character, Integer> lru = new LeastRecentlyUsed<>(3);
+		// lru.add('B', 'A', 'F', 'E', 'A', 'Q', 'A', 'Z', 'E', 'Q', 'A', 'Q', 'E', 'F', 'E', 'A',
+		// 'F', 'B', 'A', 'F');
+		lru.put('B', 1);
+		lru.put('A', 10);
+		lru.put('F', 100);
+		lru.put('E', 1000);
+		lru.put('A', 10);
+		lru.put('Z', 10000);
+		lru.put('E', 1000);
+		lru.put('Q', 100000);
+		lru.put('A', 10);
+		lru.put('Q', 100000);
+		lru.put('E', 1000);
+		lru.put('F', 100);
+		lru.put('E', 1000);
+		lru.put('A', 10);
+		lru.put('F', 100);
+		lru.put('B', 1);
+		lru.put('A', 10);
+		lru.put('F', 100);
 
-		Collection<Character> list = lru.getCache();
-		boolean actual1 = list.contains('F');
-		boolean actual2 = list.contains('A');
-		boolean actual3 = list.contains('B');
+		boolean actual1 = lru.containsKey('F');
+		boolean actual2 = lru.containsKey('A');
+		boolean actual3 = lru.containsKey('B');
 		boolean expected = true;
 
 		assertEquals(expected, actual1);
@@ -104,12 +130,11 @@ public class LeastRecentlyUsedTest {
 	 */
 	@Test
 	public void testAddingOneElement() {
-		LeastRecentlyUsed<String> lru = new LeastRecentlyUsed<>(3);
-		lru.add("Test");
+		LeastRecentlyUsed<String, Float> lru = new LeastRecentlyUsed<>(3);
+		lru.put("Test", 0.012f);
 
-		Collection<String> list = lru.getCache();
-		boolean actualContent = list.contains("Test");
-		int actualSize = list.size();
+		boolean actualContent = lru.containsKey("Test");
+		int actualSize = lru.size();
 		boolean expectedContent = true;
 		int expectedSize = 1;
 
