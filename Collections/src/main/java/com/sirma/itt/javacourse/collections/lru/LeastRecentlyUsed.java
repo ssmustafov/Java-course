@@ -9,7 +9,7 @@ import java.util.Map;
  * @param <K>
  *            - the type of the cache
  * @param <V>
- *            - the value of the cache
+ *            - the value of the keys
  * @author smustafov
  */
 public class LeastRecentlyUsed<K, V> extends LinkedHashMap<K, V> {
@@ -36,6 +36,19 @@ public class LeastRecentlyUsed<K, V> extends LinkedHashMap<K, V> {
 		this.capacity = capacity;
 	}
 
+	/**
+	 * Overrides the method in <code>LinkedHashMap</code> for restricting the number of elements
+	 * that the map can contain.
+	 * 
+	 * @param eldest
+	 *            - the least recently accessed entry. This is the entry that will be removed it
+	 *            this method returns true. If the map was empty prior to the put or putAll
+	 *            invocation resulting in this invocation, this will be the entry that was just
+	 *            inserted; in other words, if the map contains a single entry, the eldest entry is
+	 *            also the newest.
+	 * @return - true if the number of elements in the <code>LinkedHashMap</code> is greater than
+	 *         the cache <code>capacity</code>; otherwise returns false
+	 */
 	@Override
 	protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
 		return size() > capacity;
