@@ -38,7 +38,6 @@ public class LeastRecentlyUsedTest {
 	@Test
 	public void testNormalCase() {
 		LeastRecentlyUsed<Integer, String> lru = new LeastRecentlyUsed<>(4);
-		// lru.add(1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5);
 		lru.put(1, "one");
 		lru.put(2, "two");
 		lru.put(3, "three");
@@ -71,7 +70,6 @@ public class LeastRecentlyUsedTest {
 	@Test
 	public void testAddingSameElement() {
 		LeastRecentlyUsed<Double, Integer> lru = new LeastRecentlyUsed<>(4);
-		// lru.add(2, 2, 2, 2);
 		lru.put(2.71, 1);
 		lru.put(2.71, 1);
 		lru.put(2.71, 1);
@@ -93,8 +91,6 @@ public class LeastRecentlyUsedTest {
 	@Test
 	public void testAddingTwentyElements() {
 		LeastRecentlyUsed<Character, Integer> lru = new LeastRecentlyUsed<>(3);
-		// lru.add('B', 'A', 'F', 'E', 'A', 'Q', 'A', 'Z', 'E', 'Q', 'A', 'Q', 'E', 'F', 'E', 'A',
-		// 'F', 'B', 'A', 'F');
 		lru.put('B', 1);
 		lru.put('A', 10);
 		lru.put('F', 100);
