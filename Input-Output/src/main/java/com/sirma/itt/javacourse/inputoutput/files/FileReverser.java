@@ -44,17 +44,17 @@ public class FileReverser {
 			writer = new BufferedWriter(outputStreamReader);
 			writer.write(str);
 		} catch (UnsupportedEncodingException e) {
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		} catch (FileNotFoundException e) {
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		} finally {
 			if (writer != null) {
 				try {
 					writer.close();
 				} catch (IOException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 				}
 			}
 		}
@@ -84,7 +84,7 @@ public class FileReverser {
 				try {
 					reader.close();
 				} catch (IOException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 				}
 			}
 		}

@@ -33,9 +33,6 @@ public class FileWriter {
 		if (!Pattern.matches("[A-Za-z0-9\\\\/]*.txt$", fileName)) {
 			throw new IllegalArgumentException("The given string is not a valid text file name");
 		}
-		if (fileName.isEmpty()) {
-			throw new IllegalArgumentException("The given string is empty");
-		}
 
 		this.fileName = fileName;
 		input = new StringBuilder();
@@ -69,17 +66,17 @@ public class FileWriter {
 					writer = new BufferedWriter(outputStreamReader);
 					writer.write(input.toString());
 				} catch (UnsupportedEncodingException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 				} catch (FileNotFoundException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 				} catch (IOException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 				} finally {
 					if (writer != null) {
 						try {
 							writer.close();
 						} catch (IOException e) {
-							System.out.println(e.getMessage());
+							System.err.println(e.getMessage());
 						}
 					}
 				}
