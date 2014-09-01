@@ -26,6 +26,7 @@ public class LeastRecentlyUsed<K, V> extends LinkedHashMap<K, V> {
 	public LeastRecentlyUsed(int capacity) {
 		super(capacity, 0.75f, true);
 
+		// TODO: is appropriate?
 		if (capacity <= 0) {
 			throw new IllegalArgumentException("The given cache size cannot be equal or under zero");
 		}
