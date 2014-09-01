@@ -18,25 +18,25 @@ public final class Run {
 	 */
 	public static void main(String[] args) {
 		// Task 1
-		RandomString a = new RandomString();
-		Reflection r = new Reflection();
-		r.printAllFields(a);
-		r.printMethods(a);
-		System.out.println();
-
-		// Task 2
-		StringBuilder stringBuilder = (StringBuilder) r
-				.instantiateClassByName("java.lang.StringBuilder");
-		stringBuilder.append("a");
-		stringBuilder.append("b");
-		stringBuilder.append(" text");
-		r.printInterfaces(stringBuilder);
-		r.printParentClass(stringBuilder);
-		System.out.println();
+		// RandomString a = new RandomString();
+		// Reflection r = new Reflection();
+		// r.printAllFields(a);
+		// r.printMethods(a);
+		// System.out.println();
+		//
+		// // Task 2
+		// StringBuilder stringBuilder = (StringBuilder) r
+		// .instantiateClassByName("java.lang.StringBuilder");
+		// stringBuilder.append("a");
+		// stringBuilder.append("b");
+		// stringBuilder.append(" text");
+		// r.printInterfaces(stringBuilder);
+		// r.printParentClass(stringBuilder);
+		// System.out.println();
 
 		// Task 3
 		RandomStringReflector reflector = new RandomStringReflector();
-		reflector.printAllPrivateFields();
+		// reflector.printAllPrivateFields();
 		reflector.invokeAllPrivateMethods();
 	}
 
