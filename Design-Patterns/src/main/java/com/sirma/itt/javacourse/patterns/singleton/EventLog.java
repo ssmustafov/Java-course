@@ -8,7 +8,7 @@ import java.util.Date;
  * 
  * @author smustafov
  */
-public class EventLogger {
+public class EventLog {
 
 	private String message;
 	private Date eventDate;
@@ -19,7 +19,7 @@ public class EventLogger {
 	 * @param message
 	 *            - event's message
 	 */
-	public EventLogger(String message) {
+	public EventLog(String message) {
 		this.message = message;
 		this.eventDate = new Date();
 	}

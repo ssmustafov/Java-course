@@ -31,7 +31,7 @@ public class SingletonTest {
 	 */
 	@Test
 	public void testEmptyLogs() {
-		List<EventLogger> logs = Singleton.getLogs();
+		List<EventLog> logs = Singleton.getLogs();
 
 		int actualSize = logs.size();
 		int expectedSize = 0;
@@ -46,7 +46,7 @@ public class SingletonTest {
 	@Test
 	public void testOneLog() {
 		Singleton.addToLog("Testing things");
-		List<EventLogger> logs = Singleton.getLogs();
+		List<EventLog> logs = Singleton.getLogs();
 
 		int actualSize = logs.size();
 		int expectedSize = 1;

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public final class Singleton {
 
-	private static List<EventLogger> logs;
+	private static List<EventLog> logs;
 	private static Singleton instance;
 
 	/**
@@ -45,7 +45,7 @@ public final class Singleton {
 	 *            - message of the event to be added
 	 */
 	public static void addToLog(String message) {
-		logs.add(new EventLogger(message));
+		logs.add(new EventLog(message));
 	}
 
 	/**
@@ -53,7 +53,7 @@ public final class Singleton {
 	 * 
 	 * @return - all logs in the Singleton
 	 */
-	public static List<EventLogger> getLogs() {
+	public static List<EventLog> getLogs() {
 		return logs;
 	}
 
