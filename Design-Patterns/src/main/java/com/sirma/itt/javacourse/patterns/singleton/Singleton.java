@@ -21,6 +21,9 @@ public final class Singleton {
 		System.out.println("Singleton is created");
 	}
 
+	/**
+	 * Initializes one object from this class also initializes the List of logs.
+	 */
 	static {
 		instance = new Singleton();
 		logs = new ArrayList<>();
