@@ -62,6 +62,7 @@ public final class ConsoleReader {
 	 * @return - the read float number
 	 */
 	public static float readFloat() {
+		// TODO: doesn't work
 		return SCANNER.nextFloat();
 	}
 

@@ -17,7 +17,7 @@ import java.io.UnsupportedEncodingException;
  */
 public class FileReverser {
 
-	private static final String ENCODING = "UTF-8";
+	private static final String ENCODING = System.getProperty("file.encoding", "UTF-8");
 	private StringBuilder buffer;
 
 	/**

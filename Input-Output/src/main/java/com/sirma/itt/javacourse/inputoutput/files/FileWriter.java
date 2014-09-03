@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 public class FileWriter {
 
 	private static final char END_READING_SYMBOL = '.';
-	private static final String ENCODING = "UTF-8";
+	private static final String ENCODING = System.getProperty("file.encoding", "UTF-8");
 	private Scanner scanner;
 	private String fileName;
 	private StringBuilder input;
@@ -30,7 +30,8 @@ public class FileWriter {
 	 *            - the full path of the file in which will be writing
 	 */
 	public FileWriter(String fileName) {
-		if (!Pattern.matches("[A-Za-z0-9\\\\/]*.txt$", fileName)) {
+		final String regEx = "[A-Za-z0-9\\\\/]*.txt$";
+		if (!Pattern.matches(regEx, fileName)) {
 			throw new IllegalArgumentException("The given string is not a valid text file name");
 		}
 
@@ -50,7 +51,7 @@ public class FileWriter {
 	}
 
 	/**
-	 * Writes readed input to the text file given in the constuctor.
+	 * Writes read input to the text file given in the constructor.
 	 */
 	public void write() {
 		while (true) {

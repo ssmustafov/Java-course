@@ -20,6 +20,7 @@ public class DirectoryBrowser {
 	 */
 	public String listContent(String path) {
 		File dir = new File(path);
+		// TODO: more info
 		if (!dir.isDirectory()) {
 			throw new IllegalArgumentException(dir + " is not a directory");
 		}
