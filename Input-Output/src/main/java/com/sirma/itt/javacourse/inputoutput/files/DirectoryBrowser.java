@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.inputoutput.files;
 
 import java.io.File;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Holds methods for displaying folder's content.
@@ -9,10 +11,12 @@ import java.io.File;
  */
 public class DirectoryBrowser {
 
+	private final StringBuilder dirContent = new StringBuilder();
+
 	/**
 	 * Returns given folder's content including what files are in it and other folders. If the given
 	 * path is not a folder or doesn't exists throws <code>IllegalArgumentException</code>. It
-	 * traverses only one level.
+	 * traverses all levels of the given path.
 	 * 
 	 * @param path
 	 *            - the full path to the folder
@@ -20,20 +24,30 @@ public class DirectoryBrowser {
 	 */
 	public String listContent(String path) {
 		File dir = new File(path);
-		// TODO: more info
+		if (dir.isFile()) {
+			throw new IllegalArgumentException(
+					"It is given a path to file instead of to directory: '" + path + "'");
+		}
 		if (!dir.isDirectory()) {
-			throw new IllegalArgumentException(dir + " is not a directory");
+			throw new IllegalArgumentException(
+					"It is given a path to something else instead of to directory: '" + path + "'");
 		}
 
-		StringBuilder dirContent = new StringBuilder();
-		File[] children = dir.listFiles();
-		for (File child : children) {
-			String content = child.getAbsolutePath();
-			int indexOfLastSlash = content.lastIndexOf('\\');
-			content = content.substring(indexOfLastSlash + 1, content.length());
+		dirContent.setLength(0);
+		Queue<File> visitedDirsQueue = new LinkedList<>();
+		visitedDirsQueue.add(dir);
 
-			dirContent.append(content);
+		while (visitedDirsQueue.size() > 0) {
+			File currentDir = visitedDirsQueue.remove();
+			dirContent.append(currentDir.getAbsolutePath());
 			dirContent.append(System.lineSeparator());
+			File[] children = currentDir.listFiles();
+
+			if (children != null) {
+				for (File child : children) {
+					visitedDirsQueue.add(child);
+				}
+			}
 		}
 
 		return dirContent.toString();

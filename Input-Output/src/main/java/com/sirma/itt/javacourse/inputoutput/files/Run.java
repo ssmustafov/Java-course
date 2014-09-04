@@ -1,5 +1,6 @@
 package com.sirma.itt.javacourse.inputoutput.files;
 
+
 /**
  * Shows how the file classes can be used.
  * 
@@ -26,6 +27,7 @@ public final class Run {
 		// r.reverseTextFile("src\\main\\resources\\reverse.txt");
 
 		DirectoryBrowser d = new DirectoryBrowser();
-		System.out.println(d.listContent("C:\\"));
+		String str = d.listContent("C:\\");
+		System.out.println(str);
 	}
 }
