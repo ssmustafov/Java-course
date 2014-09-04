@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.inputoutput.console;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Works with the console. Holds methods for reading <code>Integer</code>, <code>Float</code>,
@@ -10,7 +12,8 @@ import java.util.Scanner;
  */
 public final class ConsoleReader {
 
-	private static final Scanner SCANNER = new Scanner(System.in);
+	private static final BufferedReader READER = new BufferedReader(
+			new InputStreamReader(System.in));
 
 	/**
 	 * Protects from instantiation.
@@ -25,7 +28,14 @@ public final class ConsoleReader {
 	 * @return - the read string
 	 */
 	public static String readString() {
-		return SCANNER.next();
+		String res = "";
+		try {
+			res = READER.readLine();
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
+
+		return res;
 	}
 
 	/**
@@ -34,7 +44,14 @@ public final class ConsoleReader {
 	 * @return - the read line as string
 	 */
 	public static String readLine() {
-		return SCANNER.nextLine();
+		String line = "";
+		try {
+			line = READER.readLine();
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
+
+		return line;
 	}
 
 	/**
@@ -43,8 +60,18 @@ public final class ConsoleReader {
 	 * @return - the read character
 	 */
 	public static char readChar() {
-		String input = SCANNER.next("\\S");
-		return input.charAt(0);
+		String line = "";
+		try {
+			line = READER.readLine();
+			if (line.length() >= 2) {
+				throw new IOException(
+						"You have entered a whole string instead of one single character");
+			}
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
+
+		return line.charAt(0);
 	}
 
 	/**
@@ -53,7 +80,14 @@ public final class ConsoleReader {
 	 * @return - the read int number
 	 */
 	public static int readInt() {
-		return SCANNER.nextInt();
+		String line = "";
+		try {
+			line = READER.readLine();
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
+
+		return Integer.parseInt(line);
 	}
 
 	/**
@@ -62,8 +96,14 @@ public final class ConsoleReader {
 	 * @return - the read float number
 	 */
 	public static float readFloat() {
-		// TODO: doesn't work
-		return SCANNER.nextFloat();
+		String line = "";
+		try {
+			line = READER.readLine();
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
+
+		return Float.parseFloat(line);
 	}
 
 }
