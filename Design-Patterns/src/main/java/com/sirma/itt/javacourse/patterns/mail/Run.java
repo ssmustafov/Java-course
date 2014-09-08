@@ -21,8 +21,13 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		Mail a = Mail.from("my_email@mail.com").to("your.mail@gmail.com").subject("Test email")
-				.content("Hello sir").attachments(new String[] { "a", "b" }).build();
-		a.show();
+		Mail mail = Mail
+					.from("my_email@mail.com")
+					.to("your.mail@gmail.com")
+					.subject("Test email")
+					.content("Hello sir")
+					.attachments(new String[] { "a", "b" })
+					.build();
+		mail.show();
 	}
 }
