@@ -15,7 +15,6 @@ public class FileWriter {
 	private Scanner scanner;
 	private String fileName;
 	private StringBuilder input;
-	private FileUtils fileUtils;
 
 	/**
 	 * Creates a new file writer with given file name.
@@ -32,7 +31,6 @@ public class FileWriter {
 		this.fileName = fileName;
 		input = new StringBuilder();
 		scanner = new Scanner(System.in);
-		fileUtils = new FileUtils();
 	}
 
 	/**
@@ -54,7 +52,7 @@ public class FileWriter {
 			line = line.trim();
 
 			if (line.length() == 1 && line.charAt(0) == END_READING_SYMBOL) {
-				fileUtils.writeToTextFile(fileName, input.toString());
+				FileUtils.writeToTextFile(fileName, input.toString());
 				break;
 			}
 

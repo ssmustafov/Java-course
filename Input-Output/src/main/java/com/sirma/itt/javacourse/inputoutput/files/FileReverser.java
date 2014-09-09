@@ -12,16 +12,13 @@ import java.io.InputStreamReader;
  */
 public class FileReverser {
 
-	private static final String ENCODING = System.getProperty("file.encoding", "UTF-8");
 	private StringBuilder buffer;
-	private FileUtils fileUtils;
 
 	/**
 	 * Creates a new FileReverser.
 	 */
 	public FileReverser() {
 		buffer = new StringBuilder();
-		fileUtils = new FileUtils();
 	}
 
 	/**
@@ -34,7 +31,8 @@ public class FileReverser {
 		BufferedReader reader = null;
 		try {
 			FileInputStream fileInputStream = new FileInputStream(fileName);
-			InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, ENCODING);
+			InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream,
+					FileUtils.ENCODING);
 			reader = new BufferedReader(inputStreamReader);
 
 			String line = null;
@@ -54,6 +52,6 @@ public class FileReverser {
 		}
 
 		buffer.reverse();
-		fileUtils.writeToTextFile(fileName, buffer.toString());
+		FileUtils.writeToTextFile(fileName, buffer.toString());
 	}
 }

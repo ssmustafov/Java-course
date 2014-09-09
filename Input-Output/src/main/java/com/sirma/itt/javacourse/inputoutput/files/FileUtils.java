@@ -12,9 +12,16 @@ import java.io.UnsupportedEncodingException;
  * 
  * @author smustafov
  */
-public class FileUtils {
+public final class FileUtils {
 
-	private static final String ENCODING = System.getProperty("file.encoding", "UTF-8");
+	/**
+	 * Protects from instantiation.
+	 */
+	private FileUtils() {
+
+	}
+
+	public static final String ENCODING = System.getProperty("file.encoding", "UTF-8");
 
 	/**
 	 * Writes a given string to given file.
@@ -24,7 +31,7 @@ public class FileUtils {
 	 * @param str
 	 *            - the string to be wrote to the file
 	 */
-	public void writeToTextFile(String fileName, String str) {
+	public static void writeToTextFile(String fileName, String str) {
 		BufferedWriter writer = null;
 		try {
 			FileOutputStream fileOutputStream = new FileOutputStream(fileName);
