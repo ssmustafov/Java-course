@@ -28,6 +28,7 @@ public class FileReverser {
 	 *            - the full path of the text file to be reversed
 	 */
 	public void reverseTextFile(String fileName) {
+		buffer.setLength(0);
 		BufferedReader reader = null;
 		try {
 			FileInputStream fileInputStream = new FileInputStream(fileName);
