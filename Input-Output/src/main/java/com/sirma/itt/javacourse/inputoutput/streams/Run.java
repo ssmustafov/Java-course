@@ -21,8 +21,10 @@ public final class Run {
 	/**
 	 * @param args
 	 *            - arguments
+	 * @throws IOException
+	 *             - exception
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		String str = "SomeSADDDDDDDDDDDDDDDDADdasdadsasddddddddd55555555555555";
 		ByteArrayInputStream input = new ByteArrayInputStream(str.getBytes());
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
@@ -32,6 +34,8 @@ public final class Run {
 			System.out.println(transfer.transfer(str.length(), 20));
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
+		} finally {
+			output.close();
 		}
 	}
 }
