@@ -32,7 +32,7 @@ public class LeastRecentlyUsed<K, V> {
 	 */
 	public LeastRecentlyUsed(int capacity) {
 		if (capacity <= 0) {
-			throw new IllegalArgumentException("The given cache size cannot be equal or under zero");
+			throw new IllegalArgumentException("Cache's size cannot be equal or under zero");
 		}
 
 		this.capacity = capacity;
@@ -54,7 +54,7 @@ public class LeastRecentlyUsed<K, V> {
 	public void add(K key, V value) {
 		if (queue.contains(key)) {
 			// First remove it from the queue then add it again, this is a way to change the usage
-			// of an element
+			// of an element; simulating least and most used
 			queue.remove(key);
 			queue.add(key);
 			cache.put(key, value);
