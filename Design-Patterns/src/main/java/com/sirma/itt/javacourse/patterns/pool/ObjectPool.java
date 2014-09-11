@@ -50,7 +50,7 @@ public class ObjectPool {
 			throw new IllegalAccessError("Reached maximum size of the pool: " + poolSize);
 		}
 
-		VeryHeavyClass c = AVAILABLE.remove(0);
+		VeryHeavyClass c = AVAILABLE.remove(AVAILABLE.size() - 1);
 		IN_USE.add(c);
 		return c;
 	}
@@ -62,7 +62,7 @@ public class ObjectPool {
 	 *            - instance of the VeryHeavyClass to be released to the pool
 	 */
 	public void release(VeryHeavyClass c) {
-		IN_USE.remove(0);
+		IN_USE.remove(c);
 		AVAILABLE.add(c);
 	}
 
