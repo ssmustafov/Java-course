@@ -38,18 +38,18 @@ public class LeastRecentlyUsedTest {
 	@Test
 	public void testNormalCase() {
 		LeastRecentlyUsed<Integer, String> lru = new LeastRecentlyUsed<>(4);
-		lru.put(1, "one");
-		lru.put(2, "two");
-		lru.put(3, "three");
-		lru.put(4, "four");
-		lru.put(1, "one");
-		lru.put(2, "two");
-		lru.put(5, "five");
-		lru.put(1, "one");
-		lru.put(2, "two");
-		lru.put(3, "three");
-		lru.put(4, "four");
-		lru.put(5, "five");
+		lru.add(1, "one");
+		lru.add(2, "two");
+		lru.add(3, "three");
+		lru.add(4, "four");
+		lru.add(1, "one");
+		lru.add(2, "two");
+		lru.add(5, "five");
+		lru.add(1, "one");
+		lru.add(2, "two");
+		lru.add(3, "three");
+		lru.add(4, "four");
+		lru.add(5, "five");
 
 		boolean actual1 = lru.containsKey(5);
 		boolean actual2 = lru.containsKey(2);
@@ -70,13 +70,13 @@ public class LeastRecentlyUsedTest {
 	@Test
 	public void testAddingSameElement() {
 		LeastRecentlyUsed<Double, Integer> lru = new LeastRecentlyUsed<>(4);
-		lru.put(2.71, 1);
-		lru.put(2.71, 1);
-		lru.put(2.71, 1);
-		lru.put(2.71, 1);
+		lru.add(2.71, 1);
+		lru.add(2.71, 1);
+		lru.add(2.71, 1);
+		lru.add(2.71, 1);
 
 		boolean actual = lru.containsKey(2.71);
-		int actualSize = lru.size();
+		int actualSize = lru.getSize();
 		int expectedSize = 1;
 		boolean expected = true;
 
@@ -91,24 +91,24 @@ public class LeastRecentlyUsedTest {
 	@Test
 	public void testAddingTwentyElements() {
 		LeastRecentlyUsed<Character, Integer> lru = new LeastRecentlyUsed<>(3);
-		lru.put('B', 1);
-		lru.put('A', 10);
-		lru.put('F', 100);
-		lru.put('E', 1000);
-		lru.put('A', 10);
-		lru.put('Z', 10000);
-		lru.put('E', 1000);
-		lru.put('Q', 100000);
-		lru.put('A', 10);
-		lru.put('Q', 100000);
-		lru.put('E', 1000);
-		lru.put('F', 100);
-		lru.put('E', 1000);
-		lru.put('A', 10);
-		lru.put('F', 100);
-		lru.put('B', 1);
-		lru.put('A', 10);
-		lru.put('F', 100);
+		lru.add('B', 1);
+		lru.add('A', 10);
+		lru.add('F', 100);
+		lru.add('E', 1000);
+		lru.add('A', 10);
+		lru.add('Z', 10000);
+		lru.add('E', 1000);
+		lru.add('Q', 100000);
+		lru.add('A', 10);
+		lru.add('Q', 100000);
+		lru.add('E', 1000);
+		lru.add('F', 100);
+		lru.add('E', 1000);
+		lru.add('A', 10);
+		lru.add('F', 100);
+		lru.add('B', 1);
+		lru.add('A', 10);
+		lru.add('F', 100);
 
 		boolean actual1 = lru.containsKey('F');
 		boolean actual2 = lru.containsKey('A');
@@ -127,10 +127,10 @@ public class LeastRecentlyUsedTest {
 	@Test
 	public void testAddingOneElement() {
 		LeastRecentlyUsed<String, Float> lru = new LeastRecentlyUsed<>(3);
-		lru.put("Test", 0.012f);
+		lru.add("Test", 0.012f);
 
 		boolean actualContent = lru.containsKey("Test");
-		int actualSize = lru.size();
+		int actualSize = lru.getSize();
 		boolean expectedContent = true;
 		int expectedSize = 1;
 
