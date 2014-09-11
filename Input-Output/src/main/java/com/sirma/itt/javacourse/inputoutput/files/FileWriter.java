@@ -23,7 +23,7 @@ public class FileWriter {
 	 *            - the full path of the file in which will be writing
 	 */
 	public FileWriter(String fileName) {
-		final String regEx = "[A-Za-z0-9\\\\/]+.txt$";
+		final String regEx = "[A-Za-z0-9\\\\/]+\\.txt$";
 		if (!Pattern.matches(regEx, fileName)) {
 			throw new IllegalArgumentException("The given string is not a valid text file name");
 		}
