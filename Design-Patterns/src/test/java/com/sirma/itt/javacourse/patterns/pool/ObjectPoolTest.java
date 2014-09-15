@@ -57,4 +57,22 @@ public class ObjectPoolTest {
 		assertEquals(expectedInUse, actualInUse);
 	}
 
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.patterns.pool.ObjectPool#ObjectPool(int)} with negative
+	 * size.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testNegativePoolSize() {
+		new ObjectPool(-3);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.patterns.pool.ObjectPool#ObjectPool(int)} with zero
+	 * size.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testZeroPoolSize() {
+		new ObjectPool(0);
+	}
+
 }
