@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.patterns.pool;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
@@ -43,7 +45,16 @@ public class ObjectPoolTest {
 	 */
 	@Test
 	public void testAcquireOneObject() {
+		ObjectPool pool = new ObjectPool(3);
+		pool.acquire();
 
+		int actualAvailabale = pool.getNumberOfAvailableObjects();
+		int expectedAvailable = 2;
+		int actualInUse = pool.getNumberOfAcquiredObjects();
+		int expectedInUse = 1;
+
+		assertEquals(expectedAvailable, actualAvailabale);
+		assertEquals(expectedInUse, actualInUse);
 	}
 
 }
