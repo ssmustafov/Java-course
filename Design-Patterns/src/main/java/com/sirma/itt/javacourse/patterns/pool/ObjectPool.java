@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents the Object Pool design pattern. Holds instances by given N number of times.
+ * Represents the Object Pool design pattern. Holds instances of {@code VeryHeavyClass} by given N
+ * number of times.
  * 
  * @author smustafov
  */
 public class ObjectPool {
 
-	private static final List<VeryHeavyClass> IN_USE = new ArrayList<>();
-	private static final List<VeryHeavyClass> AVAILABLE = new ArrayList<>();
+	private final List<VeryHeavyClass> inUse = new ArrayList<>();
+	private final List<VeryHeavyClass> available = new ArrayList<>();
 	private int poolSize;
 
 	/**
@@ -35,7 +36,7 @@ public class ObjectPool {
 	 */
 	private void initialSet() {
 		for (int i = 0; i < poolSize; i++) {
-			AVAILABLE.add(new VeryHeavyClass());
+			available.add(new VeryHeavyClass());
 		}
 	}
 
@@ -46,24 +47,48 @@ public class ObjectPool {
 	 * @return - instance of the VeryHeavyClass from the pool
 	 */
 	public VeryHeavyClass acquire() {
-		if (AVAILABLE.size() == 0) {
+		if (available.size() == 0) {
 			throw new IllegalAccessError("Reached maximum size of the pool: " + poolSize);
 		}
 
-		VeryHeavyClass c = AVAILABLE.remove(AVAILABLE.size() - 1);
-		IN_USE.add(c);
+		VeryHeavyClass c = available.remove(available.size() - 1);
+		inUse.add(c);
 		return c;
 	}
 
 	/**
-	 * Releases the given instance of <code>VeryHeavyClass</code>.
+	 * Releases the given instance of <code>VeryHeavyClass</code>. If the given instance doesn't
+	 * exists in use it throws <code>IllegalArgumentException</code>.
 	 * 
 	 * @param c
 	 *            - instance of the VeryHeavyClass to be released to the pool
 	 */
 	public void release(VeryHeavyClass c) {
-		IN_USE.remove(c);
-		AVAILABLE.add(c);
+		// TODO: does have to take a parameter?
+		if (!inUse.contains(c)) {
+			throw new IllegalArgumentException("There is no such registered object in use");
+		}
+
+		inUse.remove(c);
+		available.add(c);
+	}
+
+	/**
+	 * Returns number of acquired objects from the pool.
+	 * 
+	 * @return - number of acquired objects from the pool
+	 */
+	public int getNumberOfAcquiredObjects() {
+		return inUse.size();
+	}
+
+	/**
+	 * Returns number of available objects in the pool.
+	 * 
+	 * @return - number of available objects in the pool
+	 */
+	public int getNumberOfAvailableObjects() {
+		return available.size();
 	}
 
 }
