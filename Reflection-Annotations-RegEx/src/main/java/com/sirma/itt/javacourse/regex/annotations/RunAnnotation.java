@@ -27,4 +27,5 @@ public final class RunAnnotation {
 			System.out.println(arr[i].getClass().getSimpleName());
 		}
 	}
+
 }
