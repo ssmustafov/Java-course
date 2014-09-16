@@ -3,12 +3,17 @@ package com.sirma.itt.javacourse.collections.page;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Shows how the PageBean class can be used.
  * 
  * @author smustafov
  */
 public final class Run {
+
+	private static final Logger LOGGER = LogManager.getLogger(Run.class);
 
 	/**
 	 * Protects from instantiation.
@@ -44,7 +49,7 @@ public final class Run {
 		try {
 			e.execute();
 		} catch (IllegalArgumentException ex) {
-			System.out.println(ex.getMessage());
+			LOGGER.error(ex.getMessage(), ex);
 		}
 	}
 }

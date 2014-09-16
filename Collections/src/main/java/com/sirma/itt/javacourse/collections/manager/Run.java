@@ -1,11 +1,16 @@
 package com.sirma.itt.javacourse.collections.manager;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Shows how the ExceptionsMessageManager class can be used.
  * 
  * @author smustafov
  */
 public final class Run {
+
+	private static final Logger LOGGER = LogManager.getLogger(Run.class);
 
 	/**
 	 * Protects from instantiation.
@@ -32,9 +37,9 @@ public final class Run {
 			System.out.println(manager.getMessage());
 			System.out.println(ExceptionsMessageManager.getMessages(manager.getMessage()));
 		} catch (NoSuchMessageException e) {
-			System.err.println(e.getMessage());
+			LOGGER.error(e.getMessage(), e);
 		} catch (NoSuchMessageCodeException e) {
-			System.err.println(e.getMessage());
+			LOGGER.error(e.getMessage(), e);
 		}
 	}
 }
