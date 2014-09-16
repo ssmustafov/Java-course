@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.patterns.mail;
 
+import com.sirma.itt.javacourse.regex.regex.EmailValidator;
+
 /**
  * Represents a mail. Enables fluent interface for easer code constructing.
  * 
@@ -41,6 +43,9 @@ public class Mail {
 	 *            - who is the mail
 	 */
 	public void setFrom(String from) {
+		if (EmailValidator.isValidEmail(from)) {
+			throw new IllegalArgumentException("Invalid email: " + from);
+		}
 		this.from = from;
 	}
 
@@ -60,6 +65,9 @@ public class Mail {
 	 *            - to who to send this mail
 	 */
 	public void setTo(String to) {
+		if (EmailValidator.isValidEmail(to)) {
+			throw new IllegalArgumentException("Invalid email: " + to);
+		}
 		this.to = to;
 	}
 
