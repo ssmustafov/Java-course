@@ -11,6 +11,7 @@ public class BankAccountProxy implements Account {
 
 	private static final BigDecimal MIN_AMOUNT = new BigDecimal("10.00");
 	private static final BigDecimal MAX_AMOUNT = new BigDecimal("400.00");
+	private static final BigDecimal INITIAL_AMOUNT = new BigDecimal("1000.00");
 	private BankAccount realAccount;
 
 	/**
@@ -18,8 +19,26 @@ public class BankAccountProxy implements Account {
 	 */
 	private void checkAccount() {
 		if (realAccount == null) {
-			realAccount = new BankAccount();
+			realAccount = new BankAccount(INITIAL_AMOUNT);
 		}
+	}
+
+	/**
+	 * Returns the minimal amount that can be used in a bank account.
+	 * 
+	 * @return - minimal amount that can be used in a bank account
+	 */
+	public BigDecimal getMinAmount() {
+		return MIN_AMOUNT;
+	}
+
+	/**
+	 * Returns the maximal amount that can be used in a bank account.
+	 * 
+	 * @return - maximal amount that can be used in a bank account
+	 */
+	public BigDecimal getMaxAmount() {
+		return MAX_AMOUNT;
 	}
 
 	/**
@@ -58,9 +77,9 @@ public class BankAccountProxy implements Account {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public BigDecimal currentBalance() {
+	public BigDecimal getCurrentBalance() {
 		checkAccount();
-		return realAccount.currentBalance();
+		return realAccount.getCurrentBalance();
 	}
 
 }

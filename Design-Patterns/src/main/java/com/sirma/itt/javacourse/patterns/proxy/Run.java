@@ -24,10 +24,10 @@ public final class Run {
 	 */
 	public static void main(String[] args) {
 		Account account = BankAccountFactory.createInstance();
-		System.out.println(account.currentBalance());
+		System.out.println(account.getCurrentBalance());
 		account.deposit(new BigDecimal("200.70"));
-		System.out.println(account.currentBalance());
+		System.out.println(account.getCurrentBalance());
 		account.withdraw(new BigDecimal("350.00"));
-		System.out.println(account.currentBalance());
+		System.out.println(account.getCurrentBalance());
 	}
 }

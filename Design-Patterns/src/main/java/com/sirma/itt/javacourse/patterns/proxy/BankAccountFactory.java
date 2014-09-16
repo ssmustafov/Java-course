@@ -19,7 +19,7 @@ public final class BankAccountFactory {
 	 * 
 	 * @return - new instance of bank account
 	 */
-	public static BankAccountProxy createInstance() {
+	public static Account createInstance() {
 		return new BankAccountProxy();
 	}
 

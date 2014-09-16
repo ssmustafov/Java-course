@@ -30,6 +30,6 @@ public interface Account {
 	 * 
 	 * @return - current balance of the account
 	 */
-	BigDecimal currentBalance();
+	BigDecimal getCurrentBalance();
 
 }

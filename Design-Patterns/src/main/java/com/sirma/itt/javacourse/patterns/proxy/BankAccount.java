@@ -13,10 +13,18 @@ public class BankAccount implements Account {
 	private BigDecimal balance;
 
 	/**
-	 * Creates a new bank account with initial balance of 1000.
+	 * Creates a new bank account with given initial balance of Amount.
+	 * 
+	 * @param initialAmount
+	 *            - starting amount of the account to be set
 	 */
-	public BankAccount() {
-		balance = new BigDecimal("1000.00");
+	public BankAccount(BigDecimal initialAmount) {
+		if (initialAmount.compareTo(ZERO) == -1) {
+			throw new IllegalArgumentException(
+					"It is not possible to create an account with negative amount: "
+							+ initialAmount.toString());
+		}
+		balance = initialAmount;
 	}
 
 	/**
@@ -50,7 +58,7 @@ public class BankAccount implements Account {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public BigDecimal currentBalance() {
+	public BigDecimal getCurrentBalance() {
 		return balance;
 	}
 
