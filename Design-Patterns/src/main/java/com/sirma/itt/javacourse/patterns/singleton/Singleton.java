@@ -3,6 +3,9 @@ package com.sirma.itt.javacourse.patterns.singleton;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Represents a Singleton design pattern. Provides working with logs containing messages and date of
  * the log.
@@ -11,6 +14,7 @@ import java.util.List;
  */
 public final class Singleton {
 
+	private static final Logger LOGGER = LogManager.getLogger(Singleton.class);
 	private static List<EventLog> logs;
 	private static Singleton instance;
 
@@ -18,7 +22,7 @@ public final class Singleton {
 	 * Protects from instantiation.
 	 */
 	private Singleton() {
-		System.out.println("Singleton is created");
+		LOGGER.info("Singleton is created");
 	}
 
 	/**
