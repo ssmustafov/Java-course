@@ -2,9 +2,13 @@
 com.sirma.itt.javacourse.collections.manager.NoSuchMessageException: There is no such message
 	at com.sirma.itt.javacourse.collections.manager.ExceptionsMessageManager.addExceptionMessage(ExceptionsMessageManager.java:57) ~[classes/:?]
 	at com.sirma.itt.javacourse.collections.manager.Run.main(Run.java:33) [classes/:?]
-	
 [ERROR] 2014-09-16 12:32:24.453 [main] Run - There are no more previous pages
 java.lang.IllegalArgumentException: There are no more previous pages
 	at com.sirma.itt.javacourse.collections.page.PageBean.previous(PageBean.java:89) ~[classes/:?]
 	at com.sirma.itt.javacourse.collections.page.CommandExecutor.execute(CommandExecutor.java:57) ~[classes/:?]
+	at com.sirma.itt.javacourse.collections.page.Run.main(Run.java:50) [classes/:?]
+[ERROR] 2014-09-16 15:35:42.078 [main] Run - There are no more previous pages
+java.lang.IllegalArgumentException: There are no more previous pages
+	at com.sirma.itt.javacourse.collections.page.PageBean.previous(PageBean.java:89) ~[classes/:?]
+	at com.sirma.itt.javacourse.collections.page.CommandExecutor.execute(CommandExecutor.java:95) ~[classes/:?]
 	at com.sirma.itt.javacourse.collections.page.Run.main(Run.java:50) [classes/:?]

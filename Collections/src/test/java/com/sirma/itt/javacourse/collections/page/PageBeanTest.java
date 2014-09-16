@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.collections.page;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -273,9 +275,8 @@ public class PageBeanTest {
 		p.next();
 		p.next();
 		boolean actual = p.hasNext();
-		boolean expected = true;
 
-		assertEquals(expected, actual);
+		assertTrue(actual);
 	}
 
 	/**
@@ -297,9 +298,8 @@ public class PageBeanTest {
 		PageBean p = new PageBean(list, 2);
 		p.next();
 		boolean actual = p.hasNext();
-		boolean expected = true;
 
-		assertEquals(expected, actual);
+		assertTrue(actual);
 	}
 
 	/**
@@ -324,9 +324,8 @@ public class PageBeanTest {
 		p.next();
 		p.next();
 		boolean actual = p.hasNext();
-		boolean expected = false;
 
-		assertEquals(expected, actual);
+		assertFalse(actual);
 	}
 
 	/**
@@ -349,9 +348,8 @@ public class PageBeanTest {
 		p.next();
 		p.next();
 		boolean actual = p.hasPrevious();
-		boolean expected = true;
 
-		assertEquals(expected, actual);
+		assertTrue(actual);
 	}
 
 	/**
@@ -376,9 +374,8 @@ public class PageBeanTest {
 		p.next();
 		p.next();
 		boolean actual = p.hasPrevious();
-		boolean expected = true;
 
-		assertEquals(expected, actual);
+		assertTrue(actual);
 	}
 
 	/**
@@ -400,9 +397,8 @@ public class PageBeanTest {
 		PageBean p = new PageBean(list, 2);
 		p.next();
 		boolean actual = p.hasPrevious();
-		boolean expected = false;
 
-		assertEquals(expected, actual);
+		assertFalse(actual);
 	}
 
 }
