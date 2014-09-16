@@ -74,7 +74,6 @@ public class HumanComparatorTest {
 		Arrays.sort(arr);
 
 		boolean actual = Arrays.equals(originalArr, arr);
-		boolean expected = true;
 
 		assertEquals(Boolean.TRUE, actual);
 
