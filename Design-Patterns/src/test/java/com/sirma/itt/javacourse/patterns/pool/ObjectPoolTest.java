@@ -27,7 +27,7 @@ public class ObjectPoolTest {
 
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.patterns.pool.ObjectPool#release(VeryHeavyClass)} with
-	 * unregistered object.
+	 * acquired objects and unregistered object.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testReleaseWithUnregisteredObject() {
@@ -35,6 +35,17 @@ public class ObjectPoolTest {
 		pool.acquire();
 		pool.acquire();
 		pool.acquire();
+		VeryHeavyClass a = new VeryHeavyClass();
+		pool.release(a);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.patterns.pool.ObjectPool#release(VeryHeavyClass)} with
+	 * no acquired objects and unregistered object.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testReleaseWithoutAcquireing() {
+		ObjectPool pool = new ObjectPool(5);
 		VeryHeavyClass a = new VeryHeavyClass();
 		pool.release(a);
 	}
