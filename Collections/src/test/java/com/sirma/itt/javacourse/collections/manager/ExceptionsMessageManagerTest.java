@@ -47,6 +47,36 @@ public class ExceptionsMessageManagerTest {
 
 	/**
 	 * Tests
+	 * {@link com.sirma.itt.javacourse.collections.manager.ExceptionsMessageManager#addExceptionMessageUsingCode(String)}
+	 * with empty manager and trying to add message code.
+	 * 
+	 * @throws NoSuchMessageCodeException
+	 *             - expected exception
+	 */
+	@Test(expected = NoSuchMessageCodeException.class)
+	public void testWithEmptyManagerCode() throws NoSuchMessageCodeException {
+		ExceptionsMessageManager manager = new ExceptionsMessageManager();
+
+		manager.addExceptionMessageUsingCode("Not existing message code");
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.collections.manager.ExceptionsMessageManager#addExceptionMessageUsingCode(String)}
+	 * with empty manager and trying to add message.
+	 * 
+	 * @throws NoSuchMessageException
+	 *             - expected exception
+	 */
+	@Test(expected = NoSuchMessageException.class)
+	public void testWithEmptyManager() throws NoSuchMessageException {
+		ExceptionsMessageManager manager = new ExceptionsMessageManager();
+
+		manager.addExceptionMessage("Not existing message code");
+	}
+
+	/**
+	 * Tests
 	 * {@link com.sirma.itt.javacourse.collections.manager.ExceptionsMessageManager#addExceptionMessage(String)}
 	 * with one element.
 	 * 
