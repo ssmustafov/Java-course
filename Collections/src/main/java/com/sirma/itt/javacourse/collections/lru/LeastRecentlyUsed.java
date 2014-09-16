@@ -90,6 +90,17 @@ public class LeastRecentlyUsed<K, V> {
 	}
 
 	/**
+	 * Checks if given value exists in the cache.
+	 * 
+	 * @param value
+	 *            - value to be checked if it exists in the cache
+	 * @return - true if the given value exists in the cache; otherwise false
+	 */
+	public boolean containsValue(V value) {
+		return cache.containsValue(value);
+	}
+
+	/**
 	 * Returns the current size of the cache. If its reached max size always will return the max
 	 * size.
 	 * 

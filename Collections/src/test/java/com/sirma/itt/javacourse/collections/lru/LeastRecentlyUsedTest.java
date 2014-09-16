@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.collections.lru;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -55,12 +57,11 @@ public class LeastRecentlyUsedTest {
 		boolean actual2 = lru.containsKey(2);
 		boolean actual3 = lru.containsKey(4);
 		boolean actual4 = lru.containsKey(3);
-		boolean expected = true;
 
-		assertEquals(expected, actual1);
-		assertEquals(expected, actual2);
-		assertEquals(expected, actual3);
-		assertEquals(expected, actual4);
+		assertTrue(actual1);
+		assertTrue(actual2);
+		assertTrue(actual3);
+		assertTrue(actual4);
 	}
 
 	/**
@@ -78,9 +79,8 @@ public class LeastRecentlyUsedTest {
 		boolean actual = lru.containsKey(2.71);
 		int actualSize = lru.getSize();
 		int expectedSize = 1;
-		boolean expected = true;
 
-		assertEquals(expected, actual);
+		assertTrue(actual);
 		assertEquals(expectedSize, actualSize);
 	}
 
@@ -113,11 +113,10 @@ public class LeastRecentlyUsedTest {
 		boolean actual1 = lru.containsKey('F');
 		boolean actual2 = lru.containsKey('A');
 		boolean actual3 = lru.containsKey('B');
-		boolean expected = true;
 
-		assertEquals(expected, actual1);
-		assertEquals(expected, actual2);
-		assertEquals(expected, actual3);
+		assertTrue(actual1);
+		assertTrue(actual2);
+		assertTrue(actual3);
 	}
 
 	/**
@@ -131,11 +130,83 @@ public class LeastRecentlyUsedTest {
 
 		boolean actualContent = lru.containsKey("Test");
 		int actualSize = lru.getSize();
-		boolean expectedContent = true;
 		int expectedSize = 1;
 
-		assertEquals(expectedContent, actualContent);
+		assertTrue(actualContent);
 		assertEquals(expectedSize, actualSize);
 	}
 
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.collections.lru.LeastRecentlyUsed} with size 1 and
+	 * adding 3 elements.
+	 */
+	@Test
+	public void testWithSizeOne() {
+		LeastRecentlyUsed<Integer, Integer> lru = new LeastRecentlyUsed<>(1);
+		lru.add(2, 10);
+		lru.add(3, 11);
+		lru.add(5, 101);
+
+		boolean actualContent1 = lru.containsKey(2);
+		boolean actualContent2 = lru.containsKey(3);
+		boolean actualContent3 = lru.containsKey(5);
+		int actualSize = lru.getSize();
+		int expectedSize = 1;
+
+		assertFalse(actualContent1);
+		assertFalse(actualContent2);
+		assertTrue(actualContent3);
+		assertEquals(expectedSize, actualSize);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.collections.lru.LeastRecentlyUsed} with size 1 and
+	 * adding same element with different values.
+	 */
+	@Test
+	public void testSameElementWithDifferentValue() {
+		LeastRecentlyUsed<Integer, String> lru = new LeastRecentlyUsed<>(1);
+		lru.add(2, "10");
+		lru.add(2, "11");
+		lru.add(2, "101");
+
+		boolean actualKey = lru.containsKey(2);
+		boolean actualValue1 = lru.containsValue("10");
+		boolean actualValue2 = lru.containsValue("11");
+		boolean actualValue3 = lru.containsValue("101");
+		int actualSize = lru.getSize();
+		int expectedSize = 1;
+
+		assertTrue(actualKey);
+		assertFalse(actualValue1);
+		assertFalse(actualValue2);
+		assertTrue(actualValue3);
+		assertEquals(expectedSize, actualSize);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.collections.lru.LeastRecentlyUsed} with size 4 and
+	 * adding 2 elements 2 times with different values.
+	 */
+	@Test
+	public void testElementsWithDifferenValues() {
+		LeastRecentlyUsed<Integer, Integer> lru = new LeastRecentlyUsed<>(4);
+		lru.add(1, 10);
+		lru.add(2, 100);
+		lru.add(1, 20);
+		lru.add(2, 200);
+
+		boolean actualValue1 = lru.containsValue(10);
+		boolean actualValue2 = lru.containsValue(100);
+		boolean actualValue3 = lru.containsValue(20);
+		boolean actualValue4 = lru.containsValue(200);
+		int actualSize = lru.getSize();
+		int expectedSize = 2;
+
+		assertFalse(actualValue1);
+		assertFalse(actualValue2);
+		assertTrue(actualValue3);
+		assertTrue(actualValue4);
+		assertEquals(expectedSize, actualSize);
+	}
 }
