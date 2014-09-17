@@ -17,6 +17,8 @@ public class CalculatorManager {
 			command = new MultiplicationCommand(calc);
 		} else if (operation.equals(Operations.Substract)) {
 			command = new SubstractionCommand(calc);
+		} else if (operation.equals(Operations.Power)) {
+			// TODO: how......
 		}
 
 		command.execute(number);
