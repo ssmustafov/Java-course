@@ -12,15 +12,14 @@ public class RandomDiceReader implements DiceReader {
 	private static final Random RANDOM_GENERATOR = new Random();
 
 	/**
-	 * Returns a random number between 1-6 inclusive.
+	 * Returns a random number between 0 - M inclusive.
 	 * 
+	 * @param m
+	 *            - max range
 	 * @return - the random number
 	 */
-	private int getRandomNumber() {
-		final int start = 1;
-		final int end = 6;
-
-		int randomNumber = RANDOM_GENERATOR.nextInt((end - start) + 1) + start;
+	private int getRandomNumber(int m) {
+		int randomNumber = RANDOM_GENERATOR.nextInt(m + 1);
 		return randomNumber;
 	}
 
@@ -28,8 +27,8 @@ public class RandomDiceReader implements DiceReader {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getDice() {
-		return Integer.toString(getRandomNumber());
+	public String getDice(int sides) {
+		return Integer.toString(getRandomNumber(sides));
 	}
 
 }

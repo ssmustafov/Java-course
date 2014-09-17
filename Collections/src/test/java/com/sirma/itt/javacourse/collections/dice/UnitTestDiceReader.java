@@ -1,23 +1,23 @@
 package com.sirma.itt.javacourse.collections.dice;
 
 /**
- * Used for unit testing purpose only.
+ * This class is for unit testing purpose only.
  * 
  * @author smustafov
  */
 public class UnitTestDiceReader implements DiceReader {
 
-	private String[] dices;
+	private String[] dicesCombinations;
 	private int index;
 
 	/**
-	 * Creates a new UnitTestDiceReader with given array of dices as strings.
+	 * Creates a new unit test dice reader with given dice combinations.
 	 * 
-	 * @param dices
-	 *            - the dices
+	 * @param dicesCombinations
+	 *            - array of dice combinations
 	 */
-	public UnitTestDiceReader(String[] dices) {
-		this.dices = dices;
+	public UnitTestDiceReader(String[] dicesCombinations) {
+		this.dicesCombinations = dicesCombinations;
 		index = -1;
 	}
 
@@ -25,9 +25,9 @@ public class UnitTestDiceReader implements DiceReader {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getDice() {
+	public String getDice(int sides) {
 		index++;
-		return dices[index];
+		return dicesCombinations[index];
 	}
 
 }

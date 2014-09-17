@@ -20,8 +20,8 @@ public class HashDiceTest {
 	public void testHashDiceNormalCase() {
 		String[] dices = { "1", "2", "6", "6" };
 		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
-		HashDice h = new HashDice(reader, 2);
-		h.generateStatistics();
+		HashDice h = new HashDice(2, 6, reader);
+		h.generate();
 		String actual = h.getStatistics();
 		String expected = "{1,2}: [0]" + System.lineSeparator() + "{6,6}: [1]"
 				+ System.lineSeparator();
@@ -32,13 +32,25 @@ public class HashDiceTest {
 	/**
 	 * Tests
 	 * {@link com.sirma.itt.javacourse.collections.dice.HashDice#HashDice(com.sirma.itt.javacourse.collections.dice.DiceReader, int, int)}
-	 * with zero counter.
+	 * with zero number of throws.
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testHashDiceWithZeroCounter() {
+	public void testHashDiceWithZeroThrowns() {
 		String[] dices = { "1", "2", "6", "6" };
 		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
-		new HashDice(reader, 0);
+		new HashDice(0, 6, reader);
+	}
+
+	/**
+	 * Tests
+	 * {@link com.sirma.itt.javacourse.collections.dice.HashDice#HashDice(com.sirma.itt.javacourse.collections.dice.DiceReader, int, int)}
+	 * with zero number of dices' size.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testHashDiceWithZeroSides() {
+		String[] dices = { "1", "2", "6", "6" };
+		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
+		new HashDice(10, 0, reader);
 	}
 
 	/**
@@ -50,8 +62,8 @@ public class HashDiceTest {
 	public void testHashDiceWithRepeatableDicesOnly() {
 		String[] dices = { "3", "5", "3", "5", "3", "5" };
 		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
-		HashDice h = new HashDice(reader, 3);
-		h.generateStatistics();
+		HashDice h = new HashDice(3, 6, reader);
+		h.generate();
 		String actual = h.getStatistics();
 		String expected = "{3,5}: [0, 1, 2]" + System.lineSeparator();
 
@@ -67,8 +79,8 @@ public class HashDiceTest {
 	public void testHashDiceWithRepeatableDices() {
 		String[] dices = { "3", "5", "2", "1", "3", "5", "6", "6", "3", "5", "1", "6" };
 		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
-		HashDice h = new HashDice(reader, 6);
-		h.generateStatistics();
+		HashDice h = new HashDice(6, 6, reader);
+		h.generate();
 		String actual = h.getStatistics();
 
 		StringBuilder expected = new StringBuilder();
@@ -93,8 +105,8 @@ public class HashDiceTest {
 	public void testHashDiceWithOneDiceCombinaton() {
 		String[] dices = { "4", "4" };
 		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
-		HashDice h = new HashDice(reader, 1);
-		h.generateStatistics();
+		HashDice h = new HashDice(1, 6, reader);
+		h.generate();
 		String actual = h.getStatistics();
 
 		StringBuilder expected = new StringBuilder();

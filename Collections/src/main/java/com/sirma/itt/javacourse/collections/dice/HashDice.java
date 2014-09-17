@@ -7,65 +7,69 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 /**
- * Holds methods for generating dice combinations. It works with two dices.
- * 
  * @author smustafov
  */
 public class HashDice {
 
-	private Map<String, Set<Integer>> statistics;
-	private int counter;
-	private DiceReader diceReader;
+	private Map<String, Set<Integer>> statistics = new LinkedHashMap<>();
+	private DiceReader reader;
+	private int numberOfThrows;
+	private int sides;
 
 	/**
-	 * Creates a new dice table.
+	 * Creates a new hash dice.
 	 * 
-	 * @param counter
-	 *            - the times dices to be thrown
-	 * @param diceReader
+	 * @param numberOfThrows
+	 *            - times the dices to be thrown
+	 * @param sides
+	 *            - number of sides of the dices
+	 * @param reader
 	 *            - the dice reader that implements <code>DiceReader</code>
 	 */
-	public HashDice(DiceReader diceReader, int counter) {
-		if (counter <= 0) {
+	public HashDice(int numberOfThrows, int sides, DiceReader reader) {
+		if (numberOfThrows <= 0) {
 			throw new IllegalArgumentException(
-					"The parameter 'counter' cannot be equal or under to zero");
+					"The parameter 'numberOfThrows' cannot be equal or under to zero");
+		}
+		if (sides <= 0) {
+			throw new IllegalArgumentException(
+					"The parameter 'sides' cannot be equal or under to zero");
 		}
 
-		statistics = new LinkedHashMap<>();
-		this.diceReader = diceReader;
-		this.counter = counter;
+		this.numberOfThrows = numberOfThrows;
+		this.sides = sides;
+		this.reader = reader;
 	}
 
 	/**
-	 * Returns a random double dice.
+	 * Throws two dices.
 	 * 
-	 * @return - the generated random double dice
+	 * @return the thrown dices as string
 	 */
-	private String getRandomDoubleDice() {
-		String randomNumber1 = diceReader.getDice();
-		String randomNumber2 = diceReader.getDice();
+	public String throwDices() {
+		String num1 = reader.getDice(sides);
+		String num2 = reader.getDice(sides);
+		StringBuilder result = new StringBuilder();
+		result.append(num1);
+		result.append(",");
+		result.append(num2);
 
-		StringBuilder sb = new StringBuilder();
-		sb.append(randomNumber1);
-		sb.append(",");
-		sb.append(randomNumber2);
-
-		return sb.toString();
+		return result.toString();
 	}
 
 	/**
 	 * Generates the dices combinations and rounds when they are thrown.
 	 */
-	public void generateStatistics() {
-		for (int j = 0; j < counter; j++) {
-			String dices = getRandomDoubleDice();
+	public void generate() {
+		for (int i = 0; i < numberOfThrows; i++) {
+			String dices = throwDices();
 
 			if (statistics.containsKey(dices)) {
 				Set<Integer> set = statistics.get(dices);
-				set.add(j);
+				set.add(i);
 			} else {
 				Set<Integer> set = new HashSet<>();
-				set.add(j);
+				set.add(i);
 				statistics.put(dices, set);
 			}
 		}
