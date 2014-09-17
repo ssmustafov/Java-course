@@ -7,6 +7,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 /**
+ * Holds methods for generating dice combinations. It works with two dices.
+ * 
  * @author smustafov
  */
 public class HashDice {

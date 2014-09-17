@@ -116,4 +116,20 @@ public class HashDiceTest {
 		assertEquals(expected.toString(), actual);
 	}
 
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.collections.dice.HashDice#throwDices()} by giving a
+	 * predefined dices.
+	 */
+	@Test
+	public void testThrowDices() {
+		String[] dices = { "1", "2" };
+		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
+		HashDice h = new HashDice(1, 6, reader);
+
+		String actual = h.throwDices();
+		String expected = dices[0] + "," + dices[1];
+
+		assertEquals(expected, actual);
+	}
+
 }
