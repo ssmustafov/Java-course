@@ -1,9 +1,17 @@
 package com.sirma.itt.javacourse.patterns.observer;
 
+import java.util.List;
+
 /**
+ * Observes available and unavailable stocks and depending on that sends the given stock to
+ * <code>AvailableStock</code> or <code>UnavailableStock</code>.
+ * 
  * @author smustafov
  */
 public class StockObserver implements Observer {
+
+	private final AvailableStock availableStocks = new AvailableStock();
+	private final UnavaliableStock unavailableStocks = new UnavaliableStock();
 
 	/**
 	 * {@inheritDoc}
@@ -11,20 +19,20 @@ public class StockObserver implements Observer {
 	@Override
 	public void update(Stock stock) {
 		if (stock.getQuantity() <= 0) {
-			if (AvailableStock.containsStock(stock)) {
-				AvailableStock.remove(stock);
+			if (availableStocks.containsStock(stock)) {
+				availableStocks.remove(stock);
 			}
 
-			if (!UnavaliableStock.containsStock(stock)) {
-				UnavaliableStock.add(stock);
+			if (!unavailableStocks.containsStock(stock)) {
+				unavailableStocks.add(stock);
 			}
 		} else {
-			if (UnavaliableStock.containsStock(stock)) {
-				UnavaliableStock.remove(stock);
+			if (unavailableStocks.containsStock(stock)) {
+				unavailableStocks.remove(stock);
 			}
 
-			if (!AvailableStock.containsStock(stock)) {
-				AvailableStock.add(stock);
+			if (!availableStocks.containsStock(stock)) {
+				availableStocks.add(stock);
 			}
 		}
 	}
@@ -42,13 +50,33 @@ public class StockObserver implements Observer {
 	 */
 	@Override
 	public void sell(Stock stock, int quantity) {
-		try {
-			stock.setQuantity(stock.getQuantity() - quantity);
-		} catch (IllegalArgumentException e) {
-			System.err.println("The stock '" + stock.getName()
-					+ "' is not available for purchase rigth now");
-		}
+		stock.setQuantity(stock.getQuantity() - quantity);
 		update(stock);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void changeQuantity(Stock stock, int quantity) {
+		stock.setQuantity(quantity);
+		update(stock);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<Stock> getUnvailableStocks() {
+		return unavailableStocks.getUnvailableStocks();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<Stock> getAvailableStocks() {
+		return availableStocks.getAvailableStocks();
 	}
 
 }

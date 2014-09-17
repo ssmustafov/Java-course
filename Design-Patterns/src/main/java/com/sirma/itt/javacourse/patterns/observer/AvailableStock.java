@@ -8,16 +8,9 @@ import java.util.List;
  * 
  * @author smustafov
  */
-public final class AvailableStock {
+public class AvailableStock {
 
-	private static final List<Stock> AVAILABLE_STOCKS = new ArrayList<>();
-
-	/**
-	 * Protects from instantiation.
-	 */
-	private AvailableStock() {
-
-	}
+	private final List<Stock> availableStocks = new ArrayList<>();
 
 	/**
 	 * Adds given stock to the list of available stocks.
@@ -26,8 +19,8 @@ public final class AvailableStock {
 	 *            - stock which is available for purchase to be added to the list of available
 	 *            stocks
 	 */
-	public static void add(Stock stock) {
-		AVAILABLE_STOCKS.add(stock);
+	public void add(Stock stock) {
+		availableStocks.add(stock);
 	}
 
 	/**
@@ -36,8 +29,8 @@ public final class AvailableStock {
 	 * @param stock
 	 *            - stock which is not available for purchase to be removed
 	 */
-	public static void remove(Stock stock) {
-		AVAILABLE_STOCKS.remove(stock);
+	public void remove(Stock stock) {
+		availableStocks.remove(stock);
 	}
 
 	/**
@@ -45,8 +38,8 @@ public final class AvailableStock {
 	 * 
 	 * @return - list of available stocks
 	 */
-	public static List<Stock> getAvailableStocks() {
-		return AVAILABLE_STOCKS;
+	public List<Stock> getAvailableStocks() {
+		return availableStocks;
 	}
 
 	/**
@@ -56,8 +49,17 @@ public final class AvailableStock {
 	 *            - stock to be checked if it exists in the list of available stocks
 	 * @return - true if given stock is in the list of available stocks; otherwise false
 	 */
-	public static boolean containsStock(Stock stock) {
-		return AVAILABLE_STOCKS.contains(stock);
+	public boolean containsStock(Stock stock) {
+		return availableStocks.contains(stock);
+	}
+
+	/**
+	 * Returns the number of available stocks in the list.
+	 * 
+	 * @return - number of available stocks in the list
+	 */
+	public int getNumberOfAvailableStocks() {
+		return availableStocks.size();
 	}
 
 }

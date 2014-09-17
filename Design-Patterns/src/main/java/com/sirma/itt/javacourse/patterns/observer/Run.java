@@ -46,9 +46,9 @@ public final class Run {
 	 *            - argument
 	 */
 	public static void main(String[] args) {
-		StockObserver a = new StockObserver();
-		List<Stock> aStock = AvailableStock.getAvailableStocks();
-		List<Stock> uStock = UnavaliableStock.getUnvailableStocks();
+		Observer a = new StockObserver();
+		List<Stock> aStock = a.getAvailableStocks();
+		List<Stock> uStock = a.getUnvailableStocks();
 
 		Stock usb = new Stock("Usb", new BigDecimal("3.19"), 5);
 		Stock mouse = new Stock("Mouse", new BigDecimal("33.49"), 10);

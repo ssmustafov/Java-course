@@ -8,16 +8,9 @@ import java.util.List;
  * 
  * @author smustafov
  */
-public final class UnavaliableStock {
+public class UnavaliableStock {
 
-	private static final List<Stock> UNAVAILABLE_STOCKS = new ArrayList<>();
-
-	/**
-	 * Protects from instantiation.
-	 */
-	private UnavaliableStock() {
-
-	}
+	private final List<Stock> unavailableStocks = new ArrayList<>();
 
 	/**
 	 * Adds given stock to the list of unavailable stocks.
@@ -26,8 +19,8 @@ public final class UnavaliableStock {
 	 *            - stock which is unavailable for purchase to be added to the list of unavailable
 	 *            stocks
 	 */
-	public static void add(Stock stock) {
-		UNAVAILABLE_STOCKS.add(stock);
+	public void add(Stock stock) {
+		unavailableStocks.add(stock);
 	}
 
 	/**
@@ -36,8 +29,8 @@ public final class UnavaliableStock {
 	 * @param stock
 	 *            - stock which is available for purchase to be removed
 	 */
-	public static void remove(Stock stock) {
-		UNAVAILABLE_STOCKS.remove(stock);
+	public void remove(Stock stock) {
+		unavailableStocks.remove(stock);
 	}
 
 	/**
@@ -45,8 +38,8 @@ public final class UnavaliableStock {
 	 * 
 	 * @return - list of unavailable stocks
 	 */
-	public static List<Stock> getUnvailableStocks() {
-		return UNAVAILABLE_STOCKS;
+	public List<Stock> getUnvailableStocks() {
+		return unavailableStocks;
 	}
 
 	/**
@@ -56,8 +49,17 @@ public final class UnavaliableStock {
 	 *            - stock to be checked if it exists in the list of unavailable stocks
 	 * @return - true if given stock is in the list of unavailable stocks; otherwise false
 	 */
-	public static boolean containsStock(Stock stock) {
-		return UNAVAILABLE_STOCKS.contains(stock);
+	public boolean containsStock(Stock stock) {
+		return unavailableStocks.contains(stock);
+	}
+
+	/**
+	 * Returns the number of unavailable stocks in the list.
+	 * 
+	 * @return - number of unavailable stocks in the list
+	 */
+	public int getNumberOfUnavailableStocks() {
+		return unavailableStocks.size();
 	}
 
 }

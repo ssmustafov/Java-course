@@ -64,8 +64,8 @@ public class Stock {
 	 */
 	public void setQuantity(int quantity) {
 		if (quantity < 0) {
-			throw new IllegalArgumentException("Quantity of a stock cannot be negative number: "
-					+ quantity);
+			throw new IllegalArgumentException("The stock '" + getName()
+					+ "' is not available for purchase");
 		}
 
 		this.quantity = quantity;
