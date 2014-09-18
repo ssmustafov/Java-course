@@ -153,3 +153,4 @@ java.lang.NumberFormatException: For input string: "asd"
 	at java.lang.Long.parseLong(Long.java:483) ~[?:1.7.0_60]
 	at com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator.run(ConsoleCalculator.java:50) ~[classes/:?]
 	at com.sirma.itt.javacourse.patterns.calculator.Run.main(Run.java:39) [classes/:?]
+[INFO ] 2014-09-18 18:14:59.171 [main] Singleton - Singleton is created
