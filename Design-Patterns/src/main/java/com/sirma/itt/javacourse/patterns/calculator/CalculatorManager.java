@@ -7,7 +7,15 @@ public class CalculatorManager {
 
 	private final Calculator calc = new Calculator();
 
-	public void compute(Operations operation, int number) {
+	/**
+	 * Computes given operation with given number.
+	 * 
+	 * @param operation
+	 *            - operation to be executed
+	 * @param number
+	 *            - number with the operation to be executed
+	 */
+	public void compute(Operations operation, long number) {
 		Command command = null;
 		if (operation.equals(Operations.Add)) {
 			command = new AdditionCommand(calc);
@@ -15,17 +23,33 @@ public class CalculatorManager {
 			command = new DivisionCommand(calc);
 		} else if (operation.equals(Operations.Multiply)) {
 			command = new MultiplicationCommand(calc);
-		} else if (operation.equals(Operations.Substract)) {
-			command = new SubstractionCommand(calc);
+		} else if (operation.equals(Operations.Subtract)) {
+			command = new SubtractionCommand(calc);
 		} else if (operation.equals(Operations.Power)) {
-			// TODO: how......
+			command = new PowerCommand(calc);
 		}
 
-		command.execute(number);
+		long result = command.execute(number);
+		calc.setResult(result);
 	}
 
-	public int getResult() {
+	/**
+	 * Returns the result in the calculator.
+	 * 
+	 * @return - the result in the calculator
+	 */
+	public long getResult() {
 		return calc.getResult();
+	}
+
+	/**
+	 * Sets the result in the calculator.
+	 * 
+	 * @param number
+	 *            - number to be set as result to the calculator
+	 */
+	public void set(long number) {
+		calc.setResult(number);
 	}
 
 }

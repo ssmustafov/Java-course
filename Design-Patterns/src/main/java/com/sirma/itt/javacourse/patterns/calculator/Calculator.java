@@ -1,18 +1,31 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
 /**
+ * Represents a calculator. Holds the result. In the beginning the result always is zero.
+ * 
  * @author smustafov
  */
 public class Calculator {
 
-	private int result = 0;
+	private long result = 0L;
 
-	public int getResult() {
+	/**
+	 * Returns the result in the calculator.
+	 * 
+	 * @return - the result in the calculator
+	 */
+	public long getResult() {
 		return result;
 	}
 
-	public void setResult(int num) {
-		result = num;
+	/**
+	 * Sets the result in the calculator.
+	 * 
+	 * @param res
+	 *            - the new result to be set
+	 */
+	public void setResult(long res) {
+		result = res;
 	}
 
 }
