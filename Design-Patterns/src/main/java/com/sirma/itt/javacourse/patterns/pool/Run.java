@@ -20,15 +20,19 @@ public final class Run {
 	 * @param args
 	 *            - arguments
 	 */
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		ObjectPool pool = new ObjectPool(4);
-		VeryHeavyClass a = pool.acquire();
-		VeryHeavyClass b = pool.acquire();
-		VeryHeavyClass c = pool.acquire();
-		VeryHeavyClass d = pool.acquire();
-		pool.release(c);
-		VeryHeavyClass f = pool.acquire();
+		Pool<Integer> p = new ObjectPool<>(4);
+		p.release(1);
+		p.release(2);
+		p.release(3);
+		p.release(4);
+		p.acquire();
+		p.acquire();
+		p.release(5);
+		p.acquire();
+		p.acquire();
+		p.acquire();
+		// p.acquire();
 	}
 
 }
