@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
 /**
+ * Does the real calculations. This class must be used to work the calculator.
+ * 
  * @author smustafov
  */
 public class CalculatorManager {
@@ -48,7 +50,7 @@ public class CalculatorManager {
 	 * @param number
 	 *            - number to be set as result to the calculator
 	 */
-	public void set(long number) {
+	public void setResult(long number) {
 		calc.setResult(number);
 	}
 

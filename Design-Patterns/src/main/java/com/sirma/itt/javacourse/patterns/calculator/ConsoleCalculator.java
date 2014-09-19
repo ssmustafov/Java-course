@@ -3,7 +3,6 @@ package com.sirma.itt.javacourse.patterns.calculator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Reader;
 
 /**
  * Executes commands given from some stream to work with the Calculator.
@@ -18,28 +17,12 @@ public class ConsoleCalculator {
 	private static final String MULTIPLICATION_OPERATION = "*";
 	private static final String DIVISION_OPERATION = "/";
 	private static final String POWERING_OPERATION = "^";
-	private BufferedReader reader;
+	private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	private CalculatorManager manager = new CalculatorManager();
 
 	/**
-	 * Creates a new command executor to work with standard input.
-	 */
-	public ConsoleCalculator() {
-		reader = new BufferedReader(new InputStreamReader(System.in));
-	}
-
-	/**
-	 * Creates a new command executor with given input stream.
-	 * 
-	 * @param inputStream
-	 *            - stream to work with
-	 */
-	public ConsoleCalculator(Reader inputStream) {
-		reader = new BufferedReader(inputStream);
-	}
-
-	/**
-	 * Launches the calculator. The reading always must start with number.
+	 * Launches the calculator. The reading always must start with number and every line must
+	 * contain only one command (an integer number, operation or end of reading).
 	 * 
 	 * @throws IOException
 	 *             - thrown when I/O exception occurs
@@ -48,7 +31,7 @@ public class ConsoleCalculator {
 		Operations operation = null;
 		String firstLine = reader.readLine();
 		long number = Long.parseLong(firstLine);
-		manager.set(number);
+		manager.setResult(number);
 
 		while (true) {
 			String line = reader.readLine();
