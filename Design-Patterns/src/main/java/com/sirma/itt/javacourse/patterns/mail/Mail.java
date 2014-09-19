@@ -40,11 +40,11 @@ public class Mail {
 	 * Sets from who is the mail.
 	 * 
 	 * @param from
-	 *            - who is the mail
+	 *            - from who is the mail
 	 */
 	public void setFrom(String from) {
-		if (EmailValidator.isValidEmail(from)) {
-			throw new IllegalArgumentException("Invalid email: " + from);
+		if (!EmailValidator.isValidEmail(from)) {
+			throw new IllegalArgumentException("Invalid email 'From': " + from);
 		}
 		this.from = from;
 	}
@@ -65,8 +65,8 @@ public class Mail {
 	 *            - to who to send this mail
 	 */
 	public void setTo(String to) {
-		if (EmailValidator.isValidEmail(to)) {
-			throw new IllegalArgumentException("Invalid email: " + to);
+		if (!EmailValidator.isValidEmail(to)) {
+			throw new IllegalArgumentException("Invalid email 'To': " + to);
 		}
 		this.to = to;
 	}

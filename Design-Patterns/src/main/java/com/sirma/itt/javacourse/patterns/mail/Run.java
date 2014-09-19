@@ -22,7 +22,7 @@ public final class Run {
 	 */
 	public static void main(String[] args) {
 		Mail mail = Mail
-					.from("my_email@mail.com")
+					.from("my-email@mail.com")
 					.to("your.mail@gmail.com")
 					.subject("Test email")
 					.content("Hello sir")

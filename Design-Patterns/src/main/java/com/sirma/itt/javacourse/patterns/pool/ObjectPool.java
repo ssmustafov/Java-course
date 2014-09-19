@@ -45,7 +45,7 @@ public class ObjectPool<T> implements Pool<T> {
 	 * 
 	 * @return - number of objects that are available in the pool
 	 */
-	public int getPoolSize() {
+	public int getNumberOfAvailableObjects() {
 		return instances.size();
 	}
 
