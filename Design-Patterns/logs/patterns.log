@@ -156,3 +156,10 @@ java.lang.NumberFormatException: For input string: "asd"
 [INFO ] 2014-09-18 18:14:59.171 [main] Singleton - Singleton is created
 [INFO ] 2014-09-19 15:08:13.984 [main] Singleton - Singleton is created
 [INFO ] 2014-09-19 16:06:01.578 [main] Singleton - Singleton is created
+[ERROR] 2014-09-23 20:33:41.911 [main] Run - Invalid input. Allowed input is: an integer number, +, -, *, /, ^, 'end'
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65) ~[?:1.8.0_11]
+	at java.lang.Long.parseLong(Long.java:601) ~[?:1.8.0_11]
+	at java.lang.Long.parseLong(Long.java:631) ~[?:1.8.0_11]
+	at com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator.run(ConsoleCalculator.java:33) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.Run.main(Run.java:39) [classes/:?]
