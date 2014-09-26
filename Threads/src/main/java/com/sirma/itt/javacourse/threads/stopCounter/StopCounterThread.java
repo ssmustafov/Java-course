@@ -25,7 +25,7 @@ public class StopCounterThread implements Runnable {
 	 */
 	@Override
 	public void run() {
-		for (int i = 0; i < max; i++) {
+		for (long i = 0; i < max; i++) {
 			if (Thread.currentThread().isInterrupted()) {
 				break;
 			}
