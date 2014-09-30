@@ -1,6 +1,5 @@
 package com.sirma.itt.javacourse.threads.twoCounters;
 
-
 /**
  * Counts numbers in given range.
  * 
@@ -35,5 +34,4 @@ public class RangeCounter extends Thread {
 			System.out.println(i);
 		}
 	}
-
 }
