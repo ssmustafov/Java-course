@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.threads.twoCounters;
+package com.sirma.itt.javacourse.threads.sleepingCounters;
 
 /**
  * @author smustafov
@@ -19,10 +19,10 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		RangeCounterThread r = new RangeCounterThread(10, 70);
-		RangeCounterThread a = new RangeCounterThread(10, 100);
-		r.start();
-		a.start();
-	}
+		// SleepingCounterThread s = new SleepingCounterThread(0, 20);
+		// s.start();
 
+		WaitingCounterThread w = new WaitingCounterThread(0, 10);
+		w.start();
+	}
 }
