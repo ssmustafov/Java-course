@@ -22,7 +22,7 @@ public class HashDiceTest {
 		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
 		HashDice h = new HashDice(2, 6, reader);
 		h.generate();
-		String actual = h.getStatistics();
+		String actual = h.toString();
 		String expected = "{1,2}: [0]" + System.lineSeparator() + "{6,6}: [1]"
 				+ System.lineSeparator();
 
@@ -64,7 +64,7 @@ public class HashDiceTest {
 		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
 		HashDice h = new HashDice(3, 6, reader);
 		h.generate();
-		String actual = h.getStatistics();
+		String actual = h.toString();
 		String expected = "{3,5}: [0, 1, 2]" + System.lineSeparator();
 
 		assertEquals(expected, actual);
@@ -81,7 +81,7 @@ public class HashDiceTest {
 		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
 		HashDice h = new HashDice(6, 6, reader);
 		h.generate();
-		String actual = h.getStatistics();
+		String actual = h.toString();
 
 		StringBuilder expected = new StringBuilder();
 		expected.append("{3,5}: [0, 2, 4]");
@@ -107,7 +107,7 @@ public class HashDiceTest {
 		UnitTestDiceReader reader = new UnitTestDiceReader(dices);
 		HashDice h = new HashDice(1, 6, reader);
 		h.generate();
-		String actual = h.getStatistics();
+		String actual = h.toString();
 
 		StringBuilder expected = new StringBuilder();
 		expected.append("{4,4}: [0]");

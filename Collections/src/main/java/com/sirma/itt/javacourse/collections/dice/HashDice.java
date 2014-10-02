@@ -78,11 +78,10 @@ public class HashDice {
 	}
 
 	/**
-	 * Returns the generated statistics.
-	 * 
-	 * @return - the generated statistics
+	 * {@inheritDoc}
 	 */
-	public String getStatistics() {
+	@Override
+	public String toString() {
 		StringBuilder result = new StringBuilder();
 
 		for (Entry<String, Set<Integer>> entry : statistics.entrySet()) {
