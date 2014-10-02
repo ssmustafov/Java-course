@@ -30,8 +30,11 @@ public class SynchronizedThread extends Thread {
 				System.out.print(Thread.currentThread().getName());
 				System.out.print(" #");
 				System.out.println(i);
+
 				try {
-					wait(1000);
+					synchronized (this) {
+						wait(1000);
+					}
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
