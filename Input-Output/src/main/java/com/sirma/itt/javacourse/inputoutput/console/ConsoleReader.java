@@ -12,14 +12,17 @@ import java.io.InputStreamReader;
  */
 public final class ConsoleReader {
 
-	private static final BufferedReader READER = new BufferedReader(
-			new InputStreamReader(System.in));
+	private static BufferedReader reader = null;
 
 	/**
 	 * Protects from instantiation.
 	 */
 	private ConsoleReader() {
 
+	}
+
+	static {
+		reader = new BufferedReader(new InputStreamReader(System.in));
 	}
 
 	/**
@@ -30,9 +33,17 @@ public final class ConsoleReader {
 	public static String readString() {
 		String res = "";
 		try {
-			res = READER.readLine();
+			res = reader.readLine();
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
+		} finally {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
 		}
 
 		return res;
@@ -46,9 +57,17 @@ public final class ConsoleReader {
 	public static String readLine() {
 		String line = "";
 		try {
-			line = READER.readLine();
+			line = reader.readLine();
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
+		} finally {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
 		}
 
 		return line;
@@ -62,13 +81,21 @@ public final class ConsoleReader {
 	public static char readChar() {
 		String line = "";
 		try {
-			line = READER.readLine();
+			line = reader.readLine();
 			if (line.length() >= 2) {
 				throw new IOException(
 						"You have entered a whole string instead of one single character");
 			}
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
+		} finally {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
 		}
 
 		return line.charAt(0);
@@ -82,9 +109,17 @@ public final class ConsoleReader {
 	public static int readInt() {
 		String line = "";
 		try {
-			line = READER.readLine();
+			line = reader.readLine();
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
+		} finally {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
 		}
 
 		return Integer.parseInt(line);
@@ -98,9 +133,17 @@ public final class ConsoleReader {
 	public static float readFloat() {
 		String line = "";
 		try {
-			line = READER.readLine();
+			line = reader.readLine();
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
+		} finally {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+				System.err.println(e.getMessage());
+			}
 		}
 
 		return Float.parseFloat(line);
