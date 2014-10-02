@@ -24,6 +24,6 @@ public final class Run {
 		RandomDiceReader r = new RandomDiceReader();
 		HashDice a = new HashDice(20, 6, r);
 		a.generate();
-		System.out.println(a.toString());
+		System.out.println(a);
 	}
 }

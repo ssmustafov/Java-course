@@ -72,7 +72,7 @@ public class ExceptionsMessageManagerTest {
 	public void testWithEmptyManager() throws NoSuchMessageException {
 		ExceptionsMessageManager manager = new ExceptionsMessageManager();
 
-		manager.addExceptionMessage("Not existing message code");
+		manager.addExceptionMessage("Not existing message");
 	}
 
 	/**
@@ -120,7 +120,7 @@ public class ExceptionsMessageManagerTest {
 
 	/**
 	 * Tests
-	 * {@link com.sirma.itt.javacourse.collections.manager.ExceptionsMessageManager#addExceptionMessage(String)}
+	 * {@link com.sirma.itt.javacourse.collections.manager.ExceptionsMessageManager#addExceptionMessageUsingCode(String)}
 	 * with three elements.
 	 * 
 	 * @throws NoSuchMessageCodeException

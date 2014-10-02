@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class CommandExecutor {
 
+	// TODO: Add rest of the pagebean's commands
 	private static final Logger LOGGER = LogManager.getLogger(CommandExecutor.class);
 	private static final String EXIT_PROGRAM_STRING = "exit";
 	private static final String NEXT_PAGE_STRING = "next";
