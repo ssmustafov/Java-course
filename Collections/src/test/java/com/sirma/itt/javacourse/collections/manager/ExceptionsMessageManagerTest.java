@@ -144,7 +144,7 @@ public class ExceptionsMessageManagerTest {
 	/**
 	 * Tests
 	 * {@link com.sirma.itt.javacourse.collections.manager.ExceptionsMessageManager#addExceptionMessage(String)}
-	 * with three elements.
+	 * with one element.
 	 * 
 	 * @throws NoSuchMessageCodeException
 	 *             - not expected exception
