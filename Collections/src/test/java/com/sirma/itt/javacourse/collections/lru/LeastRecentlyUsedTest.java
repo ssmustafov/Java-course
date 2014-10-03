@@ -209,4 +209,80 @@ public class LeastRecentlyUsedTest {
 		assertTrue(actualValue4);
 		assertEquals(expectedSize, actualSize);
 	}
+
+	// Following tests are when elements are only used in the cache
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.collections.lru.LeastRecentlyUsed} by adding elements
+	 * until the cache is full then only uses two elements of the cache without removing them.
+	 */
+	@Test
+	public void testUsingTwoElements() {
+		LeastRecentlyUsed<Integer, Integer> lru = new LeastRecentlyUsed<>(4);
+		lru.add(1, 1);
+		lru.add(5, 101);
+		lru.add(7, 111);
+		lru.add(3, 11);
+
+		lru.use(1);
+		lru.use(1);
+		lru.use(1);
+		lru.use(5);
+		lru.use(5);
+
+		lru.add(10, 1000);
+
+		boolean actualValue1 = lru.containsKey(1);
+		boolean actualValue2 = lru.containsKey(5);
+		boolean actualValue3 = lru.containsKey(3);
+		boolean actualValue4 = lru.containsKey(10);
+		boolean actualValue5 = lru.containsKey(7);
+
+		assertTrue(actualValue1);
+		assertTrue(actualValue2);
+		assertTrue(actualValue3);
+		assertTrue(actualValue4);
+		assertFalse(actualValue5);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.collections.lru.LeastRecentlyUsed} by adding elements
+	 * until the cache is full then only uses one element of the cache.
+	 */
+	@Test
+	public void testUsingOneElements() {
+		LeastRecentlyUsed<Integer, Integer> lru = new LeastRecentlyUsed<>(2);
+		lru.add(1, 1);
+		lru.add(5, 101);
+
+		lru.use(1);
+		lru.use(1);
+		lru.use(1);
+		lru.use(5);
+
+		lru.add(10, 1000);
+
+		boolean actualValue1 = lru.containsKey(1);
+		boolean actualValue2 = lru.containsKey(5);
+		boolean actualValue3 = lru.containsKey(10);
+
+		assertTrue(actualValue1);
+		assertTrue(actualValue3);
+		assertFalse(actualValue2);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.collections.lru.LeastRecentlyUsed#use(Object)} by
+	 * trying to get element with not existing key.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testUseElementWithNoSuchKey() {
+		LeastRecentlyUsed<Integer, Integer> lru = new LeastRecentlyUsed<>(4);
+		lru.add(1, 1);
+		lru.add(5, 101);
+		lru.add(7, 111);
+		lru.add(3, 11);
+
+		lru.use(100);
+	}
 }

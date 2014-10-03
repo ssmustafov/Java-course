@@ -15,7 +15,7 @@ import java.util.Set;
  * @param <K>
  *            - type of the key in the cache
  * @param <V>
- *            - value of the keys
+ *            - type of the value in a key
  * @author smustafov
  */
 public class LeastRecentlyUsed<K, V> {
@@ -54,7 +54,7 @@ public class LeastRecentlyUsed<K, V> {
 	public void add(K key, V value) {
 		if (queue.contains(key)) {
 			// First remove it from the queue then add it again, this is a way to change the usage
-			// of an element; simulating least and most used
+			// of an element - simulating least and most used
 			queue.remove(key);
 			queue.add(key);
 			cache.put(key, value);
@@ -67,6 +67,23 @@ public class LeastRecentlyUsed<K, V> {
 			queue.add(key);
 			cache.put(key, value);
 		}
+	}
+
+	/**
+	 * Returns the value of given key without removing it from the cache.
+	 * 
+	 * @param key
+	 *            - key of the value to be used
+	 * @return value of the given key
+	 */
+	public V use(K key) {
+		if (!containsKey(key)) {
+			throw new IllegalArgumentException("The cache does not contain the given key: " + key);
+		}
+
+		queue.remove(key);
+		queue.add(key);
+		return cache.get(key);
 	}
 
 	/**
