@@ -14,11 +14,15 @@ import org.apache.logging.log4j.Logger;
  */
 public class CommandExecutor {
 
-	// TODO: Add rest of the pagebean's commands
 	private static final Logger LOGGER = LogManager.getLogger(CommandExecutor.class);
 	private static final String EXIT_PROGRAM_STRING = "exit";
 	private static final String NEXT_PAGE_STRING = "next";
+	private static final String HAS_NEXT_PAGE_STRING = "hasnext";
 	private static final String PREVIOUS_PAGE_STRING = "previous";
+	private static final String HAS_PREVIOUS_PAGE_STRING = "hasprevious";
+	private static final String FIRST_PAGE_STRING = "first";
+	private static final String LAST_PAGE_STRING = "last";
+	private static final String CURRENT_PAGE_NUMBER_STRING = "page";
 	private BufferedReader reader;
 	private PageBean pageBean;
 
@@ -76,7 +80,6 @@ public class CommandExecutor {
 
 			if (EXIT_PROGRAM_STRING.equals(line)) {
 				if (reader != null) {
-					// TODO: possible not closing in every case?
 					try {
 						reader.close();
 					} catch (IOException e) {
@@ -87,14 +90,30 @@ public class CommandExecutor {
 			}
 			if (NEXT_PAGE_STRING.equals(line)) {
 				if (pageBean.hasNext()) {
-					String page = pageBean.next();
-					System.out.print(page);
+					System.out.print(pageBean.next());
 					System.out.println(" - Page #" + pageBean.getCurrentPageNumber());
 				}
 			}
 			if (PREVIOUS_PAGE_STRING.equals(line)) {
 				System.out.print(pageBean.previous());
 				System.out.println(" - Page #" + pageBean.getCurrentPageNumber());
+			}
+			if (HAS_NEXT_PAGE_STRING.equals(line)) {
+				System.out.print(pageBean.hasNext());
+			}
+			if (HAS_PREVIOUS_PAGE_STRING.equals(line)) {
+				System.out.println(pageBean.hasPrevious());
+			}
+			if (FIRST_PAGE_STRING.equals(line)) {
+				System.out.print(pageBean.firstPage());
+				System.out.println(" - Page #" + pageBean.getCurrentPageNumber());
+			}
+			if (LAST_PAGE_STRING.equals(line)) {
+				System.out.print(pageBean.lastPage());
+				System.out.println(" - Page #" + pageBean.getCurrentPageNumber());
+			}
+			if (CURRENT_PAGE_NUMBER_STRING.equals(line)) {
+				System.out.println(pageBean.getCurrentPageNumber());
 			}
 		}
 	}

@@ -12,3 +12,8 @@ java.lang.IllegalArgumentException: There are no more previous pages
 	at com.sirma.itt.javacourse.collections.page.PageBean.previous(PageBean.java:89) ~[classes/:?]
 	at com.sirma.itt.javacourse.collections.page.CommandExecutor.execute(CommandExecutor.java:95) ~[classes/:?]
 	at com.sirma.itt.javacourse.collections.page.Run.main(Run.java:50) [classes/:?]
+[ERROR] 2014-10-03 13:38:55.100 [main] Run - There are no more previous pages
+java.lang.IllegalArgumentException: There are no more previous pages
+	at com.sirma.itt.javacourse.collections.page.PageBean.previous(PageBean.java:89) ~[classes/:?]
+	at com.sirma.itt.javacourse.collections.page.CommandExecutor.execute(CommandExecutor.java:99) ~[classes/:?]
+	at com.sirma.itt.javacourse.collections.page.Run.main(Run.java:50) [classes/:?]
