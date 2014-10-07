@@ -19,8 +19,8 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		// SleepingCounterThread s = new SleepingCounterThread(0, 20);
-		// s.start();
+		SleepingCounterThread s = new SleepingCounterThread(0, 10);
+		s.start();
 
 		WaitingCounterThread w = new WaitingCounterThread(0, 10);
 		w.start();

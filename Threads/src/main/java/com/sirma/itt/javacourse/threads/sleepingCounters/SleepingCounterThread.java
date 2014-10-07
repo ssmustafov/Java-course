@@ -4,7 +4,6 @@ package com.sirma.itt.javacourse.threads.sleepingCounters;
  * @author smustafov
  */
 public class SleepingCounterThread extends Thread {
-
 	private long start;
 	private long end;
 
@@ -37,5 +36,4 @@ public class SleepingCounterThread extends Thread {
 			}
 		}
 	}
-
 }
