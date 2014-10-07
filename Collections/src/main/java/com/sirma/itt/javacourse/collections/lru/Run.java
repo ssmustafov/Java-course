@@ -32,7 +32,7 @@ public final class Run {
 		lru.use(1);
 		lru.use(1);
 		lru.use(5);
-		lru.add(10, 1000);
+		lru.add(8, 1000);
 
 		Set<Entry<Integer, Integer>> cache = lru.getCache();
 		for (Entry<Integer, Integer> entry : cache) {

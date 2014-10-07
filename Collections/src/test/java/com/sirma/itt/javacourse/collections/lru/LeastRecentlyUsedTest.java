@@ -260,11 +260,11 @@ public class LeastRecentlyUsedTest {
 		lru.use(1);
 		lru.use(5);
 
-		lru.add(10, 1000);
+		lru.add(8, 1000);
 
 		boolean actualValue1 = lru.containsKey(1);
 		boolean actualValue2 = lru.containsKey(5);
-		boolean actualValue3 = lru.containsKey(10);
+		boolean actualValue3 = lru.containsKey(8);
 
 		assertTrue(actualValue1);
 		assertTrue(actualValue3);

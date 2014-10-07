@@ -22,20 +22,20 @@ public class LeastRecentlyUsed<K, V> {
 
 	private Map<K, V> cache = new HashMap<>();
 	private Queue<K> queue = new LinkedList<>();
-	private int capacity;
+	private int size;
 
 	/**
 	 * Creates a new Least Recently Used (LRU) cache.
 	 * 
-	 * @param capacity
+	 * @param size
 	 *            - the size of the cache
 	 */
-	public LeastRecentlyUsed(int capacity) {
-		if (capacity <= 0) {
+	public LeastRecentlyUsed(int size) {
+		if (size <= 0) {
 			throw new IllegalArgumentException("Cache's size cannot be equal or under zero");
 		}
 
-		this.capacity = capacity;
+		this.size = size;
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class LeastRecentlyUsed<K, V> {
 			queue.remove(key);
 			queue.add(key);
 			cache.put(key, value);
-		} else if (queue.size() >= capacity) {
+		} else if (queue.size() >= size) {
 			K keyToRemove = queue.remove();
 			cache.remove(keyToRemove);
 			queue.add(key);
