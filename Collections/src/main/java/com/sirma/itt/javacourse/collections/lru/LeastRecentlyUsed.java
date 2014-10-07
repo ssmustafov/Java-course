@@ -40,11 +40,11 @@ public class LeastRecentlyUsed<K, V> {
 
 	/**
 	 * Adds key value pair to the cache. If there is key with the same value in the cache it removes
-	 * it from the queue and adds it to the head; if there is no such element with that key and its
-	 * reached max capacity of the cache it removes the tail of the queue (least recently used
-	 * element) and adds the new element to the head of the queue; and if there is space (max
+	 * it from the queue and adds it to the tail; if there is no such element with that key and its
+	 * reached max capacity of the cache it removes the head of the queue (least recently used
+	 * element) and adds the new element to the tail of the queue; and if there is space (max
 	 * capacity not reached) in the cache and key with same value doesn't exists just adds the
-	 * element to the cache and to the head of the queue.
+	 * element to the cache and to the tail of the queue.
 	 * 
 	 * @param key
 	 *            - key of the element to be added to the cache
