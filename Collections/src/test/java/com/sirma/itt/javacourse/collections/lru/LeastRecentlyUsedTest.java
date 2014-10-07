@@ -246,8 +246,9 @@ public class LeastRecentlyUsedTest {
 	}
 
 	/**
-	 * Tests {@link com.sirma.itt.javacourse.collections.lru.LeastRecentlyUsed} by adding elements
-	 * until the cache is full then only uses one element of the cache.
+	 * Tests {@link com.sirma.itt.javacourse.collections.lru.LeastRecentlyUsed} creates a cache with
+	 * size 2 and adds 2 elements. Then uses one of the elements 3 times and the other one one time,
+	 * then adds new element.
 	 */
 	@Test
 	public void testUsingOneElements() {
@@ -255,10 +256,10 @@ public class LeastRecentlyUsedTest {
 		lru.add(1, 1);
 		lru.add(5, 101);
 
-		lru.use(1);
-		lru.use(1);
-		lru.use(1);
 		lru.use(5);
+		lru.use(1);
+		lru.use(1);
+		lru.use(1);
 
 		lru.add(8, 1000);
 
@@ -269,6 +270,40 @@ public class LeastRecentlyUsedTest {
 		assertTrue(actualValue1);
 		assertTrue(actualValue3);
 		assertFalse(actualValue2);
+	}
+
+	/**
+	 * Tests {@link com.sirma.itt.javacourse.collections.lru.LeastRecentlyUsed} by creating cache
+	 * with size 4 and adding 4 elements in it. Then it uses one element 3 times and other two
+	 * different elements one time, after that adds new element to the cache.
+	 */
+	@Test
+	public void test() {
+		LeastRecentlyUsed<Integer, Integer> lru = new LeastRecentlyUsed<>(4);
+		lru.add(1, 1);
+		lru.add(2, 2);
+		lru.add(3, 3);
+		lru.add(4, 4);
+
+		lru.use(1);
+		lru.use(1);
+		lru.use(1);
+		lru.use(3);
+		lru.use(4);
+
+		lru.add(8, 1000);
+
+		boolean actualValue1 = lru.containsKey(1);
+		boolean actualValue2 = lru.containsKey(4);
+		boolean actualValue3 = lru.containsKey(3);
+		boolean actualValue4 = lru.containsKey(8);
+		boolean actualValue5 = lru.containsKey(2);
+
+		assertTrue(actualValue1);
+		assertTrue(actualValue2);
+		assertTrue(actualValue3);
+		assertTrue(actualValue4);
+		assertFalse(actualValue5);
 	}
 
 	/**
