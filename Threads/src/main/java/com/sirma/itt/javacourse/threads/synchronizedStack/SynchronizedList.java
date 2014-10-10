@@ -35,14 +35,14 @@ public class SynchronizedList implements Runnable {
 	public synchronized void add(Object obj) {
 		while (array.length == index) {
 			try {
+				System.out.println("List full - waiting");
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		if (array.length == 0) {
-			notifyAll();
-		}
+
+		notifyAll();
 		array[index] = obj;
 		index++;
 	}
@@ -53,14 +53,14 @@ public class SynchronizedList implements Runnable {
 	public synchronized void remove() {
 		while (array.length == 0) {
 			try {
+				System.out.println("List is empty - waiting");
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		if (array.length == index) {
-			notifyAll();
-		}
+
+		notifyAll();
 		index--;
 		array[index] = null;
 	}
