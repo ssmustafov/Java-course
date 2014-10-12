@@ -1,7 +1,9 @@
 package com.sirma.itt.javacourse.threads.synchronizedStack;
 
 /**
- * @author smustafov
+ * Shows how the SynchronizedList class can be used.
+ * 
+ * @author Sinan
  */
 public final class Run {
 	/**
@@ -18,11 +20,10 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		SynchronizedList a = new SynchronizedList(3);
-		a.add(32);
-		a.add(11);
-		a.add(4);
-		a.add(202);
-		a.remove();
+		SynchronizedList list = new SynchronizedList(3);
+		AddThread a = new AddThread(list);
+		RemoveThread r = new RemoveThread(list);
+		a.start();
+		r.start();
 	}
 }

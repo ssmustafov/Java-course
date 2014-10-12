@@ -1,18 +1,17 @@
 package com.sirma.itt.javacourse.threads.synchronizedStack;
 
 /**
- * Holds list of elements of type <code>Object</code> with fixed size. When the list is full it
- * waits until an element is removed and then new one is added, and when its empty it waits until
- * new element is added. Implements {@code Runnable} interface.
+ * Holds list of elements of type <code>Object</code> with fixed size. Thread safe.
  * 
  * @author smustafov
  */
-public class SynchronizedList implements Runnable {
+public class SynchronizedList {
+
 	private Object[] array;
 	private int index;
 
 	/**
-	 * Creates a new Synchronized List with given size.
+	 * Creates a new list with given size.
 	 * 
 	 * @param size
 	 *            - the size of the list to be set
@@ -27,65 +26,45 @@ public class SynchronizedList implements Runnable {
 	}
 
 	/**
-	 * Adds new element to the list.
+	 * Adds new element to the list. When the list is full it waits until an element is removed and
+	 * then the new one is added.
 	 * 
 	 * @param obj
 	 *            - the element to be added
 	 */
 	public synchronized void add(Object obj) {
-		while (array.length == index) {
+		if (array.length == index) {
+			System.out.println("ADD: List full... waiting for element to be removed");
 			try {
+				notifyAll();
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		if (array.length == 0) {
-			notifyAll();
-		}
+
 		array[index] = obj;
 		index++;
+		notifyAll();
 	}
 
 	/**
-	 * Removes the last element of the list.
+	 * Removes the last element of the list. When its empty it waits until new element is added.
 	 */
 	public synchronized void remove() {
-		while (array.length == 0) {
+		if (index == 0) {
+			System.out.println("REMOVE: List empty... waiting for element to be added");
 			try {
+				notifyAll();
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		if (array.length == index) {
-			notifyAll();
-		}
+
 		index--;
 		array[index] = null;
-	}
-
-	/**
-	 * Returns the elements of the list.
-	 * 
-	 * @return - the elements of the list as string
-	 */
-	public String getAllElements() {
-		StringBuilder result = new StringBuilder();
-		result.append("[");
-
-		for (int i = 0; i < index - 1; i++) {
-			result.append(array[i]);
-			result.append(", ");
-		}
-
-		if (index > 0) {
-			result.append(array[index - 1]);
-		}
-
-		result.append("]");
-
-		return result.toString();
+		notifyAll();
 	}
 
 	/**
@@ -126,7 +105,21 @@ public class SynchronizedList implements Runnable {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void run() {
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append("[");
 
+		for (int i = 0; i < index - 1; i++) {
+			result.append(array[i]);
+			result.append(", ");
+		}
+
+		if (index > 0) {
+			result.append(array[index - 1]);
+		}
+
+		result.append("]");
+
+		return result.toString();
 	}
 }
