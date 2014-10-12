@@ -6,7 +6,6 @@ package com.sirma.itt.javacourse.threads.stopCounter;
  * @author smustafov
  */
 public class StopCounterThread implements Runnable {
-
 	private long max;
 	private long currentCounter = 0;
 
@@ -26,7 +25,7 @@ public class StopCounterThread implements Runnable {
 	@Override
 	public void run() {
 		for (long i = 0; i < max; i++) {
-			if (Thread.currentThread().isInterrupted()) {
+			if (isStopped()) {
 				break;
 			}
 			currentCounter = i;
@@ -42,4 +41,12 @@ public class StopCounterThread implements Runnable {
 		return currentCounter;
 	}
 
+	/**
+	 * Checks if this thread ended executing.
+	 * 
+	 * @return - true if this thread ended executing; otherwise false
+	 */
+	public boolean isStopped() {
+		return Thread.currentThread().isInterrupted();
+	}
 }
