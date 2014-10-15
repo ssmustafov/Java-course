@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
 /**
- * Does the real calculations. This class must be used to work the calculator.
+ * Does the real calculations. This class must be used to work with the calculator.
  * 
  * @author smustafov
  */
