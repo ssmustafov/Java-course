@@ -16,7 +16,7 @@ import java.util.Hashtable;
 public class TimeoutHashtable<K, V> implements KeyValuePair<K, V>, Runnable {
 	private Hashtable<K, V> hashtable = new Hashtable<>();
 	private Hashtable<K, Integer> timeout = new Hashtable<>();
-	private int maxTime = 1000;
+	private int maxTime = 4000;
 
 	/**
 	 * Creates a new timeout hashtable with given max time for storing elements.
@@ -81,16 +81,15 @@ public class TimeoutHashtable<K, V> implements KeyValuePair<K, V>, Runnable {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println(toString());
 
 			Enumeration<K> keys = timeout.keys();
 			while (keys.hasMoreElements()) {
 				K key = keys.nextElement();
 				if (timeout.get(key) > maxTime) {
 					hashtable.remove(key);
-					timeout.remove(key);
+					System.out.println("REMOVED: " + key);
 				} else {
-					timeout.put(key, timeout.get(key) + 300);
+					timeout.put(key, timeout.get(key) + 1200);
 				}
 			}
 		}
