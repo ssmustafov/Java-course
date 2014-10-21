@@ -28,11 +28,11 @@ public class ConsoleCalculator {
 	 *             - thrown when I/O exception occurs
 	 */
 	public void run() throws IOException {
-		// TODO: big decimal doesn't work with 7/3
 		Operations operation = null;
+		BigDecimal number = null;
+
 		String firstLine = reader.readLine();
-		BigDecimal number = new BigDecimal(firstLine);
-		manager.setResult(number);
+		manager.setResult(firstLine);
 
 		while (true) {
 			String line = reader.readLine();
@@ -53,7 +53,7 @@ public class ConsoleCalculator {
 				operation = Operations.Power;
 			} else {
 				number = new BigDecimal(line);
-				manager.compute(operation, manager.getResult(), number);
+				manager.compute(operation, manager.getResult().toString(), number.toString());
 				System.out.println("Result: " + manager.getResult());
 				// System.out.format("Result: %.2f%s", manager.getResult(), System.lineSeparator());
 			}

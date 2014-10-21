@@ -198,3 +198,10 @@ java.lang.ArithmeticException: Non-terminating decimal expansion; no exact repre
 	at com.sirma.itt.javacourse.patterns.calculator.CalculatorManager.compute(CalculatorManager.java:38) ~[classes/:?]
 	at com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator.run(ConsoleCalculator.java:55) ~[classes/:?]
 	at com.sirma.itt.javacourse.patterns.calculator.Run.main(Run.java:38) [classes/:?]
+[ERROR] 2014-10-21 23:17:16.581 [main] Run - Non-terminating decimal expansion; no exact representable decimal result.
+java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.
+	at java.math.BigDecimal.divide(BigDecimal.java:1690) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.patterns.calculator.DivisionCommand.execute(DivisionCommand.java:17) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.CalculatorManager.compute(CalculatorManager.java:38) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator.run(ConsoleCalculator.java:56) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.Run.main(Run.java:38) [classes/:?]

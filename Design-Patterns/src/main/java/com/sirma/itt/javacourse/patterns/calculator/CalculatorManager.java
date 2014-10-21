@@ -20,7 +20,7 @@ public class CalculatorManager {
 	 * @param b
 	 *            - the second number of the operation
 	 */
-	public void compute(Operations operation, BigDecimal a, BigDecimal b) {
+	public void compute(Operations operation, String a, String b) {
 		// TODO: factory
 		Command command = null;
 		if (operation.equals(Operations.Add)) {
@@ -35,7 +35,7 @@ public class CalculatorManager {
 			command = new PowerCommand();
 		}
 
-		BigDecimal result = command.execute(a, b);
+		BigDecimal result = command.execute(new BigDecimal(a), new BigDecimal(b));
 		calc.setResult(result);
 	}
 
@@ -54,7 +54,15 @@ public class CalculatorManager {
 	 * @param newResult
 	 *            - number to be set as result to the calculator
 	 */
-	public void setResult(BigDecimal newResult) {
-		calc.setResult(newResult);
+	public void setResult(String newResult) {
+		calc.setResult(new BigDecimal(newResult));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		return calc.getResult().toString();
 	}
 }

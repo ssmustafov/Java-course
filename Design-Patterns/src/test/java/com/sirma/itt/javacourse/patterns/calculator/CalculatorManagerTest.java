@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 /**
@@ -16,14 +18,13 @@ public class CalculatorManagerTest {
 	 */
 	@Test
 	public void testComputeAddition() {
-		// CalculatorManager manager = new CalculatorManager();
-		// manager.setResult(100L);
-		// manager.compute(Operations.Add, 10L);
-		//
-		// long actual = manager.getResult();
-		// long expected = 110L;
-		//
-		// assertEquals(expected, actual);
+		CalculatorManager manager = new CalculatorManager();
+		manager.compute(Operations.Add, "100", "10");
+
+		String actual = manager.toString();
+		String expected = "110";
+
+		assertEquals(expected, actual);
 	}
 
 	/**
@@ -33,14 +34,13 @@ public class CalculatorManagerTest {
 	 */
 	@Test
 	public void testComputeSubtraction() {
-		// CalculatorManager manager = new CalculatorManager();
-		// manager.setResult(100L);
-		// manager.compute(Operations.Subtract, 10L);
-		//
-		// long actual = manager.getResult();
-		// long expected = 90L;
-		//
-		// assertEquals(expected, actual);
+		CalculatorManager manager = new CalculatorManager();
+		manager.compute(Operations.Subtract, "100", "10");
+
+		String actual = manager.toString();
+		String expected = "90";
+
+		assertEquals(expected, actual);
 	}
 
 	/**
@@ -50,14 +50,19 @@ public class CalculatorManagerTest {
 	 */
 	@Test
 	public void testComputeDivision() {
-		// CalculatorManager manager = new CalculatorManager();
-		// manager.setResult(100L);
-		// manager.compute(Operations.Divide, 10L);
-		//
-		// long actual = manager.getResult();
-		// long expected = 10L;
-		//
-		// assertEquals(expected, actual);
+		int precision = DivisionCommand.DECIMAL_PRECISION;
+		CalculatorManager manager = new CalculatorManager();
+		manager.compute(Operations.Divide, "100", "10");
+
+		String actual = manager.toString();
+
+		StringBuilder expected = new StringBuilder();
+		expected.append("10.");
+		for (int i = 0; i < precision; i++) {
+			expected.append("0");
+		}
+
+		assertEquals(expected.toString(), actual);
 	}
 
 	/**
@@ -67,14 +72,13 @@ public class CalculatorManagerTest {
 	 */
 	@Test
 	public void testComputeMultiplication() {
-		// CalculatorManager manager = new CalculatorManager();
-		// manager.setResult(100L);
-		// manager.compute(Operations.Multiply, 10L);
-		//
-		// long actual = manager.getResult();
-		// long expected = 1000L;
-		//
-		// assertEquals(expected, actual);
+		CalculatorManager manager = new CalculatorManager();
+		manager.compute(Operations.Multiply, "100", "10");
+
+		String actual = manager.toString();
+		String expected = "1000";
+
+		assertEquals(expected, actual);
 	}
 
 	/**
@@ -84,14 +88,13 @@ public class CalculatorManagerTest {
 	 */
 	@Test
 	public void testComputePower() {
-		// CalculatorManager manager = new CalculatorManager();
-		// manager.setResult(10L);
-		// manager.compute(Operations.Power, 2L);
-		//
-		// long actual = manager.getResult();
-		// long expected = 100L;
-		//
-		// assertEquals(expected, actual);
+		CalculatorManager manager = new CalculatorManager();
+		manager.compute(Operations.Power, "10", "2");
+
+		String actual = manager.toString();
+		String expected = "100";
+
+		assertEquals(expected, actual);
 	}
 
 }

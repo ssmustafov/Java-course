@@ -28,10 +28,10 @@ public final class Run {
 	 */
 	public static void main(String[] args) {
 		// CalculatorManager m = new CalculatorManager();
-		// m.compute(Operations.Add, new BigDecimal("0"), new BigDecimal("100"));
-		// m.compute(Operations.Divide, new BigDecimal("100"), new BigDecimal("5"));
-		// m.compute(Operations.Power, new BigDecimal("20"), new BigDecimal("2"));
-		// m.compute(Operations.Multiply, new BigDecimal("400"), new BigDecimal("2"));
+		// m.compute(Operations.Add, "0", "100");
+		// m.compute(Operations.Divide, "100", "5");
+		// m.compute(Operations.Power, "20", "2");
+		// m.compute(Operations.Multiply, "400", "2");
 		// System.out.println(m.getResult());
 		try {
 			ConsoleCalculator c = new ConsoleCalculator();
@@ -39,8 +39,7 @@ public final class Run {
 		} catch (ArithmeticException e) {
 			LOGGER.error(e.getMessage(), e);
 		} catch (NumberFormatException e) {
-			LOGGER.error(
-					"Invalid input. Allowed input is: an integer number, +, -, *, /, ^, 'end'", e);
+			LOGGER.error("Invalid input. Allowed input is: a number, +, -, *, /, ^, 'end'", e);
 		} catch (IOException e) {
 			LOGGER.error(e.getMessage(), e);
 		}
