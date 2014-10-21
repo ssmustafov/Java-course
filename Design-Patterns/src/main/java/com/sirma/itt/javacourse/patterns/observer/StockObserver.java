@@ -14,10 +14,13 @@ public class StockObserver implements Observer {
 	private final UnavaliableStock unavailableStocks = new UnavaliableStock();
 
 	/**
-	 * {@inheritDoc}
+	 * Adds given stock to the appropriate class. Depending if it has available quantity to list of
+	 * available stocks and if it doesn't have available quantity to list of unavailable stocks.
+	 * 
+	 * @param stock
+	 *            - stock to be added to appropriate class.
 	 */
-	@Override
-	public void update(Stock stock) {
+	private void update(Stock stock) {
 		if (stock.getQuantity() <= 0) {
 			if (availableStocks.containsStock(stock)) {
 				availableStocks.remove(stock);
