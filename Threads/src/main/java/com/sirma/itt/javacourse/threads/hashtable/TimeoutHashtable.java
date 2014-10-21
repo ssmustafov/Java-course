@@ -13,7 +13,7 @@ import java.util.Hashtable;
  *            - type of the value
  * @author Sinan
  */
-public class TimeoutHashtable<K, V> implements KeyValuePair<K, V>, Runnable {
+public class TimeoutHashtable<K, V> implements Runnable {
 	private Hashtable<K, V> hashtable = new Hashtable<>();
 	private Hashtable<K, Integer> timeout = new Hashtable<>();
 	private int maxTime = 4000;
@@ -37,28 +37,27 @@ public class TimeoutHashtable<K, V> implements KeyValuePair<K, V>, Runnable {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param key
+	 * @param value
 	 */
-	@Override
-	public synchronized void put(K key, V value) {
+	public void put(K key, V value) {
 		hashtable.put(key, value);
 		timeout.put(key, 0);
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param key
+	 * @return
 	 */
-	@Override
-	public synchronized V get(K key) {
+	public V get(K key) {
 		timeout.put(key, 0);
 		return hashtable.get(key);
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @param key
 	 */
-	@Override
-	public synchronized void remove(K key) {
+	public void remove(K key) {
 		hashtable.remove(key);
 	}
 
