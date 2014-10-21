@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
+import java.math.BigDecimal;
+
 /**
  * Represents powering in the calculator. Implements {@code Command} interface.
  * 
@@ -7,24 +9,12 @@ package com.sirma.itt.javacourse.patterns.calculator;
  */
 public class PowerCommand implements Command {
 
-	private Calculator calc;
-
 	/**
-	 * Creates a new command for powering.
-	 * 
-	 * @param calc
-	 *            - the calculator which the powering operation will be executed
-	 */
-	public PowerCommand(Calculator calc) {
-		this.calc = calc;
-	}
-
-	/**
-	 * {@inheritDoc}
+	 * The power <b>b</b> must be an integer number. {@inheritDoc}
 	 */
 	@Override
-	public long execute(long number) {
-		long result = (long) Math.pow(calc.getResult(), number);
-		return result;
+	public BigDecimal execute(BigDecimal a, BigDecimal b) {
+		return a.pow(b.intValueExact());
 	}
+
 }

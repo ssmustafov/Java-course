@@ -177,3 +177,24 @@ java.lang.NumberFormatException: For input string: ""
 	at java.lang.Long.parseLong(Long.java:483) ~[?:1.7.0_60]
 	at com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator.run(ConsoleCalculator.java:54) ~[classes/:?]
 	at com.sirma.itt.javacourse.patterns.calculator.Run.main(Run.java:39) [classes/:?]
+[ERROR] 2014-10-21 18:22:22.342 [main] Run - Non-terminating decimal expansion; no exact representable decimal result.
+java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.
+	at java.math.BigDecimal.divide(BigDecimal.java:1616) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.patterns.calculator.DivisionCommand.execute(DivisionCommand.java:17) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.CalculatorManager.compute(CalculatorManager.java:38) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator.run(ConsoleCalculator.java:55) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.Run.main(Run.java:38) [classes/:?]
+[ERROR] 2014-10-21 18:22:45.545 [main] Run - Non-terminating decimal expansion; no exact representable decimal result.
+java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.
+	at java.math.BigDecimal.divide(BigDecimal.java:1616) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.patterns.calculator.DivisionCommand.execute(DivisionCommand.java:17) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.CalculatorManager.compute(CalculatorManager.java:38) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator.run(ConsoleCalculator.java:55) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.Run.main(Run.java:38) [classes/:?]
+[ERROR] 2014-10-21 18:23:02.639 [main] Run - Non-terminating decimal expansion; no exact representable decimal result.
+java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.
+	at java.math.BigDecimal.divide(BigDecimal.java:1616) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.patterns.calculator.DivisionCommand.execute(DivisionCommand.java:17) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.CalculatorManager.compute(CalculatorManager.java:38) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator.run(ConsoleCalculator.java:55) ~[classes/:?]
+	at com.sirma.itt.javacourse.patterns.calculator.Run.main(Run.java:38) [classes/:?]

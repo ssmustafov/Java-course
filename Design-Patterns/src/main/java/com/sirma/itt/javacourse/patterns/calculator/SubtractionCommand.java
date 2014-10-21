@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
+import java.math.BigDecimal;
+
 /**
  * Represents subtraction in the calculator. Implements {@code Command} interface.
  * 
@@ -7,25 +9,12 @@ package com.sirma.itt.javacourse.patterns.calculator;
  */
 public class SubtractionCommand implements Command {
 
-	private Calculator calc;
-
-	/**
-	 * Creates a new command for subtraction.
-	 * 
-	 * @param calc
-	 *            - the calculator which the subtraction operation will be executed
-	 */
-	public SubtractionCommand(Calculator calc) {
-		this.calc = calc;
-	}
-
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public long execute(long number) {
-		long result = calc.getResult() - number;
-		return result;
+	public BigDecimal execute(BigDecimal a, BigDecimal b) {
+		return a.subtract(b);
 	}
 
 }

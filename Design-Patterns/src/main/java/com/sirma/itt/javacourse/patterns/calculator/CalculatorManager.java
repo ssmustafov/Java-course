@@ -1,37 +1,41 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
+import java.math.BigDecimal;
+
 /**
  * Does the real calculations. This class must be used to work with the calculator.
  * 
  * @author smustafov
  */
 public class CalculatorManager {
-
-	private final Calculator calc = new Calculator();
+	private Calculator calc = new Calculator();
 
 	/**
 	 * Computes given operation with given number.
 	 * 
 	 * @param operation
 	 *            - operation to be executed
-	 * @param number
-	 *            - number with the operation to be executed
+	 * @param a
+	 *            - the first number of the operation
+	 * @param b
+	 *            - the second number of the operation
 	 */
-	public void compute(Operations operation, long number) {
+	public void compute(Operations operation, BigDecimal a, BigDecimal b) {
+		// TODO: factory
 		Command command = null;
 		if (operation.equals(Operations.Add)) {
-			command = new AdditionCommand(calc);
+			command = new AdditionCommand();
 		} else if (operation.equals(Operations.Divide)) {
-			command = new DivisionCommand(calc);
+			command = new DivisionCommand();
 		} else if (operation.equals(Operations.Multiply)) {
-			command = new MultiplicationCommand(calc);
+			command = new MultiplicationCommand();
 		} else if (operation.equals(Operations.Subtract)) {
-			command = new SubtractionCommand(calc);
+			command = new SubtractionCommand();
 		} else if (operation.equals(Operations.Power)) {
-			command = new PowerCommand(calc);
+			command = new PowerCommand();
 		}
 
-		long result = command.execute(number);
+		BigDecimal result = command.execute(a, b);
 		calc.setResult(result);
 	}
 
@@ -40,18 +44,17 @@ public class CalculatorManager {
 	 * 
 	 * @return - the result in the calculator
 	 */
-	public long getResult() {
+	public BigDecimal getResult() {
 		return calc.getResult();
 	}
 
 	/**
 	 * Sets the result in the calculator.
 	 * 
-	 * @param number
+	 * @param newResult
 	 *            - number to be set as result to the calculator
 	 */
-	public void setResult(long number) {
-		calc.setResult(number);
+	public void setResult(BigDecimal newResult) {
+		calc.setResult(newResult);
 	}
-
 }

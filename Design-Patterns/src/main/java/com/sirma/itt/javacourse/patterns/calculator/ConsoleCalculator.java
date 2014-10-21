@@ -3,14 +3,14 @@ package com.sirma.itt.javacourse.patterns.calculator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 
 /**
- * Executes commands given from some stream to work with the Calculator.
+ * Executes commands given from stream to work with the Calculator.
  * 
  * @author smustafov
  */
 public class ConsoleCalculator {
-
 	private static final String END_READING = "end";
 	private static final String ADDITION_OPERATION = "+";
 	private static final String SUBTRACTION_OPERATION = "-";
@@ -22,15 +22,16 @@ public class ConsoleCalculator {
 
 	/**
 	 * Launches the calculator. The reading always must start with number and every line must
-	 * contain only one command (an integer number, operation or end of reading).
+	 * contain only one command (a number, operation or end of reading).
 	 * 
 	 * @throws IOException
 	 *             - thrown when I/O exception occurs
 	 */
 	public void run() throws IOException {
+		// TODO: big decimal doesn't work with 7/3
 		Operations operation = null;
 		String firstLine = reader.readLine();
-		long number = Long.parseLong(firstLine);
+		BigDecimal number = new BigDecimal(firstLine);
 		manager.setResult(number);
 
 		while (true) {
@@ -51,9 +52,10 @@ public class ConsoleCalculator {
 			} else if (POWERING_OPERATION.equals(line)) {
 				operation = Operations.Power;
 			} else {
-				number = Long.parseLong(line);
-				manager.compute(operation, number);
+				number = new BigDecimal(line);
+				manager.compute(operation, manager.getResult(), number);
 				System.out.println("Result: " + manager.getResult());
+				// System.out.format("Result: %.2f%s", manager.getResult(), System.lineSeparator());
 			}
 		}
 	}
