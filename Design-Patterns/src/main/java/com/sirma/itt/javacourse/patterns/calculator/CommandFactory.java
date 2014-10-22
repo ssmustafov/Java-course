@@ -1,6 +1,8 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
 /**
+ * Holds method for creating calculator {@code Command}s.
+ * 
  * @author Sinan
  */
 public final class CommandFactory {
