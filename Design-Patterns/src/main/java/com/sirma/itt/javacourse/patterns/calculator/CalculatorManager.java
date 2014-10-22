@@ -21,19 +21,7 @@ public class CalculatorManager {
 	 *            - the second number of the operation
 	 */
 	public void compute(Operations operation, String a, String b) {
-		// TODO: factory
-		Command command = null;
-		if (operation.equals(Operations.Add)) {
-			command = new AdditionCommand();
-		} else if (operation.equals(Operations.Divide)) {
-			command = new DivisionCommand();
-		} else if (operation.equals(Operations.Multiply)) {
-			command = new MultiplicationCommand();
-		} else if (operation.equals(Operations.Subtract)) {
-			command = new SubtractionCommand();
-		} else if (operation.equals(Operations.Power)) {
-			command = new PowerCommand();
-		}
+		Command command = CommandFactory.createCommand(operation);
 
 		BigDecimal result = command.execute(new BigDecimal(a), new BigDecimal(b));
 		calc.setResult(result);
