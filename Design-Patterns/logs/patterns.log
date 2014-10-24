@@ -222,3 +222,4 @@ java.lang.NumberFormatException
 	at com.sirma.itt.javacourse.patterns.calculator.CalculatorManager.setResult(CalculatorManager.java:46) ~[classes/:?]
 	at com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator.run(ConsoleCalculator.java:56) ~[classes/:?]
 	at com.sirma.itt.javacourse.patterns.calculator.Run.main(Run.java:39) [classes/:?]
+[INFO ] 2014-10-24 15:48:45.133 [main] Singleton - Singleton is created
