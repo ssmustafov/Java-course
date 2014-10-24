@@ -43,6 +43,13 @@ public class CalculatorManager {
 	 *            - number to be set as result to the calculator
 	 */
 	public void setResult(String newResult) {
+		if (newResult.isEmpty()) {
+			throw new IllegalArgumentException("The result cannot be empty");
+		}
+		if (!newResult.matches("[0-9.-]+")) {
+			throw new IllegalArgumentException("The result must only contain: a number, '.', '-'");
+		}
+
 		calc.setResult(new BigDecimal(newResult));
 	}
 

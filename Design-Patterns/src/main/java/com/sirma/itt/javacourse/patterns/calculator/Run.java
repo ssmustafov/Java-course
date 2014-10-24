@@ -34,7 +34,8 @@ public final class Run {
 		// m.compute(Operations.Multiply, "400", "2");
 		// System.out.println(m.getResult());
 		try {
-			ConsoleCalculator c = new ConsoleCalculator();
+			CalculatorReader r = new ConsoleReader();
+			ConsoleCalculator c = new ConsoleCalculator(r);
 			c.run();
 		} catch (ArithmeticException e) {
 			LOGGER.error(e.getMessage(), e);

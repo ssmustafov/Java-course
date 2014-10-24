@@ -1,8 +1,6 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.math.BigDecimal;
 
 /**
@@ -17,8 +15,40 @@ public class ConsoleCalculator {
 	private static final String MULTIPLICATION_OPERATION = "*";
 	private static final String DIVISION_OPERATION = "/";
 	private static final String POWERING_OPERATION = "^";
-	private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	private CalculatorManager manager = new CalculatorManager();
+	private CalculatorReader calcReader;
+
+	/**
+	 * Creates a new console calculator with given reader.
+	 * 
+	 * @param reader
+	 *            - the reader from which the user input will be read
+	 */
+	public ConsoleCalculator(CalculatorReader reader) {
+		calcReader = reader;
+	}
+
+	/**
+	 * Reads user input.
+	 * 
+	 * @return - the read user input
+	 */
+	private String readInput() {
+		String line = calcReader.readInput();
+		line = line.trim();
+		line = line.toLowerCase();
+
+		return line;
+	}
+
+	/**
+	 * Returns the result.
+	 * 
+	 * @return - the result
+	 */
+	public String getResult() {
+		return manager.toString();
+	}
 
 	/**
 	 * Launches the calculator. The reading always must start with number and every line must
@@ -31,13 +61,11 @@ public class ConsoleCalculator {
 		Operations operation = null;
 		BigDecimal number = null;
 
-		String firstLine = reader.readLine();
+		String firstLine = readInput();
 		manager.setResult(firstLine);
 
 		while (true) {
-			String line = reader.readLine();
-			line = line.trim();
-			line = line.toLowerCase();
+			String line = readInput();
 
 			if (END_READING.equals(line)) {
 				break;
@@ -54,8 +82,8 @@ public class ConsoleCalculator {
 			} else {
 				number = new BigDecimal(line);
 				manager.compute(operation, manager.getResult().toString(), number.toString());
-				System.out.println("Result: " + manager.getResult());
-				// System.out.format("Result: %.2f%s", manager.getResult(), System.lineSeparator());
+
+				calcReader.printResult(manager.getResult().toString());
 			}
 		}
 	}
