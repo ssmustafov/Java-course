@@ -1,7 +1,5 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
-import java.io.IOException;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -41,8 +39,6 @@ public final class Run {
 			LOGGER.error(e.getMessage(), e);
 		} catch (NumberFormatException e) {
 			LOGGER.error("Invalid input. Allowed input is: a number, +, -, *, /, ^, 'end'", e);
-		} catch (IOException e) {
-			LOGGER.error(e.getMessage(), e);
 		}
 	}
 }

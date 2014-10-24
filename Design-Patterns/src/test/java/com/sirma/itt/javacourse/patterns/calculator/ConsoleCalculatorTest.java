@@ -2,8 +2,6 @@ package com.sirma.itt.javacourse.patterns.calculator;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.IOException;
-
 import org.junit.Test;
 
 /**
@@ -16,12 +14,9 @@ public class ConsoleCalculatorTest {
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator} with invalid
 	 * input: "a + b".
-	 * 
-	 * @throws IOException
-	 *             - not expected exception
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testWithInvalidInput() throws IOException {
+	public void testWithInvalidInput() {
 		CalculatorReader r = new UnitTestReader(new String[] { "a", "+", "b", "end" });
 		ConsoleCalculator c = new ConsoleCalculator(r);
 		c.run();
@@ -30,12 +25,9 @@ public class ConsoleCalculatorTest {
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator} with empty
 	 * input.
-	 * 
-	 * @throws IOException
-	 *             - not expected exception
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testWithEmptyInput() throws IOException {
+	public void testWithEmptyInput() {
 		CalculatorReader r = new UnitTestReader(new String[] { "", "" });
 		ConsoleCalculator c = new ConsoleCalculator(r);
 		c.run();
@@ -44,12 +36,9 @@ public class ConsoleCalculatorTest {
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator} with addition
 	 * operation.
-	 * 
-	 * @throws IOException
-	 *             - not expected exception
 	 */
 	@Test
-	public void testAdditonCommand() throws IOException {
+	public void testAdditonCommand() {
 		CalculatorReader r = new UnitTestReader(new String[] { "5", "+", "10", "end" });
 		ConsoleCalculator c = new ConsoleCalculator(r);
 		c.run();
@@ -63,12 +52,9 @@ public class ConsoleCalculatorTest {
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator} with division
 	 * operation.
-	 * 
-	 * @throws IOException
-	 *             - not expected exception
 	 */
 	@Test
-	public void testDivisonCommand() throws IOException {
+	public void testDivisonCommand() {
 		CalculatorReader r = new UnitTestReader(new String[] { "5", "/", "2", "end" });
 		ConsoleCalculator c = new ConsoleCalculator(r);
 		c.run();
@@ -87,12 +73,9 @@ public class ConsoleCalculatorTest {
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator} with
 	 * multiplication operation.
-	 * 
-	 * @throws IOException
-	 *             - not expected exception
 	 */
 	@Test
-	public void testMultiplicationCommand() throws IOException {
+	public void testMultiplicationCommand() {
 		CalculatorReader r = new UnitTestReader(new String[] { "5", "*", "10", "end" });
 		ConsoleCalculator c = new ConsoleCalculator(r);
 		c.run();
@@ -106,12 +89,9 @@ public class ConsoleCalculatorTest {
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator} with subtract
 	 * operation.
-	 * 
-	 * @throws IOException
-	 *             - not expected exception
 	 */
 	@Test
-	public void testSubtractCommand() throws IOException {
+	public void testSubtractCommand() {
 		CalculatorReader r = new UnitTestReader(new String[] { "5", "-", "10", "end" });
 		ConsoleCalculator c = new ConsoleCalculator(r);
 		c.run();
@@ -125,12 +105,9 @@ public class ConsoleCalculatorTest {
 	/**
 	 * Tests {@link com.sirma.itt.javacourse.patterns.calculator.ConsoleCalculator} with powering
 	 * operation.
-	 * 
-	 * @throws IOException
-	 *             - not expected exception
 	 */
 	@Test
-	public void testPowerCommand() throws IOException {
+	public void testPowerCommand() {
 		CalculatorReader r = new UnitTestReader(new String[] { "5", "^", "2", "end" });
 		ConsoleCalculator c = new ConsoleCalculator(r);
 		c.run();

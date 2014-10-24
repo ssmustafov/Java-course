@@ -1,6 +1,5 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
@@ -53,11 +52,8 @@ public class ConsoleCalculator {
 	/**
 	 * Launches the calculator. The reading always must start with number and every line must
 	 * contain only one command (a number, operation or end of reading).
-	 * 
-	 * @throws IOException
-	 *             - thrown when I/O exception occurs
 	 */
-	public void run() throws IOException {
+	public void run() {
 		Operations operation = null;
 		BigDecimal number = null;
 
