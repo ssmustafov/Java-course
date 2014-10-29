@@ -14,7 +14,7 @@ import java.util.Map;
 public class ExceptionsMessageManager {
 
 	private static final String SEPARATOR = "|";
-	private static Map<String, String> exceptions = new HashMap<>();
+	private Map<String, String> exceptions = new HashMap<>();
 	private StringBuilder message;
 
 	/**
