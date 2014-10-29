@@ -49,8 +49,8 @@ public class HashDice {
 	 * @return the thrown dices as string
 	 */
 	public String throwDices() {
-		String num1 = reader.getDice(sides);
-		String num2 = reader.getDice(sides);
+		String num1 = reader.throwDice(sides);
+		String num2 = reader.throwDice(sides);
 		StringBuilder result = new StringBuilder();
 		result.append(num1);
 		result.append(",");

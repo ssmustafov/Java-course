@@ -14,6 +14,6 @@ public interface DiceReader {
 	 *            - number of sides of the dice
 	 * @return - a dice number
 	 */
-	String getDice(int sides);
+	String throwDice(int sides);
 
 }

@@ -25,7 +25,7 @@ public class UnitTestDiceReader implements DiceReader {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getDice(int sides) {
+	public String throwDice(int sides) {
 		index++;
 		return dicesCombinations[index];
 	}

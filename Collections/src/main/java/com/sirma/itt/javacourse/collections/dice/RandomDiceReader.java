@@ -27,7 +27,7 @@ public class RandomDiceReader implements DiceReader {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getDice(int sides) {
+	public String throwDice(int sides) {
 		return Integer.toString(getRandomNumber(sides));
 	}
 
