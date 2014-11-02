@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.patterns.proxy;
 
 /**
- * Factory for creating {@code Number}s.
+ * Factory for creating integers.
  * 
  * @author Sinan
  */
