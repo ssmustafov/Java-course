@@ -23,9 +23,7 @@ public final class Run {
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		TimeoutHashtable<Integer, Integer> t = new TimeoutHashtable<>();
-		Thread r = new Thread(t);
-		r.start();
+		TimeoutHashtable<Integer, Integer> t = new TimeoutHashtable<>(5);
 
 		Scanner s = new Scanner(System.in);
 		while (true) {
@@ -66,6 +64,7 @@ public final class Run {
 					break;
 				default:
 					System.out.println("No such command");
+					break;
 			}
 		}
 	}

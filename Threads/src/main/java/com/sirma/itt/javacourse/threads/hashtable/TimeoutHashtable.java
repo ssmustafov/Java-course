@@ -1,65 +1,66 @@
 package com.sirma.itt.javacourse.threads.hashtable;
 
-import java.util.Enumeration;
 import java.util.Hashtable;
 
 /**
- * Stores elements for a period of time in a {@code Hashtable}. Implements {@code KeyValuePair}
- * interface.
- * 
  * @param <K>
- *            - type of the keys
  * @param <V>
- *            - type of the value
- * @author Sinan
+ * @author smustafov
  */
-public class TimeoutHashtable<K, V> implements Runnable {
+public class TimeoutHashtable<K, V> {
 	private Hashtable<K, V> hashtable = new Hashtable<>();
-	private Hashtable<K, Integer> timeout = new Hashtable<>();
-	private int maxTime = 4000;
+	private Hashtable<K, Timer> time = new Hashtable<>();
+	private int seconds;
 
 	/**
-	 * Creates a new timeout hashtable with given max time for storing elements.
+	 * Creates a new timeout hashtable with given seconds for each element in the table.
 	 * 
-	 * @param maxTime
-	 *            - how many times an element can be stored
+	 * @param seconds
+	 *            - the time for each element
 	 */
-	public TimeoutHashtable(int maxTime) {
-		this.maxTime = maxTime;
+	public TimeoutHashtable(int seconds) {
+		this.seconds = seconds;
 	}
 
 	/**
-	 * Creates a new timeout hashtable with default max time for storing elements - <code>1</code>
-	 * second.
-	 */
-	public TimeoutHashtable() {
-
-	}
-
-	/**
+	 * Puts a new element in the table with given key and value.
+	 * 
 	 * @param key
+	 *            - key of the element
 	 * @param value
+	 *            - value of the key
 	 */
-	public void put(K key, V value) {
+	public synchronized void put(K key, V value) {
 		hashtable.put(key, value);
-		timeout.put(key, 0);
-
+		time.put(key, new Timer(key, seconds));
 	}
 
 	/**
+	 * Returns the value associated with given key in the table. Does not remove the element.
+	 * 
 	 * @param key
-	 * @return
+	 *            - the key which associated value will be returned
+	 * @return associated value of the given key
 	 */
-	public V get(K key) {
-		timeout.put(key, 0);
+	public synchronized V get(K key) {
+		Timer timer = time.get(key);
+		timer.setUsed();
+		timer.restart();
+
 		return hashtable.get(key);
 	}
 
 	/**
+	 * Removes the element with given key and returns his associated value.
+	 * 
 	 * @param key
+	 *            - the key of the element to be removed
+	 * @return associated value of the removed key
 	 */
-	public void remove(K key) {
-		hashtable.remove(key);
+	public synchronized V remove(K key) {
+		V value = hashtable.remove(key);
+		time.remove(key);
+		return value;
 	}
 
 	/**
@@ -71,26 +72,63 @@ public class TimeoutHashtable<K, V> implements Runnable {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Represents a timer.
+	 * 
+	 * @author smustafov
 	 */
-	@Override
-	public void run() {
-		while (true) {
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+	public class Timer implements Runnable {
+		private K key;
+		private boolean isUsed = false;
+
+		/**
+		 * Creates a new timer with given seconds.
+		 * 
+		 * @param key
+		 *            - key on which timer will count
+		 * @param seconds
+		 *            - the time in seconds for timer to count
+		 */
+		public Timer(K key, int seconds) {
+			this.key = key;
+			new Thread(this).start();
+		}
+
+		/**
+		 * Sets that the key of the timer is used.
+		 */
+		public synchronized void setUsed() {
+			isUsed = true;
+		}
+
+		/**
+		 * Restarts the thread. (Notifies).
+		 */
+		public synchronized void restart() {
+			notify();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public synchronized void run() {
+			while (!isUsed) {
+				try {
+					wait(seconds * 1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+				if (!isUsed) {
+					break;
+				}
 			}
 
-			Enumeration<K> keys = timeout.keys();
-			while (keys.hasMoreElements()) {
-				K key = keys.nextElement();
-				if (timeout.get(key) > maxTime) {
-					hashtable.remove(key);
-					System.out.println("REMOVED: " + key);
-				} else {
-					timeout.put(key, timeout.get(key) + 1200);
-				}
+			if (time.containsKey(key)) {
+				hashtable.remove(key);
+				time.remove(key);
+
+				System.out.println("REMOVED: key->" + key);
 			}
 		}
 	}
