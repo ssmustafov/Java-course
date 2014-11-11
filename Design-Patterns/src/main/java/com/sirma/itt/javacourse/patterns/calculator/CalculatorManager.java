@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  * @author smustafov
  */
 public class CalculatorManager {
-	private Calculator calc = new Calculator();
+	private BigDecimal result = new BigDecimal("0");
 
 	/**
 	 * Computes given operation with given number.
@@ -23,8 +23,7 @@ public class CalculatorManager {
 	public void compute(Operations operation, String a, String b) {
 		Command command = CommandFactory.createCommand(operation);
 
-		BigDecimal result = command.execute(new BigDecimal(a), new BigDecimal(b));
-		calc.setResult(result);
+		result = command.execute(new BigDecimal(a), new BigDecimal(b));
 	}
 
 	/**
@@ -33,7 +32,7 @@ public class CalculatorManager {
 	 * @return - the result in the calculator
 	 */
 	public BigDecimal getResult() {
-		return calc.getResult();
+		return result;
 	}
 
 	/**
@@ -50,7 +49,7 @@ public class CalculatorManager {
 			throw new IllegalArgumentException("The result must only contain: a number, '.', '-'");
 		}
 
-		calc.setResult(new BigDecimal(newResult));
+		result = new BigDecimal(newResult);
 	}
 
 	/**
@@ -58,6 +57,6 @@ public class CalculatorManager {
 	 */
 	@Override
 	public String toString() {
-		return calc.getResult().toString();
+		return result.toString();
 	}
 }
