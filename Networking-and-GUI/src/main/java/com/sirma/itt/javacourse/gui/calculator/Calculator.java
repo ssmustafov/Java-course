@@ -22,6 +22,7 @@ public class Calculator {
 		JFrame frame = new JFrame("Calculator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
+		// asd
 
 		Container container = frame.getContentPane();
 		container.setLayout(new GridBagLayout());
