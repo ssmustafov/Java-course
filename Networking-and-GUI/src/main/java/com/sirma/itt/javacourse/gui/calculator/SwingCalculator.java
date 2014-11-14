@@ -12,13 +12,28 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+import com.sirma.itt.javacourse.patterns.calculator.CalculatorManager;
+import com.sirma.itt.javacourse.patterns.calculator.Operations;
+
 /**
  * @author smustafov
  */
-public class Calculator {
+public class SwingCalculator implements ActionListener {
+	private static final String ADDITION_OPERATION = "+";
+	private static final String SUBTRACTION_OPERATION = "-";
+	private static final String MULTIPLICATION_OPERATION = "*";
+	private static final String DIVISION_OPERATION = "/";
+	private static final String POWERING_OPERATION = "^";
+	private static final String CLEAR_OPERATION = "clear";
+	// private static final String BACK_OPERATION = "b";
+	private static final String EQUALS_OPERATION = "=";
+	private CalculatorManager manager = new CalculatorManager();
+	private Operations operation = null;
 	private JTextField field;
+	private StringBuilder a = new StringBuilder();
+	private StringBuilder b = new StringBuilder();
 
-	public void createGUI() {
+	public SwingCalculator() {
 		JFrame frame = new JFrame("Calculator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
@@ -28,7 +43,7 @@ public class Calculator {
 		GridBagConstraints cons = new GridBagConstraints();
 		cons.fill = GridBagConstraints.HORIZONTAL;
 
-		field = new JTextField();
+		field = new JTextField("0");
 		field.setEditable(false);
 		cons.gridwidth = 4;
 		cons.gridheight = 2;
@@ -44,8 +59,8 @@ public class Calculator {
 		cons.ipady = 5;
 		cons.insets = new Insets(2, 2, 2, 2);
 
-		JButton clearButton = new JButton("Clear");
-		clearButton.addActionListener(new ButtonListener());
+		JButton clearButton = new JButton("clear");
+		clearButton.addActionListener(this);
 		cons.gridwidth = 2;
 		cons.gridx = 0;
 		cons.gridy = 2;
@@ -54,109 +69,109 @@ public class Calculator {
 		cons.gridwidth = 1;
 
 		JButton backButton = new JButton("B");
-		backButton.addActionListener(new ButtonListener());
+		backButton.addActionListener(this);
 		cons.gridx = 2;
 		cons.gridy = 2;
 		container.add(backButton, cons);
 
 		JButton powerButton = new JButton("^");
-		powerButton.addActionListener(new ButtonListener());
+		powerButton.addActionListener(this);
 		cons.gridx = 3;
 		cons.gridy = 2;
 		container.add(powerButton, cons);
 
 		JButton oneButton = new JButton("1");
-		oneButton.addActionListener(new ButtonListener());
+		oneButton.addActionListener(this);
 		cons.gridx = 0;
 		cons.gridy = 3;
 		container.add(oneButton, cons);
 
 		JButton twoButton = new JButton("2");
-		twoButton.addActionListener(new ButtonListener());
+		twoButton.addActionListener(this);
 		cons.gridx = 1;
 		cons.gridy = 3;
 		container.add(twoButton, cons);
 
 		JButton threeButton = new JButton("3");
-		threeButton.addActionListener(new ButtonListener());
+		threeButton.addActionListener(this);
 		cons.gridx = 2;
 		cons.gridy = 3;
 		container.add(threeButton, cons);
 
 		JButton divideButton = new JButton("/");
-		divideButton.addActionListener(new ButtonListener());
+		divideButton.addActionListener(this);
 		cons.gridx = 3;
 		cons.gridy = 3;
 		container.add(divideButton, cons);
 
 		JButton fourButton = new JButton("4");
-		fourButton.addActionListener(new ButtonListener());
+		fourButton.addActionListener(this);
 		cons.gridx = 0;
 		cons.gridy = 4;
 		container.add(fourButton, cons);
 
 		JButton fiveButton = new JButton("5");
-		fiveButton.addActionListener(new ButtonListener());
+		fiveButton.addActionListener(this);
 		cons.gridx = 1;
 		cons.gridy = 4;
 		container.add(fiveButton, cons);
 
 		JButton sixButton = new JButton("6");
-		sixButton.addActionListener(new ButtonListener());
+		sixButton.addActionListener(this);
 		cons.gridx = 2;
 		cons.gridy = 4;
 		container.add(sixButton, cons);
 
 		JButton multiplyButton = new JButton("*");
-		multiplyButton.addActionListener(new ButtonListener());
+		multiplyButton.addActionListener(this);
 		cons.gridx = 3;
 		cons.gridy = 4;
 		container.add(multiplyButton, cons);
 
 		JButton sevenButton = new JButton("7");
-		sevenButton.addActionListener(new ButtonListener());
+		sevenButton.addActionListener(this);
 		cons.gridx = 0;
 		cons.gridy = 5;
 		container.add(sevenButton, cons);
 
 		JButton eigthButton = new JButton("8");
-		eigthButton.addActionListener(new ButtonListener());
+		eigthButton.addActionListener(this);
 		cons.gridx = 1;
 		cons.gridy = 5;
 		container.add(eigthButton, cons);
 
 		JButton nineButton = new JButton("9");
-		nineButton.addActionListener(new ButtonListener());
+		nineButton.addActionListener(this);
 		cons.gridx = 2;
 		cons.gridy = 5;
 		container.add(nineButton, cons);
 
 		JButton subtractButton = new JButton("-");
-		subtractButton.addActionListener(new ButtonListener());
+		subtractButton.addActionListener(this);
 		cons.gridx = 3;
 		cons.gridy = 5;
 		container.add(subtractButton, cons);
 
 		JButton zeroButton = new JButton("0");
-		zeroButton.addActionListener(new ButtonListener());
+		zeroButton.addActionListener(this);
 		cons.gridx = 0;
 		cons.gridy = 6;
 		container.add(zeroButton, cons);
 
 		JButton dotButton = new JButton(".");
-		dotButton.addActionListener(new ButtonListener());
+		dotButton.addActionListener(this);
 		cons.gridx = 1;
 		cons.gridy = 6;
 		container.add(dotButton, cons);
 
 		JButton equalsButton = new JButton("=");
-		equalsButton.addActionListener(new ButtonListener());
+		equalsButton.addActionListener(this);
 		cons.gridx = 2;
 		cons.gridy = 6;
 		container.add(equalsButton, cons);
 
 		JButton plusButton = new JButton("+");
-		plusButton.addActionListener(new ButtonListener());
+		plusButton.addActionListener(this);
 		cons.gridx = 3;
 		cons.gridy = 6;
 		container.add(plusButton, cons);
@@ -164,6 +179,54 @@ public class Calculator {
 		frame.pack();
 		frame.setResizable(false);
 		frame.setVisible(true);
+
+	}
+
+	private boolean isChange = false;
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String cmd = e.getActionCommand();
+		if (EQUALS_OPERATION.equals(cmd)) {
+			manager.compute(operation, a.toString(), b.toString());
+			field.setText(manager.toString());
+			a.setLength(0);
+			a.append(manager.toString());
+			b.setLength(0);
+			isChange = false;
+		} else if (CLEAR_OPERATION.equals(cmd)) {
+			field.setText("0");
+			a.setLength(0);
+			b.setLength(0);
+			operation = null;
+			isChange = false;
+		} else if (ADDITION_OPERATION.equals(cmd)) {
+			operation = Operations.Add;
+			isChange = true;
+		} else if (SUBTRACTION_OPERATION.equals(cmd)) {
+			operation = Operations.Subtract;
+			isChange = true;
+		} else if (MULTIPLICATION_OPERATION.equals(cmd)) {
+			operation = Operations.Multiply;
+			isChange = true;
+		} else if (DIVISION_OPERATION.equals(cmd)) {
+			operation = Operations.Divide;
+			isChange = true;
+		} else if (POWERING_OPERATION.equals(cmd)) {
+			operation = Operations.Power;
+			isChange = true;
+		} else {
+			if (!isChange) {
+				a.append(cmd);
+				field.setText(a.toString());
+			} else {
+				b.append(cmd);
+				field.setText(b.toString());
+			}
+		}
 	}
 
 	public static void main(String[] args) {
@@ -171,26 +234,8 @@ public class Calculator {
 
 			@Override
 			public void run() {
-				Calculator c = new Calculator();
-				c.createGUI();
+				new SwingCalculator();
 			}
 		});
-	}
-
-	public class ButtonListener implements ActionListener {
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			String command = e.getActionCommand();
-			if ("Clear".equals(command)) {
-				field.setText("");
-			} else {
-				field.setText(command);
-			}
-		}
-
 	}
 }
