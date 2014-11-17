@@ -19,6 +19,7 @@ import com.sirma.itt.javacourse.patterns.calculator.Operations;
  * @author smustafov
  */
 public class SwingCalculator implements ActionListener {
+	private static final String WINDOW_TITLE = "Calculator";
 	private static final String ADDITION_OPERATION = "+";
 	private static final String SUBTRACTION_OPERATION = "-";
 	private static final String MULTIPLICATION_OPERATION = "*";
@@ -32,13 +33,25 @@ public class SwingCalculator implements ActionListener {
 	private JTextField field;
 	private StringBuilder a = new StringBuilder();
 	private StringBuilder b = new StringBuilder();
+	private boolean isChange = false;
 
 	public SwingCalculator() {
-		JFrame frame = new JFrame("Calculator");
+		createGUI();
+	}
+
+	private void createGUI() {
+		JFrame frame = new JFrame(WINDOW_TITLE);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 
-		Container container = frame.getContentPane();
+		createButtons(frame.getContentPane());
+
+		frame.pack();
+		frame.setResizable(false);
+		frame.setVisible(true);
+	}
+
+	private void createButtons(Container container) {
 		container.setLayout(new GridBagLayout());
 		GridBagConstraints cons = new GridBagConstraints();
 		cons.fill = GridBagConstraints.HORIZONTAL;
@@ -175,14 +188,7 @@ public class SwingCalculator implements ActionListener {
 		cons.gridx = 3;
 		cons.gridy = 6;
 		container.add(plusButton, cons);
-
-		frame.pack();
-		frame.setResizable(false);
-		frame.setVisible(true);
-
 	}
-
-	private boolean isChange = false;
 
 	/**
 	 * {@inheritDoc}
