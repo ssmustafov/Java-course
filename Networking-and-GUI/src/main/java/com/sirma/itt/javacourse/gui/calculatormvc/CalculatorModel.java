@@ -6,18 +6,23 @@ import java.math.BigDecimal;
  * @author smustafov
  */
 public class CalculatorModel {
-	private BigDecimal result = new BigDecimal("0");
+	public static final String INITIAL_VALUE = "0";
+	private BigDecimal value;
 
-	public void setResult(BigDecimal newResult) {
-		this.result = newResult;
+	public CalculatorModel() {
+		value = new BigDecimal(INITIAL_VALUE);
 	}
 
-	public void setResult(String newResult) {
-		this.result = new BigDecimal(newResult);
+	public void setValue(String newValue) {
+		value = new BigDecimal(newValue);
 	}
 
-	public BigDecimal getResult() {
-		return result;
+	public void setValue(BigDecimal newValue) {
+		value = newValue;
+	}
+
+	public BigDecimal getValue() {
+		return value;
 	}
 
 	/**
@@ -25,6 +30,6 @@ public class CalculatorModel {
 	 */
 	@Override
 	public String toString() {
-		return result.toString();
+		return value.toString();
 	}
 }

@@ -14,21 +14,23 @@ import javax.swing.JTextField;
 /**
  * @author smustafov
  */
-public class CalculatorView implements ActionListener {
+public class CalculatorView extends JFrame implements ActionListener {
+	private static final long serialVersionUID = 1L;
+	private static final String WINDOW_TITLE = "Calculator";
+	private CalculatorController controller;
 	private JTextField field;
-	private StringBuilder symbols = new StringBuilder();
 
 	public CalculatorView() {
-		JFrame frame = new JFrame("Calculator");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+		super(WINDOW_TITLE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 
-		Container container = frame.getContentPane();
+		Container container = getContentPane();
 		container.setLayout(new GridBagLayout());
 		GridBagConstraints cons = new GridBagConstraints();
 		cons.fill = GridBagConstraints.HORIZONTAL;
 
-		field = new JTextField();
+		field = new JTextField("0");
 		field.setEditable(false);
 		cons.gridwidth = 4;
 		cons.gridheight = 2;
@@ -44,7 +46,7 @@ public class CalculatorView implements ActionListener {
 		cons.ipady = 5;
 		cons.insets = new Insets(2, 2, 2, 2);
 
-		JButton clearButton = new JButton("Clear");
+		JButton clearButton = new JButton("clear");
 		clearButton.addActionListener(this);
 		cons.gridwidth = 2;
 		cons.gridx = 0;
@@ -53,7 +55,7 @@ public class CalculatorView implements ActionListener {
 
 		cons.gridwidth = 1;
 
-		JButton backButton = new JButton("B");
+		JButton backButton = new JButton("b");
 		backButton.addActionListener(this);
 		cons.gridx = 2;
 		cons.gridy = 2;
@@ -161,46 +163,24 @@ public class CalculatorView implements ActionListener {
 		cons.gridy = 6;
 		container.add(plusButton, cons);
 
-		frame.pack();
-		frame.setResizable(false);
-		frame.setVisible(true);
+		pack();
+		setResizable(false);
+		setVisible(true);
+	}
+
+	public void registerObserver(CalculatorController contorller) {
+		this.controller = contorller;
 	}
 
 	public void setFieldText(String text) {
 		field.setText(text);
 	}
 
-	private String a = "";
-	private String b = "";
-
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String cmd = e.getActionCommand();
-		if ("=".equals(cmd)) {
-			int n1 = Integer.parseInt(a);
-			int n2 = Integer.parseInt(b);
-			System.out.println(n1 + n2);
-		} else if ("+".equals(cmd) || "-".equals(cmd) || "*".equals(cmd) || "/".equals(cmd)
-				|| "^".equals(cmd) || "Clear".equals(cmd) || "B".equals(cmd)) {
-			if (a.isEmpty()) {
-				a = symbols.toString();
-				symbols.setLength(0);
-				System.out.println(a);
-			} else if (b.isEmpty()) {
-				b = symbols.toString();
-				symbols.setLength(0);
-				System.out.println(b);
-			}
-		} else {
-			symbols.append(cmd);
-			System.out.println(symbols.toString());
-		}
-	}
-
-	public String getSymbols() {
-		return symbols.toString();
+		controller.processCommand(e.getActionCommand());
 	}
 }
