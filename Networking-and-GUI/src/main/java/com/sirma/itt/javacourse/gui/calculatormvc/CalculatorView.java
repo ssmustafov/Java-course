@@ -49,7 +49,7 @@ public class CalculatorView extends JFrame implements ActionListener {
 		cons.gridheight = 1;
 		cons.ipadx = 5;
 		cons.ipady = 5;
-		cons.insets = new Insets(2, 2, 2, 2);
+		cons.insets = new Insets(3, 3, 3, 3);
 
 		JButton clearButton = new JButton("clear");
 		clearButton.addActionListener(this);
