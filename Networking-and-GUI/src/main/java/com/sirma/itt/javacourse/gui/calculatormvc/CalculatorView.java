@@ -179,7 +179,7 @@ public class CalculatorView extends JFrame implements ActionListener {
 	 * @param controller
 	 *            - the calculator controller
 	 */
-	public void registerObserver(CalculatorController controller) {
+	public void registerController(CalculatorController controller) {
 		this.controller = controller;
 	}
 

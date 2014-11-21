@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * @author smustafov
  */
 public class CalculatorManager {
+	private static final String NUMBER_REGEX = "[0-9.-]+";
 	private BigDecimal result = new BigDecimal("0");
 
 	/**
@@ -45,7 +46,7 @@ public class CalculatorManager {
 		if (newResult.isEmpty()) {
 			throw new IllegalArgumentException("The result cannot be empty");
 		}
-		if (!newResult.matches("[0-9.-]+")) {
+		if (!newResult.matches(NUMBER_REGEX)) {
 			throw new IllegalArgumentException("The result must only contain: a number, '.', '-'");
 		}
 

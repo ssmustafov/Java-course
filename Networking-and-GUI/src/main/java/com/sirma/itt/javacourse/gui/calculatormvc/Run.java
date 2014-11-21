@@ -3,7 +3,7 @@ package com.sirma.itt.javacourse.gui.calculatormvc;
 import javax.swing.SwingUtilities;
 
 /**
- * Shows hot to use the calculator.
+ * Shows how to use the calculator.
  * 
  * @author smustafov
  */
@@ -31,7 +31,7 @@ public final class Run {
 				CalculatorView view = new CalculatorView();
 				CalculatorController c = new CalculatorController(model, view);
 
-				view.registerObserver(c);
+				view.registerController(c);
 			}
 		});
 	}

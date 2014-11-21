@@ -21,7 +21,7 @@ public class CalculatorController {
 	private final CalculatorView view;
 	private final CalculatorManager manager;
 	private Operations operation;
-	private boolean isChanged;
+	private boolean isNumberSwitched;
 	private StringBuilder num1;
 	private StringBuilder num2;
 
@@ -38,7 +38,7 @@ public class CalculatorController {
 		this.view = view;
 		this.manager = new CalculatorManager();
 		this.operation = null;
-		this.isChanged = false;
+		this.isNumberSwitched = false;
 		this.num1 = new StringBuilder();
 		this.num2 = new StringBuilder();
 
@@ -74,21 +74,21 @@ public class CalculatorController {
 	 */
 	public void processCommand(String cmd) {
 		if (EQUALS_OPERATION.equals(cmd)) {
-			manager.compute(operation, num1.toString(), num2.toString());
-			model.setValue(manager.toString());
+			String result = manager.compute(operation, num1.toString(), num2.toString());
+			model.setValue(result);
 
 			resetNumbers();
 			num1.append(model.toString());
 
-			isChanged = false;
+			isNumberSwitched = false;
 		} else if (CLEAR_OPERATION.equals(cmd)) {
 			resetNumbers();
 			operation = null;
-			isChanged = false;
+			isNumberSwitched = false;
 
 			model.setValue(CalculatorModel.INITIAL_VALUE);
 		} else if (BACK_OPERATION.equals(cmd)) {
-			if (!isChanged) {
+			if (!isNumberSwitched) {
 				num1.deleteCharAt(num1.length() - 1);
 				model.setValue(num1.toString());
 			} else {
@@ -97,21 +97,21 @@ public class CalculatorController {
 			}
 		} else if (ADDITION_OPERATION.equals(cmd)) {
 			operation = Operations.Add;
-			isChanged = true;
+			isNumberSwitched = true;
 		} else if (SUBTRACTION_OPERATION.equals(cmd)) {
 			operation = Operations.Subtract;
-			isChanged = true;
+			isNumberSwitched = true;
 		} else if (MULTIPLICATION_OPERATION.equals(cmd)) {
 			operation = Operations.Multiply;
-			isChanged = true;
+			isNumberSwitched = true;
 		} else if (DIVISION_OPERATION.equals(cmd)) {
 			operation = Operations.Divide;
-			isChanged = true;
+			isNumberSwitched = true;
 		} else if (POWERING_OPERATION.equals(cmd)) {
 			operation = Operations.Power;
-			isChanged = true;
+			isNumberSwitched = true;
 		} else {
-			if (!isChanged) {
+			if (!isNumberSwitched) {
 				num1.append(cmd);
 				model.setValue(num1.toString());
 			} else {
