@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 /**
+ * The view of the calculator. It knows only about controller.
+ * 
  * @author smustafov
  */
 public class CalculatorView extends JFrame implements ActionListener {
@@ -20,6 +22,9 @@ public class CalculatorView extends JFrame implements ActionListener {
 	private CalculatorController controller;
 	private JTextField field;
 
+	/**
+	 * Creates a new view.
+	 */
 	public CalculatorView() {
 		super(WINDOW_TITLE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -168,10 +173,22 @@ public class CalculatorView extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 
-	public void registerObserver(CalculatorController contorller) {
-		this.controller = contorller;
+	/**
+	 * Registers a controller to the view. Only one controller can be registered.
+	 * 
+	 * @param controller
+	 *            - the calculator controller
+	 */
+	public void registerObserver(CalculatorController controller) {
+		this.controller = controller;
 	}
 
+	/**
+	 * Sets the text in the text field.
+	 * 
+	 * @param text
+	 *            - the new text to be set
+	 */
 	public void setFieldText(String text) {
 		field.setText(text);
 	}
