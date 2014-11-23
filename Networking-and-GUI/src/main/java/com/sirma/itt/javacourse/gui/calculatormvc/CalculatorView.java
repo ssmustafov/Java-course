@@ -19,8 +19,11 @@ import javax.swing.JTextField;
 public class CalculatorView extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final String WINDOW_TITLE = "Calculator";
+	private final String[][] buttons = { { "1", "2", "3", "/" }, { "4", "5", "6", "*" },
+			{ "7", "8", "9", "-" }, { "0", ".", "=", "+" } };
 	private CalculatorController controller;
 	private JTextField field;
+	private GridBagConstraints constraints;
 
 	/**
 	 * Creates a new view.
@@ -32,145 +35,80 @@ public class CalculatorView extends JFrame implements ActionListener {
 
 		Container container = getContentPane();
 		container.setLayout(new GridBagLayout());
-		GridBagConstraints cons = new GridBagConstraints();
-		cons.fill = GridBagConstraints.HORIZONTAL;
+		constraints = new GridBagConstraints();
+		constraints.fill = GridBagConstraints.HORIZONTAL;
 
 		field = new JTextField("0");
 		field.setEditable(false);
-		cons.gridwidth = 4;
-		cons.gridheight = 2;
-		cons.ipadx = 5;
-		cons.ipady = 5;
-		cons.gridx = 0;
-		cons.gridy = 0;
-		container.add(field, cons);
+		constraints.gridwidth = 4;
+		constraints.gridheight = 2;
+		constraints.ipadx = 5;
+		constraints.ipady = 5;
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+		container.add(field, constraints);
 
-		cons.gridwidth = 1;
-		cons.gridheight = 1;
-		cons.ipadx = 5;
-		cons.ipady = 5;
-		cons.insets = new Insets(3, 3, 3, 3);
+		constraints.gridwidth = 1;
+		constraints.gridheight = 1;
+		constraints.ipadx = 5;
+		constraints.ipady = 5;
+		constraints.insets = new Insets(3, 3, 3, 3);
 
 		JButton clearButton = new JButton("clear");
 		clearButton.addActionListener(this);
-		cons.gridwidth = 2;
-		cons.gridx = 0;
-		cons.gridy = 2;
-		container.add(clearButton, cons);
+		constraints.gridwidth = 2;
+		constraints.gridx = 0;
+		constraints.gridy = 2;
+		container.add(clearButton, constraints);
 
-		cons.gridwidth = 1;
+		constraints.gridwidth = 1;
 
 		JButton backButton = new JButton("b");
 		backButton.addActionListener(this);
-		cons.gridx = 2;
-		cons.gridy = 2;
-		container.add(backButton, cons);
+		constraints.gridx = 2;
+		constraints.gridy = 2;
+		container.add(backButton, constraints);
 
 		JButton powerButton = new JButton("^");
 		powerButton.addActionListener(this);
-		cons.gridx = 3;
-		cons.gridy = 2;
-		container.add(powerButton, cons);
+		constraints.gridx = 3;
+		constraints.gridy = 2;
+		container.add(powerButton, constraints);
 
-		JButton oneButton = new JButton("1");
-		oneButton.addActionListener(this);
-		cons.gridx = 0;
-		cons.gridy = 3;
-		container.add(oneButton, cons);
-
-		JButton twoButton = new JButton("2");
-		twoButton.addActionListener(this);
-		cons.gridx = 1;
-		cons.gridy = 3;
-		container.add(twoButton, cons);
-
-		JButton threeButton = new JButton("3");
-		threeButton.addActionListener(this);
-		cons.gridx = 2;
-		cons.gridy = 3;
-		container.add(threeButton, cons);
-
-		JButton divideButton = new JButton("/");
-		divideButton.addActionListener(this);
-		cons.gridx = 3;
-		cons.gridy = 3;
-		container.add(divideButton, cons);
-
-		JButton fourButton = new JButton("4");
-		fourButton.addActionListener(this);
-		cons.gridx = 0;
-		cons.gridy = 4;
-		container.add(fourButton, cons);
-
-		JButton fiveButton = new JButton("5");
-		fiveButton.addActionListener(this);
-		cons.gridx = 1;
-		cons.gridy = 4;
-		container.add(fiveButton, cons);
-
-		JButton sixButton = new JButton("6");
-		sixButton.addActionListener(this);
-		cons.gridx = 2;
-		cons.gridy = 4;
-		container.add(sixButton, cons);
-
-		JButton multiplyButton = new JButton("*");
-		multiplyButton.addActionListener(this);
-		cons.gridx = 3;
-		cons.gridy = 4;
-		container.add(multiplyButton, cons);
-
-		JButton sevenButton = new JButton("7");
-		sevenButton.addActionListener(this);
-		cons.gridx = 0;
-		cons.gridy = 5;
-		container.add(sevenButton, cons);
-
-		JButton eigthButton = new JButton("8");
-		eigthButton.addActionListener(this);
-		cons.gridx = 1;
-		cons.gridy = 5;
-		container.add(eigthButton, cons);
-
-		JButton nineButton = new JButton("9");
-		nineButton.addActionListener(this);
-		cons.gridx = 2;
-		cons.gridy = 5;
-		container.add(nineButton, cons);
-
-		JButton subtractButton = new JButton("-");
-		subtractButton.addActionListener(this);
-		cons.gridx = 3;
-		cons.gridy = 5;
-		container.add(subtractButton, cons);
-
-		JButton zeroButton = new JButton("0");
-		zeroButton.addActionListener(this);
-		cons.gridx = 0;
-		cons.gridy = 6;
-		container.add(zeroButton, cons);
-
-		JButton dotButton = new JButton(".");
-		dotButton.addActionListener(this);
-		cons.gridx = 1;
-		cons.gridy = 6;
-		container.add(dotButton, cons);
-
-		JButton equalsButton = new JButton("=");
-		equalsButton.addActionListener(this);
-		cons.gridx = 2;
-		cons.gridy = 6;
-		container.add(equalsButton, cons);
-
-		JButton plusButton = new JButton("+");
-		plusButton.addActionListener(this);
-		cons.gridx = 3;
-		cons.gridy = 6;
-		container.add(plusButton, cons);
+		createButtons();
 
 		pack();
 		setResizable(false);
 		setVisible(true);
+	}
+
+	/**
+	 * Creates the buttons in the buttons matrix.
+	 */
+	private void createButtons() {
+		for (int i = 0; i < buttons.length; i++) {
+			for (int j = 0; j < buttons[i].length; j++) {
+				addJButton(buttons[i][j], j, i + 3);
+			}
+		}
+	}
+
+	/**
+	 * Adds new button to the content pane. Also adds this as action listener to the created button.
+	 * 
+	 * @param text
+	 *            - the text of the button
+	 * @param x
+	 *            - the gridx position in the GridBagLayout
+	 * @param y
+	 *            - the gridy position in the GridBagLayout
+	 */
+	private void addJButton(String text, int x, int y) {
+		JButton button = new JButton(text);
+		constraints.gridx = x;
+		constraints.gridy = y;
+		getContentPane().add(button, constraints);
+		button.addActionListener(this);
 	}
 
 	/**
