@@ -55,7 +55,9 @@ public class CalculatorController {
 	 */
 	private void updateView(CalculatorModel model, CalculatorView view) {
 		String value = model.toString();
-		view.setFieldText(value);
+		if (view != null) {
+			view.setFieldText(value);
+		}
 	}
 
 	/**
