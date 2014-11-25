@@ -36,7 +36,6 @@ public class SynchronizedList {
 		if (array.length == index) {
 			System.out.println("ADD: List full... waiting for element to be removed");
 			try {
-				notifyAll();
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -55,7 +54,6 @@ public class SynchronizedList {
 		if (index == 0) {
 			System.out.println("REMOVE: List empty... waiting for element to be added");
 			try {
-				notifyAll();
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();

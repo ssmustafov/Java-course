@@ -8,6 +8,7 @@ import java.util.Random;
  * @author Sinan
  */
 public class RemoveThread extends Thread {
+	private static final int MAX_WAIT_TIME = 3000;
 	private SynchronizedList list;
 	private Random random = new Random();
 
@@ -25,11 +26,11 @@ public class RemoveThread extends Thread {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void run() {
+	public synchronized void run() {
 		while (true) {
 			list.add(random.nextInt());
 			try {
-				Thread.sleep(random.nextInt(1000));
+				wait(random.nextInt(MAX_WAIT_TIME));
 				System.out.println(list);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
