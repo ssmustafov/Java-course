@@ -4,6 +4,7 @@ package com.sirma.itt.javacourse.threads.sleepingCounters;
  * @author smustafov
  */
 public class WaitingCounterThread extends Thread {
+	private static final int WAIT_TIME = 2000;
 	private long start;
 	private long end;
 
@@ -31,7 +32,7 @@ public class WaitingCounterThread extends Thread {
 			System.out.println(i);
 			try {
 				synchronized (this) {
-					wait(2000);
+					wait(WAIT_TIME);
 				}
 			} catch (InterruptedException e) {
 				System.err.println(e.getMessage());

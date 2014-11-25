@@ -19,7 +19,7 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		RangeCounterThread r = new RangeCounterThread(10, 70);
+		RangeCounterThread r = new RangeCounterThread(0, 40);
 		RangeCounterThread a = new RangeCounterThread(10, 100);
 		r.start();
 		a.start();

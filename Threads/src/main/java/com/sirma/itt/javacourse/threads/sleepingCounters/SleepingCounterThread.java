@@ -4,6 +4,7 @@ package com.sirma.itt.javacourse.threads.sleepingCounters;
  * @author smustafov
  */
 public class SleepingCounterThread extends Thread {
+	private static final int SLEEP_TIME = 2000;
 	private long start;
 	private long end;
 
@@ -30,7 +31,7 @@ public class SleepingCounterThread extends Thread {
 			System.out.print(" #");
 			System.out.println(i);
 			try {
-				Thread.sleep(2000);
+				sleep(SLEEP_TIME);
 			} catch (InterruptedException e) {
 				System.err.println(e.getMessage());
 			}
