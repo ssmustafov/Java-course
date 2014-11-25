@@ -24,11 +24,11 @@ public class StopCounterThread implements Runnable {
 	 */
 	@Override
 	public void run() {
-		for (long i = 0; i < max; i++) {
-			if (isStopped()) {
+		while (true) {
+			if (isStopped() || currentCounter == max) {
 				break;
 			}
-			currentCounter = i;
+			currentCounter++;
 		}
 	}
 
