@@ -8,18 +8,18 @@ import java.util.Date;
  * @author Sinan
  */
 public class Producer extends Thread {
+	private static final int TIME_TO_WAIT = 700;
 	private StoreHouse storeHouse;
 	private int time;
 
 	/**
-	 * Creates a new producer.
+	 * Creates a new producer with default time to wait 700ms.
 	 * 
 	 * @param storeHouse
 	 *            - the storehouse in which the producer will add production
 	 */
 	public Producer(StoreHouse storeHouse) {
-		this.storeHouse = storeHouse;
-		time = 500;
+		this(storeHouse, TIME_TO_WAIT);
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class Producer extends Thread {
 	 * @param storeHouse
 	 *            - the storehouse in which the producer will add production
 	 * @param time
-	 *            - time the poducer to wait
+	 *            - time the producer to wait
 	 */
 	public Producer(StoreHouse storeHouse, int time) {
 		this.storeHouse = storeHouse;

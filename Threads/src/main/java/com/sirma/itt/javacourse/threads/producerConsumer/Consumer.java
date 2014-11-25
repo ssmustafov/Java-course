@@ -6,18 +6,18 @@ package com.sirma.itt.javacourse.threads.producerConsumer;
  * @author Sinan
  */
 public class Consumer extends Thread {
+	private static final int TIME_TO_WAIT = 3000;
 	private StoreHouse storeHouse;
 	private int time;
 
 	/**
-	 * Creates a new consumer.
+	 * Creates a new consumer with default time to wait 3 seconds.
 	 * 
 	 * @param storeHouse
 	 *            - the storehouse from which the consumer will get production
 	 */
 	public Consumer(StoreHouse storeHouse) {
-		this.storeHouse = storeHouse;
-		time = 3000;
+		this(storeHouse, TIME_TO_WAIT);
 	}
 
 	/**
