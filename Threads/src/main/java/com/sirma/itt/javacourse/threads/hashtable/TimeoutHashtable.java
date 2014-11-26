@@ -119,7 +119,7 @@ public class TimeoutHashtable<K, V> {
 					e.printStackTrace();
 				}
 
-				if (!isUsed) {
+				if (isUsed) {
 					break;
 				}
 			}
