@@ -6,7 +6,9 @@ package com.sirma.itt.javacourse.patterns.proxy;
  * @author Sinan
  */
 public class IntegerProxy implements Number {
-	private Integer integer = new Integer();
+	public static final int MAX_VALUE = 2147483647;
+	public static final int MIN_VALUE = -2147483648;
+	private Integer integer;
 
 	/**
 	 * {@inheritDoc}
@@ -21,7 +23,13 @@ public class IntegerProxy implements Number {
 	 */
 	@Override
 	public void setNumber(int number) {
-		integer.setNumber(number);
+		if (number > MIN_VALUE && number < MAX_VALUE) {
+			integer.setNumber(number);
+		} else {
+			throw new IllegalArgumentException(String.format(
+					"The given integer cannot fit in this structure. The range is: [%d, %d]",
+					MIN_VALUE, MAX_VALUE));
+		}
 	}
 
 	/**
