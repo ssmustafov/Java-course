@@ -15,22 +15,14 @@ import org.apache.logging.log4j.Logger;
 public final class Singleton {
 
 	private static final Logger LOGGER = LogManager.getLogger(Singleton.class);
-	private static List<EventLog> logs;
-	private static Singleton instance;
+	private static List<EventLog> logs = new ArrayList<>();
+	private static Singleton instance = new Singleton();
 
 	/**
 	 * Protects from instantiation.
 	 */
 	private Singleton() {
 		LOGGER.info("Singleton is created");
-	}
-
-	/**
-	 * Initializes one object from this class also initializes the List of logs.
-	 */
-	static {
-		instance = new Singleton();
-		logs = new ArrayList<>();
 	}
 
 	/**
