@@ -25,10 +25,12 @@ public final class DownloadAgent {
 	 * 
 	 * @param urlAsString
 	 *            - url from which to download
+	 * @param filename
+	 *            - the filename in which to be downloaded
 	 * @throws IOException
 	 *             - exception
 	 */
-	public static void downloadFile(String urlAsString) throws IOException {
+	public static void downloadFile(String urlAsString, String filename) throws IOException {
 		InputStream inputStream = null;
 		FileOutputStream fileOutputStream = null;
 
@@ -36,8 +38,7 @@ public final class DownloadAgent {
 			URL url = new URL(urlAsString);
 			URLConnection urlConnection = url.openConnection();
 			inputStream = urlConnection.getInputStream();
-			fileOutputStream = new FileOutputStream(urlAsString.substring(urlAsString
-					.lastIndexOf('/') + 1));
+			fileOutputStream = new FileOutputStream(filename);
 
 			byte[] data = new byte[BUFFER_SIZE];
 			int bytesTransferred;

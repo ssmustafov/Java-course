@@ -28,6 +28,8 @@ public final class Run {
 		// .downloadFile("http://www.nakov.com/books/inetjava/Internet-Programming-with-Java-Book-Svetlin-Nakov-v1.1.pdf");
 
 		DownloadAgent
-				.downloadFile("https://docs.oracle.com/javase/tutorial/uiswing/examples/components/TopLevelDemoProject/src/components/TopLevelDemo.java");
+				.downloadFile(
+						"https://docs.oracle.com/javase/tutorial/uiswing/examples/components/TopLevelDemoProject/src/components/TopLevelDemo.java",
+						"swing.java");
 	}
 }
