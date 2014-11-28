@@ -23,16 +23,25 @@ public final class CommandFactory {
 	 */
 	public static Command createCommand(Operations operation) {
 		Command command = null;
-		if (operation.equals(Operations.Add)) {
-			command = new AdditionCommand();
-		} else if (operation.equals(Operations.Divide)) {
-			command = new DivisionCommand();
-		} else if (operation.equals(Operations.Multiply)) {
-			command = new MultiplicationCommand();
-		} else if (operation.equals(Operations.Subtract)) {
-			command = new SubtractionCommand();
-		} else if (operation.equals(Operations.Power)) {
-			command = new PowerCommand();
+
+		switch (operation) {
+			case Add:
+				command = new AdditionCommand();
+				break;
+			case Multiply:
+				command = new MultiplicationCommand();
+				break;
+			case Divide:
+				command = new DivisionCommand();
+				break;
+			case Subtract:
+				command = new SubtractionCommand();
+				break;
+			case Power:
+				command = new PowerCommand();
+				break;
+			default:
+				throw new IllegalArgumentException("No such operation");
 		}
 
 		return command;
