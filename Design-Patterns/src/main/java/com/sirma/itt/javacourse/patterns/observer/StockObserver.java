@@ -61,15 +61,6 @@ public class StockObserver implements Observer {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void changeQuantity(Stock stock, int quantity) {
-		stock.setQuantity(quantity);
-		update(stock);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public List<Stock> getUnvailableStocks() {
 		return unavailableStocks.getUnvailableStocks();
 	}

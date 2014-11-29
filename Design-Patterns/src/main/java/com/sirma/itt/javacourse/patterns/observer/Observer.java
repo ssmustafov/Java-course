@@ -26,16 +26,6 @@ public interface Observer {
 	void sell(Stock stock, int quantity);
 
 	/**
-	 * Changes the quantity of given stock.
-	 * 
-	 * @param stock
-	 *            - stock which quantity to be changed
-	 * @param quantity
-	 *            - quantity of the stock to be set
-	 */
-	void changeQuantity(Stock stock, int quantity);
-
-	/**
 	 * Returns {@code List} of the unavailable stocks.
 	 * 
 	 * @return - list of unavailable stocks

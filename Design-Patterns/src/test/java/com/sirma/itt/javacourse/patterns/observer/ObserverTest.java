@@ -95,7 +95,8 @@ public class ObserverTest {
 		a.sell(usb, 1);
 		a.sell(usb, 1);
 		a.sell(mouse, 10);
-		a.changeQuantity(usb, 100);
+		mouse.setQuantity(100);
+		a.add(mouse);
 
 		int actualAvailable = a.getAvailableStocks().size();
 		int actualUnavailable = a.getUnvailableStocks().size();
