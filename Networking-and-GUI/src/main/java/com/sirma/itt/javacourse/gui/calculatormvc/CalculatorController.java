@@ -55,9 +55,40 @@ public class CalculatorController {
 	 */
 	private void updateView(CalculatorModel model, CalculatorView view) {
 		String value = model.toString();
+
+		if (hasZeroFraction(value)) {
+			value = removeZeroFraction(value);
+		}
+
 		if (view != null) {
 			view.setFieldText(value);
 		}
+	}
+
+	/**
+	 * Checks if the string's last char is zero (in double always have .0).
+	 * 
+	 * @param value
+	 *            - the string to be checked
+	 * @return - true if it has '.0'; otherwise false
+	 */
+	private boolean hasZeroFraction(String value) {
+		if (value.charAt(value.length() - 1) == '0') {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Removes '.0' fraction in the number.
+	 * 
+	 * @param value
+	 *            - the value from which zero fraction to be removed
+	 * @return new string with removed zero fraction
+	 */
+	private String removeZeroFraction(String value) {
+		String result = value.substring(0, value.length() - 2);
+		return result;
 	}
 
 	/**

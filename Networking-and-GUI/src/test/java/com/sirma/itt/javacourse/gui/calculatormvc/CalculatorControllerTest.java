@@ -27,7 +27,7 @@ public class CalculatorControllerTest {
 		c.processCommand("=");
 
 		String actual = model.toString();
-		String expected = "1";
+		String expected = "1.0";
 
 		assertEquals(expected, actual);
 	}
@@ -48,7 +48,7 @@ public class CalculatorControllerTest {
 		c.processCommand("=");
 
 		String actual = model.toString();
-		String expected = "4";
+		String expected = "4.0";
 
 		assertEquals(expected, actual);
 	}
@@ -69,7 +69,7 @@ public class CalculatorControllerTest {
 		c.processCommand("=");
 
 		String actual = model.toString();
-		String expected = "-3";
+		String expected = "-3.0";
 
 		assertEquals(expected, actual);
 	}
@@ -90,7 +90,7 @@ public class CalculatorControllerTest {
 		c.processCommand("=");
 
 		String actual = model.toString();
-		String expected = "10";
+		String expected = "10.0";
 
 		assertEquals(expected, actual);
 	}
@@ -111,7 +111,7 @@ public class CalculatorControllerTest {
 		c.processCommand("=");
 
 		String actual = model.toString();
-		String expected = "4";
+		String expected = "4.0";
 
 		assertEquals(expected, actual);
 	}
@@ -133,7 +133,7 @@ public class CalculatorControllerTest {
 		c.processCommand("clear");
 
 		String actual = model.toString();
-		String expected = "0";
+		String expected = "0.0";
 
 		assertEquals(expected, actual);
 	}
@@ -152,7 +152,7 @@ public class CalculatorControllerTest {
 		c.processCommand("b");
 
 		String actual = model.toString();
-		String expected = "20";
+		String expected = "20.0";
 
 		assertEquals(expected, actual);
 	}
