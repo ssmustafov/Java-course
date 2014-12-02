@@ -110,7 +110,7 @@ public class CalculatorControllerTest {
 		c.processCommand("5");
 		c.processCommand("=");
 
-		String actual = model.getValue().stripTrailingZeros().toString();
+		String actual = model.toString();
 		String expected = "4";
 
 		assertEquals(expected, actual);

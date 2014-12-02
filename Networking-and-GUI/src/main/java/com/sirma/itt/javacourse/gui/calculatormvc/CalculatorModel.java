@@ -1,21 +1,19 @@
 package com.sirma.itt.javacourse.gui.calculatormvc;
 
-import java.math.BigDecimal;
-
 /**
  * The model of the calculator.
  * 
  * @author smustafov
  */
 public class CalculatorModel {
-	public static final String INITIAL_VALUE = "0";
-	private BigDecimal value;
+	public static final double INITIAL_VALUE = 0;
+	private double value;
 
 	/**
 	 * Creates new model with initial value zero.
 	 */
 	public CalculatorModel() {
-		value = new BigDecimal(INITIAL_VALUE);
+		value = INITIAL_VALUE;
 	}
 
 	/**
@@ -25,7 +23,7 @@ public class CalculatorModel {
 	 *            - the new value to be set
 	 */
 	public void setValue(String newValue) {
-		value = new BigDecimal(newValue);
+		value = Double.parseDouble(newValue);
 	}
 
 	/**
@@ -34,7 +32,7 @@ public class CalculatorModel {
 	 * @param newValue
 	 *            - the new value to be set
 	 */
-	public void setValue(BigDecimal newValue) {
+	public void setValue(double newValue) {
 		value = newValue;
 	}
 
@@ -43,7 +41,7 @@ public class CalculatorModel {
 	 * 
 	 * @return - the value of the model
 	 */
-	public BigDecimal getValue() {
+	public double getValue() {
 		return value;
 	}
 
@@ -52,6 +50,6 @@ public class CalculatorModel {
 	 */
 	@Override
 	public String toString() {
-		return value.toString();
+		return Double.toString(value);
 	}
 }

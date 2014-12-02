@@ -76,7 +76,10 @@ public class CalculatorController {
 	 */
 	public void processCommand(String cmd) {
 		if (EQUALS_OPERATION.equals(cmd)) {
-			String result = manager.compute(operation, num1.toString(), num2.toString());
+			double a = Double.parseDouble(num1.toString());
+			double b = Double.parseDouble(num2.toString());
+
+			double result = manager.compute(operation, a, b);
 			model.setValue(result);
 
 			resetNumbers();

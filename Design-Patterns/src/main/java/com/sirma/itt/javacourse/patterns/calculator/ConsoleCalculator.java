@@ -14,6 +14,7 @@ public class ConsoleCalculator {
 	private static final String POWERING_OPERATION = "^";
 	private CalculatorManager manager = new CalculatorManager();
 	private CalculatorReader calcReader;
+	private double result = 0;
 
 	/**
 	 * Creates a new console calculator with given reader.
@@ -44,7 +45,7 @@ public class ConsoleCalculator {
 	 * @return - the result
 	 */
 	public String getResult() {
-		return manager.toString();
+		return Double.toString(result);
 	}
 
 	/**
@@ -56,7 +57,7 @@ public class ConsoleCalculator {
 		double number = 0;
 
 		String firstLine = readInput();
-		manager.setResult(Double.parseDouble(firstLine));
+		result = Double.parseDouble(firstLine);
 
 		while (true) {
 			String line = readInput();
@@ -75,9 +76,9 @@ public class ConsoleCalculator {
 				operation = Operations.Power;
 			} else {
 				number = Double.parseDouble(line);
-				manager.compute(operation, manager.getResult(), number);
+				result = manager.compute(operation, result, number);
 
-				calcReader.printResult(manager.toString());
+				calcReader.printResult(Double.toString(result));
 			}
 		}
 	}

@@ -20,9 +20,8 @@ public class CalculatorManagerTest {
 	@Test
 	public void testComputeAddition() {
 		CalculatorManager manager = new CalculatorManager();
-		manager.compute(Operations.Add, 100, 10);
 
-		double actual = manager.getResult();
+		double actual = manager.compute(Operations.Add, 100, 10);
 		double expected = 110.0;
 
 		assertEquals(expected, actual, DELTA);
@@ -36,9 +35,8 @@ public class CalculatorManagerTest {
 	@Test
 	public void testComputeSubtraction() {
 		CalculatorManager manager = new CalculatorManager();
-		manager.compute(Operations.Subtract, 100, 10);
 
-		double actual = manager.getResult();
+		double actual = manager.compute(Operations.Subtract, 100, 10);
 		double expected = 90.0;
 
 		assertEquals(expected, actual, DELTA);
@@ -52,9 +50,8 @@ public class CalculatorManagerTest {
 	@Test
 	public void testComputeDivision() {
 		CalculatorManager manager = new CalculatorManager();
-		manager.compute(Operations.Divide, 100, 10);
 
-		double actual = manager.getResult();
+		double actual = manager.compute(Operations.Divide, 100, 10);
 		double expected = 10.0;
 
 		assertEquals(expected, actual, DELTA);
@@ -68,9 +65,8 @@ public class CalculatorManagerTest {
 	@Test
 	public void testComputeMultiplication() {
 		CalculatorManager manager = new CalculatorManager();
-		manager.compute(Operations.Multiply, 100, 10);
 
-		double actual = manager.getResult();
+		double actual = manager.compute(Operations.Multiply, 100, 10);
 		double expected = 1000.0;
 
 		assertEquals(expected, actual, DELTA);
@@ -84,9 +80,8 @@ public class CalculatorManagerTest {
 	@Test
 	public void testComputePower() {
 		CalculatorManager manager = new CalculatorManager();
-		manager.compute(Operations.Power, 2, 10);
 
-		double actual = manager.getResult();
+		double actual = manager.compute(Operations.Power, 2, 10);
 		double expected = 1024.0;
 
 		assertEquals(expected, actual, DELTA);

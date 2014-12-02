@@ -6,7 +6,6 @@ package com.sirma.itt.javacourse.patterns.calculator;
  * @author smustafov
  */
 public class CalculatorManager {
-	private double result = 0;
 
 	/**
 	 * Computes given operation with given number.
@@ -17,37 +16,12 @@ public class CalculatorManager {
 	 *            - the first number of the operation
 	 * @param b
 	 *            - the second number of the operation
+	 * @return - the calculated result
 	 */
-	public void compute(Operations operation, double a, double b) {
+	public double compute(Operations operation, double a, double b) {
 		Command command = CommandFactory.createCommand(operation);
 
-		result = command.execute(a, b);
+		return command.execute(a, b);
 	}
 
-	/**
-	 * Returns the result in the calculator.
-	 * 
-	 * @return - the result in the calculator
-	 */
-	public double getResult() {
-		return result;
-	}
-
-	/**
-	 * Sets the result in the calculator.
-	 * 
-	 * @param newResult
-	 *            - number to be set as result to the calculator
-	 */
-	public void setResult(double newResult) {
-		result = newResult;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String toString() {
-		return Double.toString(result);
-	}
 }

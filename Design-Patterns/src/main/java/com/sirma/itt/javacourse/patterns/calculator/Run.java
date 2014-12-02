@@ -25,12 +25,6 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		// CalculatorManager m = new CalculatorManager();
-		// m.compute(Operations.Add, "0", "100");
-		// m.compute(Operations.Divide, "100", "5");
-		// m.compute(Operations.Power, "20", "2");
-		// m.compute(Operations.Multiply, "400", "2");
-		// System.out.println(m.getResult());
 		try {
 			CalculatorReader r = new ConsoleReader();
 			ConsoleCalculator c = new ConsoleCalculator(r);
