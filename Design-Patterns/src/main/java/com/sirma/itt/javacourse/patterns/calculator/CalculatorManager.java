@@ -1,15 +1,12 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
-import java.math.BigDecimal;
-
 /**
  * Does the real calculations. This class must be used to work with the calculator.
  * 
  * @author smustafov
  */
 public class CalculatorManager {
-	private static final String NUMBER_REGEX = "[0-9.-]+";
-	private BigDecimal result = new BigDecimal("0");
+	private double result = 0;
 
 	/**
 	 * Computes given operation with given number.
@@ -21,10 +18,10 @@ public class CalculatorManager {
 	 * @param b
 	 *            - the second number of the operation
 	 */
-	public void compute(Operations operation, String a, String b) {
+	public void compute(Operations operation, double a, double b) {
 		Command command = CommandFactory.createCommand(operation);
 
-		result = command.execute(new BigDecimal(a), new BigDecimal(b));
+		result = command.execute(a, b);
 	}
 
 	/**
@@ -32,7 +29,7 @@ public class CalculatorManager {
 	 * 
 	 * @return - the result in the calculator
 	 */
-	public BigDecimal getResult() {
+	public double getResult() {
 		return result;
 	}
 
@@ -42,15 +39,8 @@ public class CalculatorManager {
 	 * @param newResult
 	 *            - number to be set as result to the calculator
 	 */
-	public void setResult(String newResult) {
-		if (newResult.isEmpty()) {
-			throw new IllegalArgumentException("The result cannot be empty");
-		}
-		if (!newResult.matches(NUMBER_REGEX)) {
-			throw new IllegalArgumentException("The result must only contain: a number, '.', '-'");
-		}
-
-		result = new BigDecimal(newResult);
+	public void setResult(double newResult) {
+		result = newResult;
 	}
 
 	/**
@@ -58,6 +48,6 @@ public class CalculatorManager {
 	 */
 	@Override
 	public String toString() {
-		return result.toString();
+		return Double.toString(result);
 	}
 }

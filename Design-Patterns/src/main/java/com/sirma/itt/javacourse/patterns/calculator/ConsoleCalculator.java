@@ -1,7 +1,5 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
-import java.math.BigDecimal;
-
 /**
  * Executes commands given from stream to work with the Calculator.
  * 
@@ -55,10 +53,10 @@ public class ConsoleCalculator {
 	 */
 	public void run() {
 		Operations operation = null;
-		BigDecimal number = null;
+		double number = 0;
 
 		String firstLine = readInput();
-		manager.setResult(firstLine);
+		manager.setResult(Double.parseDouble(firstLine));
 
 		while (true) {
 			String line = readInput();
@@ -76,10 +74,10 @@ public class ConsoleCalculator {
 			} else if (POWERING_OPERATION.equals(line)) {
 				operation = Operations.Power;
 			} else {
-				number = new BigDecimal(line);
-				manager.compute(operation, manager.getResult().toString(), number.toString());
+				number = Double.parseDouble(line);
+				manager.compute(operation, manager.getResult(), number);
 
-				calcReader.printResult(manager.getResult().toString());
+				calcReader.printResult(manager.toString());
 			}
 		}
 	}

@@ -1,9 +1,7 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
-import java.math.BigDecimal;
-
 /**
- * Interface for executing commands for the calculator. Works with {@code BigDecimal}.
+ * Interface for executing commands for the calculator. Works with double.
  * 
  * @author smustafov
  */
@@ -18,5 +16,5 @@ public interface Command {
 	 *            - the second number which will be operated
 	 * @return - the result of the operation
 	 */
-	BigDecimal execute(BigDecimal a, BigDecimal b);
+	double execute(double a, double b);
 }

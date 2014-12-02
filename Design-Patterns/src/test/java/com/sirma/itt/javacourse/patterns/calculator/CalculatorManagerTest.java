@@ -10,6 +10,7 @@ import org.junit.Test;
  * @author smustafov
  */
 public class CalculatorManagerTest {
+	private static final double DELTA = 1e-15;
 
 	/**
 	 * Tests
@@ -19,12 +20,12 @@ public class CalculatorManagerTest {
 	@Test
 	public void testComputeAddition() {
 		CalculatorManager manager = new CalculatorManager();
-		manager.compute(Operations.Add, "100", "10");
+		manager.compute(Operations.Add, 100, 10);
 
-		String actual = manager.toString();
-		String expected = "110";
+		double actual = manager.getResult();
+		double expected = 110.0;
 
-		assertEquals(expected, actual);
+		assertEquals(expected, actual, DELTA);
 	}
 
 	/**
@@ -35,12 +36,12 @@ public class CalculatorManagerTest {
 	@Test
 	public void testComputeSubtraction() {
 		CalculatorManager manager = new CalculatorManager();
-		manager.compute(Operations.Subtract, "100", "10");
+		manager.compute(Operations.Subtract, 100, 10);
 
-		String actual = manager.toString();
-		String expected = "90";
+		double actual = manager.getResult();
+		double expected = 90.0;
 
-		assertEquals(expected, actual);
+		assertEquals(expected, actual, DELTA);
 	}
 
 	/**
@@ -50,19 +51,13 @@ public class CalculatorManagerTest {
 	 */
 	@Test
 	public void testComputeDivision() {
-		int precision = DivisionCommand.DECIMAL_PRECISION;
 		CalculatorManager manager = new CalculatorManager();
-		manager.compute(Operations.Divide, "100", "10");
+		manager.compute(Operations.Divide, 100, 10);
 
-		String actual = manager.toString();
+		double actual = manager.getResult();
+		double expected = 10.0;
 
-		StringBuilder expected = new StringBuilder();
-		expected.append("10.");
-		for (int i = 0; i < precision; i++) {
-			expected.append("0");
-		}
-
-		assertEquals(expected.toString(), actual);
+		assertEquals(expected, actual, DELTA);
 	}
 
 	/**
@@ -73,12 +68,12 @@ public class CalculatorManagerTest {
 	@Test
 	public void testComputeMultiplication() {
 		CalculatorManager manager = new CalculatorManager();
-		manager.compute(Operations.Multiply, "100", "10");
+		manager.compute(Operations.Multiply, 100, 10);
 
-		String actual = manager.toString();
-		String expected = "1000";
+		double actual = manager.getResult();
+		double expected = 1000.0;
 
-		assertEquals(expected, actual);
+		assertEquals(expected, actual, DELTA);
 	}
 
 	/**
@@ -89,12 +84,12 @@ public class CalculatorManagerTest {
 	@Test
 	public void testComputePower() {
 		CalculatorManager manager = new CalculatorManager();
-		manager.compute(Operations.Power, "10", "2");
+		manager.compute(Operations.Power, 2, 10);
 
-		String actual = manager.toString();
-		String expected = "100";
+		double actual = manager.getResult();
+		double expected = 1024.0;
 
-		assertEquals(expected, actual);
+		assertEquals(expected, actual, DELTA);
 	}
 
 }

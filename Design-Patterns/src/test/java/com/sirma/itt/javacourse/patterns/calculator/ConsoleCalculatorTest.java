@@ -44,7 +44,7 @@ public class ConsoleCalculatorTest {
 		c.run();
 
 		String actual = c.getResult();
-		String expected = "15";
+		String expected = "15.0";
 
 		assertEquals(expected, actual);
 	}
@@ -60,12 +60,7 @@ public class ConsoleCalculatorTest {
 		c.run();
 
 		String actual = c.getResult();
-		StringBuilder expected = new StringBuilder();
-
-		expected.append("2.5");
-		for (int i = 1; i < DivisionCommand.DECIMAL_PRECISION; i++) {
-			expected.append("0");
-		}
+		String expected = "2.5";
 
 		assertEquals(expected.toString(), actual);
 	}
@@ -81,7 +76,7 @@ public class ConsoleCalculatorTest {
 		c.run();
 
 		String actual = c.getResult();
-		String expected = "50";
+		String expected = "50.0";
 
 		assertEquals(expected, actual);
 	}
@@ -97,7 +92,7 @@ public class ConsoleCalculatorTest {
 		c.run();
 
 		String actual = c.getResult();
-		String expected = "-5";
+		String expected = "-5.0";
 
 		assertEquals(expected, actual);
 	}
@@ -113,7 +108,7 @@ public class ConsoleCalculatorTest {
 		c.run();
 
 		String actual = c.getResult();
-		String expected = "25";
+		String expected = "25.0";
 
 		assertEquals(expected, actual);
 	}
