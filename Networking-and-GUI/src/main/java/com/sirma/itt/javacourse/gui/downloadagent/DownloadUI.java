@@ -27,7 +27,11 @@ public class DownloadUI extends JFrame implements ActionListener, PropertyChange
 	private JButton startButton;
 	private JProgressBar progressBar;
 	private Task task;
+	private String pathToFile = "";
 
+	/**
+	 * Create the ui.
+	 */
 	public DownloadUI() {
 		super(WINDOW_TITLE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,10 +43,10 @@ public class DownloadUI extends JFrame implements ActionListener, PropertyChange
 		urlField = new JTextField(25);
 		fileChooser = new JFileChooser();
 
-		saveButton = new JButton("Save to...");
+		saveButton = new JButton("Browse...");
 		saveButton.addActionListener(this);
 
-		startButton = new JButton("Start downloading");
+		startButton = new JButton("Download");
 		startButton.addActionListener(this);
 
 		progressBar = new JProgressBar(0, 100);
@@ -71,19 +75,14 @@ public class DownloadUI extends JFrame implements ActionListener, PropertyChange
 			int returnVal = fileChooser.showSaveDialog(DownloadUI.this);
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fileChooser.getSelectedFile();
-				System.out.println(file.getPath());
-				// This is where a real application would save the file.
-				// log.append("Saving: " + file.getName() + "." + newline);
+				pathToFile = file.getPath();
+				System.out.println(pathToFile);
 			}
 		} else if (e.getSource() == startButton) {
-			task = new Task();
+			task = new Task(urlField.getText(), pathToFile);
 			task.addPropertyChangeListener(this);
 			task.execute();
 		}
-	}
-
-	public static void main(String[] args) {
-		new DownloadUI();
 	}
 
 	/**

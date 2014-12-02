@@ -26,7 +26,7 @@ public final class DownloadAgent {
 	 * @param urlAsString
 	 *            - url from which to download
 	 * @param filename
-	 *            - the filename in which to be downloaded
+	 *            - the filename in which to download
 	 * @throws IOException
 	 *             - exception
 	 */

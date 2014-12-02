@@ -2,6 +2,8 @@ package com.sirma.itt.javacourse.gui.downloadagent;
 
 import java.io.IOException;
 
+import javax.swing.SwingUtilities;
+
 /**
  * Shows how to use the Download agent.
  * 
@@ -23,13 +25,17 @@ public final class Run {
 	 *             - exception
 	 */
 	public static void main(String[] args) throws IOException {
-		// DownloadAgent.downloadFile("http://zetcode.com/img/ebk/javalayout/migrep.png");
 		// DownloadAgent
 		// .downloadFile("http://www.nakov.com/books/inetjava/Internet-Programming-with-Java-Book-Svetlin-Nakov-v1.1.pdf");
 
-		DownloadAgent
-				.downloadFile(
-						"https://docs.oracle.com/javase/tutorial/uiswing/examples/components/TopLevelDemoProject/src/components/TopLevelDemo.java",
-						"swing.java");
+		// DownloadAgent.downloadFile("http://zetcode.com/img/gui/javaswing/simplemenu.png",
+		// "1.png");
+		SwingUtilities.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				new DownloadUI();
+			}
+		});
 	}
 }
