@@ -226,3 +226,5 @@ java.lang.NumberFormatException
 [INFO ] 2014-10-29 11:48:25.695 [main] Singleton - Singleton is created
 [INFO ] 2014-11-14 13:48:56.609 [main] Singleton - Singleton is created
 [INFO ] 2014-11-14 13:50:50.359 [main] Singleton - Singleton is created
+[INFO ] 2014-12-02 15:31:54.067 [main] Singleton - Singleton is created
+[INFO ] 2014-12-02 15:35:05.802 [main] Singleton - Singleton is created

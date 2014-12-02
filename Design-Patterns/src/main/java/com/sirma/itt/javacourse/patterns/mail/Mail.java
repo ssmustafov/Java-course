@@ -1,6 +1,6 @@
 package com.sirma.itt.javacourse.patterns.mail;
 
-import com.sirma.itt.javacourse.regex.regex.EmailValidator;
+import java.util.regex.Pattern;
 
 /**
  * Represents a mail. Enables fluent interface for easer code constructing.
@@ -8,6 +8,7 @@ import com.sirma.itt.javacourse.regex.regex.EmailValidator;
  * @author smustafov
  */
 public class Mail {
+	private static final String EMAIL_REGEX = "([a-zA-Z])([a-zA-Z0-9.-]*)([a-zA-Z0-9])@([a-zA-Z])([a-zA-Z0-9.-]*)\\.([a-zA-Z]{2,})";
 
 	private String from;
 	private String to;
@@ -43,8 +44,8 @@ public class Mail {
 	 *            - from who is the mail
 	 */
 	public void setFrom(String from) {
-		if (!EmailValidator.isValidEmail(from)) {
-			throw new IllegalArgumentException("Invalid email 'From': " + from);
+		if (!Pattern.matches(EMAIL_REGEX, from)) {
+			throw new IllegalArgumentException("Invalid email in 'From': " + from);
 		}
 		this.from = from;
 	}
@@ -65,7 +66,7 @@ public class Mail {
 	 *            - to who to send this mail
 	 */
 	public void setTo(String to) {
-		if (!EmailValidator.isValidEmail(to)) {
+		if (!Pattern.matches(EMAIL_REGEX, from)) {
 			throw new IllegalArgumentException("Invalid email 'To': " + to);
 		}
 		this.to = to;
