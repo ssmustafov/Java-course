@@ -1,11 +1,15 @@
 package com.sirma.itt.javacourse.patterns.abstractFactory;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Holds methods for creating vehicle parts of a Truck. Concrete factory.
  * 
  * @author smustafov
  */
 public class TruckFactory implements VehicleFactory {
+	private static final Logger LOGGER = LogManager.getLogger(TruckFactory.class);
 
 	/**
 	 * {@inheritDoc}
@@ -59,12 +63,8 @@ public class TruckFactory implements VehicleFactory {
 
 		try {
 			obj = Class.forName(className).newInstance();
-		} catch (InstantiationException e) {
-			System.err.println(e.getMessage());
-		} catch (IllegalAccessException e) {
-			System.err.println(e.getMessage());
-		} catch (ClassNotFoundException e) {
-			System.err.println(e.getMessage());
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+			LOGGER.error(e.getMessage(), e);
 		}
 
 		return obj;

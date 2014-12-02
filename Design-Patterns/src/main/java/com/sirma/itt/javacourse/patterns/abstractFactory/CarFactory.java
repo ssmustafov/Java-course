@@ -63,15 +63,10 @@ public class CarFactory implements VehicleFactory {
 
 		try {
 			obj = Class.forName(className).newInstance();
-		} catch (InstantiationException e) {
-			LOGGER.error(e.getMessage(), e);
-		} catch (IllegalAccessException e) {
-			LOGGER.error(e.getMessage(), e);
-		} catch (ClassNotFoundException e) {
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			LOGGER.error(e.getMessage(), e);
 		}
 
 		return obj;
 	}
-
 }
