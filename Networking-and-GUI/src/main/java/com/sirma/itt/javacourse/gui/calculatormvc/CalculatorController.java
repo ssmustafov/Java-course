@@ -6,7 +6,7 @@ import com.sirma.itt.javacourse.patterns.calculator.Operations;
 /**
  * The controller of the calculator. It knows about the model and the view.
  * 
- * @author smustafov
+ * @author Sinan
  */
 public class CalculatorController {
 	private static final String ADDITION_OPERATION = "+";
@@ -17,13 +17,13 @@ public class CalculatorController {
 	private static final String CLEAR_OPERATION = "clear";
 	private static final String BACK_OPERATION = "b";
 	private static final String EQUALS_OPERATION = "=";
-	private final CalculatorModel model;
-	private final CalculatorView view;
-	private final CalculatorManager manager;
-	private Operations operation;
-	private boolean isNumberSwitched;
+	private CalculatorManager manager;
+	private CalculatorModel model;
+	private CalculatorView view;
 	private StringBuilder num1;
 	private StringBuilder num2;
+	private Operations operation;
+	private boolean isNumberSwitched;
 
 	/**
 	 * Creates a new calculator controller with given model and view.
@@ -36,13 +36,11 @@ public class CalculatorController {
 	public CalculatorController(CalculatorModel model, CalculatorView view) {
 		this.model = model;
 		this.view = view;
-		this.manager = new CalculatorManager();
-		this.operation = null;
-		this.isNumberSwitched = false;
-		this.num1 = new StringBuilder();
-		this.num2 = new StringBuilder();
-
-		this.updateView(this.model, this.view);
+		num1 = new StringBuilder();
+		num2 = new StringBuilder();
+		operation = null;
+		isNumberSwitched = false;
+		manager = new CalculatorManager();
 	}
 
 	/**
@@ -54,108 +52,99 @@ public class CalculatorController {
 	 *            - the calculator view
 	 */
 	private void updateView(CalculatorModel model, CalculatorView view) {
-		String value = model.toString();
-
-		if (hasZeroFraction(value)) {
-			value = removeZeroFraction(value);
-		}
-
 		if (view != null) {
+			String value = model.toString();
 			view.setFieldText(value);
 		}
 	}
 
 	/**
-	 * Checks if the string's last char is zero (in double always have .0).
-	 * 
-	 * @param value
-	 *            - the string to be checked
-	 * @return - true if it has '.0'; otherwise false
+	 * Calculates the two numbers in the calculator.
 	 */
-	private boolean hasZeroFraction(String value) {
-		if (value.charAt(value.length() - 1) == '0') {
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * Removes '.0' fraction in the number.
-	 * 
-	 * @param value
-	 *            - the value from which zero fraction to be removed
-	 * @return new string with removed zero fraction
-	 */
-	private String removeZeroFraction(String value) {
-		String result = value.substring(0, value.length() - 2);
-		return result;
-	}
-
-	/**
-	 * Resets the StringBuilders num1 and num2.
-	 */
-	private void resetNumbers() {
+	private void calculate() {
+		double a = Double.parseDouble(num1.toString());
+		double b = Double.parseDouble(num2.toString());
+		double result = manager.compute(operation, a, b);
+		model.setValue(result);
 		num1.setLength(0);
 		num2.setLength(0);
+		num1.append(result);
+	}
+
+	/**
+	 * Resets the calculator.
+	 */
+	private void resetCalculator() {
+		num1.setLength(0);
+		num2.setLength(0);
+		operation = null;
+		isNumberSwitched = false;
+		model.setValue(0);
+	}
+
+	/**
+	 * Process the given operation.
+	 * 
+	 * @param operation
+	 *            - the calculator operation to process
+	 */
+	private void evaluateOperation(Operations operation) {
+		if (isNumberSwitched) {
+			calculate();
+		} else {
+			isNumberSwitched = true;
+		}
+		this.operation = operation;
+	}
+
+	/**
+	 * Reverts the last made change to the current number.
+	 */
+	private void revertChanges() {
+		if (!isNumberSwitched) {
+			num1.deleteCharAt(num1.length() - 1);
+			model.setValue(num1.toString());
+		} else {
+			num2.deleteCharAt(num2.length() - 1);
+			model.setValue(num2.toString());
+		}
 	}
 
 	/**
 	 * Processes the given command and does the calculation.
 	 * 
-	 * @param cmd
-	 *            - the command from the view
+	 * @param command
+	 *            - the command from the view to process
 	 */
-	public void processCommand(String cmd) {
-		if (EQUALS_OPERATION.equals(cmd)) {
-			double a = Double.parseDouble(num1.toString());
-			double b = Double.parseDouble(num2.toString());
-
-			double result = manager.compute(operation, a, b);
-			model.setValue(result);
-
-			resetNumbers();
-			num1.append(model.toString());
-
+	public void processCommand(String command) {
+		if (EQUALS_OPERATION.equals(command)) {
+			calculate();
 			isNumberSwitched = false;
-		} else if (CLEAR_OPERATION.equals(cmd)) {
-			resetNumbers();
-			operation = null;
-			isNumberSwitched = false;
-
-			model.setValue(CalculatorModel.INITIAL_VALUE);
-		} else if (BACK_OPERATION.equals(cmd)) {
-			if (!isNumberSwitched) {
-				num1.deleteCharAt(num1.length() - 1);
-				model.setValue(num1.toString());
-			} else {
-				num2.deleteCharAt(num2.length() - 1);
-				model.setValue(num2.toString());
-			}
-		} else if (ADDITION_OPERATION.equals(cmd)) {
-			operation = Operations.Add;
-			isNumberSwitched = true;
-		} else if (SUBTRACTION_OPERATION.equals(cmd)) {
-			operation = Operations.Subtract;
-			isNumberSwitched = true;
-		} else if (MULTIPLICATION_OPERATION.equals(cmd)) {
-			operation = Operations.Multiply;
-			isNumberSwitched = true;
-		} else if (DIVISION_OPERATION.equals(cmd)) {
-			operation = Operations.Divide;
-			isNumberSwitched = true;
-		} else if (POWERING_OPERATION.equals(cmd)) {
-			operation = Operations.Power;
-			isNumberSwitched = true;
+		} else if (CLEAR_OPERATION.equals(command)) {
+			resetCalculator();
+		} else if (BACK_OPERATION.equals(command)) {
+			revertChanges();
+		} else if (ADDITION_OPERATION.equals(command)) {
+			evaluateOperation(Operations.Add);
+		} else if (SUBTRACTION_OPERATION.equals(command)) {
+			evaluateOperation(Operations.Subtract);
+		} else if (DIVISION_OPERATION.equals(command)) {
+			evaluateOperation(Operations.Divide);
+		} else if (MULTIPLICATION_OPERATION.equals(command)) {
+			evaluateOperation(Operations.Multiply);
+		} else if (POWERING_OPERATION.equals(command)) {
+			evaluateOperation(Operations.Power);
 		} else {
 			if (!isNumberSwitched) {
-				num1.append(cmd);
+				num1.append(command);
 				model.setValue(num1.toString());
 			} else {
-				num2.append(cmd);
+				num2.append(command);
 				model.setValue(num2.toString());
 			}
 		}
 
 		updateView(model, view);
 	}
+
 }
