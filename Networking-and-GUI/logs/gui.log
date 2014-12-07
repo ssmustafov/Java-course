@@ -1,0 +1,13 @@
+[ERROR] 2014-12-07 19:59:39.249 [SwingWorker-pool-3-thread-1] DownloadTask - download_hd.php?filename=hd_distributor_optimum_releasing-DWEU.m2ts (The filename, directory name, or volume label syntax is incorrect)
+java.io.FileNotFoundException: download_hd.php?filename=hd_distributor_optimum_releasing-DWEU.m2ts (The filename, directory name, or volume label syntax is incorrect)
+	at java.io.FileOutputStream.open(Native Method) ~[?:1.8.0_20]
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213) ~[?:1.8.0_20]
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:101) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.gui.downloadagent.DownloadTask.doInBackground(DownloadTask.java:58) [classes/:?]
+	at com.sirma.itt.javacourse.gui.downloadagent.DownloadTask.doInBackground(DownloadTask.java:1) [classes/:?]
+	at javax.swing.SwingWorker$1.call(SwingWorker.java:295) [?:1.8.0_20]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_20]
+	at javax.swing.SwingWorker.run(SwingWorker.java:334) [?:1.8.0_20]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_20]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_20]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_20]
