@@ -88,7 +88,7 @@ public class CalculatorController {
 	 * @param operation
 	 *            - the calculator operation to process
 	 */
-	private void evaluateOperation(Operations operation) {
+	private void processOperation(Operations operation) {
 		if (isNumberSwitched) {
 			calculate();
 		} else {
@@ -125,15 +125,15 @@ public class CalculatorController {
 		} else if (BACK_OPERATION.equals(command)) {
 			revertChanges();
 		} else if (ADDITION_OPERATION.equals(command)) {
-			evaluateOperation(Operations.Add);
+			processOperation(Operations.Add);
 		} else if (SUBTRACTION_OPERATION.equals(command)) {
-			evaluateOperation(Operations.Subtract);
+			processOperation(Operations.Subtract);
 		} else if (DIVISION_OPERATION.equals(command)) {
-			evaluateOperation(Operations.Divide);
+			processOperation(Operations.Divide);
 		} else if (MULTIPLICATION_OPERATION.equals(command)) {
-			evaluateOperation(Operations.Multiply);
+			processOperation(Operations.Multiply);
 		} else if (POWERING_OPERATION.equals(command)) {
-			evaluateOperation(Operations.Power);
+			processOperation(Operations.Power);
 		} else {
 			if (!isNumberSwitched) {
 				num1.append(command);
