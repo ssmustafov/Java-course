@@ -1,61 +1,67 @@
 package com.sirma.itt.javacourse.gui.downloadagent;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * Holds methods for downloading file from http.
+ * Holds method for downloading file from http url.
  * 
- * @author smustafov
+ * @author Sinan
  */
-public final class DownloadAgent {
-	private static final int BUFFER_SIZE = 4096;
+public class DownloadAgent {
+	private InputStream inputStream = null;
+	private URLConnection urlConnection = null;
+	private int contentLength = 0;
 
 	/**
-	 * Protects from instantiation.
-	 */
-	private DownloadAgent() {
-	}
-
-	/**
-	 * Downloads a given file from http url.
+	 * Downloads a file from given url.
 	 * 
-	 * @param urlAsString
-	 *            - url from which to download
-	 * @param filename
-	 *            - the filename in which to download
+	 * @param downloadUrl
+	 *            - the url from to download
 	 * @throws IOException
-	 *             - exception
+	 *             - thrown when I/O error occurs
 	 */
-	public static void downloadFile(String urlAsString, String filename) throws IOException {
-		InputStream inputStream = null;
-		FileOutputStream fileOutputStream = null;
+	public void downloadFile(String downloadUrl) throws IOException {
+		URL url = new URL(downloadUrl);
+		urlConnection = url.openConnection();
+		contentLength = urlConnection.getContentLength();
 
-		try {
-			URL url = new URL(urlAsString);
-			URLConnection urlConnection = url.openConnection();
-			inputStream = urlConnection.getInputStream();
-			fileOutputStream = new FileOutputStream(filename);
-
-			byte[] data = new byte[BUFFER_SIZE];
-			int bytesTransferred;
-
-			while ((bytesTransferred = inputStream.read(data, 0, BUFFER_SIZE)) != -1) {
-				fileOutputStream.write(data, 0, bytesTransferred);
-				fileOutputStream.flush();
-			}
-			System.out.println("Finished");
-		} finally {
-			if (inputStream != null) {
-				inputStream.close();
-			}
-			if (fileOutputStream != null) {
-				fileOutputStream.close();
-			}
-		}
+		inputStream = urlConnection.getInputStream();
 	}
 
+	/**
+	 * Closes the connection to the url.
+	 * 
+	 * @throws IOException
+	 *             - thrown when I/O exception occurs
+	 */
+	public void closeConnection() throws IOException {
+		if (inputStream != null) {
+			inputStream.close();
+		}
+		if (urlConnection != null) {
+			urlConnection = null;
+		}
+		contentLength = 0;
+	}
+
+	/**
+	 * Returns the {@code InputStream} of the connection to the file.
+	 * 
+	 * @return - the {@code InputStream} of the connection to the file
+	 */
+	public InputStream getInputStream() {
+		return inputStream;
+	}
+
+	/**
+	 * Returns the length of the file that will be download.
+	 * 
+	 * @return - the length of the file that will be download
+	 */
+	public int getContentLength() {
+		return contentLength;
+	}
 }
