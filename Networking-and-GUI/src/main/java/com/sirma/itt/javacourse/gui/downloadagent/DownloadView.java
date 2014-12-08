@@ -80,7 +80,7 @@ public class DownloadView extends JFrame implements ActionListener, PropertyChan
 				pathToFile = file.getPath();
 			}
 		} else {
-			urlField.setEditable(false);
+
 			String downloadUrl = urlField.getText();
 
 			if (downloadUrl.isEmpty()) {
@@ -99,6 +99,7 @@ public class DownloadView extends JFrame implements ActionListener, PropertyChan
 				DownloadTask task = new DownloadTask(this, downloadUrl, pathToFile);
 				task.addPropertyChangeListener(this);
 				task.execute();
+				urlField.setEditable(false);
 			} catch (Exception ex) {
 				JOptionPane.showMessageDialog(this, "Error downloading: " + ex.getMessage(),
 						"Error", JOptionPane.ERROR_MESSAGE);

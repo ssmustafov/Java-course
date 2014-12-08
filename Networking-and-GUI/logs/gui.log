@@ -11,3 +11,17 @@ java.io.FileNotFoundException: download_hd.php?filename=hd_distributor_optimum_r
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_20]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_20]
 	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_20]
+[ERROR] 2014-12-08 12:36:31.587 [SwingWorker-pool-3-thread-1] DownloadTask - no protocol: aasddasfasfafafafafafsafafafsfafa
+java.net.MalformedURLException: no protocol: aasddasfasfafafafafafsafafafsfafa
+	at java.net.URL.<init>(URL.java:586) ~[?:1.8.0_20]
+	at java.net.URL.<init>(URL.java:483) ~[?:1.8.0_20]
+	at java.net.URL.<init>(URL.java:432) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.gui.downloadagent.DownloadAgent.downloadFile(DownloadAgent.java:27) ~[classes/:?]
+	at com.sirma.itt.javacourse.gui.downloadagent.DownloadTask.doInBackground(DownloadTask.java:52) [classes/:?]
+	at com.sirma.itt.javacourse.gui.downloadagent.DownloadTask.doInBackground(DownloadTask.java:1) [classes/:?]
+	at javax.swing.SwingWorker$1.call(SwingWorker.java:295) [?:1.8.0_20]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_20]
+	at javax.swing.SwingWorker.run(SwingWorker.java:334) [?:1.8.0_20]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_20]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_20]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_20]
