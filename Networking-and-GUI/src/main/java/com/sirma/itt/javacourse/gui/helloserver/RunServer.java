@@ -32,7 +32,6 @@ public final class RunServer {
 				try {
 					new ServerView();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
