@@ -3,6 +3,10 @@ package com.sirma.itt.javacourse.gui.helloserver;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.Socket;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -49,10 +53,18 @@ public class ClientView extends JFrame implements ActionListener {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public synchronized void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 		if (cmd.equals(CONNECT_MESSAGE)) {
 			startServerButton.setText(DISCONNECT_MESSAGE);
+			try (Socket socket = new Socket("localhost", 7002);
+					BufferedReader reader = new BufferedReader(new InputStreamReader(
+							socket.getInputStream()));) {
+				System.out.println(reader.readLine());
+				// socket.close();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		} else {
 			startServerButton.setText(CONNECT_MESSAGE);
 		}

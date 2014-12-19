@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.gui.helloserver;
 
+import java.io.IOException;
+
 import javax.swing.SwingUtilities;
 
 /**
@@ -8,6 +10,7 @@ import javax.swing.SwingUtilities;
  * @author Sinan
  */
 public final class RunServer {
+
 	/**
 	 * Protects from instantiation.
 	 */
@@ -26,7 +29,12 @@ public final class RunServer {
 
 			@Override
 			public void run() {
-				new ServerView();
+				try {
+					new ServerView();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 	}
