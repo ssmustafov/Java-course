@@ -25,3 +25,7 @@ java.net.MalformedURLException: no protocol: aasddasfasfafafafafafsafafafsfafa
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [?:1.8.0_20]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [?:1.8.0_20]
 	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_20]
+[ERROR] 2014-12-20 15:59:35.742 [Thread-1] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-20 15:59:36.258 [Thread-4] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-20 16:00:42.078 [Thread-1] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-20 16:00:42.078 [Thread-4] ServerListener - java.net.SocketException: socket closed

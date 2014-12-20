@@ -2,48 +2,48 @@ package com.sirma.itt.javacourse.gui.helloserver;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
+import java.io.IOException;
+import java.net.ConnectException;
+
 import org.junit.Test;
 
 /**
+ * Tests the Hello client-server.
+ * 
  * @author Sinan
  */
 public class ClientServerTest {
 
-	private ServerListener server;
-	private Client client;
-
-	/**
-	 * @throws java.lang.Exception
-	 *             - thrown if the server is closed
-	 */
-	@Before
-	public void setUp() throws Exception {
-		server = new ServerListener();
-		server.start();
-
-		client = new Client();
-		client.connectToServer();
-	}
-
-	/**
-	 * 
-	 */
-	@After
-	public void tearDown() {
-		server.stopServer();
-	}
-
 	/**
 	 * Tests if the received message in the client contains the word "Hello".
+	 * 
+	 * @throws IOException
+	 *             - not expected exception
 	 */
 	@Test
-	public void testGetReceivedMessage() {
+	public void testIfTheMessageContainsHello() throws IOException {
+		ServerListener server = new ServerListener();
+		server.start();
+		Client client = new Client();
+		client.connectToServer();
+		server.stopServer();
+
 		String actual = client.getReceivedMessage();
-		String expected = "Hello";
+		String expected = "Hello!";
 
 		assertTrue(actual.contains(expected));
+	}
+
+	/**
+	 * Tests the client with not running server socket.
+	 * 
+	 * @throws IOException
+	 *             - expected exception
+	 */
+	@Test(expected = ConnectException.class)
+	public void testWithNoRunningServerSocket() throws IOException {
+		Client client = new Client();
+		client.connectToServer();
 	}
 
 }
