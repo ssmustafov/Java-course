@@ -3,8 +3,6 @@ package com.sirma.itt.javacourse.gui.helloserver;
 import javax.swing.SwingUtilities;
 
 /**
- * Shows how to use the client.
- * 
  * @author Sinan
  */
 public final class RunClient {

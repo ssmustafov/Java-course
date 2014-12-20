@@ -1,11 +1,9 @@
 package com.sirma.itt.javacourse.gui.helloserver;
 
-import java.io.IOException;
-
 import javax.swing.SwingUtilities;
 
 /**
- * Shows how to use the server.
+ * Shows how use the server.
  * 
  * @author Sinan
  */
@@ -29,11 +27,7 @@ public final class RunServer {
 
 			@Override
 			public void run() {
-				try {
-					new ServerView();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				new ServerView();
 			}
 		});
 	}
