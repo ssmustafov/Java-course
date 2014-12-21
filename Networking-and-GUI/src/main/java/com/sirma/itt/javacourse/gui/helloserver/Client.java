@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
+import com.sirma.itt.javacourse.gui.utils.SocketUtils;
+
 /**
  * Communicates with server socket and reads from its stream.
  * 
@@ -29,7 +31,7 @@ public class Client {
 	 *             - thrown when the server socket is closed.
 	 */
 	public void connectToServer() throws IOException {
-		try (Socket socket = new Socket("localhost", 7002);
+		try (Socket socket = SocketUtils.openSocket();
 				BufferedReader in = new BufferedReader(new InputStreamReader(
 						socket.getInputStream()));) {
 			receivedMessage = in.readLine();

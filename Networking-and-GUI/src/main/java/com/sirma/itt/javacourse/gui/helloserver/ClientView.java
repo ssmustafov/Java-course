@@ -19,7 +19,8 @@ import javax.swing.JTextArea;
  */
 public class ClientView extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
-	private static final String NO_SERVER_ON_THAT_PORT_MESSAGE = "There is no running server on that port";
+	// private static final String NO_SERVER_ON_THAT_PORT_MESSAGE =
+	// "There is no running server on that port";
 	private static final String WINDOW_TITLE = "Client";
 	private static final String CONNECT_MESSAGE = "Connect";
 	private static final int WINDOW_WIDTH = 400;
@@ -63,8 +64,10 @@ public class ClientView extends JFrame implements ActionListener {
 				client.connectToServer();
 
 				consoleArea.append(client.getReceivedMessage() + System.lineSeparator());
+				consoleArea.append("Closed the connection with the server."
+						+ System.lineSeparator());
 			} catch (IOException e1) {
-				JOptionPane.showMessageDialog(this, NO_SERVER_ON_THAT_PORT_MESSAGE, "Error",
+				JOptionPane.showMessageDialog(this, e1.getMessage(), "Error",
 						JOptionPane.ERROR_MESSAGE);
 			}
 		}

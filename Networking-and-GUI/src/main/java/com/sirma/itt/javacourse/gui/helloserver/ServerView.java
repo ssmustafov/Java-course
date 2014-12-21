@@ -23,7 +23,7 @@ public class ServerView extends JFrame implements ActionListener {
 	private static final int WINDOW_HEIGHT = 200;
 	private JButton button;
 	private JTextArea consoleArea;
-	private ServerListener serverThread;
+	private ServerListener serverListener;
 
 	/**
 	 * Creates a new server UI.
@@ -48,8 +48,8 @@ public class ServerView extends JFrame implements ActionListener {
 		add(scrollPane, BorderLayout.CENTER);
 
 		setVisible(true);
-		serverThread = new ServerListener();
-		serverThread.start();
+		serverListener = new ServerListener();
+		serverListener.start();
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class ServerView extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals(STOP_SERVER_MESSAGE)) {
-			serverThread.stopServer();
+			serverListener.stopServer();
 			dispose();
 		}
 	}

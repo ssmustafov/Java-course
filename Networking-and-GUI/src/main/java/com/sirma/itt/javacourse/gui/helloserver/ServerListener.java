@@ -7,6 +7,8 @@ import java.net.Socket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.sirma.itt.javacourse.gui.utils.SocketUtils;
+
 /**
  * Represents a thread. Opens a server socket and infinitely accepts clients until its stopServer
  * method is invoked.
@@ -23,10 +25,11 @@ public class ServerListener extends Thread {
 	 */
 	private void bindServerSocket() {
 		try {
-			serverSocket = new ServerSocket(7002);
+			serverSocket = SocketUtils.openServerSocket();
+			// view.appendToConsole("Server started to listening at port: "
+			// + serverSocket.getLocalPort());
 		} catch (IOException e) {
-			LOGGER.error("Cannot start to listen on port 7002", e);
-			System.exit(-1);
+			LOGGER.error(e.getMessage(), e);
 		}
 	}
 
@@ -40,10 +43,11 @@ public class ServerListener extends Thread {
 		while (!isClosed) {
 			try {
 				Socket socket = serverSocket.accept();
+				// view.appendToConsole("Accepted new client.");
 				ServerProtocol client = new ServerProtocol(socket);
 				client.start();
 			} catch (IOException e) {
-				LOGGER.error(e);
+				LOGGER.info(e);
 			}
 		}
 	}

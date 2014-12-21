@@ -29,3 +29,28 @@ java.net.MalformedURLException: no protocol: aasddasfasfafafafafafsafafafsfafa
 [ERROR] 2014-12-20 15:59:36.258 [Thread-4] ServerListener - java.net.SocketException: socket closed
 [ERROR] 2014-12-20 16:00:42.078 [Thread-1] ServerListener - java.net.SocketException: socket closed
 [ERROR] 2014-12-20 16:00:42.078 [Thread-4] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 14:23:29.362 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 14:29:31.869 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 14:42:38.707 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 14:43:22.031 [Thread-3] ServerListener - [Ljava.lang.StackTraceElement;@3d0ef29d
+[ERROR] 2014-12-21 14:44:43.275 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 15:00:29.044 [Thread-3] ServerListener - Cannot start to listen on port 7002
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method) ~[?:1.8.0_20]
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106) ~[?:1.8.0_20]
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:382) ~[?:1.8.0_20]
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190) ~[?:1.8.0_20]
+	at java.net.ServerSocket.bind(ServerSocket.java:375) ~[?:1.8.0_20]
+	at java.net.ServerSocket.<init>(ServerSocket.java:237) ~[?:1.8.0_20]
+	at java.net.ServerSocket.<init>(ServerSocket.java:128) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.gui.helloserver.ServerListener.bindServerSocket(ServerListener.java:47) [classes/:?]
+	at com.sirma.itt.javacourse.gui.helloserver.ServerListener.run(ServerListener.java:61) [classes/:?]
+[ERROR] 2014-12-21 15:11:14.330 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 15:11:29.970 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 15:12:47.612 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 15:17:41.232 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 15:22:44.703 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 15:29:09.110 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-21 15:37:50.753 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[INFO ] 2014-12-21 15:38:48.525 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[INFO ] 2014-12-21 15:54:27.138 [Thread-3] ServerListener - java.net.SocketException: socket closed
