@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.sirma.itt.javacourse.gui.utils.SocketUtils;
 
 /**
@@ -16,6 +19,7 @@ import com.sirma.itt.javacourse.gui.utils.SocketUtils;
  * @author Sinan
  */
 public class Server {
+	private static final Logger LOGGER = LogManager.getLogger(Server.class);
 	public static final String CLOSING_SERVER_MESSAGE = "end";
 	private List<Socket> clients;
 	private ServerSocket serverSocket;
@@ -47,6 +51,7 @@ public class Server {
 			acceptClients();
 		} catch (IOException e) {
 			view.showErrorDialog(e.getMessage());
+			LOGGER.error(e.getMessage(), e);
 		}
 	}
 
@@ -71,6 +76,7 @@ public class Server {
 			} catch (IOException e) {
 				view.appendMessageToConsole(">> SERVER IS CLOSED");
 				view.getButton().setEnabled(false);
+				LOGGER.info(e.getMessage(), e);
 				break;
 			}
 		}
@@ -89,6 +95,7 @@ public class Server {
 				serverSocket.close();
 			} catch (IOException e) {
 				view.showErrorDialog("There was a problem stopping the server.");
+				LOGGER.error(e.getMessage(), e);
 			}
 		}
 		if (currentClient != null) {
@@ -96,6 +103,7 @@ public class Server {
 				currentClient.close();
 			} catch (IOException e) {
 				view.showErrorDialog("There was a problem disconnecting from the server.");
+				LOGGER.error(e.getMessage(), e);
 			}
 		}
 		clients.clear();

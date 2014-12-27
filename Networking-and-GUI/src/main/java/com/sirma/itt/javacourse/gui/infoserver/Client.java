@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.sirma.itt.javacourse.gui.utils.SocketUtils;
 
 /**
@@ -13,6 +16,7 @@ import com.sirma.itt.javacourse.gui.utils.SocketUtils;
  * @author Sinan
  */
 public class Client extends Thread {
+	private static final Logger LOGGER = LogManager.getLogger(Client.class);
 	private Socket socket;
 	private BufferedReader reader;
 	private View view;
@@ -41,6 +45,7 @@ public class Client extends Thread {
 		} catch (IOException e) {
 			view.showErrorDialog(e.getMessage());
 			interrupt();
+			LOGGER.error(e.getMessage(), e);
 		}
 	}
 
@@ -50,8 +55,10 @@ public class Client extends Thread {
 			readLoop();
 		} catch (NoSocketException e) {
 			view.showErrorDialog(e.getMessage());
+			LOGGER.error(e.getMessage(), e);
 		} catch (IOException e) {
 			view.showErrorDialog("An error occured during reading from the server.");
+			LOGGER.error(e.getMessage(), e);
 		} finally {
 			try {
 				if (socket != null) {
@@ -62,7 +69,7 @@ public class Client extends Thread {
 				}
 				view.getButton().setEnabled(true);
 			} catch (IOException e) {
-				e.printStackTrace();
+				LOGGER.error(e.getMessage(), e);
 			}
 		}
 	}

@@ -5,6 +5,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Holds a list of connected clients to the server in a client/server application. In a thread it
  * notifies all the clients, except the newly connected client.
@@ -12,6 +15,7 @@ import java.util.List;
  * @author Sinan
  */
 public class ClientNotifier implements Runnable {
+	private static final Logger LOGGER = LogManager.getLogger(ClientNotifier.class);
 	private List<Socket> clients;
 
 	/**
@@ -39,7 +43,7 @@ public class ClientNotifier implements Runnable {
 					writer.println("A new client connected - #" + clients.size());
 				}
 			} catch (IOException e) {
-				e.printStackTrace();
+				LOGGER.error(e.getMessage(), e);
 			}
 		}
 	}
