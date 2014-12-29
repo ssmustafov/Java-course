@@ -54,3 +54,27 @@ java.net.BindException: Address already in use: JVM_Bind
 [ERROR] 2014-12-21 15:37:50.753 [Thread-3] ServerListener - java.net.SocketException: socket closed
 [INFO ] 2014-12-21 15:38:48.525 [Thread-3] ServerListener - java.net.SocketException: socket closed
 [INFO ] 2014-12-21 15:54:27.138 [Thread-3] ServerListener - java.net.SocketException: socket closed
+[ERROR] 2014-12-29 12:54:46.059 [main] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method) ~[?:1.8.0_20]
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131) ~[?:1.8.0_20]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:404) ~[?:1.8.0_20]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.8.0_20]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545) ~[?:1.8.0_20]
+	at java.net.ServerSocket.accept(ServerSocket.java:513) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.gui.reverseserver.Server.acceptClient(Server.java:68) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.Server.startServer(Server.java:54) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.ServerView.<init>(ServerView.java:60) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.RunServer.main(RunServer.java:24) [classes/:?]
+[ERROR] 2014-12-29 14:19:43.173 [main] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method) ~[?:1.8.0_20]
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131) ~[?:1.8.0_20]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:404) ~[?:1.8.0_20]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.8.0_20]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545) ~[?:1.8.0_20]
+	at java.net.ServerSocket.accept(ServerSocket.java:513) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.gui.reverseserver.Server.acceptClient(Server.java:68) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.Server.startServer(Server.java:54) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.ServerView.<init>(ServerView.java:60) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.RunServer.main(RunServer.java:24) [classes/:?]

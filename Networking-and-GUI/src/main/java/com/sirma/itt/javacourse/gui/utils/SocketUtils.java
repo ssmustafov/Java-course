@@ -5,6 +5,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
+ * Holds utility methods for opening a sockets for a client and a server.
+ * 
  * @author Sinan
  */
 public final class SocketUtils {
