@@ -122,6 +122,7 @@ public class Client extends Thread {
 				message = null;
 			}
 		} catch (SocketException e) {
+			view.showErrorDialog("No running server");
 			LOGGER.error(e.getMessage(), e);
 		} catch (IOException e) {
 			LOGGER.error(e.getMessage(), e);
