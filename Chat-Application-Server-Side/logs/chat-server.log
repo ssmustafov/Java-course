@@ -337,3 +337,27 @@ java.net.SocketException: socket closed
 	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:102) [classes/:?]
 	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:76) [classes/:?]
 	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_20]
+[INFO ] 2015-01-04 19:01:21.106 [AWT-EventQueue-0] Server - Closed the server
+[ERROR] 2015-01-04 19:01:21.106 [Thread-4] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method) ~[?:1.8.0_20]
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131) ~[?:1.8.0_20]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:404) ~[?:1.8.0_20]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.8.0_20]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545) ~[?:1.8.0_20]
+	at java.net.ServerSocket.accept(ServerSocket.java:513) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:102) [classes/:?]
+	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:76) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_20]
+[INFO ] 2015-01-04 19:04:16.244 [AWT-EventQueue-0] Server - Closed the server
+[ERROR] 2015-01-04 19:04:16.244 [Thread-4] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.DualStackPlainSocketImpl.accept0(Native Method) ~[?:1.8.0_20]
+	at java.net.DualStackPlainSocketImpl.socketAccept(DualStackPlainSocketImpl.java:131) ~[?:1.8.0_20]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:404) ~[?:1.8.0_20]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.8.0_20]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:545) ~[?:1.8.0_20]
+	at java.net.ServerSocket.accept(ServerSocket.java:513) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:102) [classes/:?]
+	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:76) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_20]
