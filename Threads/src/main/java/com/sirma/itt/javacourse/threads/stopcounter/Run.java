@@ -24,7 +24,7 @@ public final class Run {
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		StopCounterThread stopCounter = new StopCounterThread(20000);
+		StopCounterThread stopCounter = new StopCounterThread(20);
 		Thread t = new Thread(stopCounter);
 		t.start();
 

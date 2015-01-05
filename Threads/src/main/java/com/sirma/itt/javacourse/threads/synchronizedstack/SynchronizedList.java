@@ -1,5 +1,8 @@
 package com.sirma.itt.javacourse.threads.synchronizedstack;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Holds list of elements of type <code>Object</code> with fixed size. Thread safe.
  * 
@@ -7,6 +10,7 @@ package com.sirma.itt.javacourse.threads.synchronizedstack;
  */
 public class SynchronizedList {
 
+	private static final Logger LOGGER = LogManager.getLogger(SynchronizedList.class);
 	private Object[] array;
 	private int index;
 
@@ -38,7 +42,7 @@ public class SynchronizedList {
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				LOGGER.error("Waiting interrupted", e);
 			}
 		}
 
@@ -56,7 +60,7 @@ public class SynchronizedList {
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				LOGGER.error("Waiting interrupted", e);
 			}
 		}
 
@@ -104,7 +108,7 @@ public class SynchronizedList {
 	 */
 	@Override
 	public String toString() {
-		StringBuilder result = new StringBuilder();
+		StringBuffer result = new StringBuffer();
 		result.append("[");
 
 		for (int i = 0; i < index - 1; i++) {

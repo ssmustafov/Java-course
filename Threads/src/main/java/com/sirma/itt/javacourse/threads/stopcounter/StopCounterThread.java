@@ -9,6 +9,8 @@ import org.apache.logging.log4j.Logger;
  * @author smustafov
  */
 public class StopCounterThread implements Runnable {
+
+	public static final int SLEEP_TIME = 500;
 	private static final Logger LOGGER = LogManager.getLogger(StopCounterThread.class);
 	private long max;
 	private long currentCounter = 0;
@@ -30,7 +32,7 @@ public class StopCounterThread implements Runnable {
 	public void run() {
 		try {
 			while (true) {
-				Thread.sleep(500);
+				Thread.sleep(SLEEP_TIME);
 
 				if (Thread.currentThread().isInterrupted() || currentCounter == max) {
 					break;
