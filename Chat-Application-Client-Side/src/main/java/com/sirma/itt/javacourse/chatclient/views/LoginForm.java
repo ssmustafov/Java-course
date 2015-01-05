@@ -140,6 +140,10 @@ public class LoginForm implements ActionListener {
 		String cmd = e.getActionCommand();
 		if ("login".equals(cmd)) {
 			String nickname = nicknameField.getText();
+			if (nickname.isEmpty()) {
+				showNoticeDialog("The nickname is empty.");
+				return;
+			}
 			if (!Validator.isValidNickname(nickname)) {
 				showNoticeDialog("The nickname contains forbidden symbols. Can consist of letters, numbers, dash and underscore.");
 				return;
@@ -150,6 +154,12 @@ public class LoginForm implements ActionListener {
 						+ nickname.length());
 				return;
 			}
+
+			progressBar.setVisible(true);
+			nicknameField.setEnabled(false);
+			loginButton.setEnabled(false);
+			langList.setEnabled(false);
+
 		}
 	}
 

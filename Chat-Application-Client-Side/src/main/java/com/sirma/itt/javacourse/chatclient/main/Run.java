@@ -1,6 +1,6 @@
 package com.sirma.itt.javacourse.chatclient.main;
 
-import com.sirma.itt.javacourse.chatclient.views.ClientView;
+import com.sirma.itt.javacourse.chatclient.views.LoginForm;
 
 /**
  * Starts a new client for the chat application.
@@ -23,7 +23,7 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		new ClientView();
-		// new LoginForm();
+		// new ClientView();
+		new LoginForm();
 	}
 }

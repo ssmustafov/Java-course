@@ -19,6 +19,7 @@ public class Client {
 	private Socket client;
 	private QueryHandler queryHandler;
 	private View view;
+	private String nickname;
 
 	/**
 	 * @param view
@@ -43,7 +44,17 @@ public class Client {
 		ClientThread t = new ClientThread(queryHandler, view);
 		t.start();
 
-		queryHandler.sendQuery(new Query(QueryTypes.Login, "Sinan"));
+		queryHandler.sendQuery(new Query(QueryTypes.Login, nickname));
+	}
+
+	/**
+	 * Sets the client's nickname.
+	 * 
+	 * @param nickname
+	 *            - the nickname to be set
+	 */
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	/**
