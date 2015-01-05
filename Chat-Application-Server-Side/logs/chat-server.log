@@ -361,3 +361,14 @@ java.net.SocketException: socket closed
 	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:102) [classes/:?]
 	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:76) [classes/:?]
 	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_20]
+[INFO ] 2015-01-05 10:37:01.282 [AWT-EventQueue-0] Server - Closed the server
+[ERROR] 2015-01-05 10:37:01.282 [Thread-4] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainSocketImpl.socketAccept(Native Method) ~[?:1.7.0_60]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398) ~[?:1.7.0_60]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.7.0_60]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530) ~[?:1.7.0_60]
+	at java.net.ServerSocket.accept(ServerSocket.java:498) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:102) [classes/:?]
+	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:76) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
