@@ -6,14 +6,14 @@ import com.sirma.itt.javacourse.chathelper.utils.Query;
 /**
  * @author smustafov
  */
-public class SendMessageCommand extends ClientCommand {
+public class SentMessageCommand extends ClientCommand {
 
 	private View view;
 
 	/**
 	 * @param view
 	 */
-	public SendMessageCommand(View view) {
+	public SentMessageCommand(View view) {
 		super(view);
 		this.view = view;
 	}

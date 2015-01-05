@@ -10,6 +10,8 @@ import com.sirma.itt.javacourse.chathelper.utils.QueryHandler;
 import com.sirma.itt.javacourse.chathelper.utils.QueryTypes;
 
 /**
+ * Holds methods for connecting a client to the server.
+ * 
  * @author Sinan
  */
 public class Client {
@@ -44,6 +46,12 @@ public class Client {
 		queryHandler.sendQuery(new Query(QueryTypes.Login, "Sinan"));
 	}
 
+	/**
+	 * Sends a message to the all clients of the chat application.
+	 * 
+	 * @param message
+	 *            - the message to be send
+	 */
 	public void sendMessage(String message) {
 		queryHandler.sendQuery(new Query(QueryTypes.SendMessage, message));
 	}

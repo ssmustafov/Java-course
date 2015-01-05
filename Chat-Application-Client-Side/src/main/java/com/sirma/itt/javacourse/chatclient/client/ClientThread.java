@@ -7,6 +7,8 @@ import com.sirma.itt.javacourse.chathelper.utils.Query;
 import com.sirma.itt.javacourse.chathelper.utils.QueryHandler;
 
 /**
+ * Reads {@link Query} - queries sent from the server.
+ * 
  * @author Sinan
  */
 public class ClientThread extends Thread {
@@ -15,8 +17,12 @@ public class ClientThread extends Thread {
 	private View view;
 
 	/**
+	 * Creates a new client thread with given query handler and view of the client.
+	 * 
 	 * @param queryHandler
+	 *            - the query handler
 	 * @param view
+	 *            - the view of the client
 	 */
 	public ClientThread(QueryHandler queryHandler, View view) {
 		this.queryHandler = queryHandler;
@@ -38,7 +44,10 @@ public class ClientThread extends Thread {
 	}
 
 	/**
+	 * Handles the queries sent from the server.
+	 * 
 	 * @param query
+	 *            - the {@link Query} sent from the server
 	 */
 	private void handleServerQuery(Query query) {
 		ClientCommand command = ClientCommandFactory.createCommand(view, query);

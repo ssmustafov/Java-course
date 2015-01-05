@@ -2,8 +2,11 @@ package com.sirma.itt.javacourse.chatclient.commands;
 
 import com.sirma.itt.javacourse.chatclient.views.View;
 import com.sirma.itt.javacourse.chathelper.utils.Query;
+import com.sirma.itt.javacourse.chathelper.utils.QueryTypes;
 
 /**
+ * Holds method for creating {@link ClientCommand}s.
+ * 
  * @author smustafov
  */
 public final class ClientCommandFactory {
@@ -16,9 +19,13 @@ public final class ClientCommandFactory {
 	}
 
 	/**
+	 * Creates a new {@link ClientCommand} with given view of the client and {@link Query}.
+	 * 
 	 * @param view
+	 *            - the view of the client
 	 * @param query
-	 * @return
+	 *            - the query on which the command is depending
+	 * @return - client command handler depending on the {@link QueryTypes}
 	 */
 	public static ClientCommand createCommand(View view, Query query) {
 		ClientCommand command = null;
@@ -27,8 +34,11 @@ public final class ClientCommandFactory {
 			case Success:
 				command = new SuccesCommand(view);
 				break;
-			case SendMessage:
-				command = new SendMessageCommand(view);
+			case SentMessage:
+				command = new SentMessageCommand(view);
+				break;
+			case ClientConnected:
+				command = new ClientConnectedCommand(view);
 				break;
 
 			default:

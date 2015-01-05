@@ -70,5 +70,8 @@ public class LoginCommand extends ServerCommand {
 		getServerView().appendMessageToConsole(bundle.getString("startedThread") + nickname);
 
 		getServerView().addOnlineClient(nickname);
+
+		getServerDispatcher().dispatchQuery(
+				new Query(QueryTypes.ClientConnected, client.getNickname()));
 	}
 }

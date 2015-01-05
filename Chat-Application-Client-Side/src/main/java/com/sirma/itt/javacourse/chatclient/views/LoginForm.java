@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
+ * Represents the login form of the client chat application.
+ * 
  * @author Sinan
  */
 public class LoginForm implements ActionListener {
@@ -22,6 +24,9 @@ public class LoginForm implements ActionListener {
 
 	// private JProgressBar progressBar;
 
+	/**
+	 * Creates a new login form.
+	 */
 	public LoginForm() {
 		frame = new JFrame();
 		frame.setTitle("Chat Login Form");
@@ -75,10 +80,6 @@ public class LoginForm implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-	}
-
-	public static void main(String[] args) {
-		new LoginForm();
 	}
 
 }

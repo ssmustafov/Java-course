@@ -28,7 +28,7 @@ public class SendMessageCommand extends ServerCommand {
 	public void execute(Client client) {
 		String clientMessage = clientQuery.getMessage();
 		String formattedMessage = String.format("<%s>: %s", client.getNickname(), clientMessage);
-		getServerDispatcher().dispatchQuery(new Query(QueryTypes.SendMessage, formattedMessage));
+		getServerDispatcher().dispatchQuery(new Query(QueryTypes.SentMessage, formattedMessage));
 	}
 
 }
