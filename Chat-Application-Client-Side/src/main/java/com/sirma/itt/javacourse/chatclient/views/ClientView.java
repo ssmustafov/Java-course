@@ -187,14 +187,4 @@ public class ClientView implements View, ActionListener {
 		onlineClientsList.setBorder(onlineClientsBorder);
 	}
 
-	// /**
-	// * Updates the text of the UI elements. Must be invoked when the locale is changed.
-	// */
-	// private void onLocaleChange() {
-	// startButton.setText(bundle.getString("start"));
-	// stopButton.setText(bundle.getString("stop"));
-	// labelLang.setText(bundle.getString("chooseLang"));
-	// labelPort.setText(bundle.getString("choosePort"));
-	// }
-
 }

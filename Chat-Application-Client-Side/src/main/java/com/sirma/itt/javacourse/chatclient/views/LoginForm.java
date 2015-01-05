@@ -10,10 +10,12 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 
 import com.sirma.itt.javacourse.chathelper.utils.ServerConfig;
+import com.sirma.itt.javacourse.chathelper.utils.Validator;
 
 /**
  * Represents the login form of the client chat application.
@@ -39,6 +41,7 @@ public class LoginForm implements ActionListener {
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(new GridBagLayout());
+		GridBagConstraints constraints = new GridBagConstraints();
 
 		createButtons();
 		createProgressBar();
@@ -46,8 +49,6 @@ public class LoginForm implements ActionListener {
 
 		JLabel label = new JLabel("Enter nickname:");
 		nicknameField = new JTextField(20);
-
-		GridBagConstraints constraints = new GridBagConstraints();
 
 		constraints.insets = new Insets(0, 0, 0, 0);
 		constraints.ipady = 0;
@@ -81,6 +82,26 @@ public class LoginForm implements ActionListener {
 		frame.getContentPane().add(progressBar, constraints);
 
 		frame.setVisible(true);
+	}
+
+	/**
+	 * Shows an error dialog with given message.
+	 * 
+	 * @param message
+	 *            - the message to be shown in the error dialog
+	 */
+	public void showErrorDialog(String message) {
+		JOptionPane.showMessageDialog(frame, message, "Error", JOptionPane.ERROR_MESSAGE);
+	}
+
+	/**
+	 * Shows a notice dialog with given message.
+	 * 
+	 * @param message
+	 *            - the message to be shown in the notice dialog
+	 */
+	public void showNoticeDialog(String message) {
+		JOptionPane.showMessageDialog(frame, message, "Notice", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	/**
@@ -118,8 +139,28 @@ public class LoginForm implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 		if ("login".equals(cmd)) {
-			progressBar.setVisible(true);
+			String nickname = nicknameField.getText();
+			if (!Validator.isValidNickname(nickname)) {
+				showNoticeDialog("The nickname contains forbidden symbols. Can consist of letters, numbers, dash and underscore.");
+				return;
+			}
+			if (nickname.length() > Validator.MAX_NICKNAME_LENGHT) {
+				showNoticeDialog("The max allowed nickname length is: "
+						+ Validator.MAX_NICKNAME_LENGHT + ". Your nickname's length is: "
+						+ nickname.length());
+				return;
+			}
 		}
 	}
+
+	// /**
+	// * Updates the text of the UI elements. Must be invoked when the locale is changed.
+	// */
+	// private void onLocaleChange() {
+	// startButton.setText(bundle.getString("start"));
+	// stopButton.setText(bundle.getString("stop"));
+	// labelLang.setText(bundle.getString("chooseLang"));
+	// labelPort.setText(bundle.getString("choosePort"));
+	// }
 
 }
