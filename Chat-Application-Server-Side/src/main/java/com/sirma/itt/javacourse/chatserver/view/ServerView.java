@@ -69,7 +69,14 @@ public class ServerView extends Observable implements View, ActionListener {
 		JScrollPane consoleScrollPane = new JScrollPane();
 		consoleScrollPane.setViewportView(consoleArea);
 
+		TitledBorder consoleBorder = BorderFactory.createTitledBorder("Server console");
+		consoleBorder.setTitleJustification(TitledBorder.LEFT);
+		consoleScrollPane.setBorder(consoleBorder);
+
 		JScrollPane listScrollPane = new JScrollPane(onlineClientsList);
+		TitledBorder onlineClientsBorder = BorderFactory.createTitledBorder("Online clients");
+		onlineClientsBorder.setTitleJustification(TitledBorder.CENTER);
+		listScrollPane.setBorder(onlineClientsBorder);
 
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.add(startButton);
@@ -211,10 +218,6 @@ public class ServerView extends Observable implements View, ActionListener {
 		consoleArea.setEditable(false);
 		DefaultCaret consoleCaret = (DefaultCaret) consoleArea.getCaret();
 		consoleCaret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
-
-		TitledBorder consoleBorder = BorderFactory.createTitledBorder("Server console");
-		consoleBorder.setTitleJustification(TitledBorder.LEFT);
-		consoleArea.setBorder(consoleBorder);
 	}
 
 	/**
@@ -254,10 +257,6 @@ public class ServerView extends Observable implements View, ActionListener {
 
 		onlineClientsList = new JList<String>(onlineClientsListModel);
 		onlineClientsList.setFixedCellWidth(ONLINE_CLIENTS_LIST_WIDTH);
-
-		TitledBorder onlineClientsBorder = BorderFactory.createTitledBorder("Online clients");
-		onlineClientsBorder.setTitleJustification(TitledBorder.LEFT);
-		onlineClientsList.setBorder(onlineClientsBorder);
 	}
 
 	/**

@@ -56,8 +56,14 @@ public class ClientView implements View, ActionListener {
 
 		JScrollPane consoleScrollPane = new JScrollPane();
 		consoleScrollPane.setViewportView(chatMessagesArea);
+		TitledBorder chatMessagesBorder = BorderFactory.createTitledBorder("Chat messages");
+		chatMessagesBorder.setTitleJustification(TitledBorder.CENTER);
+		consoleScrollPane.setBorder(chatMessagesBorder);
 
 		JScrollPane listScrollPane = new JScrollPane(onlineClientsList);
+		TitledBorder onlineClientsBorder = BorderFactory.createTitledBorder("Online clients");
+		onlineClientsBorder.setTitleJustification(TitledBorder.CENTER);
+		listScrollPane.setBorder(onlineClientsBorder);
 
 		clientField = new JTextField(35);
 		JPanel bottomPanel = new JPanel();
@@ -154,10 +160,6 @@ public class ClientView implements View, ActionListener {
 		chatMessagesArea.setEditable(false);
 		DefaultCaret consoleCaret = (DefaultCaret) chatMessagesArea.getCaret();
 		consoleCaret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
-
-		TitledBorder chatMessagesBorder = BorderFactory.createTitledBorder("Chat messages");
-		chatMessagesBorder.setTitleJustification(TitledBorder.CENTER);
-		chatMessagesArea.setBorder(chatMessagesBorder);
 	}
 
 	/**
@@ -181,10 +183,6 @@ public class ClientView implements View, ActionListener {
 
 		onlineClientsList = new JList<String>(onlineClientsListModel);
 		onlineClientsList.setFixedCellWidth(ONLINE_CLIENTS_LIST_WIDTH);
-
-		TitledBorder onlineClientsBorder = BorderFactory.createTitledBorder("Online clients");
-		onlineClientsBorder.setTitleJustification(TitledBorder.CENTER);
-		onlineClientsList.setBorder(onlineClientsBorder);
 	}
 
 }
