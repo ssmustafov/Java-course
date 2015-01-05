@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
 import javax.swing.text.DefaultCaret;
 
 import com.sirma.itt.javacourse.chatclient.client.Client;
@@ -152,6 +154,10 @@ public class ClientView implements View, ActionListener {
 		chatMessagesArea.setEditable(false);
 		DefaultCaret consoleCaret = (DefaultCaret) chatMessagesArea.getCaret();
 		consoleCaret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+
+		TitledBorder chatMessagesBorder = BorderFactory.createTitledBorder("Chat messages");
+		chatMessagesBorder.setTitleJustification(TitledBorder.CENTER);
+		chatMessagesArea.setBorder(chatMessagesBorder);
 	}
 
 	/**
@@ -175,6 +181,10 @@ public class ClientView implements View, ActionListener {
 
 		onlineClientsList = new JList<String>(onlineClientsListModel);
 		onlineClientsList.setFixedCellWidth(ONLINE_CLIENTS_LIST_WIDTH);
+
+		TitledBorder onlineClientsBorder = BorderFactory.createTitledBorder("Online clients");
+		onlineClientsBorder.setTitleJustification(TitledBorder.CENTER);
+		onlineClientsList.setBorder(onlineClientsBorder);
 	}
 
 	// /**
