@@ -215,7 +215,6 @@ public class ServerView extends Observable implements View, ActionListener {
 		TitledBorder consoleBorder = BorderFactory.createTitledBorder("Server console");
 		consoleBorder.setTitleJustification(TitledBorder.LEFT);
 		consoleArea.setBorder(consoleBorder);
-
 	}
 
 	/**
