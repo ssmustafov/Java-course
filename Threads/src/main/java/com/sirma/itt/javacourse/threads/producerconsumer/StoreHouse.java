@@ -3,7 +3,6 @@ package com.sirma.itt.javacourse.threads.producerconsumer;
 import java.util.LinkedList;
 import java.util.Queue;
 
-// TODO: have to use BlockingQueue, maybe?
 /**
  * Represents a storehouse. Thread safe.
  * 

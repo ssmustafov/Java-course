@@ -1,11 +1,16 @@
 package com.sirma.itt.javacourse.threads.producerconsumer;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Represents a consumer.
  * 
  * @author Sinan
  */
 public class Consumer extends Thread {
+
+	private static final Logger LOGGER = LogManager.getLogger(Consumer.class);
 	private static final int TIME_TO_WAIT = 3000;
 	private StoreHouse storeHouse;
 	private int time;
@@ -37,15 +42,15 @@ public class Consumer extends Thread {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void run() {
+	public synchronized void run() {
 		try {
 			while (true) {
 				String message = (String) storeHouse.get();
 				System.out.println(getName() + " : get -> " + message);
-				sleep(time);
+				wait(time);
 			}
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			LOGGER.error("Sleep interrupted", e);
 		}
 	}
 }

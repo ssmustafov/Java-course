@@ -1,5 +1,8 @@
 package com.sirma.itt.javacourse.threads.twocounters;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Counts numbers in given range.
  * 
@@ -7,6 +10,8 @@ package com.sirma.itt.javacourse.threads.twocounters;
  */
 public class RangeCounterThread extends Thread {
 
+	private static final Logger LOGGER = LogManager.getLogger(RangeCounterThread.class);
+	private static volatile boolean isStopped = false;
 	private long start;
 	private long end;
 
@@ -27,11 +32,22 @@ public class RangeCounterThread extends Thread {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void run() {
-		for (long i = start; i <= end; i++) {
-			System.out.print(Thread.currentThread().getName());
-			System.out.print(" #");
-			System.out.println(i);
+	public synchronized void run() {
+		try {
+			long counter = start;
+			while (counter <= end) {
+				if (isStopped) {
+					break;
+				}
+				sleep(500);
+				System.out.print(Thread.currentThread().getName());
+				System.out.print(" #");
+				System.out.println(counter);
+				counter++;
+			}
+			isStopped = true;
+		} catch (InterruptedException e) {
+			LOGGER.error(e.getMessage(), e);
 		}
 	}
 }

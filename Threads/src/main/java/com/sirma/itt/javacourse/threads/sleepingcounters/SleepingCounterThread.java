@@ -1,10 +1,17 @@
 package com.sirma.itt.javacourse.threads.sleepingcounters;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
+ * Counts numbers in given range. Uses {@link Thread#sleep(long)}.
+ * 
  * @author smustafov
  */
 public class SleepingCounterThread extends Thread {
-	private static final int SLEEP_TIME = 2000;
+
+	private static final Logger LOGGER = LogManager.getLogger(SleepingCounterThread.class);
+	private static final int SLEEP_TIME = 500;
 	private long start;
 	private long end;
 
@@ -26,15 +33,16 @@ public class SleepingCounterThread extends Thread {
 	 */
 	@Override
 	public void run() {
-		for (long i = start; i <= end; i++) {
-			System.out.print(Thread.currentThread().getName());
-			System.out.print(" #");
-			System.out.println(i);
-			try {
+		try {
+			for (long i = start; i <= end; i++) {
+				System.out.print(Thread.currentThread().getName());
+				System.out.print(" #");
+				System.out.println(i);
+
 				sleep(SLEEP_TIME);
-			} catch (InterruptedException e) {
-				System.err.println(e.getMessage());
 			}
+		} catch (InterruptedException e) {
+			LOGGER.error("Sleeping interupted", e);
 		}
 	}
 }

@@ -2,12 +2,17 @@ package com.sirma.itt.javacourse.threads.producerconsumer;
 
 import java.util.Date;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Represents a producer.
  * 
  * @author Sinan
  */
 public class Producer extends Thread {
+
+	private static final Logger LOGGER = LogManager.getLogger(Producer.class);
 	private static final int TIME_TO_WAIT = 700;
 	private StoreHouse storeHouse;
 	private int time;
@@ -39,16 +44,16 @@ public class Producer extends Thread {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void run() {
+	public synchronized void run() {
 		try {
 			while (true) {
 				String message = new Date().toString();
 				System.out.println("Producer : put -> " + message);
 				storeHouse.put(message);
-				sleep(time);
+				wait(time);
 			}
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			LOGGER.error("Sleep interrupted", e);
 		}
 	}
 }

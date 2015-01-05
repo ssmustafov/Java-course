@@ -1,10 +1,15 @@
 package com.sirma.itt.javacourse.threads.sleepingcounters;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * @author smustafov
  */
 public class WaitingCounterThread extends Thread {
-	private static final int WAIT_TIME = 2000;
+
+	private static final Logger LOGGER = LogManager.getLogger(WaitingCounterThread.class);
+	private static final int WAIT_TIME = 500;
 	private long start;
 	private long end;
 
@@ -26,17 +31,18 @@ public class WaitingCounterThread extends Thread {
 	 */
 	@Override
 	public void run() {
-		for (long i = start; i <= end; i++) {
-			System.out.print(Thread.currentThread().getName());
-			System.out.print(" #");
-			System.out.println(i);
-			try {
+		try {
+			for (long i = start; i <= end; i++) {
+				System.out.print(Thread.currentThread().getName());
+				System.out.print(" #");
+				System.out.println(i);
+
 				synchronized (this) {
 					wait(WAIT_TIME);
 				}
-			} catch (InterruptedException e) {
-				System.err.println(e.getMessage());
 			}
+		} catch (InterruptedException e) {
+			LOGGER.error("Waiting is interrupted", e);
 		}
 	}
 }
