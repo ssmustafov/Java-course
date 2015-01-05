@@ -1,6 +1,8 @@
-package com.sirma.itt.javacourse.threads.twoCounters;
+package com.sirma.itt.javacourse.threads.synchronizedthreads;
 
 /**
+ * Shows how the {@link SynchronizedThread} class can be used.
+ * 
  * @author smustafov
  */
 public final class Run {
@@ -19,10 +21,10 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		RangeCounterThread r = new RangeCounterThread(0, 40);
-		RangeCounterThread a = new RangeCounterThread(10, 100);
-		r.start();
+		SynchronizedThread a = new SynchronizedThread(1, 5);
+		SynchronizedThread b = new SynchronizedThread(1, 5);
 		a.start();
+		b.start();
 	}
 
 }

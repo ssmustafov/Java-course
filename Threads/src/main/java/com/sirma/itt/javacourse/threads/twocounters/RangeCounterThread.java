@@ -1,22 +1,24 @@
-package com.sirma.itt.javacourse.threads.sleepingCounters;
+package com.sirma.itt.javacourse.threads.twocounters;
 
 /**
+ * Counts numbers in given range.
+ * 
  * @author smustafov
  */
-public class SleepingCounterThread extends Thread {
-	private static final int SLEEP_TIME = 2000;
+public class RangeCounterThread extends Thread {
+
 	private long start;
 	private long end;
 
 	/**
-	 * Creates a new SleepingCounterThread with given range.
+	 * Creates a new range counter with given range.
 	 * 
 	 * @param start
 	 *            - starting value of the range
 	 * @param end
 	 *            - ending value of the range
 	 */
-	public SleepingCounterThread(long start, long end) {
+	public RangeCounterThread(long start, long end) {
 		this.start = start;
 		this.end = end;
 	}
@@ -30,11 +32,6 @@ public class SleepingCounterThread extends Thread {
 			System.out.print(Thread.currentThread().getName());
 			System.out.print(" #");
 			System.out.println(i);
-			try {
-				sleep(SLEEP_TIME);
-			} catch (InterruptedException e) {
-				System.err.println(e.getMessage());
-			}
 		}
 	}
 }

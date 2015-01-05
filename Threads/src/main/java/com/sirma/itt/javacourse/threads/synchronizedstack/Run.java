@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.threads.synchronizedStack;
+package com.sirma.itt.javacourse.threads.synchronizedstack;
 
 /**
  * Shows how the SynchronizedList class can be used.

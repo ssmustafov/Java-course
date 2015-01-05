@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.threads.producerConsumer;
+package com.sirma.itt.javacourse.threads.producerconsumer;
 
 import java.util.LinkedList;
 import java.util.Queue;

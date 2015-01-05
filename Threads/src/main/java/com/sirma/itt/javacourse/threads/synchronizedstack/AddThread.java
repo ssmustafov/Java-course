@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.threads.synchronizedStack;
+package com.sirma.itt.javacourse.threads.synchronizedstack;
 
 import java.util.Random;
 

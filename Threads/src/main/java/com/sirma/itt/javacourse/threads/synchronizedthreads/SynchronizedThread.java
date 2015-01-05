@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.threads.synchronizedThreads;
+package com.sirma.itt.javacourse.threads.synchronizedthreads;
 
 /**
  * @author smustafov

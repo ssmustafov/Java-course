@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.threads.stopCounter;
+package com.sirma.itt.javacourse.threads.stopcounter;
 
 import java.util.Scanner;
 
@@ -24,7 +24,7 @@ public final class Run {
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-		StopCounterThread stopCounter = new StopCounterThread(200000000);
+		StopCounterThread stopCounter = new StopCounterThread(20000);
 		Thread t = new Thread(stopCounter);
 		t.start();
 

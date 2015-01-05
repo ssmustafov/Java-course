@@ -1,22 +1,22 @@
-package com.sirma.itt.javacourse.threads.sleepingCounters;
+package com.sirma.itt.javacourse.threads.sleepingcounters;
 
 /**
  * @author smustafov
  */
-public class WaitingCounterThread extends Thread {
-	private static final int WAIT_TIME = 2000;
+public class SleepingCounterThread extends Thread {
+	private static final int SLEEP_TIME = 2000;
 	private long start;
 	private long end;
 
 	/**
-	 * Creates a new WaitingCounterThread with given range.
+	 * Creates a new SleepingCounterThread with given range.
 	 * 
 	 * @param start
 	 *            - starting value of the range
 	 * @param end
 	 *            - ending value of the range
 	 */
-	public WaitingCounterThread(long start, long end) {
+	public SleepingCounterThread(long start, long end) {
 		this.start = start;
 		this.end = end;
 	}
@@ -31,9 +31,7 @@ public class WaitingCounterThread extends Thread {
 			System.out.print(" #");
 			System.out.println(i);
 			try {
-				synchronized (this) {
-					wait(WAIT_TIME);
-				}
+				sleep(SLEEP_TIME);
 			} catch (InterruptedException e) {
 				System.err.println(e.getMessage());
 			}

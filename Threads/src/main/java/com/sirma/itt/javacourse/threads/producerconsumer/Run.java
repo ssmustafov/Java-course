@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.threads.producerConsumer;
+package com.sirma.itt.javacourse.threads.producerconsumer;
 
 /**
  * Shows how the producer/consumer can be used.
