@@ -7,11 +7,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 
+import com.sirma.itt.javacourse.chathelper.utils.ServerConfig;
+import com.sirma.itt.javacourse.chathelper.utils.Validator;
+
 /**
+ * Represents the login form of the client chat application.
+ * 
  * @author Sinan
  */
 public class LoginForm implements ActionListener {
@@ -19,29 +27,30 @@ public class LoginForm implements ActionListener {
 	private JFrame frame;
 	private JTextField nicknameField;
 	private JButton loginButton;
+	private JProgressBar progressBar;
+	private JComboBox<?> langList;
 
-	// private JProgressBar progressBar;
-
+	/**
+	 * Creates a new login form.
+	 */
 	public LoginForm() {
 		frame = new JFrame();
 		frame.setTitle("Chat Login Form");
-		frame.setSize(300, 200);
+		frame.setSize(300, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setLayout(new GridBagLayout());
-
-		nicknameField = new JTextField(20);
-		loginButton = new JButton("Login");
-		loginButton.addActionListener(this);
-		JLabel label = new JLabel("Enter nickname:");
-		// progressBar = new JProgressBar();
-		// progressBar.setIndeterminate(true);
-		// progressBar.setVisible(false);
-
 		GridBagConstraints constraints = new GridBagConstraints();
 
-		constraints.insets = new Insets(10, 0, 0, 0);
+		createButtons();
+		createProgressBar();
+		createComboBoxes();
+
+		JLabel label = new JLabel("Enter nickname:");
+		nicknameField = new JTextField(20);
+
+		constraints.insets = new Insets(0, 0, 0, 0);
 		constraints.ipady = 0;
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		constraints.gridx = 0;
@@ -54,19 +63,73 @@ public class LoginForm implements ActionListener {
 		constraints.gridy = 1;
 		frame.getContentPane().add(nicknameField, constraints);
 
-		constraints.insets = new Insets(10, 0, 35, 0);
+		constraints.insets = new Insets(10, 0, 0, 0);
 		constraints.ipady = 0;
 		constraints.gridx = 0;
 		constraints.gridy = 2;
+		frame.getContentPane().add(langList, constraints);
+
+		constraints.insets = new Insets(10, 0, 0, 0);
+		constraints.ipady = 0;
+		constraints.gridx = 0;
+		constraints.gridy = 3;
 		frame.getContentPane().add(loginButton, constraints);
 
-		// constraints.insets = new Insets(10, 0, 35, 0);
-		// constraints.ipady = 0;
-		// constraints.gridx = 0;
-		// constraints.gridy = 3;
-		// frame.getContentPane().add(progressBar, constraints);
+		constraints.insets = new Insets(50, 0, 0, 0);
+		constraints.ipady = 5;
+		constraints.gridx = 0;
+		constraints.gridy = 4;
+		frame.getContentPane().add(progressBar, constraints);
 
 		frame.setVisible(true);
+	}
+
+	/**
+	 * Shows an error dialog with given message.
+	 * 
+	 * @param message
+	 *            - the message to be shown in the error dialog
+	 */
+	public void showErrorDialog(String message) {
+		JOptionPane.showMessageDialog(frame, message, "Error", JOptionPane.ERROR_MESSAGE);
+	}
+
+	/**
+	 * Shows a notice dialog with given message.
+	 * 
+	 * @param message
+	 *            - the message to be shown in the notice dialog
+	 */
+	public void showNoticeDialog(String message) {
+		JOptionPane.showMessageDialog(frame, message, "Notice", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	/**
+	 * Creates the progress bar.
+	 */
+	private void createProgressBar() {
+		progressBar = new JProgressBar();
+		progressBar.setIndeterminate(true);
+		progressBar.setVisible(false);
+	}
+
+	/**
+	 * Creates the buttons.
+	 */
+	private void createButtons() {
+		loginButton = new JButton("Login");
+		loginButton.setActionCommand("login");
+		loginButton.addActionListener(this);
+	}
+
+	/**
+	 * Creates the comboxes.
+	 */
+	private void createComboBoxes() {
+		langList = new JComboBox<>(ServerConfig.AVAILABLE_LANGUAGES);
+		langList.setActionCommand("langList");
+		langList.setSelectedIndex(0);
+		langList.addActionListener(this);
 	}
 
 	/**
@@ -74,11 +137,30 @@ public class LoginForm implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		String cmd = e.getActionCommand();
+		if ("login".equals(cmd)) {
+			String nickname = nicknameField.getText();
+			if (!Validator.isValidNickname(nickname)) {
+				showNoticeDialog("The nickname contains forbidden symbols. Can consist of letters, numbers, dash and underscore.");
+				return;
+			}
+			if (nickname.length() > Validator.MAX_NICKNAME_LENGHT) {
+				showNoticeDialog("The max allowed nickname length is: "
+						+ Validator.MAX_NICKNAME_LENGHT + ". Your nickname's length is: "
+						+ nickname.length());
+				return;
+			}
+		}
 	}
 
-	public static void main(String[] args) {
-		new LoginForm();
-	}
+	// /**
+	// * Updates the text of the UI elements. Must be invoked when the locale is changed.
+	// */
+	// private void onLocaleChange() {
+	// startButton.setText(bundle.getString("start"));
+	// stopButton.setText(bundle.getString("stop"));
+	// labelLang.setText(bundle.getString("chooseLang"));
+	// labelPort.setText(bundle.getString("choosePort"));
+	// }
 
 }

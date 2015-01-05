@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 /**
  * Represents a query. A query consists of - query type ({@link QueryTypes}) and a message for the
- * query. Implements {@link Serializable}.
+ * query. Implements {@link Serializable}. The server and the client communicates through this
+ * structure only.
  * 
  * @author Sinan
  */
@@ -29,7 +30,7 @@ public class Query implements Serializable {
 
 	/**
 	 * Getter method for queryType.
-	 *
+	 * 
 	 * @return the queryType
 	 */
 	public QueryTypes getQueryType() {
@@ -38,7 +39,7 @@ public class Query implements Serializable {
 
 	/**
 	 * Setter method for queryType.
-	 *
+	 * 
 	 * @param queryType
 	 *            the queryType to set
 	 */
@@ -48,7 +49,7 @@ public class Query implements Serializable {
 
 	/**
 	 * Getter method for message.
-	 *
+	 * 
 	 * @return the message
 	 */
 	public String getMessage() {
@@ -57,7 +58,7 @@ public class Query implements Serializable {
 
 	/**
 	 * Setter method for message.
-	 *
+	 * 
 	 * @param message
 	 *            the message to set
 	 */

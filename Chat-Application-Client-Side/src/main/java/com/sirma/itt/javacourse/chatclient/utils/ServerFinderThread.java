@@ -5,7 +5,6 @@ import java.net.Socket;
 
 import javax.swing.SwingWorker;
 
-import com.sirma.itt.javacourse.chatclient.views.ClientView;
 import com.sirma.itt.javacourse.chathelper.utils.ServerConfig;
 
 /**
@@ -63,7 +62,7 @@ public class ServerFinderThread extends SwingWorker<Void, Void> {
 	 */
 	@Override
 	protected void done() {
-		new ClientView();
+
 	}
 
 }

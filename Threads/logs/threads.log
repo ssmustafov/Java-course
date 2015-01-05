@@ -1,0 +1,270 @@
+[INFO ] 2015-01-05 10:46:18.470 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:33) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 10:47:21.204 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:33) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 12:54:01.626 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 12:54:12.282 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 12:54:24.798 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 12:55:06.814 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 12:57:42.611 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:00:59.345 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:05:17.111 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:05:20.111 [Thread-3] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:07:01.626 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:07:04.126 [Thread-2] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:07:04.626 [Thread-3] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:07:47.782 [Thread-3] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:08:03.861 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:08:14.907 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:08:32.126 [Thread-3] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:08:42.798 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:08:45.298 [Thread-2] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:09:18.486 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:09:20.986 [Thread-2] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:09:46.501 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:11:06.017 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:11:08.517 [Thread-2] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:11:09.017 [Thread-3] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:11:29.736 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:11:32.251 [Thread-2] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:11:49.829 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:12:09.298 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:12:13.767 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:14:02.657 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:15:11.454 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:15:19.361 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:15:35.048 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:15:56.017 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:16:05.048 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:16:19.329 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:06.782 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:09.001 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:10.954 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:12.782 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:17.048 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:25.454 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:27.392 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:30.986 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:40.657 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:55.611 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:17:56.126 [Thread-2] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:18:16.532 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:18:19.032 [Thread-2] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:18:19.532 [Thread-3] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:18:44.657 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:18:53.095 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-05 13:19:00.767 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]

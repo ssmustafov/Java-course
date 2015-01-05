@@ -60,10 +60,12 @@ public class Server implements Runnable {
 		serverDispatcher.clear();
 		try {
 			serverSocket.close();
+			Thread.currentThread().interrupt();
 		} catch (IOException e) {
 			LOGGER.error("Cannot close the server", e);
 		}
 		view.appendMessageToConsole(bundle.getString("closed"));
+		view.clearOnlineClientsList();
 		LOGGER.info("Closed the server");
 	}
 

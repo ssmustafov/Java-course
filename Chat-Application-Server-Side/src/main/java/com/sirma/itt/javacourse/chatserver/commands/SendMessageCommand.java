@@ -1,6 +1,7 @@
 package com.sirma.itt.javacourse.chatserver.commands;
 
 import com.sirma.itt.javacourse.chathelper.utils.Query;
+import com.sirma.itt.javacourse.chathelper.utils.QueryTypes;
 import com.sirma.itt.javacourse.chatserver.server.Client;
 import com.sirma.itt.javacourse.chatserver.server.ServerDispatcher;
 import com.sirma.itt.javacourse.chatserver.view.View;
@@ -10,12 +11,14 @@ import com.sirma.itt.javacourse.chatserver.view.View;
  */
 public class SendMessageCommand extends ServerCommand {
 
+	private Query clientQuery;
+
 	/**
 	 * @param serverDispacher
 	 */
 	public SendMessageCommand(ServerDispatcher serverDispatcher, View view, Query clientQuery) {
 		super(serverDispatcher, view);
-		// TODO Auto-generated constructor stub
+		this.clientQuery = clientQuery;
 	}
 
 	/**
@@ -23,8 +26,9 @@ public class SendMessageCommand extends ServerCommand {
 	 */
 	@Override
 	public void execute(Client client) {
-		// TODO Auto-generated method stub
-
+		String clientMessage = clientQuery.getMessage();
+		String formattedMessage = String.format("<%s>: %s", client.getNickname(), clientMessage);
+		getServerDispatcher().dispatchQuery(new Query(QueryTypes.SentMessage, formattedMessage));
 	}
 
 }

@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.border.TitledBorder;
 import javax.swing.text.DefaultCaret;
 
 import com.sirma.itt.javacourse.chathelper.utils.Date;
@@ -209,6 +211,10 @@ public class ServerView extends Observable implements View, ActionListener {
 		consoleArea.setEditable(false);
 		DefaultCaret consoleCaret = (DefaultCaret) consoleArea.getCaret();
 		consoleCaret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+
+		TitledBorder consoleBorder = BorderFactory.createTitledBorder("Server console");
+		consoleBorder.setTitleJustification(TitledBorder.LEFT);
+		consoleArea.setBorder(consoleBorder);
 	}
 
 	/**
@@ -248,6 +254,10 @@ public class ServerView extends Observable implements View, ActionListener {
 
 		onlineClientsList = new JList<String>(onlineClientsListModel);
 		onlineClientsList.setFixedCellWidth(ONLINE_CLIENTS_LIST_WIDTH);
+
+		TitledBorder onlineClientsBorder = BorderFactory.createTitledBorder("Online clients");
+		onlineClientsBorder.setTitleJustification(TitledBorder.LEFT);
+		onlineClientsList.setBorder(onlineClientsBorder);
 	}
 
 	/**
