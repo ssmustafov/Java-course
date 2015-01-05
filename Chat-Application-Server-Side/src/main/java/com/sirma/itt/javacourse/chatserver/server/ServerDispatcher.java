@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Queue;
 
 import com.sirma.itt.javacourse.chathelper.utils.Query;
+import com.sirma.itt.javacourse.chathelper.utils.QueryTypes;
 
 /**
  * Contains the {@code Client}s of the server.
@@ -71,6 +72,10 @@ public class ServerDispatcher extends Thread {
 	 */
 	public void clear() {
 		synchronized (clients) {
+			for (Client client : clients) {
+				client.sendQuery(new Query(QueryTypes.Closed, "The server was closed"));
+				client.closeClient();
+			}
 			clients.clear();
 		}
 		synchronized (queriesQueue) {

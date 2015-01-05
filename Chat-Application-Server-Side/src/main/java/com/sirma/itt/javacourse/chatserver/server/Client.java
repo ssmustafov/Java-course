@@ -28,7 +28,7 @@ public class Client {
 	 * Sets the nickname of the client.
 	 * 
 	 * @param nickname
-	 *            - the nickname to be set on teh client
+	 *            - the nickname to be set on the client
 	 */
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
@@ -60,6 +60,13 @@ public class Client {
 	 */
 	public Query readQuery() {
 		return queryHandler.readQuery();
+	}
+
+	/**
+	 * Closes the clients input and output streams.
+	 */
+	public void closeClient() {
+		queryHandler.closeStreams();
 	}
 
 }

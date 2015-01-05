@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.text.DefaultCaret;
 
+import com.sirma.itt.javacourse.chatclient.client.Client;
 import com.sirma.itt.javacourse.chathelper.utils.Date;
 
 /**
@@ -33,10 +34,11 @@ public class ClientView implements View, ActionListener {
 	private JFrame frame = new JFrame();
 	private JList<String> onlineClientsList;
 	private DefaultListModel<String> onlineClientsListModel;
-	private JButton disconnectButton;
+	private JButton logoutButton;
 	private JButton sendMessageButton;
 	private JTextArea chatMessagesArea;
 	private JTextField clientField;
+	private Client client;
 
 	/**
 	 * Creates a new user interface for the server.
@@ -59,7 +61,7 @@ public class ClientView implements View, ActionListener {
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.add(clientField);
 		bottomPanel.add(sendMessageButton);
-		bottomPanel.add(disconnectButton);
+		bottomPanel.add(logoutButton);
 
 		frame.setLayout(new BorderLayout());
 		frame.add(consoleScrollPane, BorderLayout.CENTER);
@@ -67,6 +69,9 @@ public class ClientView implements View, ActionListener {
 		frame.add(bottomPanel, BorderLayout.PAGE_END);
 
 		frame.setVisible(true);
+
+		client = new Client(this);
+		client.connectToServer();
 	}
 
 	/**
@@ -117,7 +122,7 @@ public class ClientView implements View, ActionListener {
 	@Override
 	public void resetUI() {
 		sendMessageButton.setEnabled(true);
-		disconnectButton.setEnabled(false);
+		logoutButton.setEnabled(false);
 	}
 
 	/**
@@ -134,7 +139,9 @@ public class ClientView implements View, ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
-
+		if ("send".equals(cmd)) {
+			client.sendMessage(clientField.getText());
+		}
 	}
 
 	/**
@@ -155,9 +162,9 @@ public class ClientView implements View, ActionListener {
 		sendMessageButton.setActionCommand(SEND_MESSAGE_BUTTON_ACTION_COMMAND);
 		sendMessageButton.addActionListener(this);
 
-		disconnectButton = new JButton("Disconnect");
-		disconnectButton.setActionCommand("disconnect");
-		disconnectButton.addActionListener(this);
+		logoutButton = new JButton("Logout");
+		logoutButton.setActionCommand("logout");
+		logoutButton.addActionListener(this);
 	}
 
 	/**
@@ -168,10 +175,6 @@ public class ClientView implements View, ActionListener {
 
 		onlineClientsList = new JList<String>(onlineClientsListModel);
 		onlineClientsList.setFixedCellWidth(ONLINE_CLIENTS_LIST_WIDTH);
-	}
-
-	public static void main(String[] args) {
-		new ClientView();
 	}
 
 	// /**
