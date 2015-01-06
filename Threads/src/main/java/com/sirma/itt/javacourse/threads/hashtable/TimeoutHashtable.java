@@ -12,6 +12,8 @@ import java.util.Hashtable;
  * @author smustafov
  */
 public class TimeoutHashtable<K, V> {
+	private static final int THOUSAND_MILISECONDS = 1000;
+	private static final int MINIMUM_SECONDS_FOR_EACH_ELEMENT = 1;
 	private Hashtable<K, V> hashtable;
 	private Hashtable<K, Timer> timeout;
 	private long miliseconds;
@@ -22,10 +24,10 @@ public class TimeoutHashtable<K, V> {
 	 * @param seconds
 	 *            - the time for each element in the table to exist
 	 */
-	public TimeoutHashtable(long seconds) {
+	public TimeoutHashtable(int seconds) {
+		setMiliseconds(seconds);
 		this.hashtable = new Hashtable<>();
 		this.timeout = new Hashtable<>();
-		this.miliseconds = seconds * 1000;
 	}
 
 	/**
@@ -71,11 +73,40 @@ public class TimeoutHashtable<K, V> {
 	}
 
 	/**
+	 * Checks if the specified key is a key in this timeout hash table.
+	 * 
+	 * @param key
+	 *            - the key to be checked if it contains in the hash table
+	 * @return true if the key contains in the table, otherwise false
+	 */
+	public boolean contains(K key) {
+		if (hashtable.containsKey(key)) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public synchronized String toString() {
 		return hashtable.toString();
+	}
+
+	/**
+	 * Sets the seconds that every element will live in the hash table.
+	 * 
+	 * @param seconds
+	 *            - the seconds of every element that will live in the hash table
+	 */
+	private void setMiliseconds(int seconds) {
+		if (seconds < MINIMUM_SECONDS_FOR_EACH_ELEMENT) {
+			throw new IllegalArgumentException("The minimal seconds for element to live is: "
+					+ MINIMUM_SECONDS_FOR_EACH_ELEMENT + ". It is given: " + seconds);
+		}
+
+		this.miliseconds = seconds * THOUSAND_MILISECONDS;
 	}
 
 	/**

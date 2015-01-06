@@ -28,7 +28,7 @@ public class StoreHouse {
 	 * @param obj
 	 *            - production to be added storehouse
 	 * @throws InterruptedException
-	 *             - thrown when sync fails
+	 *             - thrown when waiting is interrupted
 	 */
 	public synchronized void put(Object obj) throws InterruptedException {
 		while (queue.size() == size) {

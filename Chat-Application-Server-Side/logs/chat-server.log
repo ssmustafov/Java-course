@@ -1174,3 +1174,83 @@ java.net.SocketException: socket closed
 	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:104) [classes/:?]
 	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:78) [classes/:?]
 	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-06 15:06:05.343 [main] Server - Closed the server
+[ERROR] 2015-01-06 15:06:05.343 [Thread-2] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainSocketImpl.socketAccept(Native Method) ~[?:1.7.0_60]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398) ~[?:1.7.0_60]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.7.0_60]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530) ~[?:1.7.0_60]
+	at java.net.ServerSocket.accept(ServerSocket.java:498) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:104) [classes/:?]
+	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:78) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-06 15:06:44.640 [main] Server - Closed the server
+[ERROR] 2015-01-06 15:06:44.640 [Thread-4] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainSocketImpl.socketAccept(Native Method) ~[?:1.7.0_60]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398) ~[?:1.7.0_60]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.7.0_60]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530) ~[?:1.7.0_60]
+	at java.net.ServerSocket.accept(ServerSocket.java:498) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:104) [classes/:?]
+	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:78) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-06 16:12:08.906 [AWT-EventQueue-0] Server - Closed the server
+[ERROR] 2015-01-06 16:12:08.906 [Thread-4] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainSocketImpl.socketAccept(Native Method) ~[?:1.7.0_60]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398) ~[?:1.7.0_60]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.7.0_60]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530) ~[?:1.7.0_60]
+	at java.net.ServerSocket.accept(ServerSocket.java:498) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:104) [classes/:?]
+	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:78) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[ERROR] 2015-01-06 16:12:13.078 [Thread-8] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainSocketImpl.socketAccept(Native Method) ~[?:1.7.0_60]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398) ~[?:1.7.0_60]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.7.0_60]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530) ~[?:1.7.0_60]
+	at java.net.ServerSocket.accept(ServerSocket.java:498) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:104) [classes/:?]
+	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:78) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-06 16:12:13.078 [AWT-EventQueue-0] Server - Closed the server
+[INFO ] 2015-01-06 16:21:58.046 [main] Server - Closed the server
+[ERROR] 2015-01-06 16:27:17.187 [Thread-2] Server - Port is busy: 7000
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.TwoStacksPlainSocketImpl.socketBind(Native Method) ~[?:1.7.0_60]
+	at java.net.TwoStacksPlainSocketImpl.socketBind(TwoStacksPlainSocketImpl.java:137) ~[?:1.7.0_60]
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376) ~[?:1.7.0_60]
+	at java.net.TwoStacksPlainSocketImpl.bind(TwoStacksPlainSocketImpl.java:110) ~[?:1.7.0_60]
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190) ~[?:1.7.0_60]
+	at java.net.ServerSocket.bind(ServerSocket.java:376) ~[?:1.7.0_60]
+	at java.net.ServerSocket.<init>(ServerSocket.java:237) ~[?:1.7.0_60]
+	at java.net.ServerSocket.<init>(ServerSocket.java:128) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.chatserver.server.Server.createServer(Server.java:86) [classes/:?]
+	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:77) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-06 16:27:51.671 [AWT-EventQueue-0] Server - Closed the server
+[ERROR] 2015-01-06 16:27:51.671 [Thread-4] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainSocketImpl.socketAccept(Native Method) ~[?:1.7.0_60]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398) ~[?:1.7.0_60]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.7.0_60]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530) ~[?:1.7.0_60]
+	at java.net.ServerSocket.accept(ServerSocket.java:498) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:104) [classes/:?]
+	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:78) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-06 16:28:02.218 [main] Server - Closed the server
+[ERROR] 2015-01-06 16:28:02.218 [Thread-2] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainSocketImpl.socketAccept(Native Method) ~[?:1.7.0_60]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398) ~[?:1.7.0_60]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.7.0_60]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530) ~[?:1.7.0_60]
+	at java.net.ServerSocket.accept(ServerSocket.java:498) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.chatserver.server.Server.acceptClients(Server.java:104) [classes/:?]
+	at com.sirma.itt.javacourse.chatserver.server.Server.run(Server.java:78) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]

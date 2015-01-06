@@ -1,9 +1,18 @@
 package com.sirma.itt.javacourse.threads.synchronizedthreads;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
+ * Counts numbers in given range so that when the first thread counts it waits for the second thread
+ * to count and so on.
+ * 
  * @author smustafov
  */
 public class SynchronizedThread extends Thread {
+
+	private static final Logger LOGGER = LogManager.getLogger(SynchronizedThread.class);
+	private static volatile boolean isStopped = false;
 	private long start;
 	private long end;
 
@@ -25,20 +34,22 @@ public class SynchronizedThread extends Thread {
 	 */
 	@Override
 	public void run() {
-		for (long i = start; i <= end; i++) {
-			synchronized (this) {
+		try {
+			long counter = start;
+			while (counter <= end) {
+				if (isStopped) {
+					break;
+				}
+				sleep(500);
+
 				System.out.print(Thread.currentThread().getName());
 				System.out.print(" #");
-				System.out.println(i);
-
-				try {
-					synchronized (this) {
-						wait(1000);
-					}
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				System.out.println(counter);
+				counter++;
 			}
+			isStopped = true;
+		} catch (InterruptedException e) {
+			LOGGER.error(e.getMessage(), e);
 		}
 	}
 
