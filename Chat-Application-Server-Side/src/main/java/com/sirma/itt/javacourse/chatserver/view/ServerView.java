@@ -33,7 +33,6 @@ import com.sirma.itt.javacourse.chatserver.utils.LanguageBundleSingleton;
 public class ServerView extends Observable implements View, ActionListener {
 	public static final String START_BUTTON_ACTION_COMMAND = "start";
 	private static final String NEW_LINE = System.lineSeparator();
-	private static final String WINDOW_TITLE = "Chat Server";
 	private static final int WINDOW_WIDTH = 600;
 	private static final int WINDOW_HEIGHT = 400;
 	private static final int ONLINE_CLIENTS_LIST_WIDTH = 180;
@@ -47,6 +46,8 @@ public class ServerView extends Observable implements View, ActionListener {
 	private JLabel labelPort;
 	private JComboBox<?> portList;
 	private JComboBox<?> langList;
+	private JScrollPane consoleScrollPane;
+	private JScrollPane listScrollPane;
 
 	private ResourceBundle bundle = LanguageBundleSingleton.getBundleInstance();
 	private int port = Integer.parseInt(ServerConfig.SERVER_PORTS[0]);
@@ -56,7 +57,7 @@ public class ServerView extends Observable implements View, ActionListener {
 	 * Creates a new user interface for the server.
 	 */
 	public ServerView() {
-		frame.setTitle(WINDOW_TITLE);
+		frame.setTitle(bundle.getString("title"));
 		frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -66,15 +67,16 @@ public class ServerView extends Observable implements View, ActionListener {
 		createTextAreas();
 		createLists();
 
-		JScrollPane consoleScrollPane = new JScrollPane();
+		consoleScrollPane = new JScrollPane();
 		consoleScrollPane.setViewportView(consoleArea);
 
-		TitledBorder consoleBorder = BorderFactory.createTitledBorder("Server console");
+		TitledBorder consoleBorder = BorderFactory.createTitledBorder(bundle.getString("console"));
 		consoleBorder.setTitleJustification(TitledBorder.LEFT);
 		consoleScrollPane.setBorder(consoleBorder);
 
-		JScrollPane listScrollPane = new JScrollPane(onlineClientsList);
-		TitledBorder onlineClientsBorder = BorderFactory.createTitledBorder("Online clients");
+		listScrollPane = new JScrollPane(onlineClientsList);
+		TitledBorder onlineClientsBorder = BorderFactory.createTitledBorder(bundle
+				.getString("onlineClients"));
 		onlineClientsBorder.setTitleJustification(TitledBorder.CENTER);
 		listScrollPane.setBorder(onlineClientsBorder);
 
@@ -263,6 +265,16 @@ public class ServerView extends Observable implements View, ActionListener {
 	 * Updates the text of the UI elements. Must be invoked when the locale is changed.
 	 */
 	private void onLocaleChange() {
+		TitledBorder consoleBorder = BorderFactory.createTitledBorder(bundle.getString("console"));
+		consoleBorder.setTitleJustification(TitledBorder.LEFT);
+		consoleScrollPane.setBorder(consoleBorder);
+
+		TitledBorder onlineClientsBorder = BorderFactory.createTitledBorder(bundle
+				.getString("onlineClients"));
+		onlineClientsBorder.setTitleJustification(TitledBorder.CENTER);
+		listScrollPane.setBorder(onlineClientsBorder);
+
+		frame.setTitle(bundle.getString("title"));
 		startButton.setText(bundle.getString("start"));
 		stopButton.setText(bundle.getString("stop"));
 		labelLang.setText(bundle.getString("chooseLang"));
