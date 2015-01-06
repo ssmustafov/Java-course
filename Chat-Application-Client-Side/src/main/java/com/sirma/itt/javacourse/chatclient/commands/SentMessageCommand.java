@@ -8,23 +8,23 @@ import com.sirma.itt.javacourse.chathelper.utils.Query;
  */
 public class SentMessageCommand extends ClientCommand {
 
-	private View view;
+	private Query query;
 
 	/**
 	 * @param view
 	 */
-	public SentMessageCommand(View view) {
+	public SentMessageCommand(View view, Query query) {
 		super(view);
-		this.view = view;
+		this.query = query;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void execute(Query query) {
+	public void execute() {
 		String message = query.getMessage();
-		view.appendMessageToChatArea(message);
+		getClientView().appendMessageToChatArea(message);
 	}
 
 }

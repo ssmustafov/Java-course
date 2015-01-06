@@ -32,7 +32,7 @@ public class LogoutCommand extends ServerCommand {
 	@Override
 	public void execute(Client client) {
 		if (!getServerDispatcher().containsClient(client.getNickname())) {
-			client.sendQuery(new Query(QueryTypes.Refused, "O you hacked me"));
+			// client.sendQuery(new Query(QueryTypes.Refused, "O you hacked me"));
 			return;
 		}
 
@@ -43,6 +43,9 @@ public class LogoutCommand extends ServerCommand {
 				bundle.getString("clientDisconnected"));
 		getServerView().appendMessageToConsole(clientDisconnectedMessage);
 		getServerView().removeOnlineClient(client.getNickname());
+
+		getServerDispatcher().dispatchQuery(
+				new Query(QueryTypes.ClientDisconnected, client.getNickname()));
 	}
 
 }

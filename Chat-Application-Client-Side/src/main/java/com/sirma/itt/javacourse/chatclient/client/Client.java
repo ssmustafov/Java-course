@@ -1,9 +1,6 @@
 package com.sirma.itt.javacourse.chatclient.client;
 
-import java.io.IOException;
-import java.net.Socket;
-
-import com.sirma.itt.javacourse.chatclient.utils.ServerFinder;
+import com.sirma.itt.javacourse.chatclient.views.ClientView;
 import com.sirma.itt.javacourse.chatclient.views.View;
 import com.sirma.itt.javacourse.chathelper.utils.Query;
 import com.sirma.itt.javacourse.chathelper.utils.QueryHandler;
@@ -16,35 +13,27 @@ import com.sirma.itt.javacourse.chathelper.utils.QueryTypes;
  */
 public class Client {
 
-	private Socket client;
 	private QueryHandler queryHandler;
 	private View view;
 	private String nickname;
+	private ClientThread thread;
 
 	/**
-	 * @param view
-	 *            - the view
+	 * @param handler
+	 * @param nickname
 	 */
-	public Client(View view) {
-		this.view = view;
+	public Client(QueryHandler handler, String nickname) {
+		this.queryHandler = handler;
+		this.nickname = nickname;
+		this.view = new ClientView(this);
 	}
 
 	/**
 	 * Connects to the chat server.
 	 */
-	public void connectToServer() {
-		try {
-			client = ServerFinder.openSocket();
-			queryHandler = new QueryHandler(client);
-		} catch (IOException e) {
-			e.printStackTrace();
-			return;
-		}
-
-		ClientThread t = new ClientThread(queryHandler, view);
-		t.start();
-
-		queryHandler.sendQuery(new Query(QueryTypes.Login, nickname));
+	public void startThread() {
+		thread = new ClientThread(queryHandler, view);
+		thread.start();
 	}
 
 	/**
@@ -65,6 +54,15 @@ public class Client {
 	 */
 	public void sendMessage(String message) {
 		queryHandler.sendQuery(new Query(QueryTypes.SendMessage, message));
+	}
+
+	/**
+	 * Logges out the client.
+	 */
+	public void logout() {
+		queryHandler.sendQuery(new Query(QueryTypes.Logout, nickname));
+		thread.interrupt();
+		queryHandler.closeStreams();
 	}
 
 }

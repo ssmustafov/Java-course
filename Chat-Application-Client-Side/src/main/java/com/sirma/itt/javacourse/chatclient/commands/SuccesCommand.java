@@ -8,20 +8,22 @@ import com.sirma.itt.javacourse.chathelper.utils.Query;
  */
 public class SuccesCommand extends ClientCommand {
 
+	private Query query;
+
 	/**
 	 * @param view
 	 * @param query
 	 */
-	public SuccesCommand(View view) {
+	public SuccesCommand(View view, Query query) {
 		super(view);
-
+		this.query = query;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void execute(Query query) {
+	public void execute() {
 		getClientView().appendMessageToChatArea(query.getMessage());
 	}
 

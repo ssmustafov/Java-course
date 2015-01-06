@@ -58,15 +58,19 @@ public class LoginCommand extends ServerCommand {
 		}
 
 		client.setNickname(nickname);
+		// getServerDispatcher().dispatchQuery(
+		// new Query(QueryTypes.ClientConnected, client.getNickname()));
 		getServerDispatcher().addClient(client);
-		client.sendQuery(new Query(QueryTypes.Success, "Welcome, " + nickname));
 
 		getServerView().appendMessageToConsole(bundle.getString("clientConnected") + nickname);
 		getServerView().appendMessageToConsole(bundle.getString("startedThread") + nickname);
 
 		getServerView().addOnlineClient(nickname);
 
-		getServerDispatcher().dispatchQuery(
-				new Query(QueryTypes.ClientConnected, client.getNickname()));
+		client.sendQuery(new Query(QueryTypes.Success, "Accepted"));
+		client.sendQuery(new Query(QueryTypes.Success, "Welcome, " + nickname));
+		client.sendQuery(new Query(QueryTypes.LoggedIn, getServerDispatcher()
+				.getOnlineClientsNicknames()));
+
 	}
 }

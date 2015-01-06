@@ -102,7 +102,7 @@ public class ServerDispatcher extends Thread {
 	}
 
 	/**
-	 * Returns the online clients nicknames.
+	 * Returns the online clients nicknames, separated by |.
 	 * 
 	 * @return - the online clients nicknames. If there is not online clients returns empty string
 	 */
@@ -112,7 +112,7 @@ public class ServerDispatcher extends Thread {
 			synchronized (clients) {
 				for (int i = 0; i < clients.size() - 1; i++) {
 					result.append(clients.get(i).getNickname());
-					result.append(System.lineSeparator());
+					result.append(" ");
 				}
 				result.append(clients.get(clients.size() - 1).getNickname());
 

@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 
+import com.sirma.itt.javacourse.chatclient.client.Login;
 import com.sirma.itt.javacourse.chathelper.utils.ServerConfig;
 import com.sirma.itt.javacourse.chathelper.utils.Validator;
 
@@ -105,6 +106,15 @@ public class LoginForm implements ActionListener {
 	}
 
 	/**
+	 * Returns the entered nickname.
+	 * 
+	 * @return the entered nickname
+	 */
+	public String getNickname() {
+		return nicknameField.getText();
+	}
+
+	/**
 	 * Creates the progress bar.
 	 */
 	private void createProgressBar() {
@@ -155,12 +165,21 @@ public class LoginForm implements ActionListener {
 				return;
 			}
 
-			progressBar.setVisible(true);
+			// progressBar.setVisible(true);
 			nicknameField.setEnabled(false);
 			loginButton.setEnabled(false);
 			langList.setEnabled(false);
-
+			Login login = new Login(this);
+			login.connectToServer();
+			login.start();
 		}
+	}
+
+	/**
+	 * Closes this login form.
+	 */
+	public void dispose() {
+		frame.dispose();
 	}
 
 	// /**

@@ -1,7 +1,6 @@
 package com.sirma.itt.javacourse.chatclient.commands;
 
 import com.sirma.itt.javacourse.chatclient.views.View;
-import com.sirma.itt.javacourse.chathelper.utils.Query;
 
 /**
  * Handles {@link Query} - queries sent from the server.
@@ -31,10 +30,7 @@ public abstract class ClientCommand {
 	}
 
 	/**
-	 * Executes the query of the given {@link Query}.
-	 * 
-	 * @param query
-	 *            - the client which query will be executed
+	 * Executes a {@link Query}.
 	 */
-	public abstract void execute(Query query);
+	public abstract void execute();
 }

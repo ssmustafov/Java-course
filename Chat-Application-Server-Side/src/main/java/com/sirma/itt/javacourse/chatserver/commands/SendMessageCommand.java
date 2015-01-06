@@ -7,6 +7,8 @@ import com.sirma.itt.javacourse.chatserver.server.ServerDispatcher;
 import com.sirma.itt.javacourse.chatserver.view.View;
 
 /**
+ * Handles queries when client sends message.
+ * 
  * @author Sinan
  */
 public class SendMessageCommand extends ServerCommand {
@@ -14,7 +16,14 @@ public class SendMessageCommand extends ServerCommand {
 	private Query clientQuery;
 
 	/**
-	 * @param serverDispacher
+	 * Creates a new send message command.
+	 * 
+	 * @param serverDispatcher
+	 *            - the server dispatcher
+	 * @param view
+	 *            - the view of the server
+	 * @param clientQuery
+	 *            - client's query
 	 */
 	public SendMessageCommand(ServerDispatcher serverDispatcher, View view, Query clientQuery) {
 		super(serverDispatcher, view);

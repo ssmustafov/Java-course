@@ -1,5 +1,7 @@
 package com.sirma.itt.javacourse.chatserver.main;
 
+import javax.swing.SwingUtilities;
+
 import com.sirma.itt.javacourse.chatserver.view.ServerView;
 import com.sirma.itt.javacourse.chatserver.view.ViewObserver;
 
@@ -24,9 +26,15 @@ public final class Run {
 	 *            - arguments
 	 */
 	public static void main(String[] args) {
-		ServerView view = new ServerView();
-		ViewObserver viewObserver = new ViewObserver();
-		view.addObserver(viewObserver);
+		SwingUtilities.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				ServerView view = new ServerView();
+				ViewObserver viewObserver = new ViewObserver();
+				view.addObserver(viewObserver);
+			}
+		});
 	}
 
 }

@@ -9,7 +9,8 @@ package com.sirma.itt.javacourse.chathelper.utils;
  */
 public enum QueryTypes {
 	// Queries send by the server
-	SentMessage, Refused, Failed, Closed, Success, ClientConnected, ClientDisconnected,
+	SentMessage, Refused, Failed, Closed, Success, ClientConnected, ClientDisconnected, 
+	LoggedOut, LoggedIn,
 
 	// Queries send by the client
 	Login, Logout, SendMessage

@@ -6,14 +6,14 @@ import com.sirma.itt.javacourse.chathelper.utils.Query;
 /**
  * @author smustafov
  */
-public class ClientConnectedCommand extends ClientCommand {
+public class LoggedInCommand extends ClientCommand {
 
 	private Query query;
 
 	/**
 	 * @param view
 	 */
-	public ClientConnectedCommand(View view, Query query) {
+	public LoggedInCommand(View view, Query query) {
 		super(view);
 		this.query = query;
 	}
@@ -23,8 +23,10 @@ public class ClientConnectedCommand extends ClientCommand {
 	 */
 	@Override
 	public void execute() {
-		String nickname = query.getMessage();
-		getClientView().addOnlineClient(nickname);
+		String[] nicknames = query.getMessage().split("\\s");
+		for (int i = 0; i < nicknames.length; i++) {
+			getClientView().addOnlineClient(nicknames[i]);
+		}
 	}
 
 }

@@ -51,7 +51,7 @@ public class ClientThread extends Thread {
 	 */
 	private void handleServerQuery(Query query) {
 		ClientCommand command = ClientCommandFactory.createCommand(view, query);
-		command.execute(query);
+		command.execute();
 	}
 
 }

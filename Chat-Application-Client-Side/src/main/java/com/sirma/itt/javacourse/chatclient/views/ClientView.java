@@ -40,12 +40,16 @@ public class ClientView implements View, ActionListener {
 	private JButton sendMessageButton;
 	private JTextArea chatMessagesArea;
 	private JTextField clientField;
+
 	private Client client;
 
 	/**
 	 * Creates a new user interface for the server.
+	 * 
+	 * @param client
+	 *            - the client
 	 */
-	public ClientView() {
+	public ClientView(Client client) {
 		frame.setTitle(WINDOW_TITLE);
 		frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,8 +82,7 @@ public class ClientView implements View, ActionListener {
 
 		frame.setVisible(true);
 
-		client = new Client(this);
-		client.connectToServer();
+		this.client = client;
 	}
 
 	/**
@@ -88,7 +91,7 @@ public class ClientView implements View, ActionListener {
 	@Override
 	public void appendMessageToChatArea(String message) {
 		String date = Date.getCurrentDate(Date.SIMPLE_DATE_FORMAT);
-		String formattedMessage = String.format("[%s]: %s%s", date, message, NEW_LINE);
+		String formattedMessage = String.format("[%s] %s%s", date, message, NEW_LINE);
 		chatMessagesArea.append(formattedMessage);
 	}
 
@@ -149,6 +152,8 @@ public class ClientView implements View, ActionListener {
 		String cmd = e.getActionCommand();
 		if ("send".equals(cmd)) {
 			client.sendMessage(clientField.getText());
+		} else if ("logout".equals(cmd)) {
+			client.logout();
 		}
 	}
 

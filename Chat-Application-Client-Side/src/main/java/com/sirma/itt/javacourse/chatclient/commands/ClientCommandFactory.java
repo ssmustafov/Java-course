@@ -32,13 +32,19 @@ public final class ClientCommandFactory {
 
 		switch (query.getQueryType()) {
 			case Success:
-				command = new SuccesCommand(view);
+				command = new SuccesCommand(view, query);
 				break;
 			case SentMessage:
-				command = new SentMessageCommand(view);
+				command = new SentMessageCommand(view, query);
 				break;
 			case ClientConnected:
-				command = new ClientConnectedCommand(view);
+				command = new ClientConnectedCommand(view, query);
+				break;
+			case ClientDisconnected:
+				command = new ClientDisconnectedCommand(view, query);
+				break;
+			case LoggedIn:
+				command = new LoggedInCommand(view, query);
 				break;
 
 			default:
