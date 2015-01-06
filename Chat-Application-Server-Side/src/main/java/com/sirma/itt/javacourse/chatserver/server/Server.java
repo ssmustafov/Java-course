@@ -88,7 +88,7 @@ public class Server implements Runnable {
 		} catch (BindException e) {
 			view.showErrorDialog(bundle.getString("anotherPort"));
 			view.resetUI();
-			LOGGER.error("Port is busy", e);
+			LOGGER.error("Port is busy: " + port, e);
 		} catch (IOException e) {
 			view.showErrorDialog(bundle.getString("cannotStart"));
 			LOGGER.error(e.getMessage(), e);

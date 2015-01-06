@@ -268,3 +268,13 @@ java.lang.InterruptedException: sleep interrupted
 	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
 	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
 	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-06 14:48:24.859 [Thread-1] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-06 14:48:25.359 [Thread-2] StopCounterThread - Counting stopped
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
