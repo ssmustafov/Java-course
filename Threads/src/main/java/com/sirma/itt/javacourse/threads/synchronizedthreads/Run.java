@@ -22,9 +22,14 @@ public final class Run {
 	 */
 	public static void main(String[] args) {
 		SynchronizedThread a = new SynchronizedThread(1, 5);
-		SynchronizedThread b = new SynchronizedThread(1, 5);
+		SynchronizedThread b = new SynchronizedThread(10, 18);
 		a.start();
 		b.start();
+
+		while (a.isAlive() || b.isAlive()) {
+			b.notifyThread();
+			a.notifyThread();
+		}
 	}
 
 }

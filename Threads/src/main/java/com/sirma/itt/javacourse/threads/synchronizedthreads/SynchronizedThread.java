@@ -30,6 +30,13 @@ public class SynchronizedThread extends Thread {
 	}
 
 	/**
+	 * Notifes this thread.
+	 */
+	public synchronized void notifyThread() {
+		notify();
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -46,6 +53,10 @@ public class SynchronizedThread extends Thread {
 				System.out.print(" #");
 				System.out.println(counter);
 				counter++;
+
+				synchronized (this) {
+					wait();
+				}
 			}
 			isStopped = true;
 		} catch (InterruptedException e) {

@@ -32,7 +32,7 @@ public class RangeCounterThread extends Thread {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public synchronized void run() {
+	public void run() {
 		try {
 			long counter = start;
 			while (counter <= end) {
@@ -44,6 +44,9 @@ public class RangeCounterThread extends Thread {
 				System.out.print(" #");
 				System.out.println(counter);
 				counter++;
+				synchronized (this) {
+					wait(50);
+				}
 			}
 			isStopped = true;
 		} catch (InterruptedException e) {
