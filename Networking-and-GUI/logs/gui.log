@@ -156,3 +156,4 @@ java.net.SocketException: socket closed
 	at com.sirma.itt.javacourse.gui.reverseserver.Server.startServer(Server.java:54) [classes/:?]
 	at com.sirma.itt.javacourse.gui.reverseserver.ServerView.<init>(ServerView.java:60) [classes/:?]
 	at com.sirma.itt.javacourse.gui.reverseserver.RunServer.main(RunServer.java:24) [classes/:?]
+[INFO ] 2015-01-07 15:42:06.000 [Thread-3] ServerListener - java.net.SocketException: socket closed

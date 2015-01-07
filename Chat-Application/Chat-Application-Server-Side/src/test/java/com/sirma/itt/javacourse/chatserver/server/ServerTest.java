@@ -51,10 +51,10 @@ public class ServerTest {
 	}
 
 	/**
-	 * Tests login into server.
+	 * Tests login into server with valid client.
 	 */
 	@Test
-	public void testServerLogin() {
+	public void testServerLoginWithValidClient() {
 		try {
 			testClient = new Socket(host, testPort);
 		} catch (UnknownHostException e) {
@@ -63,11 +63,57 @@ public class ServerTest {
 			LOGGER.error("Closed", e);
 		}
 
-		QueryHandler q = new QueryHandler(testClient);
-		q.sendQuery(new Query(QueryTypes.Login, "Test"));
-		Query a = q.readQuery();
-		assertEquals(QueryTypes.Success, a.getQueryType());
-		q.sendQuery(new Query(QueryTypes.Logout, "Test"));
+		QueryHandler queryHandler = new QueryHandler(testClient);
+		queryHandler.sendQuery(new Query(QueryTypes.Login, "Test"));
+		Query answer = queryHandler.readQuery();
+		queryHandler.sendQuery(new Query(QueryTypes.Logout, "Test"));
+
+		assertEquals(QueryTypes.Success, answer.getQueryType());
+	}
+
+	/**
+	 * Tests login into server with invalid client.
+	 */
+	@Test
+	public void testServerLoginInvalidClient() {
+		try {
+			testClient = new Socket(host, testPort);
+		} catch (UnknownHostException e) {
+			LOGGER.error(e.getMessage(), e);
+		} catch (IOException e) {
+			LOGGER.error("Closed", e);
+		}
+
+		QueryHandler queryHandler = new QueryHandler(testClient);
+		queryHandler.sendQuery(new Query(QueryTypes.Login, "clie[]nt"));
+		Query answer = queryHandler.readQuery();
+
+		assertEquals(QueryTypes.Refused, answer.getQueryType());
+	}
+
+	/**
+	 * Tests client logout.
+	 */
+	@Test
+	public void testServerLogout() {
+		try {
+			testClient = new Socket(host, testPort);
+		} catch (UnknownHostException e) {
+			LOGGER.error(e.getMessage(), e);
+		} catch (IOException e) {
+			LOGGER.error("Closed", e);
+		}
+
+		QueryHandler queryHandler = new QueryHandler(testClient);
+		queryHandler.sendQuery(new Query(QueryTypes.Login, "Client"));
+		queryHandler.readQuery();
+		queryHandler.readQuery();
+		queryHandler.readQuery();
+
+		queryHandler.sendQuery(new Query(QueryTypes.Logout, "Client"));
+		Query answer = queryHandler.readQuery();
+
+		assertEquals(QueryTypes.Success, answer.getQueryType());
 	}
 
 }
