@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +25,7 @@ import com.sirma.itt.javacourse.chatserver.view.View;
  */
 public class ServerTest {
 
+	private static final Logger LOGGER = LogManager.getLogger(ServerTest.class);
 	private final String host = "localhost";
 	private final int testPort = 7000;
 	private Server server;
@@ -55,15 +58,16 @@ public class ServerTest {
 		try {
 			testClient = new Socket(host, testPort);
 		} catch (UnknownHostException e) {
-			e.printStackTrace();
+			LOGGER.error(e.getMessage(), e);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.error("Closed", e);
 		}
 
 		QueryHandler q = new QueryHandler(testClient);
 		q.sendQuery(new Query(QueryTypes.Login, "Test"));
 		Query a = q.readQuery();
 		assertEquals(QueryTypes.Success, a.getQueryType());
+		q.sendQuery(new Query(QueryTypes.Logout, "Test"));
 	}
 
 }
