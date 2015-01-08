@@ -345,3 +345,14 @@ java.net.SocketException: socket closed
 	at com.sirma.itt.javacourse.gui.reverseserver.Server.startServer(Server.java:54) [classes/:?]
 	at com.sirma.itt.javacourse.gui.reverseserver.ServerView.<init>(ServerView.java:60) [classes/:?]
 	at com.sirma.itt.javacourse.gui.reverseserver.RunServer.main(RunServer.java:24) [classes/:?]
+[ERROR] 2015-01-08 14:35:06.453 [main] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainSocketImpl.socketAccept(Native Method) ~[?:1.7.0_60]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398) ~[?:1.7.0_60]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.7.0_60]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530) ~[?:1.7.0_60]
+	at java.net.ServerSocket.accept(ServerSocket.java:498) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.gui.reverseserver.Server.acceptClient(Server.java:68) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.Server.startServer(Server.java:54) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.ServerView.<init>(ServerView.java:60) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.RunServer.main(RunServer.java:24) [classes/:?]

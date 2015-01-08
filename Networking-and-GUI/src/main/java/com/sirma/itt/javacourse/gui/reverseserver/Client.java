@@ -58,14 +58,8 @@ public class Client extends Thread {
 	 * @param message
 	 *            - the message to be set
 	 */
-	public void setMessage(String message) {
+	public synchronized void setMessage(String message) {
 		this.message = message;
-	}
-
-	/**
-	 * Notifies this thread that the client has entered a message.
-	 */
-	public synchronized void notifyClient() {
 		notify();
 	}
 

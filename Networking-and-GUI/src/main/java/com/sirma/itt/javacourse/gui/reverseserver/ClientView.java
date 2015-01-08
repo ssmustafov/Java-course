@@ -132,7 +132,6 @@ public class ClientView extends JFrame implements ActionListener, KeyListener {
 			String message = field.getText();
 			if (!message.isEmpty()) {
 				client.setMessage(message);
-				client.notifyClient();
 				field.setText("");
 
 				mementoCaretaker.addMemento(client.saveMemento());
