@@ -110,7 +110,7 @@ public class Client extends Thread {
 				}
 
 				serverResponse = readMessageFromServer();
-				if (CommunicationConstants.STOPPING_SERVER_MESSAGE.equals(serverResponse)) {
+				if (serverResponse == null) {
 					view.showErrorDialog("The server has been stopped");
 					break;
 				}

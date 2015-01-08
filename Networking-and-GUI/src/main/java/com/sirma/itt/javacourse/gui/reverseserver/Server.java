@@ -105,7 +105,6 @@ public class Server {
 			try {
 				clientSocket.close();
 			} catch (IOException e) {
-				view.showErrorDialog("There was a problem disconnecting from the server.");
 				LOGGER.error(e.getMessage(), e);
 			}
 		}

@@ -163,6 +163,8 @@ public class ClientView extends JFrame implements ActionListener, KeyListener {
 			if (memento != null) {
 				field.setText(memento.getMessage());
 			}
+		} else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			sendButton.doClick();
 		}
 	}
 

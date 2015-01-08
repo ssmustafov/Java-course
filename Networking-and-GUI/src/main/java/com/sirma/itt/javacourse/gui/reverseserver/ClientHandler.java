@@ -88,7 +88,6 @@ public class ClientHandler extends Thread {
 		try {
 			while (true) {
 				if (isServerStopped) {
-					writer.println(CommunicationConstants.STOPPING_SERVER_MESSAGE);
 					break;
 				}
 
