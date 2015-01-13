@@ -2,6 +2,9 @@ package com.sirma.itt.javacourse.threads.hashtable;
 
 import java.util.Hashtable;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Represents a {@code Hashtable} but with given time to exist for every element in the table.
  * 
@@ -12,6 +15,8 @@ import java.util.Hashtable;
  * @author smustafov
  */
 public class TimeoutHashtable<K, V> {
+
+	private static final Logger LOGGER = LogManager.getLogger(TimeoutHashtable.class);
 	private static final int THOUSAND_MILISECONDS = 1000;
 	private static final int MINIMUM_SECONDS_FOR_EACH_ELEMENT = 1;
 	private Hashtable<K, V> hashtable;
@@ -156,12 +161,12 @@ public class TimeoutHashtable<K, V> {
 					if (timeout.containsKey(key) && !isUsed) {
 						hashtable.remove(key);
 						timeout.remove(key);
-						System.out.println("REMOVED: key -> " + key);
+						LOGGER.info("REMOVED: key -> " + key);
 					} else {
 						isUsed = false;
 					}
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					LOGGER.error(e.getMessage(), e);
 				}
 			}
 		}

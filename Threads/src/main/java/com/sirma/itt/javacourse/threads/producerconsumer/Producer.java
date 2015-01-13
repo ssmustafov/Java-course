@@ -48,7 +48,7 @@ public class Producer extends Thread {
 		try {
 			while (true) {
 				String message = new Date().toString();
-				System.out.println("Producer : put -> " + message);
+				LOGGER.info("Producer : put -> " + message);
 				storeHouse.put(message);
 				wait(time);
 			}

@@ -2,12 +2,17 @@ package com.sirma.itt.javacourse.threads.synchronizedstack;
 
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
- * Thread for adding items to {@code SynchronizedList}.
+ * Thread for removing items from {@code SynchronizedList}.
  * 
  * @author Sinan
  */
 public class RemoveThread extends Thread {
+
+	private static final Logger LOGGER = LogManager.getLogger(RemoveThread.class);
 	private static final int MAX_WAIT_TIME = 3000;
 	private SynchronizedList list;
 	private Random random = new Random();
@@ -31,7 +36,7 @@ public class RemoveThread extends Thread {
 			list.add(random.nextInt());
 			try {
 				wait(random.nextInt(MAX_WAIT_TIME));
-				System.out.println(list);
+				LOGGER.info(list.toString());
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

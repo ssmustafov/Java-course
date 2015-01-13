@@ -38,7 +38,7 @@ public class SynchronizedList {
 	 */
 	public synchronized void add(Object obj) {
 		if (array.length == index) {
-			System.out.println("ADD: List full... waiting for element to be removed");
+			LOGGER.info("ADD: List full... waiting for element to be removed");
 			try {
 				wait();
 			} catch (InterruptedException e) {
@@ -56,7 +56,7 @@ public class SynchronizedList {
 	 */
 	public synchronized void remove() {
 		if (index == 0) {
-			System.out.println("REMOVE: List empty... waiting for element to be added");
+			LOGGER.info("REMOVE: List empty... waiting for element to be added");
 			try {
 				wait();
 			} catch (InterruptedException e) {

@@ -30,7 +30,7 @@ public class SynchronizedThread extends Thread {
 	}
 
 	/**
-	 * Notifes this thread.
+	 * Notifies this thread.
 	 */
 	public synchronized void notifyThread() {
 		notify();
@@ -49,9 +49,7 @@ public class SynchronizedThread extends Thread {
 				}
 				sleep(500);
 
-				System.out.print(Thread.currentThread().getName());
-				System.out.print(" #");
-				System.out.println(counter);
+				LOGGER.info(Thread.currentThread().getName() + " #" + counter);
 				counter++;
 
 				synchronized (this) {

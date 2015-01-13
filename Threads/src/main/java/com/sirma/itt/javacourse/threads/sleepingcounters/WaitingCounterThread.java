@@ -35,9 +35,7 @@ public class WaitingCounterThread extends Thread {
 	public void run() {
 		try {
 			for (long i = start; i <= end; i++) {
-				System.out.print(Thread.currentThread().getName());
-				System.out.print(" #");
-				System.out.println(i);
+				LOGGER.info(Thread.currentThread().getName() + " #" + i);
 
 				synchronized (this) {
 					wait(WAIT_TIME);

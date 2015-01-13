@@ -46,7 +46,7 @@ public class Consumer extends Thread {
 		try {
 			while (true) {
 				String message = (String) storeHouse.get();
-				System.out.println(getName() + " : get -> " + message);
+				LOGGER.info(getName() + " : get -> " + message);
 				wait(time);
 			}
 		} catch (InterruptedException e) {

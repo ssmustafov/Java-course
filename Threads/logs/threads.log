@@ -278,3 +278,16 @@ java.lang.InterruptedException: sleep interrupted
 	at java.lang.Thread.sleep(Native Method) ~[?:1.7.0_60]
 	at com.sirma.itt.javacourse.threads.stopcounter.StopCounterThread.run(StopCounterThread.java:35) [classes/:?]
 	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[INFO ] 2015-01-13 16:28:42.398 [Thread-1] SynchronizedList - REMOVE: List empty... waiting for element to be added
+[INFO ] 2015-01-13 16:28:44.477 [Thread-1] AddThread - []
+[INFO ] 2015-01-13 16:28:44.478 [Thread-1] SynchronizedList - REMOVE: List empty... waiting for element to be added
+[INFO ] 2015-01-13 16:28:45.010 [Thread-2] RemoveThread - []
+[INFO ] 2015-01-13 16:28:45.291 [Thread-2] RemoveThread - []
+[INFO ] 2015-01-13 16:28:47.239 [Thread-1] AddThread - [229640259]
+[INFO ] 2015-01-13 16:28:47.490 [Thread-2] RemoveThread - []
+[INFO ] 2015-01-13 16:28:47.886 [Thread-2] RemoveThread - [1849530647]
+[INFO ] 2015-01-13 16:28:49.623 [Thread-1] AddThread - [1849530647, 516742236]
+[INFO ] 2015-01-13 16:28:50.171 [Thread-2] RemoveThread - [1849530647]
+[INFO ] 2015-01-13 16:28:51.674 [Thread-2] RemoveThread - [1849530647, 569232975]
+[INFO ] 2015-01-13 16:28:52.504 [Thread-2] RemoveThread - [1849530647, 569232975, 1234798142]
+[INFO ] 2015-01-13 16:28:52.504 [Thread-2] SynchronizedList - ADD: List full... waiting for element to be removed
