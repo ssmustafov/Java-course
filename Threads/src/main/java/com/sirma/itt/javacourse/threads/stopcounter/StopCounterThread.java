@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class StopCounterThread implements Runnable {
 
-	public static final int SLEEP_TIME = 500;
+	public static final int SLEEP_TIME = 1000;
 	private static final Logger LOGGER = LogManager.getLogger(StopCounterThread.class);
 	private long max;
 	private long currentCounter = 0;

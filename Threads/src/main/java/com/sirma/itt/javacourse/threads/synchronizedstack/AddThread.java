@@ -1,45 +1,35 @@
 package com.sirma.itt.javacourse.threads.synchronizedstack;
 
-import java.util.Random;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
- * Thread for adding items to {@code SynchronizedList}.
+ * Thread for adding items to {@code SynchronizedStack}.
  * 
  * @author Sinan
  */
-public class AddThread extends Thread {
+public class AddThread implements Runnable {
 
-	private static final Logger LOGGER = LogManager.getLogger(AddThread.class);
-	private static final int MAX_WAIT_TIME = 3000;
-	private SynchronizedList list;
-	private Random random = new Random();
+	private SynchronizedStack list;
+	private Object itemToAdd;
 
 	/**
-	 * Creates a new thread for adding items to SynchronizedList.
+	 * Creates a new thread for adding items to SynchronizedStack.
 	 * 
 	 * @param list
-	 *            - list in which elements will be added
+	 *            - list in which items will be added
+	 * @param itemToAdd
+	 *            - the item to be added to the list
 	 */
-	public AddThread(SynchronizedList list) {
+	public AddThread(SynchronizedStack list, Object itemToAdd) {
 		this.list = list;
+		this.itemToAdd = itemToAdd;
+		new Thread(this).start();
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public synchronized void run() {
-		while (true) {
-			list.remove();
-			try {
-				wait(random.nextInt(MAX_WAIT_TIME));
-				LOGGER.info(list.toString());
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+	public void run() {
+		list.addItem(itemToAdd);
 	}
 }

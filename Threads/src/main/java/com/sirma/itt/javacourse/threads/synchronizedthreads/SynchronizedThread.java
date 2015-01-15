@@ -13,6 +13,7 @@ public class SynchronizedThread extends Thread {
 
 	private static final Logger LOGGER = LogManager.getLogger(SynchronizedThread.class);
 	private static volatile boolean isStopped = false;
+	private static Object lock = new Object();
 	private long start;
 	private long end;
 
@@ -30,33 +31,27 @@ public class SynchronizedThread extends Thread {
 	}
 
 	/**
-	 * Notifies this thread.
-	 */
-	public synchronized void notifyThread() {
-		notify();
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void run() {
 		try {
 			long counter = start;
-			while (counter <= end) {
-				if (isStopped) {
-					break;
-				}
+			while (counter <= end && !isStopped) {
 				sleep(500);
 
 				LOGGER.info(Thread.currentThread().getName() + " #" + counter);
 				counter++;
 
-				synchronized (this) {
-					wait();
+				synchronized (lock) {
+					lock.notifyAll();
+					lock.wait();
 				}
 			}
 			isStopped = true;
+			synchronized (lock) {
+				lock.notifyAll();
+			}
 		} catch (InterruptedException e) {
 			LOGGER.error(e.getMessage(), e);
 		}

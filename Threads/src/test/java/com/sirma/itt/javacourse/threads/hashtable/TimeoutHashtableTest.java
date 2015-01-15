@@ -74,4 +74,27 @@ public class TimeoutHashtableTest {
 		assertFalse(actualSecondKeyContains);
 	}
 
+	/**
+	 * Tests adding two elements and sleeping for 1,2 seconds then removes the second element.
+	 */
+	@Test
+	public void testRemove() {
+		TimeoutHashtable<Integer, String> table = new TimeoutHashtable<>(2);
+		table.put(10, "ten");
+		table.put(17, "seventeen");
+
+		try {
+			Thread.sleep(1200);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		table.remove(17);
+
+		boolean actualFirstKeyContains = table.contains(10);
+		boolean actualSecondKeyContains = table.contains(17);
+
+		assertTrue(actualFirstKeyContains);
+		assertFalse(actualSecondKeyContains);
+	}
+
 }

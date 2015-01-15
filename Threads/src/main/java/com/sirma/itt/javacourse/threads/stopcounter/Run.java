@@ -22,15 +22,15 @@ public final class Run {
 	 * @param args
 	 *            - arguments
 	 */
-	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		StopCounterThread stopCounter = new StopCounterThread(20);
 		Thread t = new Thread(stopCounter);
 		t.start();
 
-		Scanner scanner = new Scanner(System.in);
-		scanner.nextLine();
-		t.interrupt();
+		try (Scanner scanner = new Scanner(System.in);) {
+			scanner.nextLine();
+			t.interrupt();
+		}
 
 		System.out.println(stopCounter.getCounter());
 	}
