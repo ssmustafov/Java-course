@@ -468,3 +468,47 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 	... 8 more
 [INFO ] 2015-01-16 02:37:50.356 [Thread-1] Server - java.net.SocketException: socket closed
 [INFO ] 2015-01-16 02:37:50.461 [Thread-3] Server - java.net.SocketException: socket closed
+[INFO ] 2015-01-16 14:53:06.281 [Thread-2] Server - Socket is closed
+java.net.SocketException: Socket is closed
+	at java.net.ServerSocket.accept(ServerSocket.java:494) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.gui.infoserver.Server.acceptClients(Server.java:102) [classes/:?]
+	at com.sirma.itt.javacourse.gui.infoserver.Server.run(Server.java:91) [classes/:?]
+	at com.sirma.itt.javacourse.gui.infoserver.Server$$EnhancerByMockitoWithCGLIB$$bea401a8.CGLIB$run$2(<generated>) [mockito-core-1.9.5.jar:?]
+	at com.sirma.itt.javacourse.gui.infoserver.Server$$EnhancerByMockitoWithCGLIB$$bea401a8$$FastClassByMockitoWithCGLIB$$84cc6236.invoke(<generated>) [mockito-core-1.9.5.jar:?]
+	at org.mockito.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:216) [mockito-core-1.9.5.jar:?]
+	at org.mockito.internal.creation.AbstractMockitoMethodProxy.invokeSuper(AbstractMockitoMethodProxy.java:10) [mockito-core-1.9.5.jar:?]
+	at org.mockito.internal.invocation.realmethod.CGLIBProxyRealMethod.invoke(CGLIBProxyRealMethod.java:22) [mockito-core-1.9.5.jar:?]
+	at org.mockito.internal.invocation.realmethod.FilteredCGLIBProxyRealMethod.invoke(FilteredCGLIBProxyRealMethod.java:27) [mockito-core-1.9.5.jar:?]
+	at org.mockito.internal.invocation.InvocationImpl.callRealMethod(InvocationImpl.java:108) [mockito-core-1.9.5.jar:?]
+	at org.mockito.internal.stubbing.answers.CallsRealMethods.answer(CallsRealMethods.java:36) [mockito-core-1.9.5.jar:?]
+	at org.mockito.internal.handler.MockHandlerImpl.handle(MockHandlerImpl.java:93) [mockito-core-1.9.5.jar:?]
+	at org.mockito.internal.handler.NullResultGuardian.handle(NullResultGuardian.java:29) [mockito-core-1.9.5.jar:?]
+	at org.mockito.internal.handler.InvocationNotifierHandler.handle(InvocationNotifierHandler.java:38) [mockito-core-1.9.5.jar:?]
+	at org.mockito.internal.creation.MethodInterceptorFilter.intercept(MethodInterceptorFilter.java:51) [mockito-core-1.9.5.jar:?]
+	at com.sirma.itt.javacourse.gui.infoserver.Server$$EnhancerByMockitoWithCGLIB$$bea401a8.run(<generated>) [mockito-core-1.9.5.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.7.0_60]
+[ERROR] 2015-01-16 15:33:49.171 [main] Server - socket closed
+java.net.SocketException: socket closed
+	at java.net.TwoStacksPlainSocketImpl.socketAccept(Native Method) ~[?:1.7.0_60]
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398) ~[?:1.7.0_60]
+	at java.net.PlainSocketImpl.accept(PlainSocketImpl.java:199) ~[?:1.7.0_60]
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530) ~[?:1.7.0_60]
+	at java.net.ServerSocket.accept(ServerSocket.java:498) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.gui.reverseserver.Server.acceptClient(Server.java:68) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.Server.startServer(Server.java:54) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.ServerView.<init>(ServerView.java:60) [classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.RunServer.main(RunServer.java:24) [classes/:?]
+[ERROR] 2015-01-16 15:33:49.171 [Thread-3] ClientHandler - Socket closed
+java.net.SocketException: Socket closed
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[?:1.7.0_60]
+	at java.net.SocketInputStream.read(SocketInputStream.java:152) ~[?:1.7.0_60]
+	at java.net.SocketInputStream.read(SocketInputStream.java:122) ~[?:1.7.0_60]
+	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:283) ~[?:1.7.0_60]
+	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:325) ~[?:1.7.0_60]
+	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:177) ~[?:1.7.0_60]
+	at java.io.InputStreamReader.read(InputStreamReader.java:184) ~[?:1.7.0_60]
+	at java.io.BufferedReader.fill(BufferedReader.java:154) ~[?:1.7.0_60]
+	at java.io.BufferedReader.readLine(BufferedReader.java:317) ~[?:1.7.0_60]
+	at java.io.BufferedReader.readLine(BufferedReader.java:382) ~[?:1.7.0_60]
+	at com.sirma.itt.javacourse.gui.reverseserver.ClientHandler.readClientMessage(ClientHandler.java:49) ~[classes/:?]
+	at com.sirma.itt.javacourse.gui.reverseserver.ClientHandler.run(ClientHandler.java:94) [classes/:?]

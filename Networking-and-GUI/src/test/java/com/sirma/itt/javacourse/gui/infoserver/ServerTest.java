@@ -28,7 +28,6 @@ public class ServerTest {
 		Mockito.when(view.getButton()).thenReturn(new JButton());
 
 		server = Mockito.spy(new Server(view));
-
 	}
 
 	/**
