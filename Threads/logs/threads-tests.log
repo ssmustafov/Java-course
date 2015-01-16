@@ -1,0 +1,377 @@
+[INFO ] 2015-01-16 01:45:46.060 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:45:46 EET 2015
+[INFO ] 2015-01-16 01:45:59.270 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:45:59 EET 2015
+[INFO ] 2015-01-16 01:46:23.535 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:46:23 EET 2015
+[INFO ] 2015-01-16 01:46:23.535 [Consumer Mincho] Consumer - Consumer Mincho : get -> Fri Jan 16 01:46:23 EET 2015
+[INFO ] 2015-01-16 01:46:24.244 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:46:24 EET 2015
+[INFO ] 2015-01-16 01:46:24.245 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:46:24 EET 2015
+[INFO ] 2015-01-16 01:46:24.950 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:46:24 EET 2015
+[INFO ] 2015-01-16 01:46:25.653 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:46:25 EET 2015
+[INFO ] 2015-01-16 01:46:26.358 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:46:26 EET 2015
+[INFO ] 2015-01-16 01:46:26.546 [Consumer Mincho] Consumer - Consumer Mincho : get -> Fri Jan 16 01:46:24 EET 2015
+[INFO ] 2015-01-16 01:46:27.069 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:46:27 EET 2015
+[INFO ] 2015-01-16 01:46:27.258 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:46:25 EET 2015
+[INFO ] 2015-01-16 01:46:27.774 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:46:27 EET 2015
+[INFO ] 2015-01-16 01:46:28.478 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:46:28 EET 2015
+[INFO ] 2015-01-16 01:46:29.184 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:46:29 EET 2015
+[INFO ] 2015-01-16 01:46:29.561 [Consumer Mincho] Consumer - Consumer Mincho : get -> Fri Jan 16 01:46:26 EET 2015
+[INFO ] 2015-01-16 01:46:29.890 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:46:29 EET 2015
+[INFO ] 2015-01-16 01:50:13.311 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:50:13 EET 2015
+[INFO ] 2015-01-16 01:50:13.311 [Consumer Mincho] Consumer - Consumer Mincho : get -> Fri Jan 16 01:50:13 EET 2015
+[INFO ] 2015-01-16 01:59:06.360 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.360 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.392 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.392 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.423 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.424 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.456 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.456 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.487 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.487 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.518 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.518 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.550 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.550 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.581 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:59:06 EET 2015
+[INFO ] 2015-01-16 01:59:06.581 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:59:06 EET 2015
+[ERROR] 2015-01-16 01:59:06.597 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[ERROR] 2015-01-16 01:59:06.597 [Consumer Pesho] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[INFO ] 2015-01-16 01:59:46.407 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:59:46 EET 2015
+[INFO ] 2015-01-16 01:59:46.407 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:59:46 EET 2015
+[INFO ] 2015-01-16 01:59:46.657 [Thread-1] Producer - Producer : put -> Fri Jan 16 01:59:46 EET 2015
+[ERROR] 2015-01-16 01:59:46.657 [Consumer Pesho] StoreHouse - null
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at java.lang.Object.wait(Object.java:502) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.StoreHouse.get(StoreHouse.java:63) [classes/:?]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:48) [classes/:?]
+[INFO ] 2015-01-16 01:59:46.658 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 01:59:46 EET 2015
+[ERROR] 2015-01-16 01:59:46.658 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:00:04.835 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:00:04 EET 2015
+[INFO ] 2015-01-16 02:00:04.835 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:00:04 EET 2015
+[ERROR] 2015-01-16 02:00:05.069 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[ERROR] 2015-01-16 02:00:05.069 [Consumer Pesho] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[INFO ] 2015-01-16 02:01:23.812 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:01:23 EET 2015
+[INFO ] 2015-01-16 02:01:23.812 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:01:23 EET 2015
+[INFO ] 2015-01-16 02:01:24.062 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:01:24 EET 2015
+[ERROR] 2015-01-16 02:01:24.062 [Consumer Pesho] StoreHouse - null
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at java.lang.Object.wait(Object.java:502) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.StoreHouse.get(StoreHouse.java:63) [classes/:?]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:48) [classes/:?]
+[INFO ] 2015-01-16 02:01:24.063 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:01:24 EET 2015
+[ERROR] 2015-01-16 02:01:24.063 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:01:47.844 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:01:47 EET 2015
+[INFO ] 2015-01-16 02:01:47.844 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:01:47 EET 2015
+[ERROR] 2015-01-16 02:01:48.079 [Consumer Pesho] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[ERROR] 2015-01-16 02:01:48.079 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:02:07.700 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:02:07 EET 2015
+[INFO ] 2015-01-16 02:02:07.700 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:02:07 EET 2015
+[ERROR] 2015-01-16 02:02:07.935 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[ERROR] 2015-01-16 02:02:07.935 [Consumer Pesho] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[INFO ] 2015-01-16 02:02:16.679 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:02:16 EET 2015
+[INFO ] 2015-01-16 02:02:16.679 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:02:16 EET 2015
+[ERROR] 2015-01-16 02:02:16.929 [Consumer Pesho] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[ERROR] 2015-01-16 02:02:16.929 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:02:26.519 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:02:26 EET 2015
+[ERROR] 2015-01-16 02:02:26.769 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:02:37.590 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:02:37 EET 2015
+[ERROR] 2015-01-16 02:02:37.852 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:03:11.143 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:03:11 EET 2015
+[ERROR] 2015-01-16 02:03:11.393 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:03:27.374 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:03:27 EET 2015
+[INFO ] 2015-01-16 02:04:11.011 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:04:10 EET 2015
+[INFO ] 2015-01-16 02:04:28.178 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:04:28 EET 2015
+[INFO ] 2015-01-16 02:04:50.460 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:04:50 EET 2015
+[INFO ] 2015-01-16 02:05:19.750 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:05:19 EET 2015
+[INFO ] 2015-01-16 02:12:39.093 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:12:39 EET 2015
+[INFO ] 2015-01-16 02:12:51.008 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:12:51 EET 2015
+[INFO ] 2015-01-16 02:12:51.712 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:12:51 EET 2015
+[INFO ] 2015-01-16 02:12:52.416 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:12:52 EET 2015
+[INFO ] 2015-01-16 02:12:53.119 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:12:53 EET 2015
+[INFO ] 2015-01-16 02:13:18.188 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:18 EET 2015
+[INFO ] 2015-01-16 02:13:18.188 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:13:18 EET 2015
+[INFO ] 2015-01-16 02:13:18.891 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:18 EET 2015
+[INFO ] 2015-01-16 02:13:19.190 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:13:18 EET 2015
+[INFO ] 2015-01-16 02:13:19.596 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:19 EET 2015
+[INFO ] 2015-01-16 02:13:20.190 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:13:19 EET 2015
+[INFO ] 2015-01-16 02:13:20.301 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:20 EET 2015
+[INFO ] 2015-01-16 02:13:31.347 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:31 EET 2015
+[INFO ] 2015-01-16 02:13:31.347 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:13:31 EET 2015
+[INFO ] 2015-01-16 02:13:32.050 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:32 EET 2015
+[INFO ] 2015-01-16 02:13:32.754 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:32 EET 2015
+[INFO ] 2015-01-16 02:13:33.458 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:33 EET 2015
+[INFO ] 2015-01-16 02:13:51.200 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:51 EET 2015
+[INFO ] 2015-01-16 02:13:51.209 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:13:51 EET 2015
+[INFO ] 2015-01-16 02:13:52.210 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:52 EET 2015
+[INFO ] 2015-01-16 02:13:53.212 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:13:53 EET 2015
+[INFO ] 2015-01-16 02:14:04.094 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:14:04 EET 2015
+[INFO ] 2015-01-16 02:14:04.094 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:14:04 EET 2015
+[INFO ] 2015-01-16 02:14:05.094 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:14:05 EET 2015
+[INFO ] 2015-01-16 02:14:06.100 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:14:06 EET 2015
+[INFO ] 2015-01-16 02:14:16.131 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:14:16 EET 2015
+[INFO ] 2015-01-16 02:14:16.131 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:14:16 EET 2015
+[INFO ] 2015-01-16 02:14:17.133 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:14:17 EET 2015
+[INFO ] 2015-01-16 02:14:18.135 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:14:18 EET 2015
+[INFO ] 2015-01-16 02:14:43.603 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:14:43 EET 2015
+[INFO ] 2015-01-16 02:14:43.603 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:14:43 EET 2015
+[INFO ] 2015-01-16 02:14:44.604 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:14:44 EET 2015
+[INFO ] 2015-01-16 02:14:59.951 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:14:59 EET 2015
+[INFO ] 2015-01-16 02:14:59.951 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:14:59 EET 2015
+[INFO ] 2015-01-16 02:15:00.951 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:15:00 EET 2015
+[INFO ] 2015-01-16 02:15:01.960 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:15:01 EET 2015
+[INFO ] 2015-01-16 02:15:02.961 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:15:00 EET 2015
+[INFO ] 2015-01-16 02:15:02.961 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:15:02 EET 2015
+[INFO ] 2015-01-16 02:15:03.963 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:15:03 EET 2015
+[INFO ] 2015-01-16 02:15:04.964 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:15:04 EET 2015
+[INFO ] 2015-01-16 02:15:13.440 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:15:13 EET 2015
+[INFO ] 2015-01-16 02:15:13.440 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:15:13 EET 2015
+[INFO ] 2015-01-16 02:15:14.440 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:15:14 EET 2015
+[INFO ] 2015-01-16 02:15:24.801 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:15:24 EET 2015
+[INFO ] 2015-01-16 02:15:24.801 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:15:24 EET 2015
+[INFO ] 2015-01-16 02:15:25.802 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:15:25 EET 2015
+[INFO ] 2015-01-16 02:16:41.041 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:16:41 EET 2015
+[INFO ] 2015-01-16 02:16:42.057 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:16:42 EET 2015
+[INFO ] 2015-01-16 02:16:43.058 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:16:43 EET 2015
+[INFO ] 2015-01-16 02:16:44.044 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:16:41 EET 2015
+[INFO ] 2015-01-16 02:16:44.060 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:16:44 EET 2015
+[INFO ] 2015-01-16 02:17:34.217 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:17:34 EET 2015
+[INFO ] 2015-01-16 02:17:35.217 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:17:35 EET 2015
+[INFO ] 2015-01-16 02:17:36.219 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:17:36 EET 2015
+[INFO ] 2015-01-16 02:17:37.205 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:17:34 EET 2015
+[INFO ] 2015-01-16 02:17:37.221 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:17:37 EET 2015
+[INFO ] 2015-01-16 02:17:49.894 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:17:49 EET 2015
+[INFO ] 2015-01-16 02:17:50.894 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:17:50 EET 2015
+[INFO ] 2015-01-16 02:17:51.880 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:17:49 EET 2015
+[INFO ] 2015-01-16 02:17:51.896 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:17:51 EET 2015
+[INFO ] 2015-01-16 02:18:20.465 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:18:20 EET 2015
+[INFO ] 2015-01-16 02:18:21.484 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:18:21 EET 2015
+[INFO ] 2015-01-16 02:18:22.470 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:18:20 EET 2015
+[INFO ] 2015-01-16 02:18:22.486 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:18:22 EET 2015
+[INFO ] 2015-01-16 02:18:26.743 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:18:26 EET 2015
+[INFO ] 2015-01-16 02:18:27.743 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:18:27 EET 2015
+[INFO ] 2015-01-16 02:18:28.730 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:18:26 EET 2015
+[INFO ] 2015-01-16 02:18:28.746 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:18:28 EET 2015
+[INFO ] 2015-01-16 02:19:03.933 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:19:03 EET 2015
+[INFO ] 2015-01-16 02:19:04.933 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:19:04 EET 2015
+[INFO ] 2015-01-16 02:19:05.935 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:19:05 EET 2015
+[INFO ] 2015-01-16 02:19:05.935 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:19:03 EET 2015
+[ERROR] 2015-01-16 02:19:05.935 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:19:07.936 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:19:04 EET 2015
+[INFO ] 2015-01-16 02:19:31.108 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:19:31 EET 2015
+[INFO ] 2015-01-16 02:19:32.108 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:19:32 EET 2015
+[INFO ] 2015-01-16 02:19:33.113 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:19:33 EET 2015
+[INFO ] 2015-01-16 02:19:33.113 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:19:31 EET 2015
+[ERROR] 2015-01-16 02:19:33.113 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:19:35.116 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:19:32 EET 2015
+[ERROR] 2015-01-16 02:19:35.116 [Consumer Pesho] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[INFO ] 2015-01-16 02:19:54.468 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:19:54 EET 2015
+[INFO ] 2015-01-16 02:19:55.471 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:19:55 EET 2015
+[INFO ] 2015-01-16 02:19:56.473 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:19:56 EET 2015
+[INFO ] 2015-01-16 02:19:56.474 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:19:54 EET 2015
+[ERROR] 2015-01-16 02:19:56.473 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[ERROR] 2015-01-16 02:19:58.473 [Consumer Pesho] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[INFO ] 2015-01-16 02:20:16.416 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:20:16 EET 2015
+[INFO ] 2015-01-16 02:20:17.416 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:20:17 EET 2015
+[INFO ] 2015-01-16 02:20:18.402 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:20:16 EET 2015
+[ERROR] 2015-01-16 02:20:18.402 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[ERROR] 2015-01-16 02:20:20.402 [Consumer Pesho] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[INFO ] 2015-01-16 02:20:27.677 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:20:27 EET 2015
+[INFO ] 2015-01-16 02:20:28.677 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:20:28 EET 2015
+[INFO ] 2015-01-16 02:20:29.663 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:20:27 EET 2015
+[ERROR] 2015-01-16 02:20:29.663 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:20:30.663 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:20:28 EET 2015
+[ERROR] 2015-01-16 02:20:31.664 [Consumer Pesho] StoreHouse - null
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at java.lang.Object.wait(Object.java:502) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.StoreHouse.get(StoreHouse.java:63) [classes/:?]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:48) [classes/:?]
+[INFO ] 2015-01-16 02:20:53.120 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:20:53 EET 2015
+[INFO ] 2015-01-16 02:20:54.120 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:20:54 EET 2015
+[INFO ] 2015-01-16 02:20:55.122 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:20:55 EET 2015
+[INFO ] 2015-01-16 02:20:55.122 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:20:53 EET 2015
+[ERROR] 2015-01-16 02:20:55.122 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:20:56.123 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:20:54 EET 2015
+[INFO ] 2015-01-16 02:20:57.125 [Consumer Pesho] Consumer - Consumer Pesho : get -> Fri Jan 16 02:20:55 EET 2015
+[ERROR] 2015-01-16 02:20:57.125 [Consumer Pesho] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[INFO ] 2015-01-16 02:21:26.835 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:21:26 EET 2015
+[INFO ] 2015-01-16 02:21:27.835 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:21:27 EET 2015
+[INFO ] 2015-01-16 02:21:28.821 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:21:26 EET 2015
+[ERROR] 2015-01-16 02:21:28.821 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:21:29.821 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:21:27 EET 2015
+[ERROR] 2015-01-16 02:21:31.324 [Thread-2] StoreHouse - null
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at java.lang.Object.wait(Object.java:502) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.StoreHouse.get(StoreHouse.java:63) [classes/:?]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:48) [classes/:?]
+[INFO ] 2015-01-16 02:21:49.814 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:21:49 EET 2015
+[INFO ] 2015-01-16 02:21:50.830 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:21:50 EET 2015
+[INFO ] 2015-01-16 02:21:51.820 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:21:49 EET 2015
+[ERROR] 2015-01-16 02:21:51.820 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:21:52.835 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:21:50 EET 2015
+[ERROR] 2015-01-16 02:21:54.327 [Thread-2] StoreHouse - null
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at java.lang.Object.wait(Object.java:502) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.StoreHouse.get(StoreHouse.java:63) [classes/:?]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:48) [classes/:?]
+[INFO ] 2015-01-16 02:22:16.589 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:22:16 EET 2015
+[INFO ] 2015-01-16 02:22:17.595 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:22:17 EET 2015
+[INFO ] 2015-01-16 02:22:18.597 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:22:18 EET 2015
+[INFO ] 2015-01-16 02:22:19.583 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:22:16 EET 2015
+[ERROR] 2015-01-16 02:22:19.583 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:22:20.583 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:22:17 EET 2015
+[INFO ] 2015-01-16 02:22:21.586 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:22:18 EET 2015
+[ERROR] 2015-01-16 02:22:22.098 [Thread-2] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[INFO ] 2015-01-16 02:23:11.366 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:23:11 EET 2015
+[INFO ] 2015-01-16 02:23:12.368 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:23:12 EET 2015
+[INFO ] 2015-01-16 02:23:13.370 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:23:13 EET 2015
+[INFO ] 2015-01-16 02:23:14.371 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:23:14 EET 2015
+[INFO ] 2015-01-16 02:23:14.372 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:23:11 EET 2015
+[ERROR] 2015-01-16 02:23:14.372 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:23:15.876 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:23:12 EET 2015
+[INFO ] 2015-01-16 02:23:17.378 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:23:13 EET 2015
+[ERROR] 2015-01-16 02:23:17.879 [Thread-2] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[INFO ] 2015-01-16 02:23:43.761 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:23:43 EET 2015
+[INFO ] 2015-01-16 02:23:44.777 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:23:44 EET 2015
+[INFO ] 2015-01-16 02:23:45.778 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:23:45 EET 2015
+[INFO ] 2015-01-16 02:23:46.764 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:23:43 EET 2015
+[ERROR] 2015-01-16 02:23:46.764 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:23:47.768 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:23:44 EET 2015
+[INFO ] 2015-01-16 02:23:48.769 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:23:45 EET 2015
+[ERROR] 2015-01-16 02:23:49.974 [Thread-2] StoreHouse - null
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at java.lang.Object.wait(Object.java:502) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.StoreHouse.get(StoreHouse.java:63) [classes/:?]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:48) [classes/:?]
+[INFO ] 2015-01-16 02:25:07.774 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:25:07 EET 2015
+[INFO ] 2015-01-16 02:25:08.774 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:25:08 EET 2015
+[INFO ] 2015-01-16 02:25:09.779 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:25:09 EET 2015
+[INFO ] 2015-01-16 02:25:10.781 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:25:10 EET 2015
+[INFO ] 2015-01-16 02:25:10.781 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:25:07 EET 2015
+[ERROR] 2015-01-16 02:25:10.781 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:25:11.785 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:25:08 EET 2015
+[INFO ] 2015-01-16 02:25:12.787 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:25:09 EET 2015
+[INFO ] 2015-01-16 02:25:13.788 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:25:10 EET 2015
+[ERROR] 2015-01-16 02:25:13.993 [Thread-2] Consumer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:50) [classes/:?]
+[INFO ] 2015-01-16 02:25:36.252 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:25:36 EET 2015
+[INFO ] 2015-01-16 02:25:37.252 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:25:37 EET 2015
+[INFO ] 2015-01-16 02:25:38.254 [Thread-1] Producer - Producer : put -> Fri Jan 16 02:25:38 EET 2015
+[INFO ] 2015-01-16 02:25:39.240 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:25:36 EET 2015
+[ERROR] 2015-01-16 02:25:39.240 [Thread-1] Producer - Sleep interrupted
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Producer.run(Producer.java:53) [classes/:?]
+[INFO ] 2015-01-16 02:25:40.240 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:25:37 EET 2015
+[INFO ] 2015-01-16 02:25:41.244 [Thread-2] Consumer - Thread-2 : get -> Fri Jan 16 02:25:38 EET 2015
+[ERROR] 2015-01-16 02:25:42.246 [Thread-2] StoreHouse - null
+java.lang.InterruptedException
+	at java.lang.Object.wait(Native Method) ~[?:1.8.0_20]
+	at java.lang.Object.wait(Object.java:502) ~[?:1.8.0_20]
+	at com.sirma.itt.javacourse.threads.producerconsumer.StoreHouse.get(StoreHouse.java:63) [classes/:?]
+	at com.sirma.itt.javacourse.threads.producerconsumer.Consumer.run(Consumer.java:48) [classes/:?]

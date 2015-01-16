@@ -3,13 +3,18 @@ package com.sirma.itt.javacourse.threads.producerconsumer;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
- * Represents a storehouse. Thread safe.
+ * Represents a storehouse for the Producer-Consumer task. Thread safe.
  * 
  * @author Sinan
  */
 public class StoreHouse {
-	private Queue<Object> queue = new LinkedList<>();
+
+	private static final Logger LOGGER = LogManager.getLogger(StoreHouse.class);
+	private Queue<Object> queue;
 	private int size;
 
 	/**
@@ -19,7 +24,13 @@ public class StoreHouse {
 	 *            - size of the storehouse
 	 */
 	public StoreHouse(int size) {
+		if (size <= 0) {
+			throw new IllegalArgumentException(
+					"The store house's size cannot be under or equal to zero");
+		}
+
 		this.size = size;
+		this.queue = new LinkedList<>();
 	}
 
 	/**
@@ -27,12 +38,14 @@ public class StoreHouse {
 	 * 
 	 * @param obj
 	 *            - production to be added storehouse
-	 * @throws InterruptedException
-	 *             - thrown when waiting is interrupted
 	 */
-	public synchronized void put(Object obj) throws InterruptedException {
+	public synchronized void put(Object obj) {
 		while (queue.size() == size) {
-			wait();
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				LOGGER.error(e.getMessage(), e);
+			}
 		}
 
 		queue.add(obj);
@@ -43,16 +56,27 @@ public class StoreHouse {
 	 * Returns first added production.
 	 * 
 	 * @return - the first added production to the storehouse
-	 * @throws InterruptedException
-	 *             - thrown when sync fails
 	 */
-	public synchronized Object get() throws InterruptedException {
+	public synchronized Object get() {
 		while (queue.size() == 0) {
-			wait();
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				LOGGER.error(e.getMessage(), e);
+			}
 		}
 
 		Object obj = queue.poll();
 		notify();
 		return obj;
+	}
+
+	/**
+	 * Returns the left number of stocks in the store house.
+	 * 
+	 * @return - the left number of stocks in the store house.
+	 */
+	public synchronized int getLeftSize() {
+		return queue.size();
 	}
 }
