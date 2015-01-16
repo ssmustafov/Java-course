@@ -1,7 +1,7 @@
 package com.sirma.itt.javacourse.gui.infoserver;
 
 /**
- * Thrown when the Server in a Client/Server application, stops.
+ * Thrown when the Server in a Client/Server application stops.
  * 
  * @author Sinan
  */

@@ -15,19 +15,18 @@ import com.sirma.itt.javacourse.gui.utils.SocketUtils;
  * 
  * @author Sinan
  */
-public class ServerListener extends Thread {
-	private static final Logger LOGGER = LogManager.getLogger(ServerListener.class);
+public class Server implements Runnable {
+	private static final Logger LOGGER = LogManager.getLogger(Server.class);
 	private ServerSocket serverSocket;
 	private boolean isClosed = false;
 
 	/**
 	 * Binds a server socket to listen in given port.
 	 */
-	private void bindServerSocket() {
+	public void startServer() {
 		try {
 			serverSocket = SocketUtils.openServerSocket();
-			// view.appendToConsole("Server started to listening at port: "
-			// + serverSocket.getLocalPort());
+			new Thread(this).start();
 		} catch (IOException e) {
 			LOGGER.error(e.getMessage(), e);
 		}
@@ -38,12 +37,9 @@ public class ServerListener extends Thread {
 	 */
 	@Override
 	public void run() {
-		bindServerSocket();
-
 		while (!isClosed) {
 			try {
 				Socket socket = serverSocket.accept();
-				// view.appendToConsole("Accepted new client.");
 				ServerProtocol client = new ServerProtocol(socket);
 				client.start();
 			} catch (IOException e) {

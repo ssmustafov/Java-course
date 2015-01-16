@@ -14,7 +14,7 @@ import org.junit.Test;
  * @author Sinan
  */
 public class ClientServerTest {
-	private ServerListener server;
+	private Server server;
 	private Client client;
 
 	/**
@@ -25,8 +25,8 @@ public class ClientServerTest {
 	 */
 	@Before
 	public void setUp() throws IOException {
-		server = new ServerListener();
-		server.start();
+		server = new Server();
+		server.startServer();
 
 		client = new Client();
 		client.connectToServer();

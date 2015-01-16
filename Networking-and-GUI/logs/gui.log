@@ -466,3 +466,5 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getContentLength(HttpsURLConnectionImpl.java:398) ~[?:1.7.0_60]
 	at com.sirma.itt.javacourse.gui.downloadagent.DownloadAgent.downloadFile(DownloadAgent.java:29) ~[classes/:?]
 	... 8 more
+[INFO ] 2015-01-16 02:37:50.356 [Thread-1] Server - java.net.SocketException: socket closed
+[INFO ] 2015-01-16 02:37:50.461 [Thread-3] Server - java.net.SocketException: socket closed
