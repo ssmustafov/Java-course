@@ -77,4 +77,5 @@ public class ClientView extends JFrame implements View {
 	public void disposeView() {
 		dispose();
 	}
+
 }

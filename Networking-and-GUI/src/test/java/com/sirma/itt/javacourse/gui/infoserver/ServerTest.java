@@ -6,14 +6,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 
 /**
  * @author Sinan
  */
 public class ServerTest {
 
+	@Spy
 	private Server server;
-	private Client client;
 
 	@Mock
 	private View view;
@@ -26,20 +27,30 @@ public class ServerTest {
 		view = Mockito.mock(View.class);
 		Mockito.when(view.getButton()).thenReturn(new JButton());
 
-		server = new Server(view);
-		server.startServer();
+		server = Mockito.spy(new Server(view));
 
-		client = new Client(view);
-		client.connectToServer();
-		client.start();
 	}
 
 	/**
-	 * 
+	 * Tests {@link Server#startServer()} for calling at most once.
 	 */
 	@Test
-	public void test() {
+	public void testStartServer() {
+		server.startServer();
+		Mockito.verify(server, Mockito.atMost(1)).startServer();
+
 		server.stopServer();
+	}
+
+	/**
+	 * Tests {@link Server#stopServer()} for calling at most once.
+	 */
+	@Test
+	public void testStopServer() {
+		server.startServer();
+		server.stopServer();
+
+		Mockito.verify(server, Mockito.atMost(1)).stopServer();
 	}
 
 }

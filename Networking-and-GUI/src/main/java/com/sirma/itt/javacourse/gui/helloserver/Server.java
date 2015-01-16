@@ -21,7 +21,7 @@ public class Server implements Runnable {
 	private boolean isClosed = false;
 
 	/**
-	 * Binds a server socket to listen in given port.
+	 * Starts the server.
 	 */
 	public void startServer() {
 		try {

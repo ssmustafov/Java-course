@@ -18,7 +18,7 @@ import com.sirma.itt.javacourse.gui.utils.SocketUtils;
  * 
  * @author Sinan
  */
-public class Server {
+public class Server implements Runnable {
 	private static final Logger LOGGER = LogManager.getLogger(Server.class);
 	public static final String CLOSING_SERVER_MESSAGE = "end";
 	private List<Socket> clients;
@@ -40,7 +40,7 @@ public class Server {
 	}
 
 	/**
-	 * Starts the server. Creates a new {@code ServerSocket} and starts to accepting clients.
+	 * Starts the server. Creates a new {@code ServerSocket} and starts to accept clients.
 	 */
 	public void startServer() {
 		try {
@@ -48,37 +48,10 @@ public class Server {
 
 			view.appendMessageToConsole(">> SERVER STARTED AT PORT-" + serverSocket.getLocalPort());
 
-			acceptClients();
+			new Thread(this).start();
 		} catch (IOException e) {
 			view.showErrorDialog(e.getMessage());
 			LOGGER.error(e.getMessage(), e);
-		}
-	}
-
-	/**
-	 * In an infinite loop accepts clients. For every connected client it creates a new
-	 * {@code ClientNotifier} thread which notifies the other clients that a new client is
-	 * connected.
-	 */
-	private void acceptClients() {
-		while (true) {
-			try {
-				currentClient = serverSocket.accept();
-				clients.add(currentClient);
-
-				writer = new PrintWriter(currentClient.getOutputStream(), true);
-				view.appendMessageToConsole(">> ACCEPTED A NEW CLIENT#" + clients.size());
-				writer.println("You are client number-" + clients.size());
-
-				if (clients.size() > 1) {
-					new ClientNotifier(clients);
-				}
-			} catch (IOException e) {
-				view.appendMessageToConsole(">> SERVER IS CLOSED");
-				view.getButton().setEnabled(false);
-				LOGGER.info(e.getMessage(), e);
-				break;
-			}
 		}
 	}
 
@@ -108,6 +81,41 @@ public class Server {
 		}
 		clients.clear();
 		view.disposeView();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void run() {
+		acceptClients();
+	}
+
+	/**
+	 * In an infinite loop accepts clients. For every connected client it creates a new
+	 * {@code ClientNotifier} thread which notifies the other clients that a new client is
+	 * connected.
+	 */
+	private void acceptClients() {
+		while (true) {
+			try {
+				currentClient = serverSocket.accept();
+				clients.add(currentClient);
+
+				writer = new PrintWriter(currentClient.getOutputStream(), true);
+				view.appendMessageToConsole(">> ACCEPTED A NEW CLIENT#" + clients.size());
+				writer.println("You are client number-" + clients.size());
+
+				if (clients.size() > 1) {
+					new ClientNotifier(clients);
+				}
+			} catch (IOException e) {
+				view.appendMessageToConsole(">> SERVER IS CLOSED");
+				view.getButton().setEnabled(false);
+				LOGGER.info(e.getMessage(), e);
+				break;
+			}
+		}
 	}
 
 }

@@ -77,4 +77,5 @@ public class ServerView extends JFrame implements View {
 	public void disposeView() {
 		dispose();
 	}
+
 }
