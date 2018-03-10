@@ -2,8 +2,7 @@ package com.sirma.itt.javacourse.ds.lists;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 /**
  * @author Sinan Mustafov
@@ -119,6 +118,132 @@ public class SinglyLinkedListTest {
         assertEquals(0, list.size());
         assertNull(list.first());
         assertNull(list.last());
+    }
+
+    @Test
+    public void equals_ShouldReturnFalse_When_ArgIsNull() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        assertFalse(list.equals(null));
+    }
+
+    @Test
+    public void equals_ShouldReturnFalse_When_ArgIsNotSinglyLinkedList() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        assertFalse(list.equals(new DoublyLinkedList<>()));
+    }
+
+    @Test
+    public void equals_ShouldReturnFalse_When_SizeOfListsDifferent() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addFirst("first");
+
+        SinglyLinkedList<String> otherList = new SinglyLinkedList<>();
+
+        assertFalse(list.equals(otherList));
+    }
+
+    @Test
+    public void equals_ShouldReturnFalse_When_DifferentTypeElements() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addFirst("first");
+        SinglyLinkedList<Integer> otherList = new SinglyLinkedList<>();
+        otherList.addFirst(1);
+
+        assertFalse(list.equals(otherList));
+    }
+
+    @Test
+    public void equals_ShouldReturnTrue_When_SameReference() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addFirst("first");
+
+        assertTrue(list.equals(list));
+    }
+
+    @Test
+    public void equals_ShouldReturnTrue_When_SameElements() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addFirst("first");
+        SinglyLinkedList<String> otherList = new SinglyLinkedList<>();
+        otherList.addFirst("first");
+
+        assertTrue(list.equals(otherList));
+        assertTrue(otherList.equals(list));
+    }
+
+    @Test
+    public void equals_ShouldReturnTrue_When_TransitiveEquals() {
+        SinglyLinkedList<String> x = new SinglyLinkedList<>();
+        x.addFirst("first");
+
+        SinglyLinkedList<String> y = new SinglyLinkedList<>();
+        y.addFirst("first");
+
+        SinglyLinkedList<String> z = new SinglyLinkedList<>();
+        z.addFirst("first");
+
+        assertTrue(x.equals(y));
+        assertTrue(y.equals(z));
+        assertTrue(x.equals(z));
+    }
+
+    @Test
+    public void equals_ShouldReturnTrue_When_WithMultipleEqualElements() {
+        SinglyLinkedList<String> list = new SinglyLinkedList<>();
+        list.addFirst("A");
+        list.addFirst("b");
+        list.addFirst("C");
+        list.addFirst("d");
+        list.addFirst("E");
+        list.addFirst("f");
+        list.addFirst("G");
+
+        SinglyLinkedList<String> otherList = new SinglyLinkedList<>();
+        otherList.addFirst("A");
+        otherList.addFirst("b");
+        otherList.addFirst("C");
+        otherList.addFirst("d");
+        otherList.addFirst("E");
+        otherList.addFirst("f");
+        otherList.addFirst("G");
+
+        assertTrue(list.equals(otherList));
+        assertTrue(otherList.equals(list));
+    }
+
+    @Test
+    public void clone_ShouldMakeShallowCopy() {
+        Person first = new Person("John");
+        Person second = new Person("Joe");
+        Person third = new Person("Jane");
+        int size = 3;
+
+        SinglyLinkedList<Person> list = new SinglyLinkedList<>();
+        list.addLast(first);
+        list.addLast(second);
+        list.addLast(third);
+
+        SinglyLinkedList<Person> cloned = list.clone();
+        assertEquals(size, cloned.size());
+
+        Person clonedFirst = cloned.removeFirst();
+        Person clonedSecond = cloned.removeFirst();
+        Person clonedThird = cloned.removeFirst();
+
+        assertTrue(first == clonedFirst);
+        assertTrue(second == clonedSecond);
+        assertTrue(third == clonedThird);
+    }
+
+    /**
+     * Helper class used for testing list cloning.
+     */
+    private static class Person {
+        String name;
+
+        Person(String name) {
+            this.name = name;
+        }
     }
 
 }

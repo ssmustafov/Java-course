@@ -25,7 +25,7 @@ import java.util.function.Consumer;
  * <p>
  * This implementation is not synchronized.
  */
-public class SinglyLinkedList<E> {
+public class SinglyLinkedList<E> implements Cloneable {
 
     private Node<E> head;
     private Node<E> tail;
@@ -146,6 +146,58 @@ public class SinglyLinkedList<E> {
         builder.deleteCharAt(builder.length() - 1);
 
         return builder.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj instanceof SinglyLinkedList) {
+            SinglyLinkedList<?> otherList = (SinglyLinkedList<?>) obj;
+            if (size != otherList.size) {
+                return false;
+            }
+
+            Node<?> e1 = head;
+            Node<?> e2 = otherList.head;
+            while (e1 != null) {
+                if (!e1.element.equals(e2.element)) {
+                    return false;
+                }
+                e1 = e1.next;
+                e2 = e2.next;
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public SinglyLinkedList<E> clone() {
+        try {
+            SinglyLinkedList<E> cloned = (SinglyLinkedList<E>) super.clone();
+
+            if (size > 0) {
+                cloned.head = new Node<>(head.element, null);
+                Node<E> walk = head.next;
+                Node<E> clonedTail = cloned.head;
+
+                while (walk != null) {
+                    Node<E> node = new Node<>(walk.element, null);
+                    clonedTail.next = node;
+                    clonedTail = node;
+                    walk = walk.next;
+                }
+            }
+
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            // should not reach here, because the class is cloneable
+            throw new InternalError(e);
+        }
     }
 
     /**
