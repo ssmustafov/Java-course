@@ -23,7 +23,7 @@ public class GenericTree<E> {
         this(rootValue);
 
         for (GenericTree<E> child : children) {
-            root.addChild(child.root);
+            root.addChild(child.root, root);
         }
     }
 
@@ -57,13 +57,45 @@ public class GenericTree<E> {
         }
 
         Node<E> internalNode = (Node<E>) node;
-        internalNode.addChild(new Node<>(childValue));
+        internalNode.addChild(new Node<>(childValue), internalNode);
+    }
+
+    /**
+     * Returns the depth of given node. Meaning the number of levels separating the node from the root.
+     *
+     * @param node the node
+     * @return the number of levels separating the node from the root
+     * @implNote default implementation of node depth calculation has linear complexity - O(n)
+     */
+    public int depth(TreeNode<E> node) {
+        if (node.isRoot()) {
+            return 0;
+        }
+        return 1 + depth(node.getParent());
+    }
+
+    /**
+     * Returns the height of the subtree for the given node. Meaning the max depth within all nodes.
+     *
+     * @param node the node
+     * @return the height of the subtree for the given node
+     * @implNote the algorithm is recursive and progresses in a top-down fashion, if the method is called with the root,
+     * it will be called once for each node in the tree. The complexity of this algorithm is O(n).
+     * The another approach for implementing this is to actually calculate the depth per node, but this will cost quadratic
+     * worst case time - O(n^2)
+     */
+    public int height(TreeNode<E> node) {
+        int height = 0;
+        for (TreeNode<E> child : node.getChildren()) {
+            height = Math.max(height, 1 + height(child));
+        }
+        return height;
     }
 
     private static class Node<E> implements TreeNode<E> {
         E value;
 
-        boolean hasParent;
+        TreeNode<E> parent;
 
         List<Node<E>> children = new ArrayList<>();
 
@@ -72,12 +104,12 @@ public class GenericTree<E> {
             this.value = value;
         }
 
-        void addChild(Node<E> child) {
-            if (child.hasParent) {
-                throw new IllegalArgumentException("The node already has parent");
+        void addChild(Node<E> child, Node<E> parent) {
+            if (child.parent != null) {
+                throw new IllegalArgumentException("The child already has parent");
             }
 
-            child.hasParent = true;
+            child.parent = parent;
             children.add(child);
         }
 
@@ -94,6 +126,11 @@ public class GenericTree<E> {
         @Override
         public List<TreeNode<E>> getChildren() {
             return Collections.unmodifiableList(children);
+        }
+
+        @Override
+        public TreeNode<E> getParent() {
+            return parent;
         }
     }
 

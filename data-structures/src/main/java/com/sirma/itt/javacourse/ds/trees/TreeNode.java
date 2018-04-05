@@ -32,6 +32,13 @@ public interface TreeNode<E> {
     List<TreeNode<E>> getChildren();
 
     /**
+     * Returns the parent node of this node.
+     *
+     * @return the parent node of this node, null if the node is root
+     */
+    TreeNode<E> getParent();
+
+    /**
      * Checks whether the node does not have any children. Also referred as leaf node.
      *
      * @return true if the node does not have any children; false otherwise
@@ -47,6 +54,15 @@ public interface TreeNode<E> {
      */
     default boolean isInternal() {
         return getChildrenCount() > 0;
+    }
+
+    /**
+     * Returns whether this node is a root node, meaning that is has no parent.
+     *
+     * @return true if the node has no parent; false otherwise
+     */
+    default boolean isRoot() {
+        return getParent() == null;
     }
 
 }
