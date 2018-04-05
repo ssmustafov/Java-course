@@ -6,6 +6,10 @@ import java.util.*;
  * Implementation of generic tree. Each node can have one parent and list of children.
  *
  * @author sinan
+ * @implNote the implementation is divided into two classes - GenericTree which is the tree itself and internal
+ * TreeNode which represents a node in the tree. This way functionalities are logically separated. Creating node,
+ * adding children to a node and etc are realized in the TreeNode class. Functionalities related to the tree are in the
+ * GenericTree class.
  */
 public class GenericTree<E> {
 
