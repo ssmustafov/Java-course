@@ -29,7 +29,7 @@ public interface TreeNode<E> {
      *
      * @return unmodifiable list containing the children of the node, or empty if no children
      */
-    List<TreeNode<E>> getChildren();
+    List<? extends TreeNode<E>> getChildren();
 
     /**
      * Returns the parent node of this node.
@@ -63,6 +63,22 @@ public interface TreeNode<E> {
      */
     default boolean isRoot() {
         return getParent() == null;
+    }
+
+    /**
+     * Returns the depth of this node. Meaning the number of levels separating the node from the root.
+     *
+     * @return the number of levels separating the node from the root
+     * @implNote default implementation of node depth calculation has linear complexity - O(n)
+     */
+    default int depth() {
+        int depth = 0;
+        TreeNode<E> parent = getParent();
+        while (parent != null) {
+            parent = parent.getParent();
+            depth++;
+        }
+        return depth;
     }
 
 }

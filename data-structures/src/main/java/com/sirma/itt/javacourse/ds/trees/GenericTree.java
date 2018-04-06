@@ -27,16 +27,9 @@ public class GenericTree<E> {
         }
     }
 
-    public E getRoot() {
-        if (root != null) {
-            return root.value;
-        }
-        return null;
-    }
-
     // tree node methods
 
-    public TreeNode<E> getRootNode() {
+    public TreeNode<E> getRoot() {
         return root;
     }
 
@@ -61,20 +54,6 @@ public class GenericTree<E> {
     }
 
     /**
-     * Returns the depth of given node. Meaning the number of levels separating the node from the root.
-     *
-     * @param node the node
-     * @return the number of levels separating the node from the root
-     * @implNote default implementation of node depth calculation has linear complexity - O(n)
-     */
-    public int depth(TreeNode<E> node) {
-        if (node.isRoot()) {
-            return 0;
-        }
-        return 1 + depth(node.getParent());
-    }
-
-    /**
      * Returns the height of the subtree for the given node. Meaning the max depth within all nodes.
      *
      * @param node the node
@@ -94,9 +73,7 @@ public class GenericTree<E> {
 
     private static class Node<E> implements TreeNode<E> {
         E value;
-
         TreeNode<E> parent;
-
         List<Node<E>> children = new ArrayList<>();
 
         Node(E value) {

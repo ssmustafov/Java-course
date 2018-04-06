@@ -1,7 +1,6 @@
 package com.sirma.itt.javacourse.ds.trees;
 
 import org.junit.Test;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class TreeTraversalTest {
 
     @Test
-    public void should_CorrectlyApplyDFS() {
+    public void should_CorrectlyApplyDFS_ToGenericTree() {
         GenericTree<Integer> tree = new GenericTree<>(7,
                 new GenericTree<>(19,
                         new GenericTree<>(1),
@@ -27,14 +26,15 @@ public class TreeTraversalTest {
                         new GenericTree<>(23),
                         new GenericTree<>(6)));
 
-        assertEquals(Integer.valueOf(7), tree.getRoot());
+        TreeNode<Integer> rootNode = tree.getRoot();
+        assertEquals(Integer.valueOf(7), rootNode.getValue());
 
-        List<Integer> nodes = TreeTraversal.traverseDFS(tree.getRootNode());
+        List<Integer> nodes = TreeTraversal.traverseDFS(rootNode);
         assertEquals(Arrays.asList(7, 19, 1, 12, 31, 21, 14, 23, 6), nodes);
     }
 
     @Test
-    public void should_CorrectlyApplyBFS() {
+    public void should_CorrectlyApplyBFS_ToGenericTree() {
         GenericTree<Integer> tree = new GenericTree<>(7,
                 new GenericTree<>(19,
                         new GenericTree<>(1),
@@ -45,10 +45,49 @@ public class TreeTraversalTest {
                         new GenericTree<>(23),
                         new GenericTree<>(6)));
 
-        assertEquals(Integer.valueOf(7), tree.getRoot());
+        TreeNode<Integer> rootNode = tree.getRoot();
+        assertEquals(Integer.valueOf(7), rootNode.getValue());
 
-        List<Integer> nodes = TreeTraversal.traverseBFS(tree.getRootNode());
+        List<Integer> nodes = TreeTraversal.traverseBFS(rootNode);
         assertEquals(Arrays.asList(7, 19, 21, 14, 1, 12, 31, 23, 6), nodes);
+    }
+
+    @Test
+    public void should_CorrectlyApplyDFS_ToBinaryTree() {
+        BinaryTree<Integer> binaryTree = new BinaryTree<>(14,
+                new BinaryTree<>(19,
+                        new BinaryTree<>(23),
+                        new BinaryTree<>(6,
+                                new BinaryTree<>(10),
+                                new BinaryTree<>(21))),
+                new BinaryTree<>(15,
+                        new BinaryTree<>(3),
+                        null));
+
+        BinaryTreeNode<Integer> rootNode = binaryTree.getRoot();
+        assertEquals(Integer.valueOf(14), rootNode.getValue());
+
+        List<Integer> nodes = TreeTraversal.traverseDFS(rootNode);
+        assertEquals(Arrays.asList(14, 19, 23, 6, 10, 21, 15, 3), nodes);
+    }
+
+    @Test
+    public void should_CorrectlyApplyBFS_ToBinaryTree() {
+        BinaryTree<Integer> binaryTree = new BinaryTree<>(14,
+                new BinaryTree<>(19,
+                        new BinaryTree<>(23),
+                        new BinaryTree<>(6,
+                                new BinaryTree<>(10),
+                                new BinaryTree<>(21))),
+                new BinaryTree<>(15,
+                        new BinaryTree<>(3),
+                        null));
+
+        BinaryTreeNode<Integer> rootNode = binaryTree.getRoot();
+        assertEquals(Integer.valueOf(14), rootNode.getValue());
+
+        List<Integer> nodes = TreeTraversal.traverseBFS(rootNode);
+        assertEquals(Arrays.asList(14, 19, 15, 23, 6, 3, 10, 21), nodes);
     }
 
 }

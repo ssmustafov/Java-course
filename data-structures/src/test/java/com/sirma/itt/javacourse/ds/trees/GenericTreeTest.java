@@ -21,7 +21,7 @@ public class GenericTreeTest {
     @Test
     public void node_Should_HaveZeroChildren_When_NoChildren() {
         GenericTree<Integer> tree = new GenericTree<>(10);
-        TreeNode<Integer> rootNode = tree.getRootNode();
+        TreeNode<Integer> rootNode = tree.getRoot();
 
         assertEquals(Integer.valueOf(10), rootNode.getValue());
         assertEquals(0, rootNode.getChildrenCount());
@@ -31,7 +31,7 @@ public class GenericTreeTest {
     @Test
     public void node_Should_HaveCorrectChildren() {
         GenericTree<String> tree = new GenericTree<>("a");
-        TreeNode<String> rootNode = tree.getRootNode();
+        TreeNode<String> rootNode = tree.getRoot();
         tree.addChildToNode(rootNode, "b");
 
         assertEquals("a", rootNode.getValue());
@@ -52,7 +52,7 @@ public class GenericTreeTest {
                         new GenericTree<>(23),
                         new GenericTree<>(6)));
 
-        TreeNode<Integer> node = leafSubTree.getRootNode();
+        TreeNode<Integer> node = leafSubTree.getRoot();
 
         assertTrue(node.isExternal());
         assertFalse(node.isInternal());
@@ -72,7 +72,7 @@ public class GenericTreeTest {
                 new GenericTree<>(21),
                 subTree);
 
-        TreeNode<Integer> node = subTree.getRootNode();
+        TreeNode<Integer> node = subTree.getRoot();
 
         assertFalse(node.isExternal());
         assertTrue(node.isInternal());
@@ -83,7 +83,7 @@ public class GenericTreeTest {
         GenericTree<Integer> subTree = new GenericTree<>(14);
         GenericTree<Integer> tree = new GenericTree<>(7, subTree);
 
-        assertFalse(subTree.getRootNode().isRoot());
+        assertFalse(subTree.getRoot().isRoot());
     }
 
     @Test
@@ -91,7 +91,7 @@ public class GenericTreeTest {
         GenericTree<Integer> subTree = new GenericTree<>(14);
         GenericTree<Integer> tree = new GenericTree<>(7, subTree);
 
-        assertTrue(tree.getRootNode().isRoot());
+        assertTrue(tree.getRoot().isRoot());
     }
 
     @Test
@@ -106,7 +106,7 @@ public class GenericTreeTest {
                         new GenericTree<>(23),
                         new GenericTree<>(6)));
 
-        assertEquals(0, tree.depth(tree.getRootNode()));
+        assertEquals(0, tree.getRoot().depth());
     }
 
     @Test
@@ -124,14 +124,14 @@ public class GenericTreeTest {
                         new GenericTree<>(23),
                         twoLevelSubTree));
 
-        assertEquals(1, tree.depth(oneLevelSubTree.getRootNode()));
-        assertEquals(2, tree.depth(twoLevelSubTree.getRootNode()));
+        assertEquals(1, oneLevelSubTree.getRoot().depth());
+        assertEquals(2, twoLevelSubTree.getRoot().depth());
     }
 
     @Test
     public void nodeHeight_Should_ReturnZero_When_OnlyRoot() {
         GenericTree<Integer> tree = new GenericTree<>(21);
-        assertEquals(0, tree.height(tree.getRootNode()));
+        assertEquals(0, tree.height(tree.getRoot()));
     }
 
     @Test
@@ -147,10 +147,10 @@ public class GenericTreeTest {
                 new GenericTree<>(14,
                         new GenericTree<>(23),
                         subTree));
-        assertEquals(2, tree.height(tree.getRootNode()));
+        assertEquals(2, tree.height(tree.getRoot()));
 
-        tree.addChildToNode(subTree.getRootNode(), 100);
-        assertEquals(3, tree.height(tree.getRootNode()));
+        tree.addChildToNode(subTree.getRoot(), 100);
+        assertEquals(3, tree.height(tree.getRoot()));
     }
 
     // tree tests
@@ -160,7 +160,7 @@ public class GenericTreeTest {
         GenericTree<Integer> child = new GenericTree<>(50);
         GenericTree<Integer> tree = new GenericTree<>(14, child);
 
-        assertFalse(tree.isRoot(child.getRootNode()));
+        assertFalse(tree.isRoot(child.getRoot()));
     }
 
     @Test
@@ -168,7 +168,7 @@ public class GenericTreeTest {
         GenericTree<Integer> child = new GenericTree<>(50);
         GenericTree<Integer> tree = new GenericTree<>(14, child);
 
-        assertTrue(tree.isRoot(tree.getRootNode()));
+        assertTrue(tree.isRoot(tree.getRoot()));
     }
 
     @Test(expected = IllegalArgumentException.class)
