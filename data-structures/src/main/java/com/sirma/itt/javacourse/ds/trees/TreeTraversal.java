@@ -47,4 +47,19 @@ public class TreeTraversal {
         return nodes;
     }
 
+    public static <E> List<E> traversePreOrder(BinaryTreeNode<E> root) {
+        List<E> nodes = new ArrayList<>();
+        return nodes;
+    }
+
+    public static <E> List<E> traversePostOrder(BinaryTreeNode<E> root) {
+        List<E> nodes = new ArrayList<>();
+        return nodes;
+    }
+
+    public static <E> List<E> traverseInOrder(BinaryTreeNode<E> root) {
+        List<E> nodes = new ArrayList<>();
+        return nodes;
+    }
+
 }
