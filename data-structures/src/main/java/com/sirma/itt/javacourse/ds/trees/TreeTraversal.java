@@ -12,34 +12,34 @@ import java.util.Queue;
  */
 public class TreeTraversal {
 
-    public static <E> List<E> traverseDFS(TreeNode<E> root) {
+    public static <E> List<E> traverseDFS(TreeNode<E> node) {
         List<E> nodes = new ArrayList<>();
-        traverseDFSInternal(root, nodes);
+        traverseDFSInternal(node, nodes);
         return nodes;
     }
 
-    private static <E> void traverseDFSInternal(TreeNode<E> root, List<E> nodes) {
-        if (root == null) {
+    private static <E> void traverseDFSInternal(TreeNode<E> node, List<E> nodes) {
+        if (node == null) {
             return;
         }
 
-        nodes.add(root.getValue());
+        nodes.add(node.getValue());
 
-        for (TreeNode<E> child : root.getChildren()) {
+        for (TreeNode<E> child : node.getChildren()) {
             traverseDFSInternal(child, nodes);
         }
     }
 
-    public static <E> List<E> traverseBFS(TreeNode<E> root) {
+    public static <E> List<E> traverseBFS(TreeNode<E> node) {
         List<E> nodes = new ArrayList<>();
 
         Queue<TreeNode<E>> queue = new LinkedList<>();
-        queue.offer(root);
+        queue.offer(node);
         while (!queue.isEmpty()) {
-            TreeNode<E> node = queue.poll();
-            nodes.add(node.getValue());
+            TreeNode<E> currentNode = queue.poll();
+            nodes.add(currentNode.getValue());
 
-            for (TreeNode<E> child : node.getChildren()) {
+            for (TreeNode<E> child : currentNode.getChildren()) {
                 queue.offer(child);
             }
         }
@@ -47,19 +47,52 @@ public class TreeTraversal {
         return nodes;
     }
 
-    public static <E> List<E> traversePreOrder(BinaryTreeNode<E> root) {
+    public static <E> List<E> traverseInOrder(BinaryTreeNode<E> node) {
         List<E> nodes = new ArrayList<>();
+        traverseInOrderInternal(node, nodes);
         return nodes;
     }
 
-    public static <E> List<E> traversePostOrder(BinaryTreeNode<E> root) {
+    private static <E> void traverseInOrderInternal(BinaryTreeNode<E> node, List<E> nodes) {
+        if (node == null) {
+            return;
+        }
+
+        traverseInOrderInternal(node.getLeft(), nodes);
+        nodes.add(node.getValue());
+        traverseInOrderInternal(node.getRight(), nodes);
+    }
+
+    public static <E> List<E> traversePreOrder(BinaryTreeNode<E> node) {
         List<E> nodes = new ArrayList<>();
+        traversePreOrderInternal(node, nodes);
         return nodes;
     }
 
-    public static <E> List<E> traverseInOrder(BinaryTreeNode<E> root) {
+    private static <E> void traversePreOrderInternal(BinaryTreeNode<E> node, List<E> nodes) {
+        if (node == null) {
+            return;
+        }
+
+        nodes.add(node.getValue());
+        traversePreOrderInternal(node.getLeft(), nodes);
+        traversePreOrderInternal(node.getRight(), nodes);
+    }
+
+    public static <E> List<E> traversePostOrder(BinaryTreeNode<E> node) {
         List<E> nodes = new ArrayList<>();
+        traversePostOrderInternal(node, nodes);
         return nodes;
+    }
+
+    private static <E> void traversePostOrderInternal(BinaryTreeNode<E> node, List<E> nodes) {
+        if (node == null) {
+            return;
+        }
+
+        traversePostOrderInternal(node.getLeft(), nodes);
+        traversePostOrderInternal(node.getRight(), nodes);
+        nodes.add(node.getValue());
     }
 
 }

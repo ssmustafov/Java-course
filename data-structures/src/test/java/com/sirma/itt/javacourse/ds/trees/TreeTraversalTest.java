@@ -90,4 +90,52 @@ public class TreeTraversalTest {
         assertEquals(Arrays.asList(14, 19, 15, 23, 6, 3, 10, 21), nodes);
     }
 
+    @Test
+    public void should_CorrectlyTraverseInOrder() {
+        BinaryTree<Integer> binaryTree = new BinaryTree<>(14,
+                new BinaryTree<>(19,
+                        new BinaryTree<>(23),
+                        new BinaryTree<>(6,
+                                new BinaryTree<>(10),
+                                new BinaryTree<>(21))),
+                new BinaryTree<>(15,
+                        new BinaryTree<>(3),
+                        null));
+
+        List<Integer> nodes = TreeTraversal.traverseInOrder(binaryTree.getRoot());
+        assertEquals(Arrays.asList(23, 19, 10, 6, 21, 14, 3, 15), nodes);
+    }
+
+    @Test
+    public void should_CorrectlyTraversePreOrder() {
+        BinaryTree<Integer> binaryTree = new BinaryTree<>(14,
+                new BinaryTree<>(19,
+                        new BinaryTree<>(23),
+                        new BinaryTree<>(6,
+                                new BinaryTree<>(10),
+                                new BinaryTree<>(21))),
+                new BinaryTree<>(15,
+                        new BinaryTree<>(3),
+                        null));
+
+        List<Integer> nodes = TreeTraversal.traversePreOrder(binaryTree.getRoot());
+        assertEquals(Arrays.asList(14, 19, 23, 6, 10, 21, 15, 3), nodes);
+    }
+
+    @Test
+    public void should_CorrectlyTraversePostOrder() {
+        BinaryTree<Integer> binaryTree = new BinaryTree<>(14,
+                new BinaryTree<>(19,
+                        new BinaryTree<>(23),
+                        new BinaryTree<>(6,
+                                new BinaryTree<>(10),
+                                new BinaryTree<>(21))),
+                new BinaryTree<>(15,
+                        new BinaryTree<>(3),
+                        null));
+
+        List<Integer> nodes = TreeTraversal.traversePostOrder(binaryTree.getRoot());
+        assertEquals(Arrays.asList(23, 10, 21, 6, 19, 3, 15, 14), nodes);
+    }
+
 }
